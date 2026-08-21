@@ -599,6 +599,8 @@
       
         
       
+        
+      
     
     
     
@@ -658,7 +660,35 @@
   <span class="md-ellipsis">
     
   
-    字段参考
+    轴承配置
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../api/simulation_config_reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    转子-轴承仿真配置
   
 
     
@@ -1465,7 +1495,7 @@
 </thead>
 <tbody>
 <tr>
-<td>根 API 签名与成员</td>
+<td>根 API 签名、成员与英文合同</td>
 <td><code>ALB.__all__</code> 和源码 docstring</td>
 </tr>
 <tr>
@@ -1473,12 +1503,24 @@
 <td><code>docs/api/public_api_docs.json</code></td>
 </tr>
 <tr>
-<td>bearing 字段</td>
-<td><code>ALB/api/_config_fields.py</code> 与配置参考 source</td>
+<td>bearing/simulation 字段英文合同</td>
+<td><code>ALB/api/_config_fields.py</code></td>
 </tr>
 <tr>
-<td>高级 namespace</td>
-<td>namespace 字面量 <code>_EXPORTS</code> 与 <code>namespace_reference_docs.json</code></td>
+<td>配置分组中文标题与摘要</td>
+<td><code>docs/api/config_reference_docs.json</code></td>
+</tr>
+<tr>
+<td>配置流程与跨字段规则</td>
+<td>对应的 <code>*_config_reference_source.md</code></td>
+</tr>
+<tr>
+<td>高级 namespace 英文合同</td>
+<td>namespace 字面量 <code>_EXPORTS</code> 与定义源码 docstring</td>
+</tr>
+<tr>
+<td>高级 namespace 中文语义</td>
+<td><code>docs/api/namespace_reference_docs.json</code></td>
 </tr>
 <tr>
 <td>使用流程</td>
@@ -1487,22 +1529,25 @@
 </tbody>
 </table>
 <h2 id="2">2. 重建参考<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">E</span><span class="p">:/</span><span class="n">Anaconda2023</span><span class="p">/</span><span class="n">envs</span><span class="p">/</span><span class="n">ALB</span><span class="p">/</span><span class="n">python</span><span class="p">.</span><span class="n">exe</span> <span class="n">tools</span><span class="p">/</span><span class="n">docs</span><span class="p">/</span><span class="n">generate_public_api_reference</span><span class="p">.</span><span class="n">py</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">E</span><span class="p">:/</span><span class="n">Anaconda2023</span><span class="p">/</span><span class="n">envs</span><span class="p">/</span><span class="n">ALB</span><span class="p">/</span><span class="n">python</span><span class="p">.</span><span class="n">exe</span> <span class="n">tools</span><span class="p">/</span><span class="n">docs</span><span class="p">/</span><span class="n">generate_bearing_config_reference</span><span class="p">.</span><span class="n">py</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">E</span><span class="p">:/</span><span class="n">Anaconda2023</span><span class="p">/</span><span class="n">envs</span><span class="p">/</span><span class="n">ALB</span><span class="p">/</span><span class="n">python</span><span class="p">.</span><span class="n">exe</span> <span class="n">tools</span><span class="p">/</span><span class="n">docs</span><span class="p">/</span><span class="n">generate_namespace_reference</span><span class="p">.</span><span class="n">py</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">python</span> <span class="n">tools</span><span class="p">/</span><span class="n">docs</span><span class="p">/</span><span class="n">generate_public_api_reference</span><span class="p">.</span><span class="n">py</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">python</span> <span class="n">tools</span><span class="p">/</span><span class="n">docs</span><span class="p">/</span><span class="n">generate_bearing_config_reference</span><span class="p">.</span><span class="n">py</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">python</span> <span class="n">tools</span><span class="p">/</span><span class="n">docs</span><span class="p">/</span><span class="n">generate_simulation_config_reference</span><span class="p">.</span><span class="n">py</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">python</span> <span class="n">tools</span><span class="p">/</span><span class="n">docs</span><span class="p">/</span><span class="n">generate_namespace_reference</span><span class="p">.</span><span class="n">py</span>
 </code></pre></div>
 <h2 id="3">3. 检查和构建<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">E</span><span class="p">:/</span><span class="n">Anaconda2023</span><span class="p">/</span><span class="n">envs</span><span class="p">/</span><span class="n">ALB</span><span class="p">/</span><span class="n">python</span><span class="p">.</span><span class="n">exe</span> <span class="n">tools</span><span class="p">/</span><span class="n">docs</span><span class="p">/</span><span class="n">generate_public_api_reference</span><span class="p">.</span><span class="n">py</span> <span class="p">-</span><span class="n">-check</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">E</span><span class="p">:/</span><span class="n">Anaconda2023</span><span class="p">/</span><span class="n">envs</span><span class="p">/</span><span class="n">ALB</span><span class="p">/</span><span class="n">python</span><span class="p">.</span><span class="n">exe</span> <span class="n">tools</span><span class="p">/</span><span class="n">docs</span><span class="p">/</span><span class="n">generate_bearing_config_reference</span><span class="p">.</span><span class="n">py</span> <span class="p">-</span><span class="n">-check</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">E</span><span class="p">:/</span><span class="n">Anaconda2023</span><span class="p">/</span><span class="n">envs</span><span class="p">/</span><span class="n">ALB</span><span class="p">/</span><span class="n">python</span><span class="p">.</span><span class="n">exe</span> <span class="n">tools</span><span class="p">/</span><span class="n">docs</span><span class="p">/</span><span class="n">generate_namespace_reference</span><span class="p">.</span><span class="n">py</span> <span class="p">-</span><span class="n">-check</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">E</span><span class="p">:/</span><span class="n">Anaconda2023</span><span class="p">/</span><span class="n">envs</span><span class="p">/</span><span class="n">ALB</span><span class="p">/</span><span class="n">python</span><span class="p">.</span><span class="n">exe</span> <span class="n">-m</span> <span class="n">mkdocs</span> <span class="n">build</span> <span class="p">-</span><span class="n">-strict</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">python</span> <span class="n">tools</span><span class="p">/</span><span class="n">docs</span><span class="p">/</span><span class="n">generate_public_api_reference</span><span class="p">.</span><span class="n">py</span> <span class="p">-</span><span class="n">-check</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">python</span> <span class="n">tools</span><span class="p">/</span><span class="n">docs</span><span class="p">/</span><span class="n">generate_bearing_config_reference</span><span class="p">.</span><span class="n">py</span> <span class="p">-</span><span class="n">-check</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">python</span> <span class="n">tools</span><span class="p">/</span><span class="n">docs</span><span class="p">/</span><span class="n">generate_simulation_config_reference</span><span class="p">.</span><span class="n">py</span> <span class="p">-</span><span class="n">-check</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">python</span> <span class="n">tools</span><span class="p">/</span><span class="n">docs</span><span class="p">/</span><span class="n">generate_namespace_reference</span><span class="p">.</span><span class="n">py</span> <span class="p">-</span><span class="n">-check</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="n">python</span> <span class="n">-m</span> <span class="n">pytest</span> <span class="n">tests</span><span class="p">/</span><span class="n">unit</span><span class="p">/</span><span class="n">docs</span> <span class="n">tests</span><span class="p">/</span><span class="n">unit</span><span class="p">/</span><span class="n">api</span><span class="p">/</span><span class="n">test_public_api_reference</span><span class="p">.</span><span class="n">py</span> <span class="n">tests</span><span class="p">/</span><span class="n">unit</span><span class="p">/</span><span class="n">api</span><span class="p">/</span><span class="n">test_bearing_config_reference</span><span class="p">.</span><span class="n">py</span> <span class="n">tests</span><span class="p">/</span><span class="n">unit</span><span class="p">/</span><span class="n">api</span><span class="p">/</span><span class="n">test_simulation_config_reference</span><span class="p">.</span><span class="n">py</span> <span class="n">tests</span><span class="p">/</span><span class="n">integration</span><span class="p">/</span><span class="n">api</span><span class="p">/</span><span class="n">test_documented_examples</span><span class="p">.</span><span class="n">py</span> <span class="n">tests</span><span class="p">/</span><span class="n">integration</span><span class="p">/</span><span class="n">docs</span> <span class="n">-q</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="n">python</span> <span class="n">-m</span> <span class="n">mkdocs</span> <span class="n">build</span> <span class="p">-</span><span class="n">-strict</span>
 </code></pre></div>
 <h2 id="4">4. 对外发布<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
 <ul>
 <li>正式站点发布到 <a href="https://waj734014160-creator.github.io/ALB/">https://waj734014160-creator.github.io/ALB/</a>；用户指南和 API Reference 使用同一站点与同一版本。</li>
 <li>ALB 源仓库保持私有；生成后的静态站点单独发布到公开仓库 <code>waj734014160-creator/waj734014160-creator.github.io</code> 的 <code>ALB/</code> 子目录。</li>
 <li><code>.github/workflows/docs-pages.yml</code> 负责严格检查、构建和跨仓库发布；当前开发分支 <code>codex/alb-0.4.5</code> 与后续 <code>main</code> 更新会触发发布，也可从 GitHub Actions 手动运行。</li>
-<li>发布前必须通过三类生成参考漂移检查、文档/API 目标测试、严格 MkDocs 构建和公共站点内容边界测试。不要绕过工作流直接上传手工修改的 <code>site/</code>。</li>
+<li>发布前必须通过四类生成参考漂移检查、文档/API 目标测试、严格 MkDocs 构建和公共站点内容边界测试。不要绕过工作流直接上传手工修改的 <code>site/</code>。</li>
 <li>Pages 仓库只保存可再生的静态站点；部署凭据使用只对该仓库有写权限的 SSH deploy key，并保存为源仓库 Actions secret <code>PAGES_DEPLOY_KEY</code>。</li>
 <li>源仓库为私有仓库，但 GitHub Pages 站点和 Pages artifact 仓库面向公众；任何进入站点的内容都必须按公开材料审查。</li>
 </ul>

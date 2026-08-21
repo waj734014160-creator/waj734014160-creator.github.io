@@ -551,6 +551,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        转子-轴承仿真配置
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -692,6 +703,8 @@
       
         
       
+        
+      
     
     
     
@@ -751,7 +764,35 @@
   <span class="md-ellipsis">
     
   
-    字段参考
+    轴承配置
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../api/simulation_config_reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    转子-轴承仿真配置
   
 
     
@@ -1414,6 +1455,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        转子-轴承仿真配置
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1487,7 +1539,31 @@
 <li>气膜当前只支持 dimensional。</li>
 <li>从文件加载时，文档父目录成为 <code>resource_root</code>，用于相对 pad、模糊规则和 surrogate package 路径。</li>
 </ul>
-<p>完整查询：<a href="../../../api/bearing_config_reference/">轴承配置字段参考</a>。可复制文件：<a href="../../examples/">完整示例</a>。</p>
+<p>轴承的完整查询入口是<a href="../../../api/bearing_config_reference/">轴承配置参考</a>。其中每个公开字段都列出值类型、单位、必填性或默认值、可选值、约束、适用 family/unit system、原生映射和源码英文合同。</p>
+<h2 id="-">转子-轴承仿真配置<a class="headerlink" href="#-" title="Permanent link">&para;</a></h2>
+<p>仿真文件使用同一套 UTF-8 JSON5 envelope，但声明 <code>kind: "simulation"</code>。<code>spec</code> 由 <code>rotor</code>、<code>time_grid</code>、<code>mounts</code>、<code>loads</code> 和 <code>history</code> 组成：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="p">{</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span><span class="nv">schema_version</span><span class="p">:</span><span class="w"> </span><span class="s">"0.4.0"</span><span class="p">,</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">  </span><span class="nv">kind</span><span class="p">:</span><span class="w"> </span><span class="s">"simulation"</span><span class="p">,</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">  </span><span class="nv">includes</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">  </span><span class="nv">spec</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">    </span><span class="nv">rotor</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">      </span><span class="nv">model</span><span class="p">:</span><span class="w"> </span><span class="s">"ross_excel"</span><span class="p">,</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">      </span><span class="nv">path</span><span class="p">:</span><span class="w"> </span><span class="s">"resources/rotor.xlsx"</span><span class="p">,</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">      </span><span class="nv">frequency_hz</span><span class="p">:</span><span class="w"> </span><span class="mf">50.0</span><span class="p">,</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">    </span><span class="nv">time_grid</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">time_step</span><span class="p">:</span><span class="w"> </span><span class="mf">1e-4</span><span class="p">,</span><span class="w"> </span><span class="nv">steps</span><span class="p">:</span><span class="w"> </span><span class="mf">1000</span><span class="w"> </span><span class="p">},</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">    </span><span class="nv">mounts</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="nv">bearing</span><span class="p">:</span><span class="w"> </span><span class="s">"bearings/left.json5"</span><span class="p">,</span><span class="w"> </span><span class="nv">node</span><span class="p">:</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="p">},</span>
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="nv">bearing</span><span class="p">:</span><span class="w"> </span><span class="s">"bearings/right.json5"</span><span class="p">,</span><span class="w"> </span><span class="nv">node</span><span class="p">:</span><span class="w"> </span><span class="mf">4</span><span class="w"> </span><span class="p">},</span>
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="w">    </span><span class="p">],</span>
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="w">    </span><span class="nv">loads</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="nv">type</span><span class="p">:</span><span class="w"> </span><span class="s">"gravity"</span><span class="p">,</span><span class="w"> </span><span class="nv">acceleration</span><span class="p">:</span><span class="w"> </span><span class="mf">9.80665</span><span class="w"> </span><span class="p">}],</span>
+<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="w">    </span><span class="nv">history</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">mode</span><span class="p">:</span><span class="w"> </span><span class="s">"memory"</span><span class="p">,</span><span class="w"> </span><span class="nv">downsample</span><span class="p">:</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="p">},</span>
+<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="w">  </span><span class="p">},</span>
+<a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="p">}</span>
+</code></pre></div>
+<p>文件中的转子 Excel、bearing 配置和 disk-stream history 路径必须位于配置文件的资源根目录内。程序化构造的 <code>SimulationConfig</code> 还可以承载 adapter、spool provider、recorder 和 observer；这些 runtime object 不能写入 JSON5。</p>
+<p>完整字段、提交语义、数组形状和失败边界见<a href="../../../api/simulation_config_reference/">仿真配置参考</a>。轴承与仿真的可复制文件集中在<a href="../../examples/">完整示例</a>。</p>
 
 
 

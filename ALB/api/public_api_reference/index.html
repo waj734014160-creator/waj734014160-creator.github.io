@@ -599,6 +599,8 @@
       
         
       
+        
+      
     
     
     
@@ -658,7 +660,35 @@
   <span class="md-ellipsis">
     
   
-    字段参考
+    轴承配置
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../simulation_config_reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    转子-轴承仿真配置
   
 
     
@@ -2408,9 +2438,9 @@
 <ul>
 <li>包版本：<code>0.4.5</code></li>
 <li>公开符号数：<code>27</code></li>
-<li>接口表面摘要：<code>sha256:6b1f52aac97b8341</code></li>
-<li>重新生成：<code>E:/Anaconda2023/envs/ALB/python.exe tools/docs/generate_public_api_reference.py</code></li>
-<li>一致性检查：<code>E:/Anaconda2023/envs/ALB/python.exe tools/docs/generate_public_api_reference.py --check</code></li>
+<li>接口表面摘要：<code>sha256:e367f022ef5b3771</code></li>
+<li>重新生成：<code>python tools/docs/generate_public_api_reference.py</code></li>
+<li>一致性检查：<code>python tools/docs/generate_public_api_reference.py --check</code></li>
 </ul>
 <p>本文只覆盖普通用户应依赖的 <code>ALB</code> 根公开接口。领域实现命名空间用于高级开发，
 不应绕过 facade 直接拼装普通计算流程。</p>
@@ -2435,7 +2465,7 @@
 <td><code>AnalysisResult</code></td>
 <td>类</td>
 <td>分析服务返回的不可变通用结果，保存数值结果、诊断元数据和收敛状态。</td>
-<td><code>ALB/api/results.py:143</code></td>
+<td><code>ALB/api/results.py:175</code></td>
 </tr>
 <tr>
 <td><code>Bearing</code></td>
@@ -2447,19 +2477,19 @@
 <td><code>BearingAnalysis</code></td>
 <td>类</td>
 <td>基于一个 Bearing 配置执行状态隔离的静平衡、轨迹、动态系数和谐波线性化。</td>
-<td><code>ALB/api/analysis.py:926</code></td>
+<td><code>ALB/api/analysis.py:987</code></td>
 </tr>
 <tr>
 <td><code>BearingConfig</code></td>
 <td>类</td>
 <td>严格校验、深度冻结的 0.4 轴承配置，支持安全覆盖、扫描和序列化。</td>
-<td><code>ALB/api/config.py:673</code></td>
+<td><code>ALB/api/config.py:599</code></td>
 </tr>
 <tr>
 <td><code>BearingMount</code></td>
 <td>类</td>
 <td>把一个不可变轴承配置固定挂载到转子节点，并可附加单位和阀芯命令适配器。</td>
-<td><code>ALB/api/simulation.py:150</code></td>
+<td><code>ALB/api/simulation.py:152</code></td>
 </tr>
 <tr>
 <td><code>BearingResult</code></td>
@@ -2471,19 +2501,19 @@
 <td><code>BuildError</code></td>
 <td>异常</td>
 <td>配置已经通过校验，但对应 runtime 无法完成装配时抛出的稳定异常。</td>
-<td><code>ALB/api/errors.py:16</code></td>
+<td><code>ALB/api/errors.py:25</code></td>
 </tr>
 <tr>
 <td><code>CalculationError</code></td>
 <td>异常</td>
 <td>轴承输入已接受但物理求解失败时抛出的稳定异常，可携带密封失败快照。</td>
-<td><code>ALB/api/errors.py:20</code></td>
+<td><code>ALB/api/errors.py:33</code></td>
 </tr>
 <tr>
 <td><code>ConfigurationError</code></td>
 <td>异常</td>
 <td>JSON5 文档、程序化配置或跨字段约束不合法时抛出的稳定异常。</td>
-<td><code>ALB/api/errors.py:12</code></td>
+<td><code>ALB/api/errors.py:17</code></td>
 </tr>
 <tr>
 <td><code>EllipseTrajectory</code></td>
@@ -2501,19 +2531,19 @@
 <td><code>EquilibriumSolver</code></td>
 <td>类</td>
 <td>直接接收一个已构造 Bearing，并使用既有静平衡算法求载荷平衡。</td>
-<td><code>ALB/api/analysis.py:435</code></td>
+<td><code>ALB/api/analysis.py:496</code></td>
 </tr>
 <tr>
 <td><code>HistoryPolicy</code></td>
 <td>类</td>
 <td>控制仿真已提交历史的字段筛选、降采样、环形缓存或磁盘流式写入。</td>
-<td><code>ALB/api/simulation.py:172</code></td>
+<td><code>ALB/api/simulation.py:174</code></td>
 </tr>
 <tr>
 <td><code>RotorBearingSimulation</code></td>
 <td>类</td>
 <td>拓扑不可变的一次性转子-轴承耦合仿真 facade。</td>
-<td><code>ALB/api/simulation.py:379</code></td>
+<td><code>ALB/api/simulation.py:381</code></td>
 </tr>
 <tr>
 <td><code>SCHEMA_VERSION</code></td>
@@ -2525,19 +2555,19 @@
 <td><code>SimulationConfig</code></td>
 <td>类</td>
 <td>一次转子-轴承耦合计算的不可变拓扑、时步、载荷、历史策略和可选依赖。</td>
-<td><code>ALB/api/simulation.py:235</code></td>
+<td><code>ALB/api/simulation.py:237</code></td>
 </tr>
 <tr>
 <td><code>SimulationError</code></td>
 <td>异常</td>
 <td>耦合仿真失败时抛出的稳定异常，可携带截至最后真实提交点的部分结果。</td>
-<td><code>ALB/api/errors.py:33</code></td>
+<td><code>ALB/api/errors.py:51</code></td>
 </tr>
 <tr>
 <td><code>SimulationResult</code></td>
 <td>类</td>
 <td>转子-轴承仿真中按策略保留的不可变已提交历史。</td>
-<td><code>ALB/api/results.py:196</code></td>
+<td><code>ALB/api/results.py:247</code></td>
 </tr>
 <tr>
 <td><code>UnitSystem</code></td>
@@ -2555,37 +2585,37 @@
 <td><code>bearing_from_file</code></td>
 <td>函数</td>
 <td>读取严格 0.4 JSON5 轴承文档并一步构建可计算轴承。</td>
-<td><code>ALB/api/bearing.py:186</code></td>
+<td><code>ALB/api/bearing.py:290</code></td>
 </tr>
 <tr>
 <td><code>build_bearing</code></td>
 <td>函数</td>
 <td>从已验证的不可变配置构建一个可直接计算的轴承 facade。</td>
-<td><code>ALB/api/bearing.py:175</code></td>
+<td><code>ALB/api/bearing.py:258</code></td>
 </tr>
 <tr>
 <td><code>build_simulation</code></td>
 <td>函数</td>
 <td>从已验证的仿真配置构建一次性转子-轴承仿真对象。</td>
-<td><code>ALB/api/simulation.py:1145</code></td>
+<td><code>ALB/api/simulation.py:1199</code></td>
 </tr>
 <tr>
 <td><code>load_bearing_config</code></td>
 <td>函数</td>
 <td>读取严格 UTF-8 0.4 bearing 文档，安全合并受限 include 并完成校验。</td>
-<td><code>ALB/api/config.py:909</code></td>
+<td><code>ALB/api/config.py:853</code></td>
 </tr>
 <tr>
 <td><code>load_simulation_config</code></td>
 <td>函数</td>
 <td>读取严格 0.4 simulation 文档，并解析转子、挂载轴承、时间网格、载荷和历史策略。</td>
-<td><code>ALB/api/simulation.py:991</code></td>
+<td><code>ALB/api/simulation.py:1006</code></td>
 </tr>
 <tr>
 <td><code>simulation_from_file</code></td>
 <td>函数</td>
 <td>读取严格 JSON5 仿真文档并一步构建一次性仿真对象。</td>
-<td><code>ALB/api/simulation.py:1151</code></td>
+<td><code>ALB/api/simulation.py:1224</code></td>
 </tr>
 </tbody>
 </table>
@@ -2815,6 +2845,7 @@
 <h2 id="_13">主要对象与结果<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h2>
 <h3 id="albanalysisresultvalues-mappingstr-any-metadata-mappingstr-any-convergence-convergencestatus-convergencestatusresidual00-convergedtrue-iterationsnone-message-none"><code>ALB.AnalysisResult(values: 'Mapping[str, Any]', metadata: 'Mapping[str, Any]', convergence: 'ConvergenceStatus' = ConvergenceStatus(residual=0.0, converged=True, iterations=None, message='')) -&gt; None</code><a class="headerlink" href="#albanalysisresultvalues-mappingstr-any-metadata-mappingstr-any-convergence-convergencestatus-convergencestatusresidual00-convergedtrue-iterationsnone-message-none" title="Permanent link">&para;</a></h3>
 <p>分析服务返回的不可变通用结果，保存数值结果、诊断元数据和收敛状态。</p>
+<p>源码：<code>ALB/api/results.py:175</code>。</p>
 <p>输入：</p>
 <table>
 <thead>
@@ -2856,7 +2887,20 @@
 </table>
 <p>输出：<code>ALB.AnalysisResult</code>。构造一个不可变分析结果；普通用户通常从 BearingAnalysis 的方法获得它。</p>
 <p>示例：<a href="#example-bearing_analysis">轨迹、静平衡和动态系数分析</a>、<a href="#example-harmonic_linearization">方程导数谐波线性化</a>。</p>
-<p>源码：<code>ALB/api/results.py:143</code>。</p>
+<details class="note">
+<summary>源码 docstring（英文原文）</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>Immutable values and diagnostics from one bound analysis operation.
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>``values`` is operation-specific: orbit tracing exposes ``time``,
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>``displacement``, ``velocity``, and ``force``; dynamic identification adds
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>stiffness/damping coefficient arrays and forward/reverse responses;
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>equilibrium exposes the solved displacement and force balance; harmonic
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>linearization exposes stiffness, damping, and operating-point diagnostics.
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>Treat additional family-specific keys as diagnostic rather than a root-API
+<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>compatibility promise. Arrays and nested mappings are read-only.
+</code></pre></div>
+</details>
+<p>源码：<code>ALB/api/results.py:175</code>。</p>
 <p>公开数据字段：</p>
 <table>
 <thead>
@@ -2891,14 +2935,33 @@
 <p>公开成员：</p>
 <h4 id="analysisresultdiagnostics"><code>AnalysisResult.diagnostics</code><a class="headerlink" href="#analysisresultdiagnostics" title="Permanent link">&para;</a></h4>
 <p>读取不可变分析诊断元数据。</p>
+<p>源码：<code>ALB/api/results.py:202</code>。</p>
 <p>输出：<code>Mapping[str, Any]</code>。返回只读键值映射。</p>
+<details class="note">
+<summary>源码 docstring（英文原文）</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>Return immutable operation-specific analysis diagnostics.
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>The mapping includes a schema identifier and the physical/numerical
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>context needed to interpret ``values``.
+</code></pre></div>
+</details>
 <h4 id="analysisresultas_bundle-resultbundle"><code>AnalysisResult.as_bundle() -&gt; 'ResultBundle'</code><a class="headerlink" href="#analysisresultas_bundle-resultbundle" title="Permanent link">&para;</a></h4>
 <p>把分析结果转换为统一的可持久化 ResultBundle。</p>
+<p>源码：<code>ALB/api/results.py:212</code>。</p>
 <p>输入：</p>
 <p>无。</p>
 <p>输出：<code>ResultBundle</code>。返回包含 values 与 metadata 的不可变结果包。</p>
+<details class="note">
+<summary>源码 docstring（英文原文）</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>Return a persistable immutable analysis bundle.
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>Operation values are copied with metadata augmented by convergence,
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>residual, iteration-count, and message fields.
+</code></pre></div>
+</details>
 <h4 id="analysisresultwritepath-str-path-artifactmanifest"><code>AnalysisResult.write(path: 'str | Path') -&gt; 'ArtifactManifest'</code><a class="headerlink" href="#analysisresultwritepath-str-path-artifactmanifest" title="Permanent link">&para;</a></h4>
 <p>把分析结果写入一个新的制品目录。</p>
+<p>源码：<code>ALB/api/results.py:230</code>。</p>
 <p>输入：</p>
 <table>
 <thead>
@@ -2923,8 +2986,24 @@
 </tbody>
 </table>
 <p>输出：<code>ArtifactManifest</code>。返回已写入文件及摘要信息的 ArtifactManifest。</p>
+<details class="note">
+<summary>源码 docstring（英文原文）</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>Persist this analysis snapshot to a new artifact directory.
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>Parameters
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>----------
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>path
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>    Destination directory passed to ``DirectoryArtifactWriter``.
+<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>
+<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>Returns
+<a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a>-------
+<a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a>ArtifactManifest
+<a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a>    Written files and their integrity metadata.
+</code></pre></div>
+</details>
 <h3 id="albbearingconfig-bearingconfig-none"><code>ALB.Bearing(config: 'BearingConfig') -&gt; 'None'</code><a class="headerlink" href="#albbearingconfig-bearingconfig-none" title="Permanent link">&para;</a></h3>
 <p>单个已构建轴承的用户 facade，负责顺序计算、最新结果读取、诊断和独立分析入口。</p>
+<p>源码：<code>ALB/api/bearing.py:26</code>。</p>
 <p>输入：</p>
 <table>
 <thead>
@@ -2950,16 +3029,62 @@
 </table>
 <p>输出：<code>ALB.Bearing</code>。构造一个可直接计算的 Bearing；通常应通过 build_bearing() 获得。</p>
 <p>示例：<a href="#example-bearing_from_file">从 JSON5 构建并计算轴承</a>、<a href="#example-bearing_programmatic">程序化配置、参数覆盖与扫描</a>、<a href="#example-result_persistence">读取不可变结果并持久化</a>。</p>
+<details class="note">
+<summary>源码 docstring（英文原文）</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>Stateful user facade over one validated native bearing runtime.
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>Parameters
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>----------
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>config
+<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>    Immutable :class:`BearingConfig` describing the family, unit system,
+<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>    time step, resources, and child models. Construction materializes a new
+<a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a>    runtime and does not perform a calculation.
+<a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a>
+<a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a>Notes
+<a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a>-----
+<a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a>Calls to :meth:`calculate` are sequential and must advance exactly by the
+<a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a>configured ``time_step`` after the first sample. The facade retains only the
+<a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a>latest stable :class:`BearingResult`; :meth:`reset` creates a fresh runtime
+<a id="__codelineno-15-15" name="__codelineno-15-15" href="#__codelineno-15-15"></a>without changing ``config``. Bound analysis services use isolated runtimes
+<a id="__codelineno-15-16" name="__codelineno-15-16" href="#__codelineno-15-16"></a>and do not replace ``latest_result``.
+<a id="__codelineno-15-17" name="__codelineno-15-17" href="#__codelineno-15-17"></a>
+<a id="__codelineno-15-18" name="__codelineno-15-18" href="#__codelineno-15-18"></a>Raises
+<a id="__codelineno-15-19" name="__codelineno-15-19" href="#__codelineno-15-19"></a>------
+<a id="__codelineno-15-20" name="__codelineno-15-20" href="#__codelineno-15-20"></a>TypeError
+<a id="__codelineno-15-21" name="__codelineno-15-21" href="#__codelineno-15-21"></a>    If ``config`` is not a :class:`BearingConfig`.
+<a id="__codelineno-15-22" name="__codelineno-15-22" href="#__codelineno-15-22"></a>ConfigurationError, BuildError
+<a id="__codelineno-15-23" name="__codelineno-15-23" href="#__codelineno-15-23"></a>    If the validated specification cannot be materialized.
+</code></pre></div>
+</details>
 <p>源码：<code>ALB/api/bearing.py:26</code>。</p>
 <p>公开成员：</p>
 <h4 id="bearingconfig"><code>Bearing.config</code><a class="headerlink" href="#bearingconfig" title="Permanent link">&para;</a></h4>
 <p>读取构建该轴承时使用的不可变配置。</p>
+<p>源码：<code>ALB/api/bearing.py:66</code>。</p>
 <p>输出：<code>BearingConfig</code>。返回原始 BearingConfig。</p>
+<details class="note">
+<summary>源码 docstring（英文原文）</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>Return the immutable source configuration used by this runtime.
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>The returned object may be shared safely; use ``with_overrides`` to
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>create a validated modified configuration rather than mutating it.
+</code></pre></div>
+</details>
 <h4 id="bearingunit_system"><code>Bearing.unit_system</code><a class="headerlink" href="#bearingunit_system" title="Permanent link">&para;</a></h4>
 <p>读取 calculate() 所要求的输入和输出单位制。</p>
+<p>源码：<code>ALB/api/bearing.py:76</code>。</p>
 <p>输出：<code>UnitSystem</code>。返回 DIMENSIONAL 或 NONDIMENSIONAL。</p>
+<details class="note">
+<summary>源码 docstring（英文原文）</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>Return the unit system required by displacement, velocity, and force.
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>Dimensional bearings accept displacement in m and velocity in m/s and
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>return force in N. Nondimensional bearings use their configured scales.
+</code></pre></div>
+</details>
 <h4 id="bearinglatest_result"><code>Bearing.latest_result</code><a class="headerlink" href="#bearinglatest_result" title="Permanent link">&para;</a></h4>
 <p>读取最近一次成功计算的结果，不触发新计算。</p>
+<p>源码：<code>ALB/api/bearing.py:86</code>。</p>
 <p>输出：<code>BearingResult</code>。返回最近的 BearingResult。</p>
 <p>可能异常：</p>
 <table>
@@ -2976,16 +3101,47 @@
 </tr>
 </tbody>
 </table>
+<details class="note">
+<summary>源码 docstring（英文原文）</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>Return the most recently completed result without hidden evaluation.
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>Raises
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>------
+<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>RuntimeError
+<a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a>    If :meth:`calculate` has not completed since construction or reset.
+</code></pre></div>
+</details>
 <h4 id="bearinganalysis"><code>Bearing.analysis</code><a class="headerlink" href="#bearinganalysis" title="Permanent link">&para;</a></h4>
 <p>创建绑定于当前不可变配置的独立分析服务。</p>
+<p>源码：<code>ALB/api/bearing.py:100</code>。</p>
 <p>输出：<code>BearingAnalysis</code>。返回 BearingAnalysis；其计算不污染 latest_result。</p>
+<details class="note">
+<summary>源码 docstring（英文原文）</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>Return state-isolated analysis services for this configuration.
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>Each property access returns a lightweight :class:`BearingAnalysis` bound
+<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>to this facade. Its operations build fresh runtimes and therefore leave
+<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>the sequential calculation state and ``latest_result`` unchanged.
+</code></pre></div>
+</details>
 <h4 id="bearingreset-none"><code>Bearing.reset() -&gt; 'None'</code><a class="headerlink" href="#bearingreset-none" title="Permanent link">&para;</a></h4>
 <p>以同一配置重建内部 runtime，并清空当前会话结果。</p>
+<p>源码：<code>ALB/api/bearing.py:114</code>。</p>
 <p>输入：</p>
 <p>无。</p>
 <p>输出：<code>None</code>。无返回值。</p>
+<details class="note">
+<summary>源码 docstring（英文原文）</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>Replace the native runtime and clear the latest result.
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>The immutable configuration is preserved. The next calculation may use
+<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>any finite starting time because the previous sequential time boundary is
+<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>discarded.
+</code></pre></div>
+</details>
 <h4 id="bearingcalculate-displacement-object-velocity-object-00-00-time-float-spool-object-none-none-bearingresult"><code>Bearing.calculate(*, displacement: 'object', velocity: 'object' = (0.0, 0.0), time: 'float', spool: 'object | None' = None) -&gt; 'BearingResult'</code><a class="headerlink" href="#bearingcalculate-displacement-object-velocity-object-00-00-time-float-spool-object-none-none-bearingresult" title="Permanent link">&para;</a></h4>
 <p>计算一个严格顺序时间点上的二维轴承力。</p>
+<p>源码：<code>ALB/api/bearing.py:130</code>。</p>
 <p>输入：</p>
 <table>
 <thead>
@@ -3053,13 +3209,59 @@
 </tr>
 </tbody>
 </table>
+<details class="note">
+<summary>源码 docstring（英文原文）</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>Evaluate and commit one sequential two-axis bearing sample.
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>Parameters
+<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>----------
+<a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a>displacement
+<a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a>    Finite ``(x, y)`` journal-center displacement. Dimensional bearings
+<a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a>    use m; nondimensional bearings use displacement normalized by their
+<a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a>    configured clearance scale.
+<a id="__codelineno-21-9" name="__codelineno-21-9" href="#__codelineno-21-9"></a>velocity
+<a id="__codelineno-21-10" name="__codelineno-21-10" href="#__codelineno-21-10"></a>    Finite ``(vx, vy)`` center velocity in m/s or the corresponding
+<a id="__codelineno-21-11" name="__codelineno-21-11" href="#__codelineno-21-11"></a>    nondimensional velocity. The default is zero.
+<a id="__codelineno-21-12" name="__codelineno-21-12" href="#__codelineno-21-12"></a>time
+<a id="__codelineno-21-13" name="__codelineno-21-13" href="#__codelineno-21-13"></a>    Finite sample time in the configured local time unit. After the first
+<a id="__codelineno-21-14" name="__codelineno-21-14" href="#__codelineno-21-14"></a>    successful sample it must equal the previous time plus ``time_step``.
+<a id="__codelineno-21-15" name="__codelineno-21-15" href="#__codelineno-21-15"></a>spool
+<a id="__codelineno-21-16" name="__codelineno-21-16" href="#__codelineno-21-16"></a>    Optional finite normalized ``(sx, sy)`` valve command. It is required
+<a id="__codelineno-21-17" name="__codelineno-21-17" href="#__codelineno-21-17"></a>    only for ``external_spool`` control and forbidden for all other modes.
+<a id="__codelineno-21-18" name="__codelineno-21-18" href="#__codelineno-21-18"></a>
+<a id="__codelineno-21-19" name="__codelineno-21-19" href="#__codelineno-21-19"></a>Returns
+<a id="__codelineno-21-20" name="__codelineno-21-20" href="#__codelineno-21-20"></a>-------
+<a id="__codelineno-21-21" name="__codelineno-21-21" href="#__codelineno-21-21"></a>BearingResult
+<a id="__codelineno-21-22" name="__codelineno-21-22" href="#__codelineno-21-22"></a>    Immutable force, convergence, field outputs, and diagnostics. The
+<a id="__codelineno-21-23" name="__codelineno-21-23" href="#__codelineno-21-23"></a>    same object becomes :attr:`latest_result` only after success.
+<a id="__codelineno-21-24" name="__codelineno-21-24" href="#__codelineno-21-24"></a>
+<a id="__codelineno-21-25" name="__codelineno-21-25" href="#__codelineno-21-25"></a>Raises
+<a id="__codelineno-21-26" name="__codelineno-21-26" href="#__codelineno-21-26"></a>------
+<a id="__codelineno-21-27" name="__codelineno-21-27" href="#__codelineno-21-27"></a>TypeError, ValueError
+<a id="__codelineno-21-28" name="__codelineno-21-28" href="#__codelineno-21-28"></a>    If array shapes, numeric values, time order, or spool ownership are
+<a id="__codelineno-21-29" name="__codelineno-21-29" href="#__codelineno-21-29"></a>    invalid.
+<a id="__codelineno-21-30" name="__codelineno-21-30" href="#__codelineno-21-30"></a>CalculationError
+<a id="__codelineno-21-31" name="__codelineno-21-31" href="#__codelineno-21-31"></a>    If the native step fails after accepting the input. When available,
+<a id="__codelineno-21-32" name="__codelineno-21-32" href="#__codelineno-21-32"></a>    ``failure_snapshot`` preserves runtime diagnostics.
+</code></pre></div>
+</details>
 <h4 id="bearingdiagnostic_snapshot-resultbundle"><code>Bearing.diagnostic_snapshot() -&gt; 'ResultBundle'</code><a class="headerlink" href="#bearingdiagnostic_snapshot-resultbundle" title="Permanent link">&para;</a></h4>
 <p>读取 facade 和底层 runtime 的不可变诊断快照。</p>
+<p>源码：<code>ALB/api/bearing.py:237</code>。</p>
 <p>输入：</p>
 <p>无。</p>
 <p>输出：<code>ResultBundle</code>。返回 ResultBundle；不会推进物理状态。</p>
+<details class="note">
+<summary>源码 docstring（英文原文）</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>Return an immutable diagnostic snapshot without advancing physics.
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>Native runtimes may expose family-specific values. The fallback snapshot
+<a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>always records schema, family, unit system, and whether a result exists.
+</code></pre></div>
+</details>
 <h3 id="albbearinganalysisbearing-any-none"><code>ALB.BearingAnalysis(bearing: 'Any') -&gt; 'None'</code><a class="headerlink" href="#albbearinganalysisbearing-any-none" title="Permanent link">&para;</a></h3>
 <p>基于一个 Bearing 配置执行状态隔离的静平衡、轨迹、动态系数和谐波线性化。</p>
+<p>源码：<code>ALB/api/analysis.py:987</code>。</p>
 <p>输入：</p>
 <table>
 <thead>
@@ -3085,10 +3287,20 @@
 </table>
 <p>输出：<code>ALB.BearingAnalysis</code>。构造分析服务；普通用户应从 bearing.analysis 取得。</p>
 <p>示例：<a href="#example-bearing_analysis">轨迹、静平衡和动态系数分析</a>、<a href="#example-harmonic_linearization">方程导数谐波线性化</a>。</p>
-<p>源码：<code>ALB/api/analysis.py:926</code>。</p>
+<details class="note">
+<summary>源码 docstring（英文原文）</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>Run state-isolated analyses derived from one immutable bearing config.
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>
+<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>Construct this service from a ready :class:`ALB.Bearing`; normal user code
+<a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a>can use ``bearing.analysis``. Each analysis builds an isolated runtime and
+<a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a>therefore does not replace ``bearing.latest_result``.
+</code></pre></div>
+</details>
+<p>源码：<code>ALB/api/analysis.py:987</code>。</p>
 <p>公开成员：</p>
 <h4 id="bearinganalysisfind_equilibriumload-object-initial_displacement-object-00-00-options-equilibriumoptions-equilibriumoptionsmax_iterations30-relative_tolerance00001-damping005-jacobian_step001-fallback_stiffness50-50-stall_patience5-stall_relative_tolerance00-time00-analysisresult"><code>BearingAnalysis.find_equilibrium(load: 'object', initial_displacement: 'object' = (0.0, 0.0), options: 'EquilibriumOptions' = EquilibriumOptions(max_iterations=30, relative_tolerance=0.0001, damping=0.05, jacobian_step=0.01, fallback_stiffness=(5.0, 5.0), stall_patience=5, stall_relative_tolerance=0.0, time=0.0)) -&gt; 'AnalysisResult'</code><a class="headerlink" href="#bearinganalysisfind_equilibriumload-object-initial_displacement-object-00-00-options-equilibriumoptions-equilibriumoptionsmax_iterations30-relative_tolerance00001-damping005-jacobian_step001-fallback_stiffness50-50-stall_patience5-stall_relative_tolerance00-time00-analysisresult" title="Permanent link">&para;</a></h4>
 <p>使用既有阻尼 Newton、冻结 Jacobian 和固定刚度回退算法求载荷平衡。</p>
+<p>源码：<code>ALB/api/analysis.py:1021</code>。</p>
 <p>输入：</p>
 <table>
 <thead>
@@ -3144,8 +3356,40 @@
 </tr>
 </tbody>
 </table>
+<details class="note">
+<summary>源码 docstring（英文原文）</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>Find the displacement at which bearing force balances a static load.
+<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>
+<a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a>Parameters
+<a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a>----------
+<a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a>load
+<a id="__codelineno-24-6" name="__codelineno-24-6" href="#__codelineno-24-6"></a>    Finite nonzero ``(Fx, Fy)`` applied load in the configured force unit.
+<a id="__codelineno-24-7" name="__codelineno-24-7" href="#__codelineno-24-7"></a>initial_displacement
+<a id="__codelineno-24-8" name="__codelineno-24-8" href="#__codelineno-24-8"></a>    Finite initial ``(x, y)`` coordinate in the configured displacement
+<a id="__codelineno-24-9" name="__codelineno-24-9" href="#__codelineno-24-9"></a>    unit.
+<a id="__codelineno-24-10" name="__codelineno-24-10" href="#__codelineno-24-10"></a>options
+<a id="__codelineno-24-11" name="__codelineno-24-11" href="#__codelineno-24-11"></a>    Damped-iteration limits, tolerances, fallback stiffness, and static
+<a id="__codelineno-24-12" name="__codelineno-24-12" href="#__codelineno-24-12"></a>    evaluation time.
+<a id="__codelineno-24-13" name="__codelineno-24-13" href="#__codelineno-24-13"></a>
+<a id="__codelineno-24-14" name="__codelineno-24-14" href="#__codelineno-24-14"></a>Returns
+<a id="__codelineno-24-15" name="__codelineno-24-15" href="#__codelineno-24-15"></a>-------
+<a id="__codelineno-24-16" name="__codelineno-24-16" href="#__codelineno-24-16"></a>AnalysisResult
+<a id="__codelineno-24-17" name="__codelineno-24-17" href="#__codelineno-24-17"></a>    Solved displacement, bearing force, residual, evaluation history, and
+<a id="__codelineno-24-18" name="__codelineno-24-18" href="#__codelineno-24-18"></a>    convergence metadata from an isolated runtime.
+<a id="__codelineno-24-19" name="__codelineno-24-19" href="#__codelineno-24-19"></a>
+<a id="__codelineno-24-20" name="__codelineno-24-20" href="#__codelineno-24-20"></a>Raises
+<a id="__codelineno-24-21" name="__codelineno-24-21" href="#__codelineno-24-21"></a>------
+<a id="__codelineno-24-22" name="__codelineno-24-22" href="#__codelineno-24-22"></a>TypeError, ValueError
+<a id="__codelineno-24-23" name="__codelineno-24-23" href="#__codelineno-24-23"></a>    If inputs or options violate their public contracts.
+<a id="__codelineno-24-24" name="__codelineno-24-24" href="#__codelineno-24-24"></a>CalculationError
+<a id="__codelineno-24-25" name="__codelineno-24-25" href="#__codelineno-24-25"></a>    If the family/control mode is unsupported, an inner solve fails, or
+<a id="__codelineno-24-26" name="__codelineno-24-26" href="#__codelineno-24-26"></a>    the equilibrium iteration does not converge. ``failure_snapshot``
+<a id="__codelineno-24-27" name="__codelineno-24-27" href="#__codelineno-24-27"></a>    preserves evaluated coordinates and forces.
+</code></pre></div>
+</details>
 <h4 id="bearinganalysistrace_orbittrajectory-ellipsetrajectory-time_grid-sequencefloat-frequency_hz-float-spool-sequencesequencefloat-none-none-analysisresult"><code>BearingAnalysis.trace_orbit(trajectory: 'EllipseTrajectory', time_grid: 'Sequence[float]', *, frequency_hz: 'float', spool: 'Sequence[Sequence[float]] | None' = None) -&gt; 'AnalysisResult'</code><a class="headerlink" href="#bearinganalysistrace_orbittrajectory-ellipsetrajectory-time_grid-sequencefloat-frequency_hz-float-spool-sequencesequencefloat-none-none-analysisresult" title="Permanent link">&para;</a></h4>
 <p>在显式时间网格上逐点计算给定椭圆轨迹。</p>
+<p>源码：<code>ALB/api/analysis.py:1061</code>。</p>
 <p>输入：</p>
 <table>
 <thead>
@@ -3194,8 +3438,21 @@
 </tbody>
 </table>
 <p>输出：<code>AnalysisResult</code>。返回 AnalysisResult，values 中包含时间、位移、速度和轴承力序列。</p>
+<details class="note">
+<summary>源码 docstring（英文原文）</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>Evaluate every sample of one explicit trajectory exactly once.
+<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>
+<a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a>``time_grid`` must be finite, nonempty, and strictly increasing;
+<a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a>``frequency_hz`` is positive in Hz. For ``external_spool`` bearings,
+<a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a>provide one two-axis spool command per time sample. The returned
+<a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a>``AnalysisResult.values`` contains ``time``, ``displacement``,
+<a id="__codelineno-25-7" name="__codelineno-25-7" href="#__codelineno-25-7"></a>``velocity``, ``force``, and per-sample convergence arrays. A fresh
+<a id="__codelineno-25-8" name="__codelineno-25-8" href="#__codelineno-25-8"></a>runtime isolates the analysis from ``bearing.latest_result``.
+</code></pre></div>
+</details>
 <h4 id="bearinganalysisdynamic_coefficientstrajectory-ellipsetrajectory-time_grid-sequencefloat-frequency_hz-float-spool-sequencesequencefloat-none-none-analysisresult"><code>BearingAnalysis.dynamic_coefficients(trajectory: 'EllipseTrajectory', time_grid: 'Sequence[float]', *, frequency_hz: 'float', spool: 'Sequence[Sequence[float]] | None' = None) -&gt; 'AnalysisResult'</code><a class="headerlink" href="#bearinganalysisdynamic_coefficientstrajectory-ellipsetrajectory-time_grid-sequencefloat-frequency_hz-float-spool-sequencesequencefloat-none-none-analysisresult" title="Permanent link">&para;</a></h4>
 <p>在相干 FFT 网格上用正反涡动响应识别刚度 K 和阻尼 C。</p>
+<p>源码：<code>ALB/api/analysis.py:1155</code>。</p>
 <p>输入：</p>
 <table>
 <thead>
@@ -3263,8 +3520,23 @@
 </tr>
 </tbody>
 </table>
+<details class="note">
+<summary>源码 docstring（英文原文）</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>Identify stiffness ``K`` and damping ``C`` on a coherent FFT grid.
+<a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>
+<a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a>``time_grid`` must be uniform and ``frequency_hz`` must identify a
+<a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a>non-DC FFT bin below Nyquist; invalid grids raise ``ValueError``. The
+<a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a>method traces forward and reverse versions of ``trajectory`` on fresh
+<a id="__codelineno-26-6" name="__codelineno-26-6" href="#__codelineno-26-6"></a>runtimes. Failed samples or a singular, ill-conditioned, or
+<a id="__codelineno-26-7" name="__codelineno-26-7" href="#__codelineno-26-7"></a>non-invertible displacement matrix raise ``CalculationError`` with a
+<a id="__codelineno-26-8" name="__codelineno-26-8" href="#__codelineno-26-8"></a>``failure_snapshot`` containing both responses and frequency/matrix
+<a id="__codelineno-26-9" name="__codelineno-26-9" href="#__codelineno-26-9"></a>diagnostics. Valid inputs retain the established ``recognize_kc``
+<a id="__codelineno-26-10" name="__codelineno-26-10" href="#__codelineno-26-10"></a>numerical method.
+</code></pre></div>
+</details>
 <h4 id="bearinganalysisharmonic_linearizeoperating_point-object-excitation_frequency-float-spool-object-none-none-analysisresult"><code>BearingAnalysis.harmonic_linearize(operating_point: 'object', excitation_frequency: 'float', *, spool: 'object | None' = None) -&gt; 'AnalysisResult'</code><a class="headerlink" href="#bearinganalysisharmonic_linearizeoperating_point-object-excitation_frequency-float-spool-object-none-none-analysisresult" title="Permanent link">&para;</a></h4>
 <p>在指定工作点通过压力方程导数计算谐波刚度与阻尼。</p>
+<p>源码：<code>ALB/api/analysis.py:1402</code>。</p>
 <p>输入：</p>
 <table>
 <thead>
@@ -3320,8 +3592,23 @@
 </tr>
 </tbody>
 </table>
+<details class="note">
+<summary>源码 docstring（英文原文）</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>Linearize the pressure equations at one dimensional operating point.
+<a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>
+<a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a>This capability is verified only for dimensional ``liquid_film`` and
+<a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a>``active_lubricated`` bearings without a thermal wrapper. The active
+<a id="__codelineno-27-5" name="__codelineno-27-5" href="#__codelineno-27-5"></a>path requires the established three-node ``CSOrifice`` topology;
+<a id="__codelineno-27-6" name="__codelineno-27-6" href="#__codelineno-27-6"></a>external-spool control requires an explicit two-axis ``spool`` value.
+<a id="__codelineno-27-7" name="__codelineno-27-7" href="#__codelineno-27-7"></a>``excitation_frequency`` is positive in Hz. Unsupported topology,
+<a id="__codelineno-27-8" name="__codelineno-27-8" href="#__codelineno-27-8"></a>static nonconvergence, or derivative failure raises ``CalculationError``
+<a id="__codelineno-27-9" name="__codelineno-27-9" href="#__codelineno-27-9"></a>and preserves available operating-point evidence in
+<a id="__codelineno-27-10" name="__codelineno-27-10" href="#__codelineno-27-10"></a>``failure_snapshot``.
+</code></pre></div>
+</details>
 <h3 id="albbearingconfigspec-mappingstr-any-source_path-path-none-none-resource_root-path-none-none-none"><code>ALB.BearingConfig(spec: 'Mapping[str, Any]', source_path: 'Path | None' = None, resource_root: 'Path | None' = None) -&gt; None</code><a class="headerlink" href="#albbearingconfigspec-mappingstr-any-source_path-path-none-none-resource_root-path-none-none-none" title="Permanent link">&para;</a></h3>
 <p>严格校验、深度冻结的 0.4 轴承配置，支持安全覆盖、扫描和序列化。</p>
+<p>源码：<code>ALB/api/config.py:599</code>。</p>
 <p>输入：</p>
 <table>
 <thead>
@@ -3363,7 +3650,26 @@
 </table>
 <p>输出：<code>ALB.BearingConfig</code>。构造经过完整跨字段校验的不可变 BearingConfig。</p>
 <p>示例：<a href="#example-bearing_programmatic">程序化配置、参数覆盖与扫描</a>、<a href="#example-bearing_from_file">从 JSON5 构建并计算轴承</a>。</p>
-<p>源码：<code>ALB/api/config.py:673</code>。</p>
+<details class="note">
+<summary>源码 docstring（英文原文）</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>Validate and freeze one public ALB 0.4 bearing specification.
+<a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>
+<a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a>``spec`` must declare ``family``, ``unit_system``, ``time_step``, and
+<a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a>``node``. Supported families are ``liquid_film``, ``active_lubricated``,
+<a id="__codelineno-28-5" name="__codelineno-28-5" href="#__codelineno-28-5"></a>``gas_film``, ``multi_pad``, and ``surrogate``. Film-bearing families use
+<a id="__codelineno-28-6" name="__codelineno-28-6" href="#__codelineno-28-6"></a>a ``film`` mapping; their dimensional values use SI units unless a field
+<a id="__codelineno-28-7" name="__codelineno-28-7" href="#__codelineno-28-7"></a>is explicitly a ratio or angle in degrees. Nondimensional configurations
+<a id="__codelineno-28-8" name="__codelineno-28-8" href="#__codelineno-28-8"></a>use normalized film values and explicit ``scale_*`` fields for output
+<a id="__codelineno-28-9" name="__codelineno-28-9" href="#__codelineno-28-9"></a>conversion. Gas film currently requires dimensional units.
+<a id="__codelineno-28-10" name="__codelineno-28-10" href="#__codelineno-28-10"></a>
+<a id="__codelineno-28-11" name="__codelineno-28-11" href="#__codelineno-28-11"></a>The specification and nested arrays are copied into read-only values.
+<a id="__codelineno-28-12" name="__codelineno-28-12" href="#__codelineno-28-12"></a>``source_path`` records the originating document, while ``resource_root``
+<a id="__codelineno-28-13" name="__codelineno-28-13" href="#__codelineno-28-13"></a>resolves relative pad, rule, and model-package resources. See
+<a id="__codelineno-28-14" name="__codelineno-28-14" href="#__codelineno-28-14"></a>``docs/api/bearing_config_reference.md`` for all fields and
+<a id="__codelineno-28-15" name="__codelineno-28-15" href="#__codelineno-28-15"></a>``docs/api/examples/`` for complete JSON5 documents.
+</code></pre></div>
+</details>
+<p>源码：<code>ALB/api/config.py:599</code>。</p>
 <p>公开数据字段：</p>
 <table>
 <thead>
@@ -3398,20 +3704,59 @@
 <p>公开成员：</p>
 <h4 id="bearingconfigfamily"><code>BearingConfig.family</code><a class="headerlink" href="#bearingconfigfamily" title="Permanent link">&para;</a></h4>
 <p>读取轴承族判别值。</p>
+<p>源码：<code>ALB/api/config.py:641</code>。</p>
 <p>输出：<code>str</code>。返回 liquid_film、active_lubricated、gas_film、multi_pad 或 surrogate。</p>
+<details class="note">
+<summary>源码 docstring（英文原文）</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>Return the validated bearing-family discriminator.
+<a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a>
+<a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a>The value is one of ``liquid_film``, ``active_lubricated``,
+<a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a>``gas_film``, ``multi_pad``, or ``surrogate``.
+</code></pre></div>
+</details>
 <h4 id="bearingconfigunit_system"><code>BearingConfig.unit_system</code><a class="headerlink" href="#bearingconfigunit_system" title="Permanent link">&para;</a></h4>
 <p>读取配置声明的单位制字符串。</p>
+<p>源码：<code>ALB/api/config.py:651</code>。</p>
 <p>输出：<code>str</code>。返回 dimensional 或 nondimensional。</p>
+<details class="note">
+<summary>源码 docstring（英文原文）</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>Return the validated bearing input/output unit-system name.
+<a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a>
+<a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a>The result is ``dimensional`` or ``nondimensional`` and matches the
+<a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a>interpretation applied to displacements, velocities, forces, and fields.
+</code></pre></div>
+</details>
 <h4 id="bearingconfigcontrol_mode"><code>BearingConfig.control_mode</code><a class="headerlink" href="#bearingconfigcontrol_mode" title="Permanent link">&para;</a></h4>
 <p>读取主动轴承控制模式；非主动或 fixed surrogate 返回 None。</p>
+<p>源码：<code>ALB/api/config.py:661</code>。</p>
 <p>输出：<code>str | None</code>。返回 pid、fuzzy_pid、uncontrolled、external_spool 或 None。</p>
+<details class="note">
+<summary>源码 docstring（英文原文）</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>Return the user-owned control mode when the family exposes one.
+<a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a>
+<a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a>Active lubricated bearings return their configured PID, fuzzy PID,
+<a id="__codelineno-31-4" name="__codelineno-31-4" href="#__codelineno-31-4"></a>uncontrolled, or external-spool mode. A surrogate requiring external spool
+<a id="__codelineno-31-5" name="__codelineno-31-5" href="#__codelineno-31-5"></a>input returns ``external_spool``; other families return ``None``.
+</code></pre></div>
+</details>
 <h4 id="bearingconfigto_dict-dictstr-any"><code>BearingConfig.to_dict() -&gt; 'dict[str, Any]'</code><a class="headerlink" href="#bearingconfigto_dict-dictstr-any" title="Permanent link">&para;</a></h4>
 <p>创建调用方可修改的严格 0.4 bearing 文档副本。</p>
+<p>源码：<code>ALB/api/config.py:682</code>。</p>
 <p>输入：</p>
 <p>无。</p>
 <p>输出：<code>dict[str, Any]</code>。返回含 schema_version、kind 和 spec 的普通 dict。</p>
+<details class="note">
+<summary>源码 docstring（英文原文）</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>Return a caller-owned strict ALB 0.4 bearing document.
+<a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a>
+<a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a>The returned mapping contains ``schema_version``, ``kind='bearing'``, and a
+<a id="__codelineno-32-4" name="__codelineno-32-4" href="#__codelineno-32-4"></a>deeply mutable copy of ``spec``. Mutating it does not alter this immutable
+<a id="__codelineno-32-5" name="__codelineno-32-5" href="#__codelineno-32-5"></a>configuration; pass the changed data to :class:`BearingConfig` to revalidate.
+</code></pre></div>
+</details>
 <h4 id="bearingconfigwith_overridesoverrides-mappingstr-any-bearingconfig"><code>BearingConfig.with_overrides(overrides: 'Mapping[str, Any]') -&gt; "'BearingConfig'"</code><a class="headerlink" href="#bearingconfigwith_overridesoverrides-mappingstr-any-bearingconfig" title="Permanent link">&para;</a></h4>
 <p>按点分路径替换字段并重新执行完整校验。</p>
+<p>源码：<code>ALB/api/config.py:696</code>。</p>
 <p>输入：</p>
 <table>
 <thead>
@@ -3451,8 +3796,20 @@
 </tr>
 </tbody>
 </table>
+<details class="note">
+<summary>源码 docstring（英文原文）</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>Return a revalidated copy with dotted-path values replaced.
+<a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a>
+<a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a>Paths are relative to ``spec``; for example,
+<a id="__codelineno-33-4" name="__codelineno-33-4" href="#__codelineno-33-4"></a>``{"film.supply_pressure": 5.0e6}`` updates one nested film value.
+<a id="__codelineno-33-5" name="__codelineno-33-5" href="#__codelineno-33-5"></a>Every intermediate segment must already name a mapping. The original
+<a id="__codelineno-33-6" name="__codelineno-33-6" href="#__codelineno-33-6"></a>configuration is unchanged, and the returned copy preserves its source
+<a id="__codelineno-33-7" name="__codelineno-33-7" href="#__codelineno-33-7"></a>and resource root.
+</code></pre></div>
+</details>
 <h4 id="bearingconfigsweeppath-str-values-iterableany-tuplebearingconfig"><code>BearingConfig.sweep(path: 'str', values: 'Iterable[Any]') -&gt; "tuple['BearingConfig', ...]"</code><a class="headerlink" href="#bearingconfigsweeppath-str-values-iterableany-tuplebearingconfig" title="Permanent link">&para;</a></h4>
 <p>对一个点分路径逐值生成已验证配置。</p>
+<p>源码：<code>ALB/api/config.py:732</code>。</p>
 <p>输入：</p>
 <table>
 <thead>
@@ -3485,8 +3842,18 @@
 </tbody>
 </table>
 <p>输出：<code>tuple['BearingConfig', ...]</code>。返回与 values 顺序一致的 BearingConfig 元组。</p>
+<details class="note">
+<summary>源码 docstring（英文原文）</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>Return one validated immutable configuration per supplied value.
+<a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a>
+<a id="__codelineno-34-3" name="__codelineno-34-3" href="#__codelineno-34-3"></a>``path`` follows the same spec-relative dotted-path rules as
+<a id="__codelineno-34-4" name="__codelineno-34-4" href="#__codelineno-34-4"></a>:meth:`with_overrides`. Values are consumed once and returned in input
+<a id="__codelineno-34-5" name="__codelineno-34-5" href="#__codelineno-34-5"></a>order; any invalid candidate raises ``ConfigurationError``.
+</code></pre></div>
+</details>
 <h3 id="albbearingmountconfig-bearingconfig-node-int-unit_adapter-bearingunitadapterprotocol-none-none-spool_provider-spoolcommandproviderprotocol-none-none-none"><code>ALB.BearingMount(config: 'BearingConfig', node: 'int', unit_adapter: 'BearingUnitAdapterProtocol | None' = None, spool_provider: 'SpoolCommandProviderProtocol | None' = None) -&gt; None</code><a class="headerlink" href="#albbearingmountconfig-bearingconfig-node-int-unit_adapter-bearingunitadapterprotocol-none-none-spool_provider-spoolcommandproviderprotocol-none-none-none" title="Permanent link">&para;</a></h3>
 <p>把一个不可变轴承配置固定挂载到转子节点，并可附加单位和阀芯命令适配器。</p>
+<p>源码：<code>ALB/api/simulation.py:152</code>。</p>
 <p>输入：</p>
 <table>
 <thead>
@@ -3536,7 +3903,18 @@
 </table>
 <p>输出：<code>ALB.BearingMount</code>。构造一个不可变 BearingMount。</p>
 <p>示例：<a href="#example-simulation_programmatic">程序化装配仿真拓扑</a>。</p>
-<p>源码：<code>ALB/api/simulation.py:150</code>。</p>
+<details class="note">
+<summary>源码 docstring（英文原文）</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>Bind one immutable bearing configuration to a unique rotor node.
+<a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a>
+<a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a>``node`` is the nonnegative rotor node used for displacement input and
+<a id="__codelineno-35-4" name="__codelineno-35-4" href="#__codelineno-35-4"></a>bearing-force feedback. Dimensional bearings normally need no adapter;
+<a id="__codelineno-35-5" name="__codelineno-35-5" href="#__codelineno-35-5"></a>a nondimensional bearing requires a ``BearingUnitAdapterProtocol`` that
+<a id="__codelineno-35-6" name="__codelineno-35-6" href="#__codelineno-35-6"></a>converts step context, kinematics, and force. Bearings using
+<a id="__codelineno-35-7" name="__codelineno-35-7" href="#__codelineno-35-7"></a>``external_spool`` also require a ``SpoolCommandProviderProtocol``.
+</code></pre></div>
+</details>
+<p>源码：<code>ALB/api/simulation.py:152</code>。</p>
 <p>公开数据字段：</p>
 <table>
 <thead>
@@ -3576,6 +3954,7 @@
 </table>
 <h3 id="albbearingresultforce-floatarray-time-float-unit_system-unitsystem-convergence-convergencestatus-details-resultbundle-none"><code>ALB.BearingResult(force: 'FloatArray', time: 'float', unit_system: 'UnitSystem', convergence: 'ConvergenceStatus', details: 'ResultBundle') -&gt; None</code><a class="headerlink" href="#albbearingresultforce-floatarray-time-float-unit_system-unitsystem-convergence-convergencestatus-details-resultbundle-none" title="Permanent link">&para;</a></h3>
 <p>一次成功二维轴承计算的不可变结果，包含力、时间、单位、收敛状态和完整诊断。</p>
+<p>源码：<code>ALB/api/results.py:42</code>。</p>
 <p>输入：</p>
 <table>
 <thead>
@@ -3633,6 +4012,16 @@
 </table>
 <p>输出：<code>ALB.BearingResult</code>。构造 BearingResult；普通用户通常从 Bearing.calculate() 获得。</p>
 <p>示例：<a href="#example-bearing_from_file">从 JSON5 构建并计算轴承</a>、<a href="#example-result_persistence">读取不可变结果并持久化</a>。</p>
+<details class="note">
+<summary>源码 docstring（英文原文）</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>One completed two-axis bearing calculation.
+<a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a>
+<a id="__codelineno-36-3" name="__codelineno-36-3" href="#__codelineno-36-3"></a>``force`` is always a two-component array in the selected unit system.
+<a id="__codelineno-36-4" name="__codelineno-36-4" href="#__codelineno-36-4"></a>Detailed scalar and field outputs are available through the named
+<a id="__codelineno-36-5" name="__codelineno-36-5" href="#__codelineno-36-5"></a>properties below. ``details`` remains available for family-specific data
+<a id="__codelineno-36-6" name="__codelineno-36-6" href="#__codelineno-36-6"></a>such as per-pad or thermal outputs.
+</code></pre></div>
+</details>
 <p>源码：<code>ALB/api/results.py:42</code>。</p>
 <p>公开数据字段：</p>
 <table>
@@ -3680,29 +4069,97 @@
 <p>公开成员：</p>
 <h4 id="bearingresultfx"><code>BearingResult.fx</code><a class="headerlink" href="#bearingresultfx" title="Permanent link">&para;</a></h4>
 <p>读取 x 方向轴承力。</p>
+<p>源码：<code>ALB/api/results.py:67</code>。</p>
 <p>输出：<code>float</code>。返回 Python float。</p>
+<details class="note">
+<summary>源码 docstring（英文原文）</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>Return the x-axis force component as a Python float.
+<a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a>
+<a id="__codelineno-37-3" name="__codelineno-37-3" href="#__codelineno-37-3"></a>Dimensional results use N; nondimensional results use the configured
+<a id="__codelineno-37-4" name="__codelineno-37-4" href="#__codelineno-37-4"></a>bearing force scale.
+</code></pre></div>
+</details>
 <h4 id="bearingresultfy"><code>BearingResult.fy</code><a class="headerlink" href="#bearingresultfy" title="Permanent link">&para;</a></h4>
 <p>读取 y 方向轴承力。</p>
+<p>源码：<code>ALB/api/results.py:77</code>。</p>
 <p>输出：<code>float</code>。返回 Python float。</p>
+<details class="note">
+<summary>源码 docstring（英文原文）</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>Return the y-axis force component as a Python float.
+<a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a>
+<a id="__codelineno-38-3" name="__codelineno-38-3" href="#__codelineno-38-3"></a>Dimensional results use N; nondimensional results use the configured
+<a id="__codelineno-38-4" name="__codelineno-38-4" href="#__codelineno-38-4"></a>bearing force scale.
+</code></pre></div>
+</details>
 <h4 id="bearingresultdiagnostics"><code>BearingResult.diagnostics</code><a class="headerlink" href="#bearingresultdiagnostics" title="Permanent link">&para;</a></h4>
 <p>读取底层结果的不可变诊断元数据。</p>
+<p>源码：<code>ALB/api/results.py:87</code>。</p>
 <p>输出：<code>Mapping[str, Any]</code>。返回只读键值映射。</p>
+<details class="note">
+<summary>源码 docstring（英文原文）</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a>Return immutable family and convergence diagnostic metadata.
+<a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a>
+<a id="__codelineno-39-3" name="__codelineno-39-3" href="#__codelineno-39-3"></a>Keys beyond the documented schema are family-specific diagnostics rather
+<a id="__codelineno-39-4" name="__codelineno-39-4" href="#__codelineno-39-4"></a>than a root-API compatibility promise.
+</code></pre></div>
+</details>
 <h4 id="bearingresultfriction"><code>BearingResult.friction</code><a class="headerlink" href="#bearingresultfriction" title="Permanent link">&para;</a></h4>
 <p>读取本次计算的总摩擦力。</p>
+<p>源码：<code>ALB/api/results.py:97</code>。</p>
 <p>输出：<code>float | None</code>。底层轴承提供摩擦力时返回 float，否则返回 None。</p>
+<details class="note">
+<summary>源码 docstring（英文原文）</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>Return the total friction force when the bearing reports it.
+<a id="__codelineno-40-2" name="__codelineno-40-2" href="#__codelineno-40-2"></a>
+<a id="__codelineno-40-3" name="__codelineno-40-3" href="#__codelineno-40-3"></a>Dimensional results use N. Nondimensional results use the family force
+<a id="__codelineno-40-4" name="__codelineno-40-4" href="#__codelineno-40-4"></a>scale. Families that do not publish aggregate friction return ``None``.
+</code></pre></div>
+</details>
 <h4 id="bearingresultpressure"><code>BearingResult.pressure</code><a class="headerlink" href="#bearingresultpressure" title="Permanent link">&para;</a></h4>
 <p>读取单液膜压力场；量纲结果为 Pa，无量纲结果为 p/ps。</p>
+<p>源码：<code>ALB/api/results.py:108</code>。</p>
 <p>输出：<code>FloatArray | None</code>。返回只读压力数组；多瓦或不提供压力的模型返回 None。</p>
+<details class="note">
+<summary>源码 docstring（英文原文）</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a>Return the immutable pressure field for a single film.
+<a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a>
+<a id="__codelineno-41-3" name="__codelineno-41-3" href="#__codelineno-41-3"></a>Dimensional results use Pa. Nondimensional results contain ``p / ps``.
+<a id="__codelineno-41-4" name="__codelineno-41-4" href="#__codelineno-41-4"></a>Multi-pad results expose per-pad arrays through
+<a id="__codelineno-41-5" name="__codelineno-41-5" href="#__codelineno-41-5"></a>``details.values["pad_pressure"]`` because one aggregate pressure field
+<a id="__codelineno-41-6" name="__codelineno-41-6" href="#__codelineno-41-6"></a>would not have a physical meaning.
+</code></pre></div>
+</details>
 <h4 id="bearingresultfilm_thickness"><code>BearingResult.film_thickness</code><a class="headerlink" href="#bearingresultfilm_thickness" title="Permanent link">&para;</a></h4>
 <p>读取单液膜厚度场；量纲结果为 m，无量纲结果为 h/c。</p>
+<p>源码：<code>ALB/api/results.py:121</code>。</p>
 <p>输出：<code>FloatArray | None</code>。返回只读液膜厚度数组；多瓦或不提供厚度的模型返回 None。</p>
+<details class="note">
+<summary>源码 docstring（英文原文）</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a>Return the immutable film-thickness field for a single film.
+<a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a>
+<a id="__codelineno-42-3" name="__codelineno-42-3" href="#__codelineno-42-3"></a>Dimensional results use m. Nondimensional results contain ``h / c``.
+<a id="__codelineno-42-4" name="__codelineno-42-4" href="#__codelineno-42-4"></a>Multi-pad results expose per-pad arrays through
+<a id="__codelineno-42-5" name="__codelineno-42-5" href="#__codelineno-42-5"></a>``details.values["pad_film_thickness"]``.
+</code></pre></div>
+</details>
 <h4 id="bearingresultas_bundle-resultbundle"><code>BearingResult.as_bundle() -&gt; 'ResultBundle'</code><a class="headerlink" href="#bearingresultas_bundle-resultbundle" title="Permanent link">&para;</a></h4>
 <p>转换为统一的可持久化 ResultBundle。</p>
+<p>源码：<code>ALB/api/results.py:133</code>。</p>
 <p>输入：</p>
 <p>无。</p>
 <p>输出：<code>ResultBundle</code>。返回包含 force、details 和结果元数据的不可变结果包。</p>
+<details class="note">
+<summary>源码 docstring（英文原文）</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a>Return a complete immutable bundle for persistence or transport.
+<a id="__codelineno-43-2" name="__codelineno-43-2" href="#__codelineno-43-2"></a>
+<a id="__codelineno-43-3" name="__codelineno-43-3" href="#__codelineno-43-3"></a>The bundle contains the force and family-specific detail values plus
+<a id="__codelineno-43-4" name="__codelineno-43-4" href="#__codelineno-43-4"></a>schema, time, unit-system, and convergence metadata. Nested arrays and
+<a id="__codelineno-43-5" name="__codelineno-43-5" href="#__codelineno-43-5"></a>mappings are read-only snapshots.
+</code></pre></div>
+</details>
 <h4 id="bearingresultwritepath-str-path-artifactmanifest"><code>BearingResult.write(path: 'str | Path') -&gt; 'ArtifactManifest'</code><a class="headerlink" href="#bearingresultwritepath-str-path-artifactmanifest" title="Permanent link">&para;</a></h4>
 <p>把结果值和诊断写入一个新的制品目录。</p>
+<p>源码：<code>ALB/api/results.py:158</code>。</p>
 <p>输入：</p>
 <table>
 <thead>
@@ -3727,8 +4184,24 @@
 </tbody>
 </table>
 <p>输出：<code>ArtifactManifest</code>。返回 ArtifactManifest。</p>
+<details class="note">
+<summary>源码 docstring（英文原文）</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a>Persist the complete result to a new artifact directory.
+<a id="__codelineno-44-2" name="__codelineno-44-2" href="#__codelineno-44-2"></a>
+<a id="__codelineno-44-3" name="__codelineno-44-3" href="#__codelineno-44-3"></a>Parameters
+<a id="__codelineno-44-4" name="__codelineno-44-4" href="#__codelineno-44-4"></a>----------
+<a id="__codelineno-44-5" name="__codelineno-44-5" href="#__codelineno-44-5"></a>path
+<a id="__codelineno-44-6" name="__codelineno-44-6" href="#__codelineno-44-6"></a>    Destination directory, which must not contain an existing artifact.
+<a id="__codelineno-44-7" name="__codelineno-44-7" href="#__codelineno-44-7"></a>
+<a id="__codelineno-44-8" name="__codelineno-44-8" href="#__codelineno-44-8"></a>Returns
+<a id="__codelineno-44-9" name="__codelineno-44-9" href="#__codelineno-44-9"></a>-------
+<a id="__codelineno-44-10" name="__codelineno-44-10" href="#__codelineno-44-10"></a>ArtifactManifest
+<a id="__codelineno-44-11" name="__codelineno-44-11" href="#__codelineno-44-11"></a>    Written files, digests, and schema metadata.
+</code></pre></div>
+</details>
 <h3 id="albellipsetrajectorycenter-floatarray-semi_axes-floatarray-direction-str-forward-phase-float-00-orientation_rad-float-00-none"><code>ALB.EllipseTrajectory(center: 'FloatArray', semi_axes: 'FloatArray', direction: 'str' = 'forward', phase: 'float' = 0.0, orientation_rad: 'float' = 0.0) -&gt; None</code><a class="headerlink" href="#albellipsetrajectorycenter-floatarray-semi_axes-floatarray-direction-str-forward-phase-float-00-orientation_rad-float-00-none" title="Permanent link">&para;</a></h3>
 <p>二维椭圆轨迹值对象，分别表达中心、半轴、遍历方向、时间相位和空间转角。</p>
+<p>源码：<code>ALB/api/analysis.py:275</code>。</p>
 <p>输入：</p>
 <table>
 <thead>
@@ -3786,6 +4259,35 @@
 </table>
 <p>输出：<code>ALB.EllipseTrajectory</code>。构造经过有限值和形状校验的不可变椭圆轨迹。</p>
 <p>示例：<a href="#example-bearing_analysis">轨迹、静平衡和动态系数分析</a>。</p>
+<details class="note">
+<summary>源码 docstring（英文原文）</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a>Immutable two-axis ellipse with independent phase and orientation.
+<a id="__codelineno-45-2" name="__codelineno-45-2" href="#__codelineno-45-2"></a>
+<a id="__codelineno-45-3" name="__codelineno-45-3" href="#__codelineno-45-3"></a>Parameters
+<a id="__codelineno-45-4" name="__codelineno-45-4" href="#__codelineno-45-4"></a>----------
+<a id="__codelineno-45-5" name="__codelineno-45-5" href="#__codelineno-45-5"></a>center
+<a id="__codelineno-45-6" name="__codelineno-45-6" href="#__codelineno-45-6"></a>    Finite ``(x, y)`` ellipse center in the bearing displacement unit.
+<a id="__codelineno-45-7" name="__codelineno-45-7" href="#__codelineno-45-7"></a>semi_axes
+<a id="__codelineno-45-8" name="__codelineno-45-8" href="#__codelineno-45-8"></a>    Positive finite principal semi-axis lengths in the same unit.
+<a id="__codelineno-45-9" name="__codelineno-45-9" href="#__codelineno-45-9"></a>direction
+<a id="__codelineno-45-10" name="__codelineno-45-10" href="#__codelineno-45-10"></a>    ``"forward"`` or ``"reverse"`` temporal traversal direction.
+<a id="__codelineno-45-11" name="__codelineno-45-11" href="#__codelineno-45-11"></a>phase
+<a id="__codelineno-45-12" name="__codelineno-45-12" href="#__codelineno-45-12"></a>    Initial temporal phase in rad.
+<a id="__codelineno-45-13" name="__codelineno-45-13" href="#__codelineno-45-13"></a>orientation_rad
+<a id="__codelineno-45-14" name="__codelineno-45-14" href="#__codelineno-45-14"></a>    Counterclockwise spatial rotation of the principal axes in rad.
+<a id="__codelineno-45-15" name="__codelineno-45-15" href="#__codelineno-45-15"></a>
+<a id="__codelineno-45-16" name="__codelineno-45-16" href="#__codelineno-45-16"></a>Notes
+<a id="__codelineno-45-17" name="__codelineno-45-17" href="#__codelineno-45-17"></a>-----
+<a id="__codelineno-45-18" name="__codelineno-45-18" href="#__codelineno-45-18"></a>Construction copies ``center`` and ``semi_axes`` into read-only float arrays.
+<a id="__codelineno-45-19" name="__codelineno-45-19" href="#__codelineno-45-19"></a>Direction changes temporal traversal only; orientation changes geometry in
+<a id="__codelineno-45-20" name="__codelineno-45-20" href="#__codelineno-45-20"></a>the fixed x/y frame.
+<a id="__codelineno-45-21" name="__codelineno-45-21" href="#__codelineno-45-21"></a>
+<a id="__codelineno-45-22" name="__codelineno-45-22" href="#__codelineno-45-22"></a>Raises
+<a id="__codelineno-45-23" name="__codelineno-45-23" href="#__codelineno-45-23"></a>------
+<a id="__codelineno-45-24" name="__codelineno-45-24" href="#__codelineno-45-24"></a>TypeError, ValueError
+<a id="__codelineno-45-25" name="__codelineno-45-25" href="#__codelineno-45-25"></a>    If vectors, direction, phase, or orientation violate the contract.
+</code></pre></div>
+</details>
 <p>源码：<code>ALB/api/analysis.py:275</code>。</p>
 <p>公开数据字段：</p>
 <table>
@@ -3833,6 +4335,7 @@
 <p>公开成员：</p>
 <h4 id="ellipsetrajectorywith_directiondirection-str-ellipsetrajectory"><code>EllipseTrajectory.with_direction(direction: 'str') -&gt; "'EllipseTrajectory'"</code><a class="headerlink" href="#ellipsetrajectorywith_directiondirection-str-ellipsetrajectory" title="Permanent link">&para;</a></h4>
 <p>保留几何、相位和转角，只替换遍历方向。</p>
+<p>源码：<code>ALB/api/analysis.py:330</code>。</p>
 <p>输入：</p>
 <table>
 <thead>
@@ -3857,8 +4360,30 @@
 </tbody>
 </table>
 <p>输出：<code>'EllipseTrajectory'</code>。返回新的 EllipseTrajectory。</p>
+<details class="note">
+<summary>源码 docstring（英文原文）</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a>Return an immutable copy with the requested traversal direction.
+<a id="__codelineno-46-2" name="__codelineno-46-2" href="#__codelineno-46-2"></a>
+<a id="__codelineno-46-3" name="__codelineno-46-3" href="#__codelineno-46-3"></a>Parameters
+<a id="__codelineno-46-4" name="__codelineno-46-4" href="#__codelineno-46-4"></a>----------
+<a id="__codelineno-46-5" name="__codelineno-46-5" href="#__codelineno-46-5"></a>direction
+<a id="__codelineno-46-6" name="__codelineno-46-6" href="#__codelineno-46-6"></a>    ``"forward"`` or ``"reverse"``.
+<a id="__codelineno-46-7" name="__codelineno-46-7" href="#__codelineno-46-7"></a>
+<a id="__codelineno-46-8" name="__codelineno-46-8" href="#__codelineno-46-8"></a>Returns
+<a id="__codelineno-46-9" name="__codelineno-46-9" href="#__codelineno-46-9"></a>-------
+<a id="__codelineno-46-10" name="__codelineno-46-10" href="#__codelineno-46-10"></a>EllipseTrajectory
+<a id="__codelineno-46-11" name="__codelineno-46-11" href="#__codelineno-46-11"></a>    New trajectory sharing the same numeric geometry, phase, and
+<a id="__codelineno-46-12" name="__codelineno-46-12" href="#__codelineno-46-12"></a>    orientation values.
+<a id="__codelineno-46-13" name="__codelineno-46-13" href="#__codelineno-46-13"></a>
+<a id="__codelineno-46-14" name="__codelineno-46-14" href="#__codelineno-46-14"></a>Raises
+<a id="__codelineno-46-15" name="__codelineno-46-15" href="#__codelineno-46-15"></a>------
+<a id="__codelineno-46-16" name="__codelineno-46-16" href="#__codelineno-46-16"></a>ValueError
+<a id="__codelineno-46-17" name="__codelineno-46-17" href="#__codelineno-46-17"></a>    If ``direction`` is not supported.
+</code></pre></div>
+</details>
 <h4 id="ellipsetrajectorysamplestime-sequencefloat-frequency_hz-float-tuplefloatarray-floatarray"><code>EllipseTrajectory.samples(time: 'Sequence[float]', *, frequency_hz: 'float') -&gt; 'tuple[FloatArray, FloatArray]'</code><a class="headerlink" href="#ellipsetrajectorysamplestime-sequencefloat-frequency_hz-float-tuplefloatarray-floatarray" title="Permanent link">&para;</a></h4>
 <p>在给定时间点采样旋转椭圆的位移和解析速度。</p>
+<p>源码：<code>ALB/api/analysis.py:358</code>。</p>
 <p>输入：</p>
 <table>
 <thead>
@@ -3891,8 +4416,32 @@
 </tbody>
 </table>
 <p>输出：<code>tuple[FloatArray, FloatArray]</code>。返回 (displacement, velocity)，两个数组形状均为 (n, 2)。</p>
+<details class="note">
+<summary>源码 docstring（英文原文）</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a>Sample displacement and analytic velocity on the rotated ellipse.
+<a id="__codelineno-47-2" name="__codelineno-47-2" href="#__codelineno-47-2"></a>
+<a id="__codelineno-47-3" name="__codelineno-47-3" href="#__codelineno-47-3"></a>Parameters
+<a id="__codelineno-47-4" name="__codelineno-47-4" href="#__codelineno-47-4"></a>----------
+<a id="__codelineno-47-5" name="__codelineno-47-5" href="#__codelineno-47-5"></a>time
+<a id="__codelineno-47-6" name="__codelineno-47-6" href="#__codelineno-47-6"></a>    Nonempty finite one-dimensional sample times.
+<a id="__codelineno-47-7" name="__codelineno-47-7" href="#__codelineno-47-7"></a>frequency_hz
+<a id="__codelineno-47-8" name="__codelineno-47-8" href="#__codelineno-47-8"></a>    Positive traversal frequency in Hz. ``direction`` controls its sign.
+<a id="__codelineno-47-9" name="__codelineno-47-9" href="#__codelineno-47-9"></a>
+<a id="__codelineno-47-10" name="__codelineno-47-10" href="#__codelineno-47-10"></a>Returns
+<a id="__codelineno-47-11" name="__codelineno-47-11" href="#__codelineno-47-11"></a>-------
+<a id="__codelineno-47-12" name="__codelineno-47-12" href="#__codelineno-47-12"></a>tuple[numpy.ndarray, numpy.ndarray]
+<a id="__codelineno-47-13" name="__codelineno-47-13" href="#__codelineno-47-13"></a>    Displacement and velocity arrays, each with shape ``(samples, 2)``.
+<a id="__codelineno-47-14" name="__codelineno-47-14" href="#__codelineno-47-14"></a>    Their units are the trajectory displacement unit and that unit/s.
+<a id="__codelineno-47-15" name="__codelineno-47-15" href="#__codelineno-47-15"></a>
+<a id="__codelineno-47-16" name="__codelineno-47-16" href="#__codelineno-47-16"></a>Raises
+<a id="__codelineno-47-17" name="__codelineno-47-17" href="#__codelineno-47-17"></a>------
+<a id="__codelineno-47-18" name="__codelineno-47-18" href="#__codelineno-47-18"></a>TypeError, ValueError
+<a id="__codelineno-47-19" name="__codelineno-47-19" href="#__codelineno-47-19"></a>    If the time grid or frequency is not finite and valid.
+</code></pre></div>
+</details>
 <h3 id="albequilibriumoptionsmax_iterations-int-30-relative_tolerance-float-00001-damping-float-005-jacobian_step-float-001-fallback_stiffness-tuplefloat-float-50-50-stall_patience-int-5-stall_relative_tolerance-float-00-time-float-00-none"><code>ALB.EquilibriumOptions(max_iterations: 'int' = 30, relative_tolerance: 'float' = 0.0001, damping: 'float' = 0.05, jacobian_step: 'float' = 0.01, fallback_stiffness: 'tuple[float, float]' = (5.0, 5.0), stall_patience: 'int' = 5, stall_relative_tolerance: 'float' = 0.0, time: 'float' = 0.0) -&gt; None</code><a class="headerlink" href="#albequilibriumoptionsmax_iterations-int-30-relative_tolerance-float-00001-damping-float-005-jacobian_step-float-001-fallback_stiffness-tuplefloat-float-50-50-stall_patience-int-5-stall_relative_tolerance-float-00-time-float-00-none" title="Permanent link">&para;</a></h3>
 <p>静平衡求解器的不可变参数集合，控制迭代、容差、阻尼、Jacobian 和停滞回退。</p>
+<p>源码：<code>ALB/api/analysis.py:197</code>。</p>
 <p>输入：</p>
 <table>
 <thead>
@@ -3974,6 +4523,20 @@
 </table>
 <p>输出：<code>ALB.EquilibriumOptions</code>。构造经过范围校验的 EquilibriumOptions。</p>
 <p>示例：<a href="#example-bearing_analysis">轨迹、静平衡和动态系数分析</a>。</p>
+<details class="note">
+<summary>源码 docstring（英文原文）</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a>Configure the established static-equilibrium iteration.
+<a id="__codelineno-48-2" name="__codelineno-48-2" href="#__codelineno-48-2"></a>
+<a id="__codelineno-48-3" name="__codelineno-48-3" href="#__codelineno-48-3"></a>``relative_tolerance`` measures force imbalance relative to the nonzero
+<a id="__codelineno-48-4" name="__codelineno-48-4" href="#__codelineno-48-4"></a>applied-load magnitude. ``damping`` scales each Newton update;
+<a id="__codelineno-48-5" name="__codelineno-48-5" href="#__codelineno-48-5"></a>``jacobian_step`` is expressed in the solver's normalized displacement
+<a id="__codelineno-48-6" name="__codelineno-48-6" href="#__codelineno-48-6"></a>coordinate. ``fallback_stiffness`` supplies positive normalized x/y
+<a id="__codelineno-48-7" name="__codelineno-48-7" href="#__codelineno-48-7"></a>stiffnesses after ``stall_patience`` non-improving iterations.
+<a id="__codelineno-48-8" name="__codelineno-48-8" href="#__codelineno-48-8"></a>``stall_relative_tolerance`` is the minimum fractional improvement counted
+<a id="__codelineno-48-9" name="__codelineno-48-9" href="#__codelineno-48-9"></a>as progress, and ``time`` is passed to each static bearing evaluation in
+<a id="__codelineno-48-10" name="__codelineno-48-10" href="#__codelineno-48-10"></a>the bearing's configured time unit.
+</code></pre></div>
+</details>
 <p>源码：<code>ALB/api/analysis.py:197</code>。</p>
 <p>公开数据字段：</p>
 <table>
@@ -4038,6 +4601,7 @@
 </table>
 <h3 id="albequilibriumsolverbearing-any-options-equilibriumoptions-equilibriumoptionsmax_iterations30-relative_tolerance00001-damping005-jacobian_step001-fallback_stiffness50-50-stall_patience5-stall_relative_tolerance00-time00-none"><code>ALB.EquilibriumSolver(bearing: 'Any', options: 'EquilibriumOptions' = EquilibriumOptions(max_iterations=30, relative_tolerance=0.0001, damping=0.05, jacobian_step=0.01, fallback_stiffness=(5.0, 5.0), stall_patience=5, stall_relative_tolerance=0.0, time=0.0)) -&gt; 'None'</code><a class="headerlink" href="#albequilibriumsolverbearing-any-options-equilibriumoptions-equilibriumoptionsmax_iterations30-relative_tolerance00001-damping005-jacobian_step001-fallback_stiffness50-50-stall_patience5-stall_relative_tolerance00-time00-none" title="Permanent link">&para;</a></h3>
 <p>直接接收一个已构造 Bearing，并使用既有静平衡算法求载荷平衡。</p>
+<p>源码：<code>ALB/api/analysis.py:496</code>。</p>
 <p>输入：</p>
 <table>
 <thead>
@@ -4071,10 +4635,22 @@
 </table>
 <p>输出：<code>ALB.EquilibriumSolver</code>。构造可由用户或内部模块直接调用的静平衡模型。</p>
 <p>示例：<a href="#example-bearing_analysis">轨迹、静平衡和动态系数分析</a>。</p>
-<p>源码：<code>ALB/api/analysis.py:435</code>。</p>
+<details class="note">
+<summary>源码 docstring（英文原文）</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a>Solve static load balance directly for one constructed bearing.
+<a id="__codelineno-49-2" name="__codelineno-49-2" href="#__codelineno-49-2"></a>
+<a id="__codelineno-49-3" name="__codelineno-49-3" href="#__codelineno-49-3"></a>The model supports film-bearing families with explicit displacement and
+<a id="__codelineno-49-4" name="__codelineno-49-4" href="#__codelineno-49-4"></a>force scales. The requested load must be a finite, nonzero two-axis value;
+<a id="__codelineno-49-5" name="__codelineno-49-5" href="#__codelineno-49-5"></a>external-spool configurations must instead provide a controlled operating
+<a id="__codelineno-49-6" name="__codelineno-49-6" href="#__codelineno-49-6"></a>point. Numerical failure raises ``CalculationError`` with the evaluated
+<a id="__codelineno-49-7" name="__codelineno-49-7" href="#__codelineno-49-7"></a>coordinates and forces in ``failure_snapshot``.
+</code></pre></div>
+</details>
+<p>源码：<code>ALB/api/analysis.py:496</code>。</p>
 <p>公开成员：</p>
 <h4 id="equilibriumsolversolveload-object-initial_displacement-object-00-00-analysisresult"><code>EquilibriumSolver.solve(load: 'object', initial_displacement: 'object' = (0.0, 0.0)) -&gt; 'AnalysisResult'</code><a class="headerlink" href="#equilibriumsolversolveload-object-initial_displacement-object-00-00-analysisresult" title="Permanent link">&para;</a></h4>
 <p>求使轴承力与二维外载荷平衡的位移。</p>
+<p>源码：<code>ALB/api/analysis.py:527</code>。</p>
 <p>输入：</p>
 <table>
 <thead>
@@ -4122,8 +4698,21 @@
 </tr>
 </tbody>
 </table>
+<details class="note">
+<summary>源码 docstring（英文原文）</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a>Find the displacement where bearing force balances ``load``.
+<a id="__codelineno-50-2" name="__codelineno-50-2" href="#__codelineno-50-2"></a>
+<a id="__codelineno-50-3" name="__codelineno-50-3" href="#__codelineno-50-3"></a>``load`` and ``initial_displacement`` are finite ``(x, y)`` values in
+<a id="__codelineno-50-4" name="__codelineno-50-4" href="#__codelineno-50-4"></a>the bearing's configured force and displacement units. Load must be
+<a id="__codelineno-50-5" name="__codelineno-50-5" href="#__codelineno-50-5"></a>nonzero because convergence uses relative imbalance. External-spool
+<a id="__codelineno-50-6" name="__codelineno-50-6" href="#__codelineno-50-6"></a>configurations are unsupported. Nonconvergence raises
+<a id="__codelineno-50-7" name="__codelineno-50-7" href="#__codelineno-50-7"></a>``CalculationError`` whose ``failure_snapshot`` preserves evaluated
+<a id="__codelineno-50-8" name="__codelineno-50-8" href="#__codelineno-50-8"></a>coordinates, forces, residuals, and the best iterate.
+</code></pre></div>
+</details>
 <h3 id="albhistorypolicymode-literalmemory-ring_buffer-disk_stream-memory-fields-tuplestr-rotor_displacement-rotor_velocity-bearing_force-downsample-int-1-capacity-int-none-none-directory-path-none-none-none"><code>ALB.HistoryPolicy(mode: "Literal['memory', 'ring_buffer', 'disk_stream']" = 'memory', fields: 'tuple[str, ...]' = ('rotor_displacement', 'rotor_velocity', 'bearing_force'), downsample: 'int' = 1, capacity: 'int | None' = None, directory: 'Path | None' = None) -&gt; None</code><a class="headerlink" href="#albhistorypolicymode-literalmemory-ring_buffer-disk_stream-memory-fields-tuplestr-rotor_displacement-rotor_velocity-bearing_force-downsample-int-1-capacity-int-none-none-directory-path-none-none-none" title="Permanent link">&para;</a></h3>
 <p>控制仿真已提交历史的字段筛选、降采样、环形缓存或磁盘流式写入。</p>
+<p>源码：<code>ALB/api/simulation.py:174</code>。</p>
 <p>输入：</p>
 <table>
 <thead>
@@ -4181,7 +4770,19 @@
 </table>
 <p>输出：<code>ALB.HistoryPolicy</code>。构造经过模式与参数一致性校验的 HistoryPolicy。</p>
 <p>示例：<a href="#example-history_policy">选择仿真历史保留策略</a>、<a href="#example-simulation_programmatic">程序化装配仿真拓扑</a>。</p>
-<p>源码：<code>ALB/api/simulation.py:172</code>。</p>
+<details class="note">
+<summary>源码 docstring（英文原文）</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a>Select committed simulation fields, sampling, and storage.
+<a id="__codelineno-51-2" name="__codelineno-51-2" href="#__codelineno-51-2"></a>
+<a id="__codelineno-51-3" name="__codelineno-51-3" href="#__codelineno-51-3"></a>``memory`` retains all selected samples, ``ring_buffer`` retains the latest
+<a id="__codelineno-51-4" name="__codelineno-51-4" href="#__codelineno-51-4"></a>``capacity`` samples, and ``disk_stream`` writes selected samples below
+<a id="__codelineno-51-5" name="__codelineno-51-5" href="#__codelineno-51-5"></a>``directory`` instead of returning their arrays in memory. ``downsample``
+<a id="__codelineno-51-6" name="__codelineno-51-6" href="#__codelineno-51-6"></a>keeps committed indices divisible by that positive integer, including the
+<a id="__codelineno-51-7" name="__codelineno-51-7" href="#__codelineno-51-7"></a>initial index zero. Available fields are ``rotor_displacement``,
+<a id="__codelineno-51-8" name="__codelineno-51-8" href="#__codelineno-51-8"></a>``rotor_velocity``, and ``bearing_force``.
+</code></pre></div>
+</details>
+<p>源码：<code>ALB/api/simulation.py:174</code>。</p>
 <p>公开数据字段：</p>
 <table>
 <thead>
@@ -4227,6 +4828,7 @@
 </table>
 <h3 id="albrotorbearingsimulationconfig-simulationconfig-none"><code>ALB.RotorBearingSimulation(config: 'SimulationConfig') -&gt; 'None'</code><a class="headerlink" href="#albrotorbearingsimulationconfig-simulationconfig-none" title="Permanent link">&para;</a></h3>
 <p>拓扑不可变的一次性转子-轴承耦合仿真 facade。</p>
+<p>源码：<code>ALB/api/simulation.py:381</code>。</p>
 <p>输入：</p>
 <table>
 <thead>
@@ -4252,13 +4854,33 @@
 </table>
 <p>输出：<code>ALB.RotorBearingSimulation</code>。构造可运行一次的 RotorBearingSimulation；通常通过 build_simulation() 获得。</p>
 <p>示例：<a href="#example-simulation_from_file">从 JSON5 运行转子-轴承仿真</a>、<a href="#example-simulation_programmatic">程序化装配仿真拓扑</a>。</p>
-<p>源码：<code>ALB/api/simulation.py:379</code>。</p>
+<details class="note">
+<summary>源码 docstring（英文原文）</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-52-1" name="__codelineno-52-1" href="#__codelineno-52-1"></a>Ready one-shot simulation with immutable topology.
+<a id="__codelineno-52-2" name="__codelineno-52-2" href="#__codelineno-52-2"></a>
+<a id="__codelineno-52-3" name="__codelineno-52-3" href="#__codelineno-52-3"></a>``run()`` commits the initial state at time zero and then performs the
+<a id="__codelineno-52-4" name="__codelineno-52-4" href="#__codelineno-52-4"></a>configured number of advances. A second call raises ``RuntimeError``;
+<a id="__codelineno-52-5" name="__codelineno-52-5" href="#__codelineno-52-5"></a>construct a new simulation to repeat or change a run. Access
+<a id="__codelineno-52-6" name="__codelineno-52-6" href="#__codelineno-52-6"></a>``latest_result`` only after successful completion.
+</code></pre></div>
+</details>
+<p>源码：<code>ALB/api/simulation.py:381</code>。</p>
 <p>公开成员：</p>
 <h4 id="rotorbearingsimulationconfig"><code>RotorBearingSimulation.config</code><a class="headerlink" href="#rotorbearingsimulationconfig" title="Permanent link">&para;</a></h4>
 <p>读取本次仿真的不可变输入和拓扑。</p>
+<p>源码：<code>ALB/api/simulation.py:400</code>。</p>
 <p>输出：<code>SimulationConfig</code>。返回 SimulationConfig。</p>
+<details class="note">
+<summary>源码 docstring（英文原文）</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-53-1" name="__codelineno-53-1" href="#__codelineno-53-1"></a>Return the immutable topology, loads, and history policy.
+<a id="__codelineno-53-2" name="__codelineno-53-2" href="#__codelineno-53-2"></a>
+<a id="__codelineno-53-3" name="__codelineno-53-3" href="#__codelineno-53-3"></a>Runtime-owned rotor, adapters, and dependencies remain the same objects;
+<a id="__codelineno-53-4" name="__codelineno-53-4" href="#__codelineno-53-4"></a>declarative mappings and sequences were copied and frozen at validation.
+</code></pre></div>
+</details>
 <h4 id="rotorbearingsimulationlatest_result"><code>RotorBearingSimulation.latest_result</code><a class="headerlink" href="#rotorbearingsimulationlatest_result" title="Permanent link">&para;</a></h4>
 <p>读取最近一次完整或失败前已提交的历史，不触发运行。</p>
+<p>源码：<code>ALB/api/simulation.py:410</code>。</p>
 <p>输出：<code>SimulationResult</code>。返回 SimulationResult。</p>
 <p>可能异常：</p>
 <table>
@@ -4275,8 +4897,22 @@
 </tr>
 </tbody>
 </table>
+<details class="note">
+<summary>源码 docstring（英文原文）</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-54-1" name="__codelineno-54-1" href="#__codelineno-54-1"></a>Return the latest complete or partial committed simulation history.
+<a id="__codelineno-54-2" name="__codelineno-54-2" href="#__codelineno-54-2"></a>
+<a id="__codelineno-54-3" name="__codelineno-54-3" href="#__codelineno-54-3"></a>A failed run may publish a partial result containing every safely retained
+<a id="__codelineno-54-4" name="__codelineno-54-4" href="#__codelineno-54-4"></a>committed step. Access before a successful or failed run raises.
+<a id="__codelineno-54-5" name="__codelineno-54-5" href="#__codelineno-54-5"></a>
+<a id="__codelineno-54-6" name="__codelineno-54-6" href="#__codelineno-54-6"></a>Raises
+<a id="__codelineno-54-7" name="__codelineno-54-7" href="#__codelineno-54-7"></a>------
+<a id="__codelineno-54-8" name="__codelineno-54-8" href="#__codelineno-54-8"></a>RuntimeError
+<a id="__codelineno-54-9" name="__codelineno-54-9" href="#__codelineno-54-9"></a>    If :meth:`run` has not produced any result boundary.
+</code></pre></div>
+</details>
 <h4 id="rotorbearingsimulationrun-simulationresult"><code>RotorBearingSimulation.run() -&gt; 'SimulationResult'</code><a class="headerlink" href="#rotorbearingsimulationrun-simulationresult" title="Permanent link">&para;</a></h4>
 <p>执行一次耦合仿真，并按 HistoryPolicy 保留真实提交快照。</p>
+<p>源码：<code>ALB/api/simulation.py:478</code>。</p>
 <p>输入：</p>
 <p>无。</p>
 <p>输出：<code>SimulationResult</code>。成功时返回完整 SimulationResult。</p>
@@ -4299,8 +4935,19 @@
 </tr>
 </tbody>
 </table>
+<details class="note">
+<summary>源码 docstring（英文原文）</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-55-1" name="__codelineno-55-1" href="#__codelineno-55-1"></a>Run once and retain every policy-selected committed snapshot.
+<a id="__codelineno-55-2" name="__codelineno-55-2" href="#__codelineno-55-2"></a>
+<a id="__codelineno-55-3" name="__codelineno-55-3" href="#__codelineno-55-3"></a>A post-commit failure never repeats physics or advances another step.
+<a id="__codelineno-55-4" name="__codelineno-55-4" href="#__codelineno-55-4"></a>The raised ``SimulationError`` includes the committed output hidden by
+<a id="__codelineno-55-5" name="__codelineno-55-5" href="#__codelineno-55-5"></a>the exception plus independent physical, history, and post-commit
+<a id="__codelineno-55-6" name="__codelineno-55-6" href="#__codelineno-55-6"></a>completion diagnostics.
+</code></pre></div>
+</details>
 <h3 id="albsimulationconfigrotor-rotorprotocol-mounts-tuplebearingmount-time_step-float-steps-int-loads-tuplemappingstr-any-history-historypolicy-historypolicymodememory-fieldsrotor_displacement-rotor_velocity-bearing_force-downsample1-capacitynone-directorynone-dependencies-couplingruntimedependencies-none-none-none"><code>ALB.SimulationConfig(rotor: 'RotorProtocol', mounts: 'tuple[BearingMount, ...]', time_step: 'float', steps: 'int', loads: 'tuple[Mapping[str, Any], ...]' = (), history: 'HistoryPolicy' = HistoryPolicy(mode='memory', fields=('rotor_displacement', 'rotor_velocity', 'bearing_force'), downsample=1, capacity=None, directory=None), dependencies: 'CouplingRuntimeDependencies | None' = None) -&gt; None</code><a class="headerlink" href="#albsimulationconfigrotor-rotorprotocol-mounts-tuplebearingmount-time_step-float-steps-int-loads-tuplemappingstr-any-history-historypolicy-historypolicymodememory-fieldsrotor_displacement-rotor_velocity-bearing_force-downsample1-capacitynone-directorynone-dependencies-couplingruntimedependencies-none-none-none" title="Permanent link">&para;</a></h3>
 <p>一次转子-轴承耦合计算的不可变拓扑、时步、载荷、历史策略和可选依赖。</p>
+<p>源码：<code>ALB/api/simulation.py:237</code>。</p>
 <p>输入：</p>
 <table>
 <thead>
@@ -4374,7 +5021,36 @@
 </table>
 <p>输出：<code>ALB.SimulationConfig</code>。构造经过 rotor 能力、节点输出和本地时步一致性校验的 SimulationConfig。</p>
 <p>示例：<a href="#example-simulation_programmatic">程序化装配仿真拓扑</a>、<a href="#example-simulation_from_file">从 JSON5 运行转子-轴承仿真</a>。</p>
-<p>源码：<code>ALB/api/simulation.py:235</code>。</p>
+<details class="note">
+<summary>源码 docstring（英文原文）</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-56-1" name="__codelineno-56-1" href="#__codelineno-56-1"></a>Validate immutable inputs for one dimensional rotor simulation.
+<a id="__codelineno-56-2" name="__codelineno-56-2" href="#__codelineno-56-2"></a>
+<a id="__codelineno-56-3" name="__codelineno-56-3" href="#__codelineno-56-3"></a>``rotor`` must satisfy ``ALB.contracts.RotorProtocol`` and its ``dt`` must
+<a id="__codelineno-56-4" name="__codelineno-56-4" href="#__codelineno-56-4"></a>equal ``time_step``. ``mounts`` contains at least one ``BearingMount`` with
+<a id="__codelineno-56-5" name="__codelineno-56-5" href="#__codelineno-56-5"></a>unique nodes. ``steps`` counts advances after the initial committed state,
+<a id="__codelineno-56-6" name="__codelineno-56-6" href="#__codelineno-56-6"></a>so memory history normally contains ``steps + 1`` samples.
+<a id="__codelineno-56-7" name="__codelineno-56-7" href="#__codelineno-56-7"></a>
+<a id="__codelineno-56-8" name="__codelineno-56-8" href="#__codelineno-56-8"></a>Each load is a mapping with one of these shapes (SI units):
+<a id="__codelineno-56-9" name="__codelineno-56-9" href="#__codelineno-56-9"></a>
+<a id="__codelineno-56-10" name="__codelineno-56-10" href="#__codelineno-56-10"></a>* ``{"type": "static", "node": int, "force": [Fx, Fy]}``;
+<a id="__codelineno-56-11" name="__codelineno-56-11" href="#__codelineno-56-11"></a>* ``{"type": "gravity", "acceleration": 9.80665}``;
+<a id="__codelineno-56-12" name="__codelineno-56-12" href="#__codelineno-56-12"></a>* ``{"type": "unbalance", "node": int | [int, ...], "phase": 0,
+<a id="__codelineno-56-13" name="__codelineno-56-13" href="#__codelineno-56-13"></a>  "t_max": 1, "m": 0, "freq": 0, "e": 0, "no_step": False}``.
+<a id="__codelineno-56-14" name="__codelineno-56-14" href="#__codelineno-56-14"></a>
+<a id="__codelineno-56-15" name="__codelineno-56-15" href="#__codelineno-56-15"></a>Static and unbalance nodes are nonnegative. Load declarations are copied
+<a id="__codelineno-56-16" name="__codelineno-56-16" href="#__codelineno-56-16"></a>and frozen during construction. ``history`` controls returned or streamed
+<a id="__codelineno-56-17" name="__codelineno-56-17" href="#__codelineno-56-17"></a>fields. ``dependencies`` is an advanced runtime hook imported as
+<a id="__codelineno-56-18" name="__codelineno-56-18" href="#__codelineno-56-18"></a>``ALB.dynamics.CouplingRuntimeDependencies``; ordinary simulations leave it
+<a id="__codelineno-56-19" name="__codelineno-56-19" href="#__codelineno-56-19"></a>as ``None``. The resulting ``RotorBearingSimulation`` is one-shot.
+<a id="__codelineno-56-20" name="__codelineno-56-20" href="#__codelineno-56-20"></a>
+<a id="__codelineno-56-21" name="__codelineno-56-21" href="#__codelineno-56-21"></a>Rotor time uses the global dimensional step. Each mounted bearing uses the
+<a id="__codelineno-56-22" name="__codelineno-56-22" href="#__codelineno-56-22"></a>step produced by its explicit unit adapter, and its entire materialized
+<a id="__codelineno-56-23" name="__codelineno-56-23" href="#__codelineno-56-23"></a>configuration tree must agree with that bearing-local value. Topology and
+<a id="__codelineno-56-24" name="__codelineno-56-24" href="#__codelineno-56-24"></a>load declarations are frozen; the supplied rotor, adapters, and optional
+<a id="__codelineno-56-25" name="__codelineno-56-25" href="#__codelineno-56-25"></a>runtime dependencies remain owner-managed runtime objects.
+</code></pre></div>
+</details>
+<p>源码：<code>ALB/api/simulation.py:237</code>。</p>
 <p>公开数据字段：</p>
 <table>
 <thead>
@@ -4432,6 +5108,7 @@
 </table>
 <h3 id="albsimulationresulttime-floatarray-rotor_displacement-floatarray-rotor_velocity-floatarray-bearing_force-floatarray-metadata-mappingstr-any-convergence-convergencestatus-convergencestatusresidual00-convergedtrue-iterationsnone-message-none"><code>ALB.SimulationResult(time: 'FloatArray', rotor_displacement: 'FloatArray', rotor_velocity: 'FloatArray', bearing_force: 'FloatArray', metadata: 'Mapping[str, Any]', convergence: 'ConvergenceStatus' = ConvergenceStatus(residual=0.0, converged=True, iterations=None, message='')) -&gt; None</code><a class="headerlink" href="#albsimulationresulttime-floatarray-rotor_displacement-floatarray-rotor_velocity-floatarray-bearing_force-floatarray-metadata-mappingstr-any-convergence-convergencestatus-convergencestatusresidual00-convergedtrue-iterationsnone-message-none" title="Permanent link">&para;</a></h3>
 <p>转子-轴承仿真中按策略保留的不可变已提交历史。</p>
+<p>源码：<code>ALB/api/results.py:247</code>。</p>
 <p>输入：</p>
 <table>
 <thead>
@@ -4497,7 +5174,20 @@
 </table>
 <p>输出：<code>ALB.SimulationResult</code>。构造 SimulationResult；普通用户通常从 RotorBearingSimulation.run() 获得。</p>
 <p>示例：<a href="#example-simulation_from_file">从 JSON5 运行转子-轴承仿真</a>。</p>
-<p>源码：<code>ALB/api/results.py:196</code>。</p>
+<details class="note">
+<summary>源码 docstring（英文原文）</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-57-1" name="__codelineno-57-1" href="#__codelineno-57-1"></a>Immutable committed history from one rotor-bearing simulation.
+<a id="__codelineno-57-2" name="__codelineno-57-2" href="#__codelineno-57-2"></a>
+<a id="__codelineno-57-3" name="__codelineno-57-3" href="#__codelineno-57-3"></a>The first axis of every retained array matches ``time``. Displacement and
+<a id="__codelineno-57-4" name="__codelineno-57-4" href="#__codelineno-57-4"></a>velocity normally have shape ``(samples, rotor_dofs)`` and bearing force
+<a id="__codelineno-57-5" name="__codelineno-57-5" href="#__codelineno-57-5"></a>has shape ``(samples, mount_count, 2)``. A field excluded by
+<a id="__codelineno-57-6" name="__codelineno-57-6" href="#__codelineno-57-6"></a>``HistoryPolicy.fields`` is represented by an empty trailing dimension;
+<a id="__codelineno-57-7" name="__codelineno-57-7" href="#__codelineno-57-7"></a>ring-buffer and downsampling policies may reduce ``samples``. Disk-streamed
+<a id="__codelineno-57-8" name="__codelineno-57-8" href="#__codelineno-57-8"></a>fields are empty in memory and ``metadata['history_path']`` identifies the
+<a id="__codelineno-57-9" name="__codelineno-57-9" href="#__codelineno-57-9"></a>persisted history.
+</code></pre></div>
+</details>
+<p>源码：<code>ALB/api/results.py:247</code>。</p>
 <p>公开数据字段：</p>
 <table>
 <thead>
@@ -4550,14 +5240,34 @@
 <p>公开成员：</p>
 <h4 id="simulationresultdiagnostics"><code>SimulationResult.diagnostics</code><a class="headerlink" href="#simulationresultdiagnostics" title="Permanent link">&para;</a></h4>
 <p>读取不可变仿真诊断元数据。</p>
+<p>源码：<code>ALB/api/results.py:295</code>。</p>
 <p>输出：<code>Mapping[str, Any]</code>。返回只读键值映射。</p>
+<details class="note">
+<summary>源码 docstring（英文原文）</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-58-1" name="__codelineno-58-1" href="#__codelineno-58-1"></a>Return immutable simulation completion and history diagnostics.
+<a id="__codelineno-58-2" name="__codelineno-58-2" href="#__codelineno-58-2"></a>
+<a id="__codelineno-58-3" name="__codelineno-58-3" href="#__codelineno-58-3"></a>Metadata records committed/requested steps, physical/history/post-commit
+<a id="__codelineno-58-4" name="__codelineno-58-4" href="#__codelineno-58-4"></a>completion, history policy, and an optional disk-stream path.
+</code></pre></div>
+</details>
 <h4 id="simulationresultas_bundle-resultbundle"><code>SimulationResult.as_bundle() -&gt; 'ResultBundle'</code><a class="headerlink" href="#simulationresultas_bundle-resultbundle" title="Permanent link">&para;</a></h4>
 <p>转换为统一的可持久化 ResultBundle。</p>
+<p>源码：<code>ALB/api/results.py:305</code>。</p>
 <p>输入：</p>
 <p>无。</p>
 <p>输出：<code>ResultBundle</code>。返回包含四组历史数组和完成元数据的不可变结果包。</p>
+<details class="note">
+<summary>源码 docstring（英文原文）</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-59-1" name="__codelineno-59-1" href="#__codelineno-59-1"></a>Return the complete committed in-memory history as a result bundle.
+<a id="__codelineno-59-2" name="__codelineno-59-2" href="#__codelineno-59-2"></a>
+<a id="__codelineno-59-3" name="__codelineno-59-3" href="#__codelineno-59-3"></a>The bundle contains time, rotor displacement/velocity, and bearing force
+<a id="__codelineno-59-4" name="__codelineno-59-4" href="#__codelineno-59-4"></a>arrays plus the simulation schema and convergence metadata. Disk-streamed
+<a id="__codelineno-59-5" name="__codelineno-59-5" href="#__codelineno-59-5"></a>fields remain empty in memory and are identified by metadata.
+</code></pre></div>
+</details>
 <h4 id="simulationresultwritepath-str-path-artifactmanifest"><code>SimulationResult.write(path: 'str | Path') -&gt; 'ArtifactManifest'</code><a class="headerlink" href="#simulationresultwritepath-str-path-artifactmanifest" title="Permanent link">&para;</a></h4>
 <p>把仿真历史和诊断写入一个新的制品目录。</p>
+<p>源码：<code>ALB/api/results.py:330</code>。</p>
 <p>输入：</p>
 <table>
 <thead>
@@ -4582,6 +5292,21 @@
 </tbody>
 </table>
 <p>输出：<code>ArtifactManifest</code>。返回 ArtifactManifest。</p>
+<details class="note">
+<summary>源码 docstring（英文原文）</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-60-1" name="__codelineno-60-1" href="#__codelineno-60-1"></a>Persist the in-memory simulation result to a new artifact directory.
+<a id="__codelineno-60-2" name="__codelineno-60-2" href="#__codelineno-60-2"></a>
+<a id="__codelineno-60-3" name="__codelineno-60-3" href="#__codelineno-60-3"></a>Parameters
+<a id="__codelineno-60-4" name="__codelineno-60-4" href="#__codelineno-60-4"></a>----------
+<a id="__codelineno-60-5" name="__codelineno-60-5" href="#__codelineno-60-5"></a>path
+<a id="__codelineno-60-6" name="__codelineno-60-6" href="#__codelineno-60-6"></a>    Destination directory passed to ``DirectoryArtifactWriter``.
+<a id="__codelineno-60-7" name="__codelineno-60-7" href="#__codelineno-60-7"></a>
+<a id="__codelineno-60-8" name="__codelineno-60-8" href="#__codelineno-60-8"></a>Returns
+<a id="__codelineno-60-9" name="__codelineno-60-9" href="#__codelineno-60-9"></a>-------
+<a id="__codelineno-60-10" name="__codelineno-60-10" href="#__codelineno-60-10"></a>ArtifactManifest
+<a id="__codelineno-60-11" name="__codelineno-60-11" href="#__codelineno-60-11"></a>    Written arrays, metadata, and integrity digests.
+</code></pre></div>
+</details>
 <h3 id="unitsystem"><code>UnitSystem</code><a class="headerlink" href="#unitsystem" title="Permanent link">&para;</a></h3>
 <p>所有数值积分边界使用的单位制枚举，避免量纲和无量纲值被隐式混用。</p>
 <ul>
@@ -4608,9 +5333,20 @@
 </tbody>
 </table>
 <p>示例：<a href="#example-unit_system">读取单位制边界</a>。</p>
+<details class="note">
+<summary>源码 docstring（英文原文）</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-61-1" name="__codelineno-61-1" href="#__codelineno-61-1"></a>Unit system declared explicitly at every numerical integration boundary.
+<a id="__codelineno-61-2" name="__codelineno-61-2" href="#__codelineno-61-2"></a>
+<a id="__codelineno-61-3" name="__codelineno-61-3" href="#__codelineno-61-3"></a>``DIMENSIONAL`` means each contract uses its documented engineering units
+<a id="__codelineno-61-4" name="__codelineno-61-4" href="#__codelineno-61-4"></a>such as m, m/s, Pa, N, and s. ``NONDIMENSIONAL`` means values use the scales
+<a id="__codelineno-61-5" name="__codelineno-61-5" href="#__codelineno-61-5"></a>declared by the bearing configuration. Coupled rotor simulations themselves
+<a id="__codelineno-61-6" name="__codelineno-61-6" href="#__codelineno-61-6"></a>are dimensional and require explicit adapters for nondimensional bearings.
+</code></pre></div>
+</details>
 <h2 id="_14">构建与加载函数<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h2>
 <h3 id="albbearing_from_filepath-str-path-bearing"><code>ALB.bearing_from_file(path: 'str | Path') -&gt; 'Bearing'</code><a class="headerlink" href="#albbearing_from_filepath-str-path-bearing" title="Permanent link">&para;</a></h3>
 <p>读取严格 0.4 JSON5 轴承文档并一步构建可计算轴承。</p>
+<p>源码：<code>ALB/api/bearing.py:290</code>。</p>
 <p>输入：</p>
 <table>
 <thead>
@@ -4655,9 +5391,35 @@
 </tbody>
 </table>
 <p>示例：<a href="#example-bearing_from_file">从 JSON5 构建并计算轴承</a>。</p>
-<p>源码：<code>ALB/api/bearing.py:186</code>。</p>
+<details class="note">
+<summary>源码 docstring（英文原文）</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-62-1" name="__codelineno-62-1" href="#__codelineno-62-1"></a>Load one strict ALB 0.4 bearing document and build a fresh facade.
+<a id="__codelineno-62-2" name="__codelineno-62-2" href="#__codelineno-62-2"></a>
+<a id="__codelineno-62-3" name="__codelineno-62-3" href="#__codelineno-62-3"></a>Parameters
+<a id="__codelineno-62-4" name="__codelineno-62-4" href="#__codelineno-62-4"></a>----------
+<a id="__codelineno-62-5" name="__codelineno-62-5" href="#__codelineno-62-5"></a>path
+<a id="__codelineno-62-6" name="__codelineno-62-6" href="#__codelineno-62-6"></a>    UTF-8 JSON5 file with ``schema_version='0.4.0'`` and ``kind='bearing'``.
+<a id="__codelineno-62-7" name="__codelineno-62-7" href="#__codelineno-62-7"></a>    Relative includes and resources remain contained below its directory.
+<a id="__codelineno-62-8" name="__codelineno-62-8" href="#__codelineno-62-8"></a>
+<a id="__codelineno-62-9" name="__codelineno-62-9" href="#__codelineno-62-9"></a>Returns
+<a id="__codelineno-62-10" name="__codelineno-62-10" href="#__codelineno-62-10"></a>-------
+<a id="__codelineno-62-11" name="__codelineno-62-11" href="#__codelineno-62-11"></a>Bearing
+<a id="__codelineno-62-12" name="__codelineno-62-12" href="#__codelineno-62-12"></a>    Ready facade whose immutable config records the resolved source path.
+<a id="__codelineno-62-13" name="__codelineno-62-13" href="#__codelineno-62-13"></a>
+<a id="__codelineno-62-14" name="__codelineno-62-14" href="#__codelineno-62-14"></a>Raises
+<a id="__codelineno-62-15" name="__codelineno-62-15" href="#__codelineno-62-15"></a>------
+<a id="__codelineno-62-16" name="__codelineno-62-16" href="#__codelineno-62-16"></a>ConfigurationError
+<a id="__codelineno-62-17" name="__codelineno-62-17" href="#__codelineno-62-17"></a>    If the document, include graph, fields, values, or resources are invalid.
+<a id="__codelineno-62-18" name="__codelineno-62-18" href="#__codelineno-62-18"></a>ImportError
+<a id="__codelineno-62-19" name="__codelineno-62-19" href="#__codelineno-62-19"></a>    If JSON5 support from the ``io`` extra is unavailable.
+<a id="__codelineno-62-20" name="__codelineno-62-20" href="#__codelineno-62-20"></a>BuildError
+<a id="__codelineno-62-21" name="__codelineno-62-21" href="#__codelineno-62-21"></a>    If the validated configuration cannot be assembled.
+</code></pre></div>
+</details>
+<p>源码：<code>ALB/api/bearing.py:290</code>。</p>
 <h3 id="albbuild_bearingconfig-bearingconfig-bearing"><code>ALB.build_bearing(config: 'BearingConfig') -&gt; 'Bearing'</code><a class="headerlink" href="#albbuild_bearingconfig-bearingconfig-bearing" title="Permanent link">&para;</a></h3>
 <p>从已验证的不可变配置构建一个可直接计算的轴承 facade。</p>
+<p>源码：<code>ALB/api/bearing.py:258</code>。</p>
 <p>输入：</p>
 <table>
 <thead>
@@ -4698,9 +5460,35 @@
 </tbody>
 </table>
 <p>示例：<a href="#example-bearing_programmatic">程序化配置、参数覆盖与扫描</a>、<a href="#example-bearing_from_file">从 JSON5 构建并计算轴承</a>。</p>
-<p>源码：<code>ALB/api/bearing.py:175</code>。</p>
+<details class="note">
+<summary>源码 docstring（英文原文）</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-63-1" name="__codelineno-63-1" href="#__codelineno-63-1"></a>Build a ready bearing facade from an immutable validated configuration.
+<a id="__codelineno-63-2" name="__codelineno-63-2" href="#__codelineno-63-2"></a>
+<a id="__codelineno-63-3" name="__codelineno-63-3" href="#__codelineno-63-3"></a>Parameters
+<a id="__codelineno-63-4" name="__codelineno-63-4" href="#__codelineno-63-4"></a>----------
+<a id="__codelineno-63-5" name="__codelineno-63-5" href="#__codelineno-63-5"></a>config
+<a id="__codelineno-63-6" name="__codelineno-63-6" href="#__codelineno-63-6"></a>    :class:`BearingConfig` containing the complete materialized specification
+<a id="__codelineno-63-7" name="__codelineno-63-7" href="#__codelineno-63-7"></a>    and resource root.
+<a id="__codelineno-63-8" name="__codelineno-63-8" href="#__codelineno-63-8"></a>
+<a id="__codelineno-63-9" name="__codelineno-63-9" href="#__codelineno-63-9"></a>Returns
+<a id="__codelineno-63-10" name="__codelineno-63-10" href="#__codelineno-63-10"></a>-------
+<a id="__codelineno-63-11" name="__codelineno-63-11" href="#__codelineno-63-11"></a>Bearing
+<a id="__codelineno-63-12" name="__codelineno-63-12" href="#__codelineno-63-12"></a>    Fresh facade with no calculation history.
+<a id="__codelineno-63-13" name="__codelineno-63-13" href="#__codelineno-63-13"></a>
+<a id="__codelineno-63-14" name="__codelineno-63-14" href="#__codelineno-63-14"></a>Raises
+<a id="__codelineno-63-15" name="__codelineno-63-15" href="#__codelineno-63-15"></a>------
+<a id="__codelineno-63-16" name="__codelineno-63-16" href="#__codelineno-63-16"></a>TypeError
+<a id="__codelineno-63-17" name="__codelineno-63-17" href="#__codelineno-63-17"></a>    If ``config`` is not :class:`BearingConfig`.
+<a id="__codelineno-63-18" name="__codelineno-63-18" href="#__codelineno-63-18"></a>ConfigurationError
+<a id="__codelineno-63-19" name="__codelineno-63-19" href="#__codelineno-63-19"></a>    If a resource or cross-section configuration is invalid.
+<a id="__codelineno-63-20" name="__codelineno-63-20" href="#__codelineno-63-20"></a>BuildError
+<a id="__codelineno-63-21" name="__codelineno-63-21" href="#__codelineno-63-21"></a>    If runtime assembly fails for another reason.
+</code></pre></div>
+</details>
+<p>源码：<code>ALB/api/bearing.py:258</code>。</p>
 <h3 id="albbuild_simulationconfig-simulationconfig-rotorbearingsimulation"><code>ALB.build_simulation(config: 'SimulationConfig') -&gt; 'RotorBearingSimulation'</code><a class="headerlink" href="#albbuild_simulationconfig-simulationconfig-rotorbearingsimulation" title="Permanent link">&para;</a></h3>
 <p>从已验证的仿真配置构建一次性转子-轴承仿真对象。</p>
+<p>源码：<code>ALB/api/simulation.py:1199</code>。</p>
 <p>输入：</p>
 <table>
 <thead>
@@ -4726,9 +5514,33 @@
 </table>
 <p>输出：<code>RotorBearingSimulation</code>。返回 RotorBearingSimulation。</p>
 <p>示例：<a href="#example-simulation_programmatic">程序化装配仿真拓扑</a>、<a href="#example-simulation_from_file">从 JSON5 运行转子-轴承仿真</a>。</p>
-<p>源码：<code>ALB/api/simulation.py:1145</code>。</p>
+<details class="note">
+<summary>源码 docstring（英文原文）</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-64-1" name="__codelineno-64-1" href="#__codelineno-64-1"></a>Build a fresh one-shot simulation from immutable programmatic inputs.
+<a id="__codelineno-64-2" name="__codelineno-64-2" href="#__codelineno-64-2"></a>
+<a id="__codelineno-64-3" name="__codelineno-64-3" href="#__codelineno-64-3"></a>Parameters
+<a id="__codelineno-64-4" name="__codelineno-64-4" href="#__codelineno-64-4"></a>----------
+<a id="__codelineno-64-5" name="__codelineno-64-5" href="#__codelineno-64-5"></a>config
+<a id="__codelineno-64-6" name="__codelineno-64-6" href="#__codelineno-64-6"></a>    Validated :class:`SimulationConfig` owning rotor, mounts, fixed time grid,
+<a id="__codelineno-64-7" name="__codelineno-64-7" href="#__codelineno-64-7"></a>    loads, history policy, and optional coupling dependencies.
+<a id="__codelineno-64-8" name="__codelineno-64-8" href="#__codelineno-64-8"></a>
+<a id="__codelineno-64-9" name="__codelineno-64-9" href="#__codelineno-64-9"></a>Returns
+<a id="__codelineno-64-10" name="__codelineno-64-10" href="#__codelineno-64-10"></a>-------
+<a id="__codelineno-64-11" name="__codelineno-64-11" href="#__codelineno-64-11"></a>RotorBearingSimulation
+<a id="__codelineno-64-12" name="__codelineno-64-12" href="#__codelineno-64-12"></a>    Ready one-shot simulation; no physical step has run yet.
+<a id="__codelineno-64-13" name="__codelineno-64-13" href="#__codelineno-64-13"></a>
+<a id="__codelineno-64-14" name="__codelineno-64-14" href="#__codelineno-64-14"></a>Raises
+<a id="__codelineno-64-15" name="__codelineno-64-15" href="#__codelineno-64-15"></a>------
+<a id="__codelineno-64-16" name="__codelineno-64-16" href="#__codelineno-64-16"></a>TypeError
+<a id="__codelineno-64-17" name="__codelineno-64-17" href="#__codelineno-64-17"></a>    If ``config`` is not :class:`SimulationConfig`.
+<a id="__codelineno-64-18" name="__codelineno-64-18" href="#__codelineno-64-18"></a>ConfigurationError
+<a id="__codelineno-64-19" name="__codelineno-64-19" href="#__codelineno-64-19"></a>    If runtime materialization detects an inconsistent bearing boundary.
+</code></pre></div>
+</details>
+<p>源码：<code>ALB/api/simulation.py:1199</code>。</p>
 <h3 id="albload_bearing_configpath-str-path-bearingconfig"><code>ALB.load_bearing_config(path: 'str | Path') -&gt; 'BearingConfig'</code><a class="headerlink" href="#albload_bearing_configpath-str-path-bearingconfig" title="Permanent link">&para;</a></h3>
 <p>读取严格 UTF-8 0.4 bearing 文档，安全合并受限 include 并完成校验。</p>
+<p>源码：<code>ALB/api/config.py:853</code>。</p>
 <p>输入：</p>
 <table>
 <thead>
@@ -4769,9 +5581,25 @@
 </tbody>
 </table>
 <p>示例：<a href="#example-bearing_from_file">从 JSON5 构建并计算轴承</a>。</p>
-<p>源码：<code>ALB/api/config.py:909</code>。</p>
+<details class="note">
+<summary>源码 docstring（英文原文）</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-65-1" name="__codelineno-65-1" href="#__codelineno-65-1"></a>Load one strict UTF-8 ALB 0.4 bearing JSON5 document.
+<a id="__codelineno-65-2" name="__codelineno-65-2" href="#__codelineno-65-2"></a>
+<a id="__codelineno-65-3" name="__codelineno-65-3" href="#__codelineno-65-3"></a>The top-level document must use ``schema_version: "0.4.0"``,
+<a id="__codelineno-65-4" name="__codelineno-65-4" href="#__codelineno-65-4"></a>``kind: "bearing"``, and a ``spec`` mapping. Relative ``includes`` may
+<a id="__codelineno-65-5" name="__codelineno-65-5" href="#__codelineno-65-5"></a>reference ``bearing_profile`` documents below the top-level document
+<a id="__codelineno-65-6" name="__codelineno-65-6" href="#__codelineno-65-6"></a>directory; profiles merge in order and the local spec wins. Duplicate,
+<a id="__codelineno-65-7" name="__codelineno-65-7" href="#__codelineno-65-7"></a>cyclic, absolute, or escaping includes raise ``ConfigurationError``.
+<a id="__codelineno-65-8" name="__codelineno-65-8" href="#__codelineno-65-8"></a>
+<a id="__codelineno-65-9" name="__codelineno-65-9" href="#__codelineno-65-9"></a>The returned configuration records the document path and uses its parent
+<a id="__codelineno-65-10" name="__codelineno-65-10" href="#__codelineno-65-10"></a>as ``resource_root`` for relative pad, fuzzy-rule, and surrogate-package
+<a id="__codelineno-65-11" name="__codelineno-65-11" href="#__codelineno-65-11"></a>resources. Copyable documents are in ``docs/api/examples/``.
+</code></pre></div>
+</details>
+<p>源码：<code>ALB/api/config.py:853</code>。</p>
 <h3 id="albload_simulation_configpath-str-path-simulationconfig"><code>ALB.load_simulation_config(path: 'str | Path') -&gt; 'SimulationConfig'</code><a class="headerlink" href="#albload_simulation_configpath-str-path-simulationconfig" title="Permanent link">&para;</a></h3>
 <p>读取严格 0.4 simulation 文档，并解析转子、挂载轴承、时间网格、载荷和历史策略。</p>
+<p>源码：<code>ALB/api/simulation.py:1006</code>。</p>
 <p>输入：</p>
 <table>
 <thead>
@@ -4812,9 +5640,45 @@
 </tbody>
 </table>
 <p>示例：<a href="#example-simulation_from_file">从 JSON5 运行转子-轴承仿真</a>。</p>
-<p>源码：<code>ALB/api/simulation.py:991</code>。</p>
+<details class="note">
+<summary>源码 docstring（英文原文）</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-66-1" name="__codelineno-66-1" href="#__codelineno-66-1"></a>Load and materialize one strict UTF-8 ALB 0.4 simulation document.
+<a id="__codelineno-66-2" name="__codelineno-66-2" href="#__codelineno-66-2"></a>
+<a id="__codelineno-66-3" name="__codelineno-66-3" href="#__codelineno-66-3"></a>Parameters
+<a id="__codelineno-66-4" name="__codelineno-66-4" href="#__codelineno-66-4"></a>----------
+<a id="__codelineno-66-5" name="__codelineno-66-5" href="#__codelineno-66-5"></a>path
+<a id="__codelineno-66-6" name="__codelineno-66-6" href="#__codelineno-66-6"></a>    Top-level JSON5 file with ``schema_version='0.4.0'`` and
+<a id="__codelineno-66-7" name="__codelineno-66-7" href="#__codelineno-66-7"></a>    ``kind='simulation'``. Relative ``simulation_profile`` includes, the
+<a id="__codelineno-66-8" name="__codelineno-66-8" href="#__codelineno-66-8"></a>    ROSS Excel rotor, mounted bearing documents, and an optional disk-history
+<a id="__codelineno-66-9" name="__codelineno-66-9" href="#__codelineno-66-9"></a>    directory must remain below the outer document directory.
+<a id="__codelineno-66-10" name="__codelineno-66-10" href="#__codelineno-66-10"></a>
+<a id="__codelineno-66-11" name="__codelineno-66-11" href="#__codelineno-66-11"></a>Returns
+<a id="__codelineno-66-12" name="__codelineno-66-12" href="#__codelineno-66-12"></a>-------
+<a id="__codelineno-66-13" name="__codelineno-66-13" href="#__codelineno-66-13"></a>SimulationConfig
+<a id="__codelineno-66-14" name="__codelineno-66-14" href="#__codelineno-66-14"></a>    Fully validated immutable programmatic configuration containing a
+<a id="__codelineno-66-15" name="__codelineno-66-15" href="#__codelineno-66-15"></a>    dimensional ``RossRotor``, bearing mounts, loads, and history policy.
+<a id="__codelineno-66-16" name="__codelineno-66-16" href="#__codelineno-66-16"></a>
+<a id="__codelineno-66-17" name="__codelineno-66-17" href="#__codelineno-66-17"></a>Raises
+<a id="__codelineno-66-18" name="__codelineno-66-18" href="#__codelineno-66-18"></a>------
+<a id="__codelineno-66-19" name="__codelineno-66-19" href="#__codelineno-66-19"></a>ConfigurationError
+<a id="__codelineno-66-20" name="__codelineno-66-20" href="#__codelineno-66-20"></a>    If the document/include graph, resource containment, fields, values,
+<a id="__codelineno-66-21" name="__codelineno-66-21" href="#__codelineno-66-21"></a>    rotor, mounts, time grid, loads, or history policy is invalid.
+<a id="__codelineno-66-22" name="__codelineno-66-22" href="#__codelineno-66-22"></a>ImportError
+<a id="__codelineno-66-23" name="__codelineno-66-23" href="#__codelineno-66-23"></a>    If JSON5, ROSS, or another required optional dependency is unavailable.
+<a id="__codelineno-66-24" name="__codelineno-66-24" href="#__codelineno-66-24"></a>FileNotFoundError
+<a id="__codelineno-66-25" name="__codelineno-66-25" href="#__codelineno-66-25"></a>    If a declared rotor or bearing resource is absent in a downstream loader.
+<a id="__codelineno-66-26" name="__codelineno-66-26" href="#__codelineno-66-26"></a>
+<a id="__codelineno-66-27" name="__codelineno-66-27" href="#__codelineno-66-27"></a>Notes
+<a id="__codelineno-66-28" name="__codelineno-66-28" href="#__codelineno-66-28"></a>-----
+<a id="__codelineno-66-29" name="__codelineno-66-29" href="#__codelineno-66-29"></a>File configuration intentionally cannot serialize adapters, spool providers,
+<a id="__codelineno-66-30" name="__codelineno-66-30" href="#__codelineno-66-30"></a>recorders, or observers. Construct :class:`SimulationConfig` directly when
+<a id="__codelineno-66-31" name="__codelineno-66-31" href="#__codelineno-66-31"></a>those advanced runtime objects are required.
+</code></pre></div>
+</details>
+<p>源码：<code>ALB/api/simulation.py:1006</code>。</p>
 <h3 id="albsimulation_from_filepath-str-path-rotorbearingsimulation"><code>ALB.simulation_from_file(path: 'str | Path') -&gt; 'RotorBearingSimulation'</code><a class="headerlink" href="#albsimulation_from_filepath-str-path-rotorbearingsimulation" title="Permanent link">&para;</a></h3>
 <p>读取严格 JSON5 仿真文档并一步构建一次性仿真对象。</p>
+<p>源码：<code>ALB/api/simulation.py:1224</code>。</p>
 <p>输入：</p>
 <table>
 <thead>
@@ -4855,10 +5719,31 @@
 </tbody>
 </table>
 <p>示例：<a href="#example-simulation_from_file">从 JSON5 运行转子-轴承仿真</a>。</p>
-<p>源码：<code>ALB/api/simulation.py:1151</code>。</p>
+<details class="note">
+<summary>源码 docstring（英文原文）</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-67-1" name="__codelineno-67-1" href="#__codelineno-67-1"></a>Load one strict simulation JSON5 document and build a fresh runtime.
+<a id="__codelineno-67-2" name="__codelineno-67-2" href="#__codelineno-67-2"></a>
+<a id="__codelineno-67-3" name="__codelineno-67-3" href="#__codelineno-67-3"></a>Parameters
+<a id="__codelineno-67-4" name="__codelineno-67-4" href="#__codelineno-67-4"></a>----------
+<a id="__codelineno-67-5" name="__codelineno-67-5" href="#__codelineno-67-5"></a>path
+<a id="__codelineno-67-6" name="__codelineno-67-6" href="#__codelineno-67-6"></a>    File accepted by :func:`load_simulation_config`.
+<a id="__codelineno-67-7" name="__codelineno-67-7" href="#__codelineno-67-7"></a>
+<a id="__codelineno-67-8" name="__codelineno-67-8" href="#__codelineno-67-8"></a>Returns
+<a id="__codelineno-67-9" name="__codelineno-67-9" href="#__codelineno-67-9"></a>-------
+<a id="__codelineno-67-10" name="__codelineno-67-10" href="#__codelineno-67-10"></a>RotorBearingSimulation
+<a id="__codelineno-67-11" name="__codelineno-67-11" href="#__codelineno-67-11"></a>    Ready one-shot simulation constructed from the resolved resources.
+<a id="__codelineno-67-12" name="__codelineno-67-12" href="#__codelineno-67-12"></a>
+<a id="__codelineno-67-13" name="__codelineno-67-13" href="#__codelineno-67-13"></a>Raises
+<a id="__codelineno-67-14" name="__codelineno-67-14" href="#__codelineno-67-14"></a>------
+<a id="__codelineno-67-15" name="__codelineno-67-15" href="#__codelineno-67-15"></a>ConfigurationError, ImportError, FileNotFoundError
+<a id="__codelineno-67-16" name="__codelineno-67-16" href="#__codelineno-67-16"></a>    Propagated from configuration loading and optional resource construction.
+</code></pre></div>
+</details>
+<p>源码：<code>ALB/api/simulation.py:1224</code>。</p>
 <h2 id="_15">稳定异常<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h2>
 <h3 id="albalberrorargs-object"><code>ALB.ALBError(*args: object)</code><a class="headerlink" href="#albalberrorargs-object" title="Permanent link">&para;</a></h3>
 <p>所有用户侧 ALB 稳定异常的基类，适合统一记录或跨层上报。</p>
+<p>源码：<code>ALB/api/errors.py:8</code>。</p>
 <p>输入：</p>
 <table>
 <thead>
@@ -4884,9 +5769,19 @@
 </table>
 <p>输出：<code>ALB.ALBError</code>。构造一个可抛出的 ALB 基础异常实例。</p>
 <p>示例：<a href="#example-error_handling">按稳定异常边界处理失败</a>。</p>
+<details class="note">
+<summary>源码 docstring（英文原文）</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-68-1" name="__codelineno-68-1" href="#__codelineno-68-1"></a>Base class for failures raised through the stable user-facing API.
+<a id="__codelineno-68-2" name="__codelineno-68-2" href="#__codelineno-68-2"></a>
+<a id="__codelineno-68-3" name="__codelineno-68-3" href="#__codelineno-68-3"></a>Catch this type to handle all facade configuration, build, calculation, and
+<a id="__codelineno-68-4" name="__codelineno-68-4" href="#__codelineno-68-4"></a>simulation failures while allowing ordinary Python contract errors such as
+<a id="__codelineno-68-5" name="__codelineno-68-5" href="#__codelineno-68-5"></a>unrelated ``TypeError`` to remain distinct.
+</code></pre></div>
+</details>
 <p>源码：<code>ALB/api/errors.py:8</code>。</p>
 <h3 id="albbuilderrorargs-object"><code>ALB.BuildError(*args: object)</code><a class="headerlink" href="#albbuilderrorargs-object" title="Permanent link">&para;</a></h3>
 <p>配置已经通过校验，但对应 runtime 无法完成装配时抛出的稳定异常。</p>
+<p>源码：<code>ALB/api/errors.py:25</code>。</p>
 <p>输入：</p>
 <table>
 <thead>
@@ -4912,9 +5807,18 @@
 </table>
 <p>输出：<code>ALB.BuildError</code>。构造一个可抛出的 BuildError。</p>
 <p>示例：<a href="#example-error_handling">按稳定异常边界处理失败</a>。</p>
-<p>源码：<code>ALB/api/errors.py:16</code>。</p>
+<details class="note">
+<summary>源码 docstring（英文原文）</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-69-1" name="__codelineno-69-1" href="#__codelineno-69-1"></a>A validated bearing configuration could not be assembled into a runtime.
+<a id="__codelineno-69-2" name="__codelineno-69-2" href="#__codelineno-69-2"></a>
+<a id="__codelineno-69-3" name="__codelineno-69-3" href="#__codelineno-69-3"></a>Configuration errors retain their own type; this exception wraps unexpected
+<a id="__codelineno-69-4" name="__codelineno-69-4" href="#__codelineno-69-4"></a>assembly failures with the original exception as ``__cause__``.
+</code></pre></div>
+</details>
+<p>源码：<code>ALB/api/errors.py:25</code>。</p>
 <h3 id="albcalculationerrormessage-str-failure_snapshot-resultbundle-none-none-none"><code>ALB.CalculationError(message: 'str', *, failure_snapshot: 'ResultBundle | None' = None) -&gt; 'None'</code><a class="headerlink" href="#albcalculationerrormessage-str-failure_snapshot-resultbundle-none-none-none" title="Permanent link">&para;</a></h3>
 <p>轴承输入已接受但物理求解失败时抛出的稳定异常，可携带密封失败快照。</p>
+<p>源码：<code>ALB/api/errors.py:33</code>。</p>
 <p>输入：</p>
 <table>
 <thead>
@@ -4948,9 +5852,19 @@
 </table>
 <p>输出：<code>ALB.CalculationError</code>。构造一个 CalculationError。</p>
 <p>示例：<a href="#example-error_handling">按稳定异常边界处理失败</a>。</p>
-<p>源码：<code>ALB/api/errors.py:20</code>。</p>
+<details class="note">
+<summary>源码 docstring（英文原文）</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-70-1" name="__codelineno-70-1" href="#__codelineno-70-1"></a>A bearing calculation or analysis failed after input acceptance.
+<a id="__codelineno-70-2" name="__codelineno-70-2" href="#__codelineno-70-2"></a>
+<a id="__codelineno-70-3" name="__codelineno-70-3" href="#__codelineno-70-3"></a>``failure_snapshot`` may contain the last trusted values, convergence state,
+<a id="__codelineno-70-4" name="__codelineno-70-4" href="#__codelineno-70-4"></a>evaluation history, or matrix diagnostics. It is ``None`` when no safe
+<a id="__codelineno-70-5" name="__codelineno-70-5" href="#__codelineno-70-5"></a>snapshot could be produced.
+</code></pre></div>
+</details>
+<p>源码：<code>ALB/api/errors.py:33</code>。</p>
 <h3 id="albconfigurationerrorargs-object"><code>ALB.ConfigurationError(*args: object)</code><a class="headerlink" href="#albconfigurationerrorargs-object" title="Permanent link">&para;</a></h3>
 <p>JSON5 文档、程序化配置或跨字段约束不合法时抛出的稳定异常。</p>
+<p>源码：<code>ALB/api/errors.py:17</code>。</p>
 <p>输入：</p>
 <table>
 <thead>
@@ -4976,9 +5890,18 @@
 </table>
 <p>输出：<code>ALB.ConfigurationError</code>。构造一个可抛出的 ConfigurationError。</p>
 <p>示例：<a href="#example-error_handling">按稳定异常边界处理失败</a>。</p>
-<p>源码：<code>ALB/api/errors.py:12</code>。</p>
+<details class="note">
+<summary>源码 docstring（英文原文）</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-71-1" name="__codelineno-71-1" href="#__codelineno-71-1"></a>A JSON5 document or immutable typed configuration is invalid.
+<a id="__codelineno-71-2" name="__codelineno-71-2" href="#__codelineno-71-2"></a>
+<a id="__codelineno-71-3" name="__codelineno-71-3" href="#__codelineno-71-3"></a>This includes unknown fields, invalid values, include/resource containment,
+<a id="__codelineno-71-4" name="__codelineno-71-4" href="#__codelineno-71-4"></a>cross-section constraints, and incompatible unit or time-step boundaries.
+</code></pre></div>
+</details>
+<p>源码：<code>ALB/api/errors.py:17</code>。</p>
 <h3 id="albsimulationerrormessage-str-partial_result-object-none-none-none"><code>ALB.SimulationError(message: 'str', *, partial_result: 'object | None' = None) -&gt; 'None'</code><a class="headerlink" href="#albsimulationerrormessage-str-partial_result-object-none-none-none" title="Permanent link">&para;</a></h3>
 <p>耦合仿真失败时抛出的稳定异常，可携带截至最后真实提交点的部分结果。</p>
+<p>源码：<code>ALB/api/errors.py:51</code>。</p>
 <p>输入：</p>
 <table>
 <thead>
@@ -5012,7 +5935,16 @@
 </table>
 <p>输出：<code>ALB.SimulationError</code>。构造一个 SimulationError。</p>
 <p>示例：<a href="#example-error_handling">按稳定异常边界处理失败</a>。</p>
-<p>源码：<code>ALB/api/errors.py:33</code>。</p>
+<details class="note">
+<summary>源码 docstring（英文原文）</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-72-1" name="__codelineno-72-1" href="#__codelineno-72-1"></a>A coupled simulation failed at a defined commit or post-commit boundary.
+<a id="__codelineno-72-2" name="__codelineno-72-2" href="#__codelineno-72-2"></a>
+<a id="__codelineno-72-3" name="__codelineno-72-3" href="#__codelineno-72-3"></a>``partial_result`` may expose every retained committed state, while
+<a id="__codelineno-72-4" name="__codelineno-72-4" href="#__codelineno-72-4"></a>``failure_snapshot`` separates physical, history, recording, observer, and
+<a id="__codelineno-72-5" name="__codelineno-72-5" href="#__codelineno-72-5"></a>run-close completion. A failed physical step is never published as complete.
+</code></pre></div>
+</details>
+<p>源码：<code>ALB/api/errors.py:51</code>。</p>
 <h2 id="_16">包元数据<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h2>
 <h3 id="schema_version"><code>SCHEMA_VERSION</code><a class="headerlink" href="#schema_version" title="Permanent link">&para;</a></h3>
 <p>bearing 与 simulation JSON5 接受的 schema 版本字符串，独立于 re-alb 包版本。</p>

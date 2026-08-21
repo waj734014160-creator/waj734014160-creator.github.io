@@ -18,7 +18,7 @@
         <link rel="prev" href="../../site/guides/albnn/">
       
       
-        <link rel="next" href="../../site/examples/">
+        <link rel="next" href="../simulation_config_reference/">
       
       
         
@@ -29,7 +29,7 @@
     
     
       
-        <title>字段参考 - ALB Documentation</title>
+        <title>轴承配置 - ALB Documentation</title>
       
     
     
@@ -111,7 +111,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              字段参考
+              轴承配置
             
           </span>
         </div>
@@ -601,6 +601,8 @@
       
         
       
+        
+      
     
     
     
@@ -669,7 +671,7 @@
   <span class="md-ellipsis">
     
   
-    字段参考
+    轴承配置
   
 
     
@@ -687,7 +689,7 @@
   <span class="md-ellipsis">
     
   
-    字段参考
+    轴承配置
   
 
     
@@ -812,13 +814,206 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#simulationconfigloads" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       
-        SimulationConfig.loads
+        源码同步字段合同
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="源码同步字段合同">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#json5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        JSON5 文档外壳
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spec" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        轴承 spec 顶层
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#film_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        量纲液膜 film
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#film_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        无量纲液膜 film
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#film_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        气膜覆盖与附加 film 字段
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#restrictors_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        液膜 restrictors
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#restrictors_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        主动 restrictors
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tank" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        主动 tank
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#valve" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        二阶 valve
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#valve_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        静态 valve
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#valve_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        传递函数 valve
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        主动 control
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pid-gains" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PID gains
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transforms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        主动 transforms
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#thermal_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        thermal
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#model_package" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        代理 model_package
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#runtime" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        代理 runtime
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -826,6 +1021,34 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../simulation_config_reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    转子-轴承仿真配置
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -1536,13 +1759,206 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#simulationconfigloads" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       
-        SimulationConfig.loads
+        源码同步字段合同
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="源码同步字段合同">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#json5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        JSON5 文档外壳
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spec" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        轴承 spec 顶层
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#film_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        量纲液膜 film
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#film_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        无量纲液膜 film
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#film_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        气膜覆盖与附加 film 字段
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#restrictors_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        液膜 restrictors
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#restrictors_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        主动 restrictors
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tank" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        主动 tank
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#valve" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        二阶 valve
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#valve_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        静态 valve
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#valve_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        传递函数 valve
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        主动 control
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pid-gains" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PID gains
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transforms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        主动 transforms
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#thermal_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        thermal
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#model_package" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        代理 model_package
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#runtime" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        代理 runtime
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2501,85 +2917,2401 @@
 <li>显式网格结果还记录 <code>mesh_type</code>、<code>element_order</code>、<code>integration_order</code>、
   <code>actual_element_count</code>、<code>pressure_dofs</code> 和 <code>temperature_dofs</code>。</li>
 </ul>
-<h2 id="simulationconfigloads"><code>SimulationConfig.loads</code><a class="headerlink" href="#simulationconfigloads" title="Permanent link">&para;</a></h2>
-<p>每个载荷都是一个带 <code>type</code> 的普通映射。构造 <code>SimulationConfig</code> 时只校验一次
-字段和值域并生成深度只读副本；<code>run()</code> 不再重复解释未知字段。</p>
+<h2 id="_6">源码同步字段合同<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<!-- Generated by tools/docs/generate_bearing_config_reference.py. -->
+
+<ul>
+<li>配置字段组：<code>17</code></li>
+<li>源码合同摘要：<code>sha256:6614bc678d6663a3</code></li>
+<li>对应规则：字段名、类型、单位、必填性、默认值、可选值、约束、适用范围和原生映射均来自 <code>ALB.api._config_fields</code>。</li>
+<li>阅读方式：上文中文章节解释物理语义和跨字段关系；下表逐项给出可执行源码合同，英文列保留源码原文。</li>
+</ul>
+<p><a id="config-group-document"></a></p>
+<h3 id="json5">JSON5 文档外壳<a class="headerlink" href="#json5" title="Permanent link">&para;</a></h3>
+<p>顶层文档和 profile 共用的版本、角色、include 与 spec 合同。</p>
 <table>
 <thead>
 <tr>
-<th><code>type</code></th>
 <th>字段</th>
-<th>单位/缺省值</th>
-<th>含义</th>
+<th>值类型</th>
+<th>单位</th>
+<th>必填/默认值</th>
+<th>可选值</th>
+<th>约束</th>
+<th>适用范围</th>
+<th>原生映射</th>
+<th>源码英文合同</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>static</code></td>
-<td><code>node</code></td>
-<td>非负整数，必填</td>
-<td>施加载荷的转子节点。</td>
+<td><code>schema_version</code></td>
+<td><code>string</code></td>
+<td><code>version</code></td>
+<td>"0.4.0"</td>
+<td>["0.4.0"]</td>
+<td>-</td>
+<td>全部</td>
+<td>与公开字段同名</td>
+<td>Exact document schema version.</td>
 </tr>
 <tr>
-<td><code>static</code></td>
-<td><code>force</code></td>
-<td>N，长度 2，必填</td>
-<td>固定 <code>[Fx, Fy]</code>，两个分量必须有限。</td>
+<td><code>kind</code></td>
+<td><code>string</code></td>
+<td><code>name</code></td>
+<td>必填</td>
+<td>["bearing", "bearing_profile"]</td>
+<td>-</td>
+<td>全部</td>
+<td>与公开字段同名</td>
+<td>Document role at the top level or in an include.</td>
 </tr>
 <tr>
-<td><code>gravity</code></td>
-<td><code>acceleration</code></td>
-<td>m/s²，缺省 <code>9.80665</code></td>
-<td>y 方向重力加速度；有限负值可显式反转方向。</td>
+<td><code>includes</code></td>
+<td><code>array[string]</code></td>
+<td><code>path list</code></td>
+<td>[]</td>
+<td>-</td>
+<td>relative, unique, acyclic, and contained below document root</td>
+<td>全部</td>
+<td>与公开字段同名</td>
+<td>Ordered relative bearing-profile paths merged before spec.</td>
 </tr>
 <tr>
-<td><code>unbalance</code></td>
-<td><code>node</code></td>
-<td>非负整数或非空整数序列，必填</td>
-<td>不平衡激励节点。</td>
-</tr>
-<tr>
-<td><code>unbalance</code></td>
-<td><code>phase</code></td>
-<td>rad，缺省 <code>0</code></td>
-<td>初始相位。</td>
-</tr>
-<tr>
-<td><code>unbalance</code></td>
-<td><code>t_max</code></td>
-<td>s，缺省 <code>1</code></td>
-<td>斜坡/门控使用的正时间尺度。</td>
-</tr>
-<tr>
-<td><code>unbalance</code></td>
-<td><code>m</code></td>
-<td>kg，缺省 <code>0</code></td>
-<td>等效不平衡质量。</td>
-</tr>
-<tr>
-<td><code>unbalance</code></td>
-<td><code>freq</code></td>
-<td>Hz，缺省 <code>0</code></td>
-<td>激励频率。</td>
-</tr>
-<tr>
-<td><code>unbalance</code></td>
-<td><code>e</code></td>
-<td>m，缺省 <code>0</code></td>
-<td>不平衡质量偏心半径。</td>
-</tr>
-<tr>
-<td><code>unbalance</code></td>
-<td><code>no_step</code></td>
-<td>布尔，缺省 <code>false</code></td>
-<td><code>true</code> 时用 <code>[0, t_max]</code> 线性斜坡代替阶跃启用。</td>
+<td><code>spec</code></td>
+<td><code>object</code></td>
+<td><code>mapping</code></td>
+<td>必填</td>
+<td>-</td>
+<td>-</td>
+<td>全部</td>
+<td>与公开字段同名</td>
+<td>Bearing specification overlaid after included profiles.</td>
 </tr>
 </tbody>
 </table>
-<p>程序化仿真的 <code>rotor</code> 必须满足 <code>ALB.contracts.RotorProtocol</code>。高级记录器和
-observer 通过 <code>ALB.dynamics.CouplingRuntimeDependencies</code> 提供；该类型显式列出
-<code>run_id</code>、<code>recorder</code>、<code>observers</code>、记录失败策略和 observer 失败策略，不使用
-任意 <code>object</code> 容器。</p>
+<p><a id="config-group-spec"></a></p>
+<h3 id="spec">轴承 spec 顶层<a class="headerlink" href="#spec" title="Permanent link">&para;</a></h3>
+<p>轴承族、单位制、时间步和按 family 选择的子配置。</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>值类型</th>
+<th>单位</th>
+<th>必填/默认值</th>
+<th>可选值</th>
+<th>约束</th>
+<th>适用范围</th>
+<th>原生映射</th>
+<th>源码英文合同</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>family</code></td>
+<td><code>string</code></td>
+<td><code>name</code></td>
+<td>必填</td>
+<td>["liquid_film", "active_lubricated", "gas_film", "multi_pad", "surrogate"]</td>
+<td>-</td>
+<td>全部</td>
+<td>与公开字段同名</td>
+<td>Bearing runtime family discriminator.</td>
+</tr>
+<tr>
+<td><code>unit_system</code></td>
+<td><code>string</code></td>
+<td><code>name</code></td>
+<td>必填</td>
+<td>["dimensional", "nondimensional"]</td>
+<td>gas_film requires dimensional</td>
+<td>全部</td>
+<td>与公开字段同名</td>
+<td>Input and output unit system for this bearing.</td>
+</tr>
+<tr>
+<td><code>time_step</code></td>
+<td><code>number</code></td>
+<td><code>s or local time unit</code></td>
+<td>必填</td>
+<td>-</td>
+<td>finite and &gt; 0</td>
+<td>全部</td>
+<td>与公开字段同名</td>
+<td>Bearing-local integration time step.</td>
+</tr>
+<tr>
+<td><code>node</code></td>
+<td><code>integer or null</code></td>
+<td><code>index</code></td>
+<td>null</td>
+<td>-</td>
+<td>&gt;= 0 when provided</td>
+<td>全部</td>
+<td>与公开字段同名</td>
+<td>Optional rotor node used by direct coupling metadata.</td>
+</tr>
+<tr>
+<td><code>film</code></td>
+<td><code>object</code></td>
+<td><code>mapping</code></td>
+<td>适用时必填</td>
+<td>-</td>
+<td>-</td>
+<td>liquid_film, active_lubricated, gas_film</td>
+<td>与公开字段同名</td>
+<td>Film geometry, material, mesh, and solver section.</td>
+</tr>
+<tr>
+<td><code>restrictors</code></td>
+<td><code>object or null</code></td>
+<td><code>mapping</code></td>
+<td>null</td>
+<td>-</td>
+<td>-</td>
+<td>liquid_film, active_lubricated</td>
+<td>与公开字段同名</td>
+<td>Optional liquid restrictors or required active restrictors.</td>
+</tr>
+<tr>
+<td><code>thermal</code></td>
+<td><code>object or null</code></td>
+<td><code>mapping</code></td>
+<td>null</td>
+<td>-</td>
+<td>-</td>
+<td>liquid_film, active_lubricated</td>
+<td>与公开字段同名</td>
+<td>Optional thermo-hydrodynamic coupling section.</td>
+</tr>
+<tr>
+<td><code>tank</code></td>
+<td><code>object</code></td>
+<td><code>mapping</code></td>
+<td>适用时必填</td>
+<td>-</td>
+<td>-</td>
+<td>active_lubricated</td>
+<td>与公开字段同名</td>
+<td>Active-bearing recess/tank geometry.</td>
+</tr>
+<tr>
+<td><code>valve</code></td>
+<td><code>object</code></td>
+<td><code>mapping</code></td>
+<td>适用时必填</td>
+<td>-</td>
+<td>-</td>
+<td>active_lubricated</td>
+<td>与公开字段同名</td>
+<td>Active-bearing servo-valve model.</td>
+</tr>
+<tr>
+<td><code>control</code></td>
+<td><code>object</code></td>
+<td><code>mapping</code></td>
+<td>适用时必填</td>
+<td>-</td>
+<td>-</td>
+<td>active_lubricated</td>
+<td>与公开字段同名</td>
+<td>Active-bearing controller declaration.</td>
+</tr>
+<tr>
+<td><code>transforms</code></td>
+<td><code>object</code></td>
+<td><code>mapping</code></td>
+<td>{}</td>
+<td>-</td>
+<td>-</td>
+<td>active_lubricated</td>
+<td>与公开字段同名</td>
+<td>Optional physical-to-controller input transforms.</td>
+</tr>
+<tr>
+<td><code>pads</code></td>
+<td><code>array[string or object]</code></td>
+<td><code>list</code></td>
+<td>适用时必填</td>
+<td>-</td>
+<td>at least one item; child time_step and unit_system must agree</td>
+<td>multi_pad</td>
+<td>与公开字段同名</td>
+<td>Nonempty child bearing specs or relative bearing-file paths.</td>
+</tr>
+<tr>
+<td><code>model_package</code></td>
+<td><code>object</code></td>
+<td><code>mapping</code></td>
+<td>适用时必填</td>
+<td>-</td>
+<td>-</td>
+<td>surrogate</td>
+<td>与公开字段同名</td>
+<td>Validated ALBNN package location and augmentation override.</td>
+</tr>
+<tr>
+<td><code>runtime</code></td>
+<td><code>object</code></td>
+<td><code>mapping</code></td>
+<td>{}</td>
+<td>-</td>
+<td>-</td>
+<td>surrogate</td>
+<td>与公开字段同名</td>
+<td>Surrogate runtime parameters and spool source.</td>
+</tr>
+</tbody>
+</table>
+<p><a id="config-group-film_dimensional"></a></p>
+<h3 id="film_2">量纲液膜 film<a class="headerlink" href="#film_2" title="Permanent link">&para;</a></h3>
+<p>量纲液膜、主动润滑单瓦和气膜继承的几何、物性、网格及求解参数。</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>值类型</th>
+<th>单位</th>
+<th>必填/默认值</th>
+<th>可选值</th>
+<th>约束</th>
+<th>适用范围</th>
+<th>原生映射</th>
+<th>源码英文合同</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>eccentricity</code></td>
+<td><code>number</code></td>
+<td><code>1</code></td>
+<td>0.0</td>
+<td>-</td>
+<td>0 &lt;= value &lt; 1</td>
+<td>全部</td>
+<td><code>e</code></td>
+<td>Initial eccentricity ratio e/c.</td>
+</tr>
+<tr>
+<td><code>attitude_angle_deg</code></td>
+<td><code>number</code></td>
+<td><code>deg</code></td>
+<td>0.0</td>
+<td>-</td>
+<td>finite</td>
+<td>全部</td>
+<td><code>angle</code></td>
+<td>Initial eccentricity attitude angle.</td>
+</tr>
+<tr>
+<td><code>rotation_frequency_hz</code></td>
+<td><code>number</code></td>
+<td><code>Hz</code></td>
+<td>50.0</td>
+<td>-</td>
+<td>&gt; 0</td>
+<td>全部</td>
+<td><code>freq</code></td>
+<td>Journal rotation frequency.</td>
+</tr>
+<tr>
+<td><code>start_angle_deg</code></td>
+<td><code>number</code></td>
+<td><code>deg</code></td>
+<td>0.0</td>
+<td>-</td>
+<td>finite</td>
+<td>全部</td>
+<td><code>x0</code></td>
+<td>Circumferential start angle of the film domain.</td>
+</tr>
+<tr>
+<td><code>arc_angle_deg</code></td>
+<td><code>number</code></td>
+<td><code>deg</code></td>
+<td>360.0</td>
+<td>-</td>
+<td>&gt; 0</td>
+<td>全部</td>
+<td><code>lx</code></td>
+<td>Circumferential angular span of the film domain.</td>
+</tr>
+<tr>
+<td><code>axial_length_ratio</code></td>
+<td><code>number</code></td>
+<td><code>1</code></td>
+<td>2.0</td>
+<td>-</td>
+<td>&gt; 0</td>
+<td>全部</td>
+<td><code>lz</code></td>
+<td>Modeled axial length divided by bearing length.</td>
+</tr>
+<tr>
+<td><code>circumferential_elements</code></td>
+<td><code>integer</code></td>
+<td><code>count</code></td>
+<td>59</td>
+<td>-</td>
+<td>&gt;= 2</td>
+<td>全部</td>
+<td><code>nx</code></td>
+<td>Finite-element count around the film arc.</td>
+</tr>
+<tr>
+<td><code>axial_elements</code></td>
+<td><code>integer</code></td>
+<td><code>count</code></td>
+<td>39</td>
+<td>-</td>
+<td>&gt;= 2</td>
+<td>全部</td>
+<td><code>nz</code></td>
+<td>Finite-element count along the bearing axis.</td>
+</tr>
+<tr>
+<td><code>mesh_type</code></td>
+<td><code>string or null</code></td>
+<td><code>name</code></td>
+<td>null</td>
+<td>["triangular", "quadrilateral"]</td>
+<td>required together with element_order</td>
+<td>全部</td>
+<td><code>mesh_type</code></td>
+<td>Explicit pressure/thermal mesh topology.</td>
+</tr>
+<tr>
+<td><code>element_order</code></td>
+<td><code>integer or null</code></td>
+<td><code>count</code></td>
+<td>null</td>
+<td>[1, 2]</td>
+<td>1 or 2; required together with mesh_type</td>
+<td>全部</td>
+<td><code>element_order</code></td>
+<td>Polynomial order of the explicit pressure/thermal basis.</td>
+</tr>
+<tr>
+<td><code>viscosity</code></td>
+<td><code>number</code></td>
+<td><code>Pa*s</code></td>
+<td>0.0195</td>
+<td>-</td>
+<td>&gt; 0</td>
+<td>全部</td>
+<td><code>miu</code></td>
+<td>Lubricant dynamic viscosity.</td>
+</tr>
+<tr>
+<td><code>clearance</code></td>
+<td><code>number</code></td>
+<td><code>m</code></td>
+<td>8e-05</td>
+<td>-</td>
+<td>&gt; 0</td>
+<td>全部</td>
+<td><code>c</code></td>
+<td>Radial bearing clearance.</td>
+</tr>
+<tr>
+<td><code>radius</code></td>
+<td><code>number</code></td>
+<td><code>m</code></td>
+<td>0.04</td>
+<td>-</td>
+<td>&gt; 0</td>
+<td>全部</td>
+<td><code>r</code></td>
+<td>Journal radius.</td>
+</tr>
+<tr>
+<td><code>length</code></td>
+<td><code>number</code></td>
+<td><code>m</code></td>
+<td>0.06</td>
+<td>-</td>
+<td>&gt; 0</td>
+<td>全部</td>
+<td><code>l</code></td>
+<td>Physical bearing axial length.</td>
+</tr>
+<tr>
+<td><code>supply_pressure</code></td>
+<td><code>number</code></td>
+<td><code>Pa</code></td>
+<td>7000000.0</td>
+<td>-</td>
+<td>&gt; 0</td>
+<td>全部</td>
+<td><code>ps</code></td>
+<td>Reference or restrictor supply pressure.</td>
+</tr>
+<tr>
+<td><code>density</code></td>
+<td><code>number</code></td>
+<td><code>kg/m^3</code></td>
+<td>872.0</td>
+<td>-</td>
+<td>&gt; 0</td>
+<td>全部</td>
+<td><code>rho</code></td>
+<td>Lubricant density.</td>
+</tr>
+<tr>
+<td><code>reynolds_boundary</code></td>
+<td><code>boolean or 'half_reynold'</code></td>
+<td><code>bool</code></td>
+<td>true</td>
+<td>-</td>
+<td>finite</td>
+<td>全部</td>
+<td><code>reynold</code></td>
+<td>Enable the Reynolds cavitation boundary.</td>
+</tr>
+<tr>
+<td><code>continuous_boundary</code></td>
+<td><code>boolean</code></td>
+<td><code>bool</code></td>
+<td>true for liquid_film; false for active_lubricated</td>
+<td>-</td>
+<td>finite</td>
+<td>全部</td>
+<td><code>coe</code></td>
+<td>Couple the circumferential end boundaries.</td>
+</tr>
+<tr>
+<td><code>ambient_pressure</code></td>
+<td><code>number</code></td>
+<td><code>Pa</code></td>
+<td>0.0</td>
+<td>-</td>
+<td>finite</td>
+<td>全部</td>
+<td><code>p_set</code></td>
+<td>Pressure prescribed on ambient film boundaries.</td>
+</tr>
+<tr>
+<td><code>solver_tolerance</code></td>
+<td><code>number</code></td>
+<td><code>1</code></td>
+<td>1e-10</td>
+<td>-</td>
+<td>&gt; 0</td>
+<td>全部</td>
+<td><code>error_set</code></td>
+<td>Relative convergence tolerance of the film solve.</td>
+</tr>
+<tr>
+<td><code>max_iterations</code></td>
+<td><code>integer</code></td>
+<td><code>count</code></td>
+<td>120</td>
+<td>-</td>
+<td>&gt;= 1</td>
+<td>全部</td>
+<td><code>max_iter</code></td>
+<td>Maximum nonlinear film iterations.</td>
+</tr>
+<tr>
+<td><code>relaxation</code></td>
+<td><code>number</code></td>
+<td><code>1</code></td>
+<td>0.8</td>
+<td>-</td>
+<td>finite</td>
+<td>全部</td>
+<td><code>damp</code></td>
+<td>Fixed relaxation factor used by the film iteration.</td>
+</tr>
+<tr>
+<td><code>vibration_enabled</code></td>
+<td><code>boolean</code></td>
+<td><code>bool</code></td>
+<td>false</td>
+<td>-</td>
+<td>finite</td>
+<td>全部</td>
+<td><code>vib</code></td>
+<td>Include squeeze-film velocity terms.</td>
+</tr>
+<tr>
+<td><code>x_velocity</code></td>
+<td><code>number or null</code></td>
+<td><code>m/s</code></td>
+<td>null</td>
+<td>-</td>
+<td>finite</td>
+<td>全部</td>
+<td><code>dxt</code></td>
+<td>Initial journal-center velocity on the x axis.</td>
+</tr>
+<tr>
+<td><code>y_velocity</code></td>
+<td><code>number or null</code></td>
+<td><code>m/s</code></td>
+<td>null</td>
+<td>-</td>
+<td>finite</td>
+<td>全部</td>
+<td><code>dyt</code></td>
+<td>Initial journal-center velocity on the y axis.</td>
+</tr>
+<tr>
+<td><code>whirl_ratio</code></td>
+<td><code>number</code></td>
+<td><code>1</code></td>
+<td>1.0</td>
+<td>-</td>
+<td>finite</td>
+<td>全部</td>
+<td><code>vf</code></td>
+<td>Whirl frequency divided by journal rotation frequency.</td>
+</tr>
+<tr>
+<td><code>solver</code></td>
+<td><code>string</code></td>
+<td><code>name</code></td>
+<td>"newton"</td>
+<td>-</td>
+<td>finite</td>
+<td>全部</td>
+<td><code>iter_method</code></td>
+<td>Native film iteration method identifier.</td>
+</tr>
+<tr>
+<td><code>save_pressure</code></td>
+<td><code>boolean</code></td>
+<td><code>bool</code></td>
+<td>false</td>
+<td>-</td>
+<td>finite</td>
+<td>全部</td>
+<td><code>save_p</code></td>
+<td>Include pressure in native persistence outputs.</td>
+</tr>
+<tr>
+<td><code>save_thickness</code></td>
+<td><code>boolean</code></td>
+<td><code>bool</code></td>
+<td>false</td>
+<td>-</td>
+<td>finite</td>
+<td>全部</td>
+<td><code>save_h</code></td>
+<td>Include film thickness in native persistence outputs.</td>
+</tr>
+<tr>
+<td><code>gauss_points</code></td>
+<td><code>integer</code></td>
+<td><code>count</code></td>
+<td>50</td>
+<td>-</td>
+<td>finite</td>
+<td>全部</td>
+<td><code>ngauss</code></td>
+<td>Quadrature points used by Gauss integration.</td>
+</tr>
+<tr>
+<td><code>gauss_relaxation</code></td>
+<td><code>number</code></td>
+<td><code>1</code></td>
+<td>1.2</td>
+<td>-</td>
+<td>finite</td>
+<td>全部</td>
+<td><code>gdamp</code></td>
+<td>Relaxation factor for the Gauss solver.</td>
+</tr>
+<tr>
+<td><code>gauss_tolerance</code></td>
+<td><code>number</code></td>
+<td><code>1</code></td>
+<td>0.001</td>
+<td>-</td>
+<td>finite</td>
+<td>全部</td>
+<td><code>err</code></td>
+<td>Convergence tolerance for the Gauss solver.</td>
+</tr>
+<tr>
+<td><code>pad_bias_deg</code></td>
+<td><code>number</code></td>
+<td><code>deg</code></td>
+<td>0.0</td>
+<td>-</td>
+<td>finite</td>
+<td>全部</td>
+<td><code>bias</code></td>
+<td>Angular offset applied to this pad.</td>
+</tr>
+<tr>
+<td><code>adaptive_damping</code></td>
+<td><code>boolean or mapping or null</code></td>
+<td><code>bool</code></td>
+<td>null</td>
+<td>-</td>
+<td>finite</td>
+<td>全部</td>
+<td><code>adaptive_damp</code></td>
+<td>Adapt the iteration relaxation factor.</td>
+</tr>
+</tbody>
+</table>
+<p><a id="config-group-film_nondimensional"></a></p>
+<h3 id="film_3">无量纲液膜 film<a class="headerlink" href="#film_3" title="Permanent link">&para;</a></h3>
+<p>无量纲压力、速度和用于工程单位换算的 scale 字段。</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>值类型</th>
+<th>单位</th>
+<th>必填/默认值</th>
+<th>可选值</th>
+<th>约束</th>
+<th>适用范围</th>
+<th>原生映射</th>
+<th>源码英文合同</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>bearing_number</code></td>
+<td><code>number</code></td>
+<td><code>1</code></td>
+<td>1.0</td>
+<td>-</td>
+<td>&gt; 0</td>
+<td>全部</td>
+<td><code>lambda_value</code></td>
+<td>Operating nondimensional bearing number.</td>
+</tr>
+<tr>
+<td><code>reference_bearing_number</code></td>
+<td><code>number or null</code></td>
+<td><code>1</code></td>
+<td>null</td>
+<td>-</td>
+<td>finite</td>
+<td>全部</td>
+<td><code>lambda0</code></td>
+<td>Reference bearing number used for scaling.</td>
+</tr>
+<tr>
+<td><code>length_ratio</code></td>
+<td><code>number</code></td>
+<td><code>1</code></td>
+<td>1.0</td>
+<td>-</td>
+<td>&gt; 0</td>
+<td>全部</td>
+<td><code>lr</code></td>
+<td>Bearing length divided by journal radius.</td>
+</tr>
+<tr>
+<td><code>arc_angle_deg</code></td>
+<td><code>number</code></td>
+<td><code>deg</code></td>
+<td>360.0</td>
+<td>-</td>
+<td>&gt; 0</td>
+<td>全部</td>
+<td><code>lx</code></td>
+<td>Circumferential angular span of the film domain.</td>
+</tr>
+<tr>
+<td><code>axial_length_ratio</code></td>
+<td><code>number</code></td>
+<td><code>1</code></td>
+<td>2.0</td>
+<td>-</td>
+<td>&gt; 0</td>
+<td>全部</td>
+<td><code>lz</code></td>
+<td>Modeled axial length divided by bearing length.</td>
+</tr>
+<tr>
+<td><code>circumferential_elements</code></td>
+<td><code>integer</code></td>
+<td><code>count</code></td>
+<td>59</td>
+<td>-</td>
+<td>&gt;= 2</td>
+<td>全部</td>
+<td><code>nx</code></td>
+<td>Finite-element count around the film arc.</td>
+</tr>
+<tr>
+<td><code>axial_elements</code></td>
+<td><code>integer</code></td>
+<td><code>count</code></td>
+<td>39</td>
+<td>-</td>
+<td>&gt;= 2</td>
+<td>全部</td>
+<td><code>nz</code></td>
+<td>Finite-element count along the bearing axis.</td>
+</tr>
+<tr>
+<td><code>pad_bias_deg</code></td>
+<td><code>number</code></td>
+<td><code>deg</code></td>
+<td>0.0</td>
+<td>-</td>
+<td>finite</td>
+<td>全部</td>
+<td><code>bias</code></td>
+<td>Angular offset applied to this pad.</td>
+</tr>
+<tr>
+<td><code>eccentricity</code></td>
+<td><code>number</code></td>
+<td><code>1</code></td>
+<td>0.0</td>
+<td>-</td>
+<td>0 &lt;= value &lt; 1</td>
+<td>全部</td>
+<td><code>e</code></td>
+<td>Initial eccentricity ratio e/c.</td>
+</tr>
+<tr>
+<td><code>attitude_angle_deg</code></td>
+<td><code>number</code></td>
+<td><code>deg</code></td>
+<td>0.0</td>
+<td>-</td>
+<td>finite</td>
+<td>全部</td>
+<td><code>angle</code></td>
+<td>Initial eccentricity attitude angle.</td>
+</tr>
+<tr>
+<td><code>reynolds_boundary</code></td>
+<td><code>boolean or 'half_reynold'</code></td>
+<td><code>bool</code></td>
+<td>true</td>
+<td>-</td>
+<td>finite</td>
+<td>全部</td>
+<td><code>reynold</code></td>
+<td>Enable the Reynolds cavitation boundary.</td>
+</tr>
+<tr>
+<td><code>continuous_boundary</code></td>
+<td><code>boolean</code></td>
+<td><code>bool</code></td>
+<td>true</td>
+<td>-</td>
+<td>finite</td>
+<td>全部</td>
+<td><code>coe</code></td>
+<td>Couple the circumferential end boundaries.</td>
+</tr>
+<tr>
+<td><code>ambient_pressure</code></td>
+<td><code>number</code></td>
+<td><code>p/ps</code></td>
+<td>0.0</td>
+<td>-</td>
+<td>finite</td>
+<td>全部</td>
+<td><code>p_set</code></td>
+<td>Nondimensional ambient boundary pressure.</td>
+</tr>
+<tr>
+<td><code>solver_tolerance</code></td>
+<td><code>number</code></td>
+<td><code>1</code></td>
+<td>1e-10</td>
+<td>-</td>
+<td>&gt; 0</td>
+<td>全部</td>
+<td><code>error_set</code></td>
+<td>Relative convergence tolerance of the film solve.</td>
+</tr>
+<tr>
+<td><code>max_iterations</code></td>
+<td><code>integer</code></td>
+<td><code>count</code></td>
+<td>120</td>
+<td>-</td>
+<td>&gt;= 1</td>
+<td>全部</td>
+<td><code>max_iter</code></td>
+<td>Maximum nonlinear film iterations.</td>
+</tr>
+<tr>
+<td><code>relaxation</code></td>
+<td><code>number</code></td>
+<td><code>1</code></td>
+<td>0.8</td>
+<td>-</td>
+<td>finite</td>
+<td>全部</td>
+<td><code>damp</code></td>
+<td>Fixed relaxation factor used by the film iteration.</td>
+</tr>
+<tr>
+<td><code>x_velocity</code></td>
+<td><code>number</code></td>
+<td><code>1</code></td>
+<td>0.0</td>
+<td>-</td>
+<td>finite</td>
+<td>全部</td>
+<td><code>dxt</code></td>
+<td>Nondimensional journal-center x velocity.</td>
+</tr>
+<tr>
+<td><code>y_velocity</code></td>
+<td><code>number</code></td>
+<td><code>1</code></td>
+<td>0.0</td>
+<td>-</td>
+<td>finite</td>
+<td>全部</td>
+<td><code>dyt</code></td>
+<td>Nondimensional journal-center y velocity.</td>
+</tr>
+<tr>
+<td><code>whirl_ratio</code></td>
+<td><code>number</code></td>
+<td><code>1</code></td>
+<td>1.0</td>
+<td>-</td>
+<td>finite</td>
+<td>全部</td>
+<td><code>vf</code></td>
+<td>Whirl frequency divided by journal rotation frequency.</td>
+</tr>
+<tr>
+<td><code>x_center_velocity</code></td>
+<td><code>number</code></td>
+<td><code>1</code></td>
+<td>0.0</td>
+<td>-</td>
+<td>finite</td>
+<td>全部</td>
+<td><code>xct</code></td>
+<td>Nondimensional moving-frame x velocity.</td>
+</tr>
+<tr>
+<td><code>y_center_velocity</code></td>
+<td><code>number</code></td>
+<td><code>1</code></td>
+<td>0.0</td>
+<td>-</td>
+<td>finite</td>
+<td>全部</td>
+<td><code>yct</code></td>
+<td>Nondimensional moving-frame y velocity.</td>
+</tr>
+<tr>
+<td><code>scale_viscosity</code></td>
+<td><code>number</code></td>
+<td><code>Pa*s</code></td>
+<td>1.0</td>
+<td>-</td>
+<td>&gt; 0</td>
+<td>全部</td>
+<td><code>scale_miu</code></td>
+<td>Viscosity used to dimensionalize outputs.</td>
+</tr>
+<tr>
+<td><code>scale_clearance</code></td>
+<td><code>number</code></td>
+<td><code>m</code></td>
+<td>1.0</td>
+<td>-</td>
+<td>&gt; 0</td>
+<td>全部</td>
+<td><code>scale_c</code></td>
+<td>Clearance used to dimensionalize displacement.</td>
+</tr>
+<tr>
+<td><code>scale_radius</code></td>
+<td><code>number</code></td>
+<td><code>m</code></td>
+<td>1.0</td>
+<td>-</td>
+<td>&gt; 0</td>
+<td>全部</td>
+<td><code>scale_r</code></td>
+<td>Journal radius used for dimensional scaling.</td>
+</tr>
+<tr>
+<td><code>scale_length</code></td>
+<td><code>number or null</code></td>
+<td><code>m</code></td>
+<td>null</td>
+<td>-</td>
+<td>None or &gt; 0</td>
+<td>全部</td>
+<td><code>scale_l</code></td>
+<td>Bearing length used for dimensional scaling.</td>
+</tr>
+<tr>
+<td><code>scale_pressure</code></td>
+<td><code>number</code></td>
+<td><code>Pa</code></td>
+<td>1.0</td>
+<td>-</td>
+<td>&gt; 0</td>
+<td>全部</td>
+<td><code>scale_ps</code></td>
+<td>Pressure used to dimensionalize pressure and force.</td>
+</tr>
+<tr>
+<td><code>scale_density</code></td>
+<td><code>number</code></td>
+<td><code>kg/m^3</code></td>
+<td>1.0</td>
+<td>-</td>
+<td>&gt; 0</td>
+<td>全部</td>
+<td><code>scale_rho</code></td>
+<td>Density used for dimensional scaling.</td>
+</tr>
+<tr>
+<td><code>scale_speed_rpm</code></td>
+<td><code>number or null</code></td>
+<td><code>rpm</code></td>
+<td>null</td>
+<td>-</td>
+<td>None or &gt; 0</td>
+<td>全部</td>
+<td><code>scale_w</code></td>
+<td>Journal speed used for dimensional scaling.</td>
+</tr>
+<tr>
+<td><code>save_pressure</code></td>
+<td><code>boolean</code></td>
+<td><code>bool</code></td>
+<td>false</td>
+<td>-</td>
+<td>finite</td>
+<td>全部</td>
+<td><code>save_p</code></td>
+<td>Include pressure in native persistence outputs.</td>
+</tr>
+<tr>
+<td><code>save_thickness</code></td>
+<td><code>boolean</code></td>
+<td><code>bool</code></td>
+<td>false</td>
+<td>-</td>
+<td>finite</td>
+<td>全部</td>
+<td><code>save_h</code></td>
+<td>Include film thickness in native persistence outputs.</td>
+</tr>
+<tr>
+<td><code>adaptive_damping</code></td>
+<td><code>boolean or mapping or null</code></td>
+<td><code>bool</code></td>
+<td>null</td>
+<td>-</td>
+<td>finite</td>
+<td>全部</td>
+<td><code>adaptive_damp</code></td>
+<td>Adapt the iteration relaxation factor.</td>
+</tr>
+</tbody>
+</table>
+<p><a id="config-group-film_gas_additions"></a></p>
+<h3 id="film_4">气膜覆盖与附加 film 字段<a class="headerlink" href="#film_4" title="Permanent link">&para;</a></h3>
+<p>列出气膜对通用量纲 film 默认值的覆盖，以及气体压力、织构和柔性箔片耦合参数。</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>值类型</th>
+<th>单位</th>
+<th>必填/默认值</th>
+<th>可选值</th>
+<th>约束</th>
+<th>适用范围</th>
+<th>原生映射</th>
+<th>源码英文合同</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>continuous_boundary</code></td>
+<td><code>boolean</code></td>
+<td><code>bool</code></td>
+<td>true</td>
+<td>-</td>
+<td>finite</td>
+<td>全部</td>
+<td><code>coe</code></td>
+<td>Couple the circumferential end boundaries.</td>
+</tr>
+<tr>
+<td><code>ambient_pressure</code></td>
+<td><code>number</code></td>
+<td><code>Pa</code></td>
+<td>1.0</td>
+<td>-</td>
+<td>&gt;= 0</td>
+<td>全部</td>
+<td><code>p_set</code></td>
+<td>Pressure prescribed on ambient film boundaries.</td>
+</tr>
+<tr>
+<td><code>solver</code></td>
+<td><code>string</code></td>
+<td><code>name</code></td>
+<td>"skfem_newton"</td>
+<td>["skfem_newton"]</td>
+<td>finite</td>
+<td>全部</td>
+<td><code>iter_method</code></td>
+<td>Native film iteration method identifier.</td>
+</tr>
+<tr>
+<td><code>ambient_pressure_pa</code></td>
+<td><code>number</code></td>
+<td><code>Pa</code></td>
+<td>101325.0</td>
+<td>-</td>
+<td>&gt; 0</td>
+<td>全部</td>
+<td><code>pa</code></td>
+<td>Absolute ambient gas pressure.</td>
+</tr>
+<tr>
+<td><code>gas_frequency_ratio</code></td>
+<td><code>number</code></td>
+<td><code>1</code></td>
+<td>1.0</td>
+<td>-</td>
+<td>&gt; 0</td>
+<td>全部</td>
+<td><code>gamma</code></td>
+<td>Gas-film frequency-ratio coefficient.</td>
+</tr>
+<tr>
+<td><code>foil_enabled</code></td>
+<td><code>boolean</code></td>
+<td><code>bool</code></td>
+<td>false</td>
+<td>-</td>
+<td>finite</td>
+<td>全部</td>
+<td><code>foil_enabled</code></td>
+<td>Enable compliant-foil deformation.</td>
+</tr>
+<tr>
+<td><code>texture_enabled</code></td>
+<td><code>boolean</code></td>
+<td><code>bool</code></td>
+<td>false</td>
+<td>-</td>
+<td>finite</td>
+<td>全部</td>
+<td><code>texture_enabled</code></td>
+<td>Enable the configured surface texture.</td>
+</tr>
+<tr>
+<td><code>texture_type</code></td>
+<td><code>integer</code></td>
+<td><code>integer</code></td>
+<td>1</td>
+<td>[1, 2, 3]</td>
+<td>finite</td>
+<td>gas_film:dimensional</td>
+<td><code>texture_type</code></td>
+<td>Surface-texture geometry identifier.</td>
+</tr>
+<tr>
+<td><code>texture_depth</code></td>
+<td><code>number or null</code></td>
+<td><code>m</code></td>
+<td>null</td>
+<td>-</td>
+<td>None or &gt;= 0</td>
+<td>全部</td>
+<td><code>texture_depth</code></td>
+<td>Absolute texture depth.</td>
+</tr>
+<tr>
+<td><code>texture_depth_ratio</code></td>
+<td><code>number or null</code></td>
+<td><code>1</code></td>
+<td>null</td>
+<td>-</td>
+<td>None or &gt;= 0</td>
+<td>全部</td>
+<td><code>texture_depth_ratio</code></td>
+<td>Texture depth divided by clearance.</td>
+</tr>
+<tr>
+<td><code>texture_circumferential_fraction</code></td>
+<td><code>number</code></td>
+<td><code>1</code></td>
+<td>0.0</td>
+<td>-</td>
+<td>0 &lt;= value &lt;= 1</td>
+<td>全部</td>
+<td><code>texture_circ_fraction</code></td>
+<td>Textured fraction around the film arc.</td>
+</tr>
+<tr>
+<td><code>texture_axial_fraction</code></td>
+<td><code>number</code></td>
+<td><code>1</code></td>
+<td>0.0</td>
+<td>-</td>
+<td>0 &lt;= value &lt;= 1</td>
+<td>全部</td>
+<td><code>texture_axial_fraction</code></td>
+<td>Textured fraction along the bearing axis.</td>
+</tr>
+<tr>
+<td><code>texture_start_theta_index</code></td>
+<td><code>integer</code></td>
+<td><code>index</code></td>
+<td>1</td>
+<td>-</td>
+<td>&gt;= 1</td>
+<td>gas_film:dimensional</td>
+<td><code>texture_start_theta_index</code></td>
+<td>One-based circumferential mesh index where texture begins.</td>
+</tr>
+<tr>
+<td><code>texture_start_axial_index</code></td>
+<td><code>integer</code></td>
+<td><code>index</code></td>
+<td>1</td>
+<td>-</td>
+<td>&gt;= 1</td>
+<td>gas_film:dimensional</td>
+<td><code>texture_start_z_index</code></td>
+<td>One-based axial mesh index where texture begins.</td>
+</tr>
+<tr>
+<td><code>foil_relaxation</code></td>
+<td><code>number</code></td>
+<td><code>1</code></td>
+<td>0.5</td>
+<td>-</td>
+<td>0 &lt; value &lt;= 1</td>
+<td>全部</td>
+<td><code>foil_relaxation</code></td>
+<td>Relaxation factor for foil deformation.</td>
+</tr>
+<tr>
+<td><code>foil_tolerance</code></td>
+<td><code>number</code></td>
+<td><code>1</code></td>
+<td>1e-06</td>
+<td>-</td>
+<td>&gt; 0</td>
+<td>全部</td>
+<td><code>foil_tol</code></td>
+<td>Convergence tolerance for foil deformation.</td>
+</tr>
+<tr>
+<td><code>foil_stiffness</code></td>
+<td><code>number or null</code></td>
+<td><code>N/m^3</code></td>
+<td>null</td>
+<td>-</td>
+<td>None or &gt; 0</td>
+<td>全部</td>
+<td><code>foil_stiffness</code></td>
+<td>Distributed support stiffness of the foil.</td>
+</tr>
+<tr>
+<td><code>foil_pitch</code></td>
+<td><code>number</code></td>
+<td><code>m</code></td>
+<td>0.004572</td>
+<td>-</td>
+<td>&gt; 0</td>
+<td>全部</td>
+<td><code>foil_pitch</code></td>
+<td>Circumferential pitch of foil supports.</td>
+</tr>
+<tr>
+<td><code>foil_half_length</code></td>
+<td><code>number</code></td>
+<td><code>m</code></td>
+<td>0.001717</td>
+<td>-</td>
+<td>&gt; 0</td>
+<td>全部</td>
+<td><code>foil_half_length</code></td>
+<td>Half-length used by the foil model.</td>
+</tr>
+<tr>
+<td><code>foil_thickness</code></td>
+<td><code>number</code></td>
+<td><code>m</code></td>
+<td>0.00013</td>
+<td>-</td>
+<td>&gt; 0</td>
+<td>全部</td>
+<td><code>foil_thickness</code></td>
+<td>Foil material thickness.</td>
+</tr>
+<tr>
+<td><code>foil_young_modulus</code></td>
+<td><code>number</code></td>
+<td><code>Pa</code></td>
+<td>210000000000.0</td>
+<td>-</td>
+<td>&gt; 0</td>
+<td>全部</td>
+<td><code>foil_young</code></td>
+<td>Foil Young's modulus.</td>
+</tr>
+<tr>
+<td><code>foil_poisson_ratio</code></td>
+<td><code>number</code></td>
+<td><code>1</code></td>
+<td>0.3</td>
+<td>-</td>
+<td>-1 &lt; value &lt; 0.5</td>
+<td>全部</td>
+<td><code>foil_poisson</code></td>
+<td>Foil Poisson ratio.</td>
+</tr>
+</tbody>
+</table>
+<p><a id="config-group-restrictors_liquid"></a></p>
+<h3 id="restrictors_1">液膜 restrictors<a class="headerlink" href="#restrictors_1" title="Permanent link">&para;</a></h3>
+<p>可选静压节流孔位置、几何/流量系数和供压。</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>值类型</th>
+<th>单位</th>
+<th>必填/默认值</th>
+<th>可选值</th>
+<th>约束</th>
+<th>适用范围</th>
+<th>原生映射</th>
+<th>源码英文合同</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>positions</code></td>
+<td><code>array[array[number, 2]]</code></td>
+<td><code>normalized coordinate pairs</code></td>
+<td>必填</td>
+<td>-</td>
+<td>nonempty</td>
+<td>全部</td>
+<td>与公开字段同名</td>
+<td>Restrictor circumferential/axial positions.</td>
+</tr>
+<tr>
+<td><code>radius</code></td>
+<td><code>number or null</code></td>
+<td><code>m</code></td>
+<td>null</td>
+<td>-</td>
+<td>exactly one of radius and flow_coefficient</td>
+<td>全部</td>
+<td>与公开字段同名</td>
+<td>Physical restrictor radius.</td>
+</tr>
+<tr>
+<td><code>flow_coefficient</code></td>
+<td><code>number or null</code></td>
+<td><code>1</code></td>
+<td>null</td>
+<td>-</td>
+<td>exactly one of radius and flow_coefficient</td>
+<td>全部</td>
+<td>与公开字段同名</td>
+<td>Already nondimensionalized restrictor flow coefficient.</td>
+</tr>
+<tr>
+<td><code>pressure</code></td>
+<td><code>number or null</code></td>
+<td><code>Pa or p/ps</code></td>
+<td>null</td>
+<td>-</td>
+<td>-</td>
+<td>全部</td>
+<td>与公开字段同名</td>
+<td>Optional restrictor supply pressure override.</td>
+</tr>
+<tr>
+<td><code>discharge_coefficient</code></td>
+<td><code>number</code></td>
+<td><code>1</code></td>
+<td>0.6</td>
+<td>-</td>
+<td>&gt; 0</td>
+<td>全部</td>
+<td>与公开字段同名</td>
+<td>Orifice discharge coefficient.</td>
+</tr>
+</tbody>
+</table>
+<p><a id="config-group-restrictors_active"></a></p>
+<h3 id="restrictors_2">主动 restrictors<a class="headerlink" href="#restrictors_2" title="Permanent link">&para;</a></h3>
+<p>量纲或无量纲主动供油节流器及点源投影方式。</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>值类型</th>
+<th>单位</th>
+<th>必填/默认值</th>
+<th>可选值</th>
+<th>约束</th>
+<th>适用范围</th>
+<th>原生映射</th>
+<th>源码英文合同</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>positions</code></td>
+<td><code>array[array[number, 2]]</code></td>
+<td><code>normalized coordinate pairs</code></td>
+<td>必填</td>
+<td>-</td>
+<td>nonempty</td>
+<td>全部</td>
+<td>与公开字段同名</td>
+<td>Active restrictor locations.</td>
+</tr>
+<tr>
+<td><code>supply_pressure</code></td>
+<td><code>number</code></td>
+<td><code>Pa or p/ps</code></td>
+<td>film.supply_pressure for dimensional; 1.0 for nondimensional</td>
+<td>-</td>
+<td>-</td>
+<td>全部</td>
+<td>与公开字段同名</td>
+<td>Restrictor supply pressure.</td>
+</tr>
+<tr>
+<td><code>tank_pressure</code></td>
+<td><code>number</code></td>
+<td><code>Pa or p/ps</code></td>
+<td>0.0</td>
+<td>-</td>
+<td>-</td>
+<td>全部</td>
+<td>与公开字段同名</td>
+<td>Tank/reference pressure.</td>
+</tr>
+<tr>
+<td><code>flow_coefficient</code></td>
+<td><code>number or null</code></td>
+<td><code>1</code></td>
+<td>null</td>
+<td>-</td>
+<td>-</td>
+<td>全部</td>
+<td>与公开字段同名</td>
+<td>Legacy active flow coefficient or dimensional cq1 override.</td>
+</tr>
+<tr>
+<td><code>orifice_diameter</code></td>
+<td><code>number</code></td>
+<td><code>m</code></td>
+<td>0.002</td>
+<td>-</td>
+<td>&gt; 0</td>
+<td>active_lubricated:dimensional</td>
+<td>与公开字段同名</td>
+<td>Dimensional orifice diameter.</td>
+</tr>
+<tr>
+<td><code>orifice_length</code></td>
+<td><code>number</code></td>
+<td><code>m</code></td>
+<td>0.02</td>
+<td>-</td>
+<td>&gt; 0</td>
+<td>active_lubricated:dimensional</td>
+<td>与公开字段同名</td>
+<td>Dimensional orifice length.</td>
+</tr>
+<tr>
+<td><code>valve_area</code></td>
+<td><code>number</code></td>
+<td><code>m^2</code></td>
+<td>1.22e-06</td>
+<td>-</td>
+<td>&gt; 0</td>
+<td>active_lubricated:dimensional</td>
+<td>与公开字段同名</td>
+<td>Dimensional valve reference area.</td>
+</tr>
+<tr>
+<td><code>discharge_coefficient</code></td>
+<td><code>number</code></td>
+<td><code>1</code></td>
+<td>0.6</td>
+<td>-</td>
+<td>&gt; 0</td>
+<td>active_lubricated:dimensional</td>
+<td>与公开字段同名</td>
+<td>Dimensional orifice discharge coefficient.</td>
+</tr>
+<tr>
+<td><code>flow_projection</code></td>
+<td><code>string</code></td>
+<td><code>name</code></td>
+<td>"nearest_node"</td>
+<td>["nearest_node", "element_shape"]</td>
+<td>-</td>
+<td>全部</td>
+<td>与公开字段同名</td>
+<td>Point-source projection onto pressure/thermal degrees of freedom.</td>
+</tr>
+<tr>
+<td><code>base_flow_coefficient</code></td>
+<td><code>number</code></td>
+<td><code>1</code></td>
+<td>1.0</td>
+<td>-</td>
+<td>-</td>
+<td>active_lubricated:nondimensional</td>
+<td>与公开字段同名</td>
+<td>Nondimensional base-flow coefficient cq0.</td>
+</tr>
+<tr>
+<td><code>spool_flow_coefficient</code></td>
+<td><code>number</code></td>
+<td><code>1</code></td>
+<td>flow_coefficient when provided; otherwise 1.0</td>
+<td>-</td>
+<td>-</td>
+<td>active_lubricated:nondimensional</td>
+<td>与公开字段同名</td>
+<td>Nondimensional spool-flow coefficient cq1.</td>
+</tr>
+<tr>
+<td><code>pressure_flow_coefficient</code></td>
+<td><code>number</code></td>
+<td><code>1</code></td>
+<td>0.0</td>
+<td>-</td>
+<td>-</td>
+<td>active_lubricated:nondimensional</td>
+<td>与公开字段同名</td>
+<td>Nondimensional pressure-flow coefficient cq2.</td>
+</tr>
+</tbody>
+</table>
+<p><a id="config-group-tank"></a></p>
+<h3 id="tank">主动 tank<a class="headerlink" href="#tank" title="Permanent link">&para;</a></h3>
+<p>油腔局部范围与深度比。</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>值类型</th>
+<th>单位</th>
+<th>必填/默认值</th>
+<th>可选值</th>
+<th>约束</th>
+<th>适用范围</th>
+<th>原生映射</th>
+<th>源码英文合同</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>x_range</code></td>
+<td><code>array[number, 2]</code></td>
+<td><code>normalized pair</code></td>
+<td>[0.49, 0.51]</td>
+<td>-</td>
+<td>-</td>
+<td>全部</td>
+<td>与公开字段同名</td>
+<td>Circumferential tank/recess interval.</td>
+</tr>
+<tr>
+<td><code>z_range</code></td>
+<td><code>array[number, 2]</code></td>
+<td><code>normalized pair</code></td>
+<td>[0.2, 0.8]</td>
+<td>-</td>
+<td>-</td>
+<td>全部</td>
+<td>与公开字段同名</td>
+<td>Axial tank/recess interval.</td>
+</tr>
+<tr>
+<td><code>depth_ratio</code></td>
+<td><code>number</code></td>
+<td><code>h/c</code></td>
+<td>2.0</td>
+<td>-</td>
+<td>-</td>
+<td>全部</td>
+<td>与公开字段同名</td>
+<td>Tank depth divided by clearance.</td>
+</tr>
+</tbody>
+</table>
+<p><a id="config-group-valve_second_order"></a></p>
+<h3 id="valve">二阶 valve<a class="headerlink" href="#valve" title="Permanent link">&para;</a></h3>
+<p>二阶伺服阀的频率、阻尼和延迟。</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>值类型</th>
+<th>单位</th>
+<th>必填/默认值</th>
+<th>可选值</th>
+<th>约束</th>
+<th>适用范围</th>
+<th>原生映射</th>
+<th>源码英文合同</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>model</code></td>
+<td><code>string</code></td>
+<td><code>name</code></td>
+<td>必填</td>
+<td>["second_order", "static", "transfer_function"]</td>
+<td>-</td>
+<td>全部</td>
+<td>与公开字段同名</td>
+<td>Servo-valve model discriminator.</td>
+</tr>
+<tr>
+<td><code>natural_frequency_hz</code></td>
+<td><code>number</code></td>
+<td><code>Hz</code></td>
+<td>必填</td>
+<td>-</td>
+<td>&gt; 0</td>
+<td>全部</td>
+<td>与公开字段同名</td>
+<td>Second-order natural frequency.</td>
+</tr>
+<tr>
+<td><code>damping_ratio</code></td>
+<td><code>number</code></td>
+<td><code>1</code></td>
+<td>必填</td>
+<td>-</td>
+<td>&gt; 0</td>
+<td>全部</td>
+<td>与公开字段同名</td>
+<td>Second-order damping ratio.</td>
+</tr>
+<tr>
+<td><code>delay</code></td>
+<td><code>number</code></td>
+<td><code>s</code></td>
+<td>0.0</td>
+<td>-</td>
+<td>&gt;= 0</td>
+<td>全部</td>
+<td>与公开字段同名</td>
+<td>Nonnegative command delay.</td>
+</tr>
+</tbody>
+</table>
+<p><a id="config-group-valve_static"></a></p>
+<h3 id="valve_1">静态 valve<a class="headerlink" href="#valve_1" title="Permanent link">&para;</a></h3>
+<p>无记忆单位增益阀，仅使用模型判别字段。</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>值类型</th>
+<th>单位</th>
+<th>必填/默认值</th>
+<th>可选值</th>
+<th>约束</th>
+<th>适用范围</th>
+<th>原生映射</th>
+<th>源码英文合同</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>model</code></td>
+<td><code>string</code></td>
+<td><code>name</code></td>
+<td>必填</td>
+<td>["second_order", "static", "transfer_function"]</td>
+<td>-</td>
+<td>全部</td>
+<td>与公开字段同名</td>
+<td>Servo-valve model discriminator.</td>
+</tr>
+</tbody>
+</table>
+<p><a id="config-group-valve_transfer_function"></a></p>
+<h3 id="valve_2">传递函数 valve<a class="headerlink" href="#valve_2" title="Permanent link">&para;</a></h3>
+<p>连续时间 proper 传递函数的分子和分母多项式。</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>值类型</th>
+<th>单位</th>
+<th>必填/默认值</th>
+<th>可选值</th>
+<th>约束</th>
+<th>适用范围</th>
+<th>原生映射</th>
+<th>源码英文合同</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>model</code></td>
+<td><code>string</code></td>
+<td><code>name</code></td>
+<td>必填</td>
+<td>["second_order", "static", "transfer_function"]</td>
+<td>-</td>
+<td>全部</td>
+<td>与公开字段同名</td>
+<td>Servo-valve model discriminator.</td>
+</tr>
+<tr>
+<td><code>numerator</code></td>
+<td><code>array[number]</code></td>
+<td><code>descending powers of s</code></td>
+<td>必填</td>
+<td>-</td>
+<td>finite, nonempty, nonzero leading coefficient; transfer proper</td>
+<td>全部</td>
+<td>与公开字段同名</td>
+<td>Continuous-time numerator coefficients.</td>
+</tr>
+<tr>
+<td><code>denominator</code></td>
+<td><code>array[number]</code></td>
+<td><code>descending powers of s</code></td>
+<td>必填</td>
+<td>-</td>
+<td>finite, nonempty, nonzero leading coefficient</td>
+<td>全部</td>
+<td>与公开字段同名</td>
+<td>Continuous-time denominator coefficients.</td>
+</tr>
+</tbody>
+</table>
+<p><a id="config-group-control"></a></p>
+<h3 id="control">主动 control<a class="headerlink" href="#control" title="Permanent link">&para;</a></h3>
+<p>PID、模糊 PID、无控制和外部阀芯模式的公共控制字段。</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>值类型</th>
+<th>单位</th>
+<th>必填/默认值</th>
+<th>可选值</th>
+<th>约束</th>
+<th>适用范围</th>
+<th>原生映射</th>
+<th>源码英文合同</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>mode</code></td>
+<td><code>string</code></td>
+<td><code>name</code></td>
+<td>必填</td>
+<td>["pid", "fuzzy_pid", "uncontrolled", "external_spool"]</td>
+<td>-</td>
+<td>全部</td>
+<td>与公开字段同名</td>
+<td>Controller ownership and algorithm mode.</td>
+</tr>
+<tr>
+<td><code>gains</code></td>
+<td><code>object or null</code></td>
+<td><code>mapping</code></td>
+<td>null</td>
+<td>-</td>
+<td>-</td>
+<td>pid</td>
+<td>与公开字段同名</td>
+<td>PID gains; accepted only for pid mode.</td>
+</tr>
+<tr>
+<td><code>frequency_hz</code></td>
+<td><code>number</code></td>
+<td><code>Hz</code></td>
+<td>50.0 for pid; 5.0 for fuzzy_pid</td>
+<td>-</td>
+<td>-</td>
+<td>pid, fuzzy_pid</td>
+<td>与公开字段同名</td>
+<td>Controller update/reference frequency.</td>
+</tr>
+<tr>
+<td><code>sensor_angles_deg</code></td>
+<td><code>array[number, 2]</code></td>
+<td><code>deg</code></td>
+<td>[45.0, 135.0]</td>
+<td>-</td>
+<td>-</td>
+<td>pid, fuzzy_pid</td>
+<td>与公开字段同名</td>
+<td>Two sensor directions used by PID/fuzzy PID.</td>
+</tr>
+<tr>
+<td><code>error_range</code></td>
+<td><code>array[number, 3]</code></td>
+<td><code>[min, max, step]</code></td>
+<td>[-1.0, 1.0, 0.01]</td>
+<td>-</td>
+<td>-</td>
+<td>fuzzy_pid</td>
+<td>与公开字段同名</td>
+<td>Fuzzy error universe.</td>
+</tr>
+<tr>
+<td><code>delta_error_range</code></td>
+<td><code>array[number, 3]</code></td>
+<td><code>[min, max, step]</code></td>
+<td>[-1.0, 1.0, 0.01]</td>
+<td>-</td>
+<td>-</td>
+<td>fuzzy_pid</td>
+<td>与公开字段同名</td>
+<td>Fuzzy error-change universe.</td>
+</tr>
+<tr>
+<td><code>kp_range</code></td>
+<td><code>array[number, 3]</code></td>
+<td><code>[min, max, step]</code></td>
+<td>[0.0, 1.0, 0.01]</td>
+<td>-</td>
+<td>-</td>
+<td>fuzzy_pid</td>
+<td>与公开字段同名</td>
+<td>Fuzzy proportional-gain universe.</td>
+</tr>
+<tr>
+<td><code>ki_range</code></td>
+<td><code>array[number, 3]</code></td>
+<td><code>[min, max, step]</code></td>
+<td>[0.0, 0.0, 0.01]</td>
+<td>-</td>
+<td>-</td>
+<td>fuzzy_pid</td>
+<td>与公开字段同名</td>
+<td>Fuzzy integral-gain universe.</td>
+</tr>
+<tr>
+<td><code>kd_range</code></td>
+<td><code>array[number, 3]</code></td>
+<td><code>[min, max, step]</code></td>
+<td>[0.0, 1.0, 0.01]</td>
+<td>-</td>
+<td>-</td>
+<td>fuzzy_pid</td>
+<td>与公开字段同名</td>
+<td>Fuzzy derivative-gain universe.</td>
+</tr>
+<tr>
+<td><code>rule_path</code></td>
+<td><code>string</code></td>
+<td><code>relative path</code></td>
+<td>"fuzzy_rules.csv"</td>
+<td>-</td>
+<td>-</td>
+<td>fuzzy_pid</td>
+<td>与公开字段同名</td>
+<td>Fuzzy rule CSV resolved below resource_root.</td>
+</tr>
+</tbody>
+</table>
+<p><a id="config-group-control_pid_gains"></a></p>
+<h3 id="pid-gains">PID gains<a class="headerlink" href="#pid-gains" title="Permanent link">&para;</a></h3>
+<p>PID 比例、积分、微分与前馈增益。</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>值类型</th>
+<th>单位</th>
+<th>必填/默认值</th>
+<th>可选值</th>
+<th>约束</th>
+<th>适用范围</th>
+<th>原生映射</th>
+<th>源码英文合同</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>kp</code></td>
+<td><code>number</code></td>
+<td><code>controller units</code></td>
+<td>0.0</td>
+<td>-</td>
+<td>-</td>
+<td>全部</td>
+<td>与公开字段同名</td>
+<td>Proportional gain.</td>
+</tr>
+<tr>
+<td><code>ki</code></td>
+<td><code>number</code></td>
+<td><code>controller units</code></td>
+<td>0.0</td>
+<td>-</td>
+<td>-</td>
+<td>全部</td>
+<td>与公开字段同名</td>
+<td>Integral gain.</td>
+</tr>
+<tr>
+<td><code>kd</code></td>
+<td><code>number</code></td>
+<td><code>controller units</code></td>
+<td>0.0</td>
+<td>-</td>
+<td>-</td>
+<td>全部</td>
+<td>与公开字段同名</td>
+<td>Derivative gain.</td>
+</tr>
+<tr>
+<td><code>feedforward</code></td>
+<td><code>number</code></td>
+<td><code>controller units</code></td>
+<td>0.0</td>
+<td>-</td>
+<td>-</td>
+<td>全部</td>
+<td>与公开字段同名</td>
+<td>Constant feed-forward term.</td>
+</tr>
+</tbody>
+</table>
+<p><a id="config-group-transforms"></a></p>
+<h3 id="transforms">主动 transforms<a class="headerlink" href="#transforms" title="Permanent link">&para;</a></h3>
+<p>物理位移/速度到控制器输入的显式变换矩阵。</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>值类型</th>
+<th>单位</th>
+<th>必填/默认值</th>
+<th>可选值</th>
+<th>约束</th>
+<th>适用范围</th>
+<th>原生映射</th>
+<th>源码英文合同</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>displacement_to_control</code></td>
+<td><code>array[array[number]]</code></td>
+<td><code>matrix</code></td>
+<td>[[1.0, 0.0], [0.0, 1.0]]</td>
+<td>-</td>
+<td>-</td>
+<td>全部</td>
+<td>与公开字段同名</td>
+<td>Physical-displacement to controller-input transform.</td>
+</tr>
+<tr>
+<td><code>velocity_to_control</code></td>
+<td><code>array[array[number]]</code></td>
+<td><code>matrix</code></td>
+<td>[[0.0, 0.0], [0.0, 0.0]]</td>
+<td>-</td>
+<td>-</td>
+<td>全部</td>
+<td>与公开字段同名</td>
+<td>Physical-velocity to controller-input transform.</td>
+</tr>
+</tbody>
+</table>
+<p><a id="config-group-thermal"></a></p>
+<h3 id="thermal_1">thermal<a class="headerlink" href="#thermal_1" title="Permanent link">&para;</a></h3>
+<p>稳态或瞬态热黏耦合、边界条件、黏度更新与 Newton 参数。</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>值类型</th>
+<th>单位</th>
+<th>必填/默认值</th>
+<th>可选值</th>
+<th>约束</th>
+<th>适用范围</th>
+<th>原生映射</th>
+<th>源码英文合同</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>t_in</code></td>
+<td><code>number</code></td>
+<td><code>degC</code></td>
+<td>40.0</td>
+<td>-</td>
+<td>-</td>
+<td>全部</td>
+<td>与公开字段同名</td>
+<td>Lubricant inlet temperature.</td>
+</tr>
+<tr>
+<td><code>t_ref</code></td>
+<td><code>number or null</code></td>
+<td><code>degC</code></td>
+<td>null</td>
+<td>-</td>
+<td>-</td>
+<td>全部</td>
+<td>与公开字段同名</td>
+<td>Reference temperature for viscosity.</td>
+</tr>
+<tr>
+<td><code>miu0</code></td>
+<td><code>number or null</code></td>
+<td><code>Pa*s</code></td>
+<td>null</td>
+<td>-</td>
+<td>None or &gt; 0</td>
+<td>全部</td>
+<td>与公开字段同名</td>
+<td>Viscosity at t_ref; inherits film viscosity when absent.</td>
+</tr>
+<tr>
+<td><code>beta</code></td>
+<td><code>number</code></td>
+<td><code>1/degC</code></td>
+<td>0.03</td>
+<td>-</td>
+<td>-</td>
+<td>全部</td>
+<td>与公开字段同名</td>
+<td>Dimensional viscosity-temperature coefficient.</td>
+</tr>
+<tr>
+<td><code>k_lub</code></td>
+<td><code>number</code></td>
+<td><code>W/(m*K)</code></td>
+<td>0.0</td>
+<td>-</td>
+<td>&gt;= 0</td>
+<td>全部</td>
+<td>与公开字段同名</td>
+<td>Lubricant thermal conductivity.</td>
+</tr>
+<tr>
+<td><code>cp_lub</code></td>
+<td><code>number</code></td>
+<td><code>J/(kg*K)</code></td>
+<td>2000.0</td>
+<td>-</td>
+<td>&gt; 0</td>
+<td>全部</td>
+<td>与公开字段同名</td>
+<td>Lubricant heat capacity.</td>
+</tr>
+<tr>
+<td><code>max_delta_t</code></td>
+<td><code>number</code></td>
+<td><code>degC</code></td>
+<td>80.0</td>
+<td>-</td>
+<td>-</td>
+<td>全部</td>
+<td>与公开字段同名</td>
+<td>Maximum accepted temperature rise.</td>
+</tr>
+<tr>
+<td><code>heat_partition</code></td>
+<td><code>number</code></td>
+<td><code>1</code></td>
+<td>0.9</td>
+<td>-</td>
+<td>-</td>
+<td>全部</td>
+<td>与公开字段同名</td>
+<td>Fraction of friction heat entering lubricant.</td>
+</tr>
+<tr>
+<td><code>relax</code></td>
+<td><code>number</code></td>
+<td><code>1</code></td>
+<td>0.5</td>
+<td>-</td>
+<td>-</td>
+<td>全部</td>
+<td>与公开字段同名</td>
+<td>Outer thermal relaxation factor.</td>
+</tr>
+<tr>
+<td><code>miu_update</code></td>
+<td><code>string</code></td>
+<td><code>name</code></td>
+<td>"linear"</td>
+<td>["linear", "log"]</td>
+<td>-</td>
+<td>全部</td>
+<td>与公开字段同名</td>
+<td>Outer viscosity update rule.</td>
+</tr>
+<tr>
+<td><code>miu_update_max_ratio</code></td>
+<td><code>number or null</code></td>
+<td><code>1</code></td>
+<td>null</td>
+<td>-</td>
+<td>None or &gt; 1</td>
+<td>全部</td>
+<td>与公开字段同名</td>
+<td>Optional multiplier cap for log viscosity updates.</td>
+</tr>
+<tr>
+<td><code>heat_partition_steps</code></td>
+<td><code>array[number] or null</code></td>
+<td><code>sequence</code></td>
+<td>null</td>
+<td>-</td>
+<td>-</td>
+<td>全部</td>
+<td>与公开字段同名</td>
+<td>Optional positive continuation schedule ending at heat_partition.</td>
+</tr>
+<tr>
+<td><code>iter_method</code></td>
+<td><code>string</code></td>
+<td><code>name</code></td>
+<td>"direct"</td>
+<td>["direct", "newton", "direct_then_newton"]</td>
+<td>-</td>
+<td>全部</td>
+<td>与公开字段同名</td>
+<td>Thermal nonlinear iteration method.</td>
+</tr>
+<tr>
+<td><code>tol</code></td>
+<td><code>number</code></td>
+<td><code>1</code></td>
+<td>1e-06</td>
+<td>-</td>
+<td>&gt; 0</td>
+<td>全部</td>
+<td>与公开字段同名</td>
+<td>Thermal outer-iteration tolerance.</td>
+</tr>
+<tr>
+<td><code>max_iter</code></td>
+<td><code>integer</code></td>
+<td><code>count</code></td>
+<td>60</td>
+<td>-</td>
+<td>&gt; 0</td>
+<td>全部</td>
+<td>与公开字段同名</td>
+<td>Thermal outer-iteration limit.</td>
+</tr>
+<tr>
+<td><code>adaptive_damp</code></td>
+<td><code>boolean or object or null</code></td>
+<td><code>mapping</code></td>
+<td>null</td>
+<td>-</td>
+<td>-</td>
+<td>全部</td>
+<td>与公开字段同名</td>
+<td>Optional adaptive outer-relaxation policy.</td>
+</tr>
+<tr>
+<td><code>miu_min</code></td>
+<td><code>number</code></td>
+<td><code>Pa*s</code></td>
+<td>0.0001</td>
+<td>-</td>
+<td>-</td>
+<td>全部</td>
+<td>与公开字段同名</td>
+<td>Viscosity clipping lower bound.</td>
+</tr>
+<tr>
+<td><code>miu_max</code></td>
+<td><code>number</code></td>
+<td><code>Pa*s</code></td>
+<td>1.0</td>
+<td>-</td>
+<td>-</td>
+<td>全部</td>
+<td>与公开字段同名</td>
+<td>Viscosity clipping upper bound.</td>
+</tr>
+<tr>
+<td><code>coupling</code></td>
+<td><code>string</code></td>
+<td><code>name</code></td>
+<td>"full"</td>
+<td>["full", "half"]</td>
+<td>-</td>
+<td>全部</td>
+<td>与公开字段同名</td>
+<td>Nodal or mean-viscosity thermal coupling.</td>
+</tr>
+<tr>
+<td><code>t_supply</code></td>
+<td><code>number or null</code></td>
+<td><code>degC</code></td>
+<td>null</td>
+<td>-</td>
+<td>-</td>
+<td>全部</td>
+<td>与公开字段同名</td>
+<td>Orifice supply temperature; falls back to t_in.</td>
+</tr>
+<tr>
+<td><code>axial_side_bc</code></td>
+<td><code>string</code></td>
+<td><code>name</code></td>
+<td>"inflow_fixed"</td>
+<td>["fixed", "adiabatic", "inflow_fixed"]</td>
+<td>-</td>
+<td>全部</td>
+<td>与公开字段同名</td>
+<td>Axial-side thermal boundary condition.</td>
+</tr>
+<tr>
+<td><code>axial_side_t</code></td>
+<td><code>number or null</code></td>
+<td><code>degC</code></td>
+<td>null</td>
+<td>-</td>
+<td>-</td>
+<td>全部</td>
+<td>与公开字段同名</td>
+<td>Fixed axial-side temperature; falls back to t_supply.</td>
+</tr>
+<tr>
+<td><code>supg</code></td>
+<td><code>boolean</code></td>
+<td><code>bool</code></td>
+<td>true</td>
+<td>-</td>
+<td>-</td>
+<td>全部</td>
+<td>与公开字段同名</td>
+<td>Enable SUPG stabilization.</td>
+</tr>
+<tr>
+<td><code>delta_t_scale</code></td>
+<td><code>number or null</code></td>
+<td><code>degC</code></td>
+<td>null</td>
+<td>-</td>
+<td>&gt; 0 when beta_nondim or t_ref_nondim is provided</td>
+<td>全部</td>
+<td>与公开字段同名</td>
+<td>Characteristic nondimensional temperature rise.</td>
+</tr>
+<tr>
+<td><code>beta_nondim</code></td>
+<td><code>number or null</code></td>
+<td><code>1</code></td>
+<td>null</td>
+<td>-</td>
+<td>-</td>
+<td>全部</td>
+<td>与公开字段同名</td>
+<td>Optional nondimensional viscosity-temperature coefficient.</td>
+</tr>
+<tr>
+<td><code>t_ref_nondim</code></td>
+<td><code>number or null</code></td>
+<td><code>1</code></td>
+<td>null</td>
+<td>-</td>
+<td>-</td>
+<td>全部</td>
+<td>与公开字段同名</td>
+<td>Optional nondimensional reference temperature.</td>
+</tr>
+<tr>
+<td><code>transient_enabled</code></td>
+<td><code>boolean</code></td>
+<td><code>bool</code></td>
+<td>false</td>
+<td>-</td>
+<td>requires iter_method='direct'</td>
+<td>全部</td>
+<td>与公开字段同名</td>
+<td>Enable the thermal transient term.</td>
+</tr>
+<tr>
+<td><code>thermal_newton_max_iter</code></td>
+<td><code>integer</code></td>
+<td><code>count</code></td>
+<td>30</td>
+<td>-</td>
+<td>&gt; 0</td>
+<td>全部</td>
+<td>与公开字段同名</td>
+<td>Maximum Newton iterations per thermal subsolve.</td>
+</tr>
+<tr>
+<td><code>thermal_newton_tol</code></td>
+<td><code>number or null</code></td>
+<td><code>1</code></td>
+<td>null</td>
+<td>-</td>
+<td>None or &gt; 0</td>
+<td>全部</td>
+<td>与公开字段同名</td>
+<td>Newton residual tolerance; falls back to tol.</td>
+</tr>
+<tr>
+<td><code>thermal_newton_damp</code></td>
+<td><code>number</code></td>
+<td><code>1</code></td>
+<td>1.0</td>
+<td>-</td>
+<td>&gt; 0</td>
+<td>全部</td>
+<td>与公开字段同名</td>
+<td>Initial Newton damping factor.</td>
+</tr>
+<tr>
+<td><code>thermal_newton_min_damp</code></td>
+<td><code>number</code></td>
+<td><code>1</code></td>
+<td>0.001</td>
+<td>-</td>
+<td>0 &lt; value &lt;= thermal_newton_damp</td>
+<td>全部</td>
+<td>与公开字段同名</td>
+<td>Minimum line-search damping factor.</td>
+</tr>
+<tr>
+<td><code>thermal_newton_line_search</code></td>
+<td><code>boolean</code></td>
+<td><code>bool</code></td>
+<td>false</td>
+<td>-</td>
+<td>-</td>
+<td>全部</td>
+<td>与公开字段同名</td>
+<td>Enable residual-decreasing Newton line search.</td>
+</tr>
+</tbody>
+</table>
+<p><a id="config-group-model_package"></a></p>
+<h3 id="model_package">代理 model_package<a class="headerlink" href="#model_package" title="Permanent link">&para;</a></h3>
+<p>ALBNN 0.4 模型包的受限相对路径和增强覆盖。</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>值类型</th>
+<th>单位</th>
+<th>必填/默认值</th>
+<th>可选值</th>
+<th>约束</th>
+<th>适用范围</th>
+<th>原生映射</th>
+<th>源码英文合同</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>path</code></td>
+<td><code>string</code></td>
+<td><code>relative directory</code></td>
+<td>必填</td>
+<td>-</td>
+<td>nonempty, relative, no '..' segment</td>
+<td>全部</td>
+<td>与公开字段同名</td>
+<td>ALBNN package directory below the outer document.</td>
+</tr>
+<tr>
+<td><code>use_augment</code></td>
+<td><code>boolean or null</code></td>
+<td><code>bool</code></td>
+<td>null</td>
+<td>-</td>
+<td>-</td>
+<td>全部</td>
+<td>与公开字段同名</td>
+<td>Optional inference augmentation override.</td>
+</tr>
+</tbody>
+</table>
+<p><a id="config-group-surrogate_runtime"></a></p>
+<h3 id="runtime">代理 runtime<a class="headerlink" href="#runtime" title="Permanent link">&para;</a></h3>
+<p>推理参数、固定阀芯或外部阀芯输入模式。</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>值类型</th>
+<th>单位</th>
+<th>必填/默认值</th>
+<th>可选值</th>
+<th>约束</th>
+<th>适用范围</th>
+<th>原生映射</th>
+<th>源码英文合同</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>parameters</code></td>
+<td><code>object</code></td>
+<td><code>mapping</code></td>
+<td>{}</td>
+<td>-</td>
+<td>-</td>
+<td>全部</td>
+<td>与公开字段同名</td>
+<td>Attributes exposed on the inference runtime config.</td>
+</tr>
+<tr>
+<td><code>spool_mode</code></td>
+<td><code>string</code></td>
+<td><code>name</code></td>
+<td>"fixed"</td>
+<td>["fixed", "external"]</td>
+<td>-</td>
+<td>全部</td>
+<td>与公开字段同名</td>
+<td>Use a fixed normalized spool or require external input.</td>
+</tr>
+<tr>
+<td><code>spool</code></td>
+<td><code>array[number, 2]</code></td>
+<td><code>normalized pair</code></td>
+<td>[0.0, 0.0]</td>
+<td>-</td>
+<td>each value in [-1, 1]; forbidden when spool_mode='external'</td>
+<td>全部</td>
+<td>与公开字段同名</td>
+<td>Fixed normalized spool command.</td>
+</tr>
+</tbody>
+</table>
 
 
 

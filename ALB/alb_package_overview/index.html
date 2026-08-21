@@ -599,6 +599,8 @@
       
         
       
+        
+      
     
     
     
@@ -658,7 +660,35 @@
   <span class="md-ellipsis">
     
   
-    字段参考
+    轴承配置
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/simulation_config_reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    转子-轴承仿真配置
   
 
     
@@ -1627,10 +1657,10 @@ flush/fsync 和原子替换发布快照及 manifest。每个
 SHA-256 摘要必须完整匹配。旧 package 与 pickle scaler 只能在升级前由
 <code>tools/migrations/</code> 中不安装的工具显式转换。</p>
 <h2 id="_6">安装与验证<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">E</span><span class="p">:/</span><span class="n">Anaconda2023</span><span class="p">/</span><span class="n">envs</span><span class="p">/</span><span class="n">ALB</span><span class="p">/</span><span class="n">python</span><span class="p">.</span><span class="n">exe</span> <span class="n">-m</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">-e</span> <span class="s2">".[all]"</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">E</span><span class="p">:/</span><span class="n">Anaconda2023</span><span class="p">/</span><span class="n">envs</span><span class="p">/</span><span class="n">ALB</span><span class="p">/</span><span class="n">python</span><span class="p">.</span><span class="n">exe</span> <span class="n">-m</span> <span class="n">pytest</span> <span class="n">-q</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">E</span><span class="p">:/</span><span class="n">Anaconda2023</span><span class="p">/</span><span class="n">envs</span><span class="p">/</span><span class="n">ALB</span><span class="p">/</span><span class="n">python</span><span class="p">.</span><span class="n">exe</span> <span class="n">tools</span><span class="p">/</span><span class="n">validation</span><span class="p">/</span><span class="n">run_layered_mypy</span><span class="p">.</span><span class="n">py</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="n">E</span><span class="p">:/</span><span class="n">Anaconda2023</span><span class="p">/</span><span class="n">envs</span><span class="p">/</span><span class="n">ALB</span><span class="p">/</span><span class="n">python</span><span class="p">.</span><span class="n">exe</span> <span class="n">tools</span><span class="p">/</span><span class="n">docs</span><span class="p">/</span><span class="n">generate_public_api_reference</span><span class="p">.</span><span class="n">py</span> <span class="p">-</span><span class="n">-check</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span><span class="s2">".[all]"</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>python<span class="w"> </span>-m<span class="w"> </span>pytest<span class="w"> </span>-q
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>python<span class="w"> </span>tools/validation/run_layered_mypy.py
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>python<span class="w"> </span>tools/docs/generate_public_api_reference.py<span class="w"> </span>--check
 </code></pre></div>
 <p>0.4.0 发布功能以 <code>tools/validation/release_feature_manifest_0_4.json</code> 和
 <code>docs/migrations/0.4.0_test_map.json</code> 为历史证据；0.4.1 数值一致性补丁以
