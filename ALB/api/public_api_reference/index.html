@@ -1,0 +1,5101 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="主动润滑轴承物理、控制、动力学与代理模型用户文档">
+      
+      
+        <meta name="author" content="ALB maintainers">
+      
+      
+        <link rel="canonical" href="https://waj734014160-creator.github.io/ALB/api/public_api_reference/">
+      
+      
+        <link rel="prev" href="../../site/examples/">
+      
+      
+        <link rel="next" href="../namespaces/control/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/bearing-mark.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>根公开 API - ALB Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/alb-docs.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#alb-api" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="ALB Documentation" class="md-header__button md-logo" aria-label="ALB Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/bearing-mark.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ALB Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              根公开 API
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="使用深色主题"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="使用深色主题" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="使用浅色主题"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="使用浅色主题" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="ALB Documentation" class="md-nav__button md-logo" aria-label="ALB Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/bearing-mark.svg" alt="logo">
+
+    </a>
+    ALB Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    开始使用
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    开始使用
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../site/getting-started/installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    安装与能力组件
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../site/getting-started/first-bearing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第一个轴承计算
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    用户指南
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    用户指南
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../site/guides/configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    配置与 JSON5
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../site/guides/calculation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    计算与结果
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../site/guides/analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    分析工作流
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../site/guides/simulation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    转子-轴承仿真
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../site/guides/albnn/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ALBNN 模型包
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    配置参考
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    配置参考
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bearing_config_reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    字段参考
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../site/examples/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    完整示例
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API 参考
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    API 参考
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    根公开 API
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    根公开 API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        文档角色
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        总览
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        示例库
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="示例库">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        检查安装位置和版本
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        从 JSON5 构建并计算轴承
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        程序化配置、参数覆盖与扫描
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        轨迹、静平衡和动态系数分析
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        方程导数谐波线性化
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json5-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        从 JSON5 运行转子-轴承仿真
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        程序化装配仿真拓扑
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        选择仿真历史保留策略
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        按稳定异常边界处理失败
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        读取单位制边界
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        读取不可变结果并持久化
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        主要对象与结果
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="主要对象与结果">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#albanalysisresultvalues-mappingstr-any-metadata-mappingstr-any-convergence-convergencestatus-convergencestatusresidual00-convergedtrue-iterationsnone-message-none" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ALB.AnalysisResult(values: 'Mapping[str, Any]', metadata: 'Mapping[str, Any]', convergence: 'ConvergenceStatus' = ConvergenceStatus(residual=0.0, converged=True, iterations=None, message='')) -&gt; None
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#albbearingconfig-bearingconfig-none" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ALB.Bearing(config: 'BearingConfig') -&gt; 'None'
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#albbearinganalysisbearing-any-none" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ALB.BearingAnalysis(bearing: 'Any') -&gt; 'None'
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#albbearingconfigspec-mappingstr-any-source_path-path-none-none-resource_root-path-none-none-none" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ALB.BearingConfig(spec: 'Mapping[str, Any]', source_path: 'Path | None' = None, resource_root: 'Path | None' = None) -&gt; None
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#albbearingmountconfig-bearingconfig-node-int-unit_adapter-bearingunitadapterprotocol-none-none-spool_provider-spoolcommandproviderprotocol-none-none-none" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ALB.BearingMount(config: 'BearingConfig', node: 'int', unit_adapter: 'BearingUnitAdapterProtocol | None' = None, spool_provider: 'SpoolCommandProviderProtocol | None' = None) -&gt; None
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#albbearingresultforce-floatarray-time-float-unit_system-unitsystem-convergence-convergencestatus-details-resultbundle-none" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ALB.BearingResult(force: 'FloatArray', time: 'float', unit_system: 'UnitSystem', convergence: 'ConvergenceStatus', details: 'ResultBundle') -&gt; None
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#albellipsetrajectorycenter-floatarray-semi_axes-floatarray-direction-str-forward-phase-float-00-orientation_rad-float-00-none" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ALB.EllipseTrajectory(center: 'FloatArray', semi_axes: 'FloatArray', direction: 'str' = 'forward', phase: 'float' = 0.0, orientation_rad: 'float' = 0.0) -&gt; None
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#albequilibriumoptionsmax_iterations-int-30-relative_tolerance-float-00001-damping-float-005-jacobian_step-float-001-fallback_stiffness-tuplefloat-float-50-50-stall_patience-int-5-stall_relative_tolerance-float-00-time-float-00-none" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ALB.EquilibriumOptions(max_iterations: 'int' = 30, relative_tolerance: 'float' = 0.0001, damping: 'float' = 0.05, jacobian_step: 'float' = 0.01, fallback_stiffness: 'tuple[float, float]' = (5.0, 5.0), stall_patience: 'int' = 5, stall_relative_tolerance: 'float' = 0.0, time: 'float' = 0.0) -&gt; None
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#albequilibriumsolverbearing-any-options-equilibriumoptions-equilibriumoptionsmax_iterations30-relative_tolerance00001-damping005-jacobian_step001-fallback_stiffness50-50-stall_patience5-stall_relative_tolerance00-time00-none" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ALB.EquilibriumSolver(bearing: 'Any', options: 'EquilibriumOptions' = EquilibriumOptions(max_iterations=30, relative_tolerance=0.0001, damping=0.05, jacobian_step=0.01, fallback_stiffness=(5.0, 5.0), stall_patience=5, stall_relative_tolerance=0.0, time=0.0)) -&gt; 'None'
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#albhistorypolicymode-literalmemory-ring_buffer-disk_stream-memory-fields-tuplestr-rotor_displacement-rotor_velocity-bearing_force-downsample-int-1-capacity-int-none-none-directory-path-none-none-none" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ALB.HistoryPolicy(mode: "Literal['memory', 'ring_buffer', 'disk_stream']" = 'memory', fields: 'tuple[str, ...]' = ('rotor_displacement', 'rotor_velocity', 'bearing_force'), downsample: 'int' = 1, capacity: 'int | None' = None, directory: 'Path | None' = None) -&gt; None
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#albrotorbearingsimulationconfig-simulationconfig-none" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ALB.RotorBearingSimulation(config: 'SimulationConfig') -&gt; 'None'
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#albsimulationconfigrotor-rotorprotocol-mounts-tuplebearingmount-time_step-float-steps-int-loads-tuplemappingstr-any-history-historypolicy-historypolicymodememory-fieldsrotor_displacement-rotor_velocity-bearing_force-downsample1-capacitynone-directorynone-dependencies-couplingruntimedependencies-none-none-none" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ALB.SimulationConfig(rotor: 'RotorProtocol', mounts: 'tuple[BearingMount, ...]', time_step: 'float', steps: 'int', loads: 'tuple[Mapping[str, Any], ...]' = (), history: 'HistoryPolicy' = HistoryPolicy(mode='memory', fields=('rotor_displacement', 'rotor_velocity', 'bearing_force'), downsample=1, capacity=None, directory=None), dependencies: 'CouplingRuntimeDependencies | None' = None) -&gt; None
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#albsimulationresulttime-floatarray-rotor_displacement-floatarray-rotor_velocity-floatarray-bearing_force-floatarray-metadata-mappingstr-any-convergence-convergencestatus-convergencestatusresidual00-convergedtrue-iterationsnone-message-none" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ALB.SimulationResult(time: 'FloatArray', rotor_displacement: 'FloatArray', rotor_velocity: 'FloatArray', bearing_force: 'FloatArray', metadata: 'Mapping[str, Any]', convergence: 'ConvergenceStatus' = ConvergenceStatus(residual=0.0, converged=True, iterations=None, message='')) -&gt; None
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unitsystem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnitSystem
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        构建与加载函数
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="构建与加载函数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#albbearing_from_filepath-str-path-bearing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ALB.bearing_from_file(path: 'str | Path') -&gt; 'Bearing'
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#albbuild_bearingconfig-bearingconfig-bearing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ALB.build_bearing(config: 'BearingConfig') -&gt; 'Bearing'
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#albbuild_simulationconfig-simulationconfig-rotorbearingsimulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ALB.build_simulation(config: 'SimulationConfig') -&gt; 'RotorBearingSimulation'
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#albload_bearing_configpath-str-path-bearingconfig" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ALB.load_bearing_config(path: 'str | Path') -&gt; 'BearingConfig'
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#albload_simulation_configpath-str-path-simulationconfig" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ALB.load_simulation_config(path: 'str | Path') -&gt; 'SimulationConfig'
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#albsimulation_from_filepath-str-path-rotorbearingsimulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ALB.simulation_from_file(path: 'str | Path') -&gt; 'RotorBearingSimulation'
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        稳定异常
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="稳定异常">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#albalberrorargs-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ALB.ALBError(*args: object)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#albbuilderrorargs-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ALB.BuildError(*args: object)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#albcalculationerrormessage-str-failure_snapshot-resultbundle-none-none-none" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ALB.CalculationError(message: 'str', *, failure_snapshot: 'ResultBundle | None' = None) -&gt; 'None'
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#albconfigurationerrorargs-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ALB.ConfigurationError(*args: object)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#albsimulationerrormessage-str-partial_result-object-none-none-none" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ALB.SimulationError(message: 'str', *, partial_result: 'object | None' = None) -&gt; 'None'
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        包元数据
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="包元数据">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#schema_version" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SCHEMA_VERSION
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#__version__" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        __version__
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    高级 namespace
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    高级 namespace
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../namespaces/control/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Control
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../namespaces/dynamics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dynamics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../namespaces/surrogate/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Surrogate
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    核心概念
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    核心概念
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../site/concepts/public-api-policy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    公开接口边界
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../alb_package_overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    包结构概览
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    维护文档
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    维护文档
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../site/contributing/docs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    文档贡献流程
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../migrations/0.4.5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    0.4.5 迁移说明
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../migrations/0.4.4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    0.4.4 迁移说明
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../migrations/0.4.3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    0.4.3 迁移说明
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        文档角色
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        总览
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        示例库
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="示例库">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        检查安装位置和版本
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        从 JSON5 构建并计算轴承
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        程序化配置、参数覆盖与扫描
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        轨迹、静平衡和动态系数分析
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        方程导数谐波线性化
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json5-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        从 JSON5 运行转子-轴承仿真
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        程序化装配仿真拓扑
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        选择仿真历史保留策略
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        按稳定异常边界处理失败
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        读取单位制边界
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        读取不可变结果并持久化
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        主要对象与结果
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="主要对象与结果">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#albanalysisresultvalues-mappingstr-any-metadata-mappingstr-any-convergence-convergencestatus-convergencestatusresidual00-convergedtrue-iterationsnone-message-none" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ALB.AnalysisResult(values: 'Mapping[str, Any]', metadata: 'Mapping[str, Any]', convergence: 'ConvergenceStatus' = ConvergenceStatus(residual=0.0, converged=True, iterations=None, message='')) -&gt; None
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#albbearingconfig-bearingconfig-none" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ALB.Bearing(config: 'BearingConfig') -&gt; 'None'
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#albbearinganalysisbearing-any-none" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ALB.BearingAnalysis(bearing: 'Any') -&gt; 'None'
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#albbearingconfigspec-mappingstr-any-source_path-path-none-none-resource_root-path-none-none-none" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ALB.BearingConfig(spec: 'Mapping[str, Any]', source_path: 'Path | None' = None, resource_root: 'Path | None' = None) -&gt; None
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#albbearingmountconfig-bearingconfig-node-int-unit_adapter-bearingunitadapterprotocol-none-none-spool_provider-spoolcommandproviderprotocol-none-none-none" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ALB.BearingMount(config: 'BearingConfig', node: 'int', unit_adapter: 'BearingUnitAdapterProtocol | None' = None, spool_provider: 'SpoolCommandProviderProtocol | None' = None) -&gt; None
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#albbearingresultforce-floatarray-time-float-unit_system-unitsystem-convergence-convergencestatus-details-resultbundle-none" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ALB.BearingResult(force: 'FloatArray', time: 'float', unit_system: 'UnitSystem', convergence: 'ConvergenceStatus', details: 'ResultBundle') -&gt; None
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#albellipsetrajectorycenter-floatarray-semi_axes-floatarray-direction-str-forward-phase-float-00-orientation_rad-float-00-none" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ALB.EllipseTrajectory(center: 'FloatArray', semi_axes: 'FloatArray', direction: 'str' = 'forward', phase: 'float' = 0.0, orientation_rad: 'float' = 0.0) -&gt; None
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#albequilibriumoptionsmax_iterations-int-30-relative_tolerance-float-00001-damping-float-005-jacobian_step-float-001-fallback_stiffness-tuplefloat-float-50-50-stall_patience-int-5-stall_relative_tolerance-float-00-time-float-00-none" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ALB.EquilibriumOptions(max_iterations: 'int' = 30, relative_tolerance: 'float' = 0.0001, damping: 'float' = 0.05, jacobian_step: 'float' = 0.01, fallback_stiffness: 'tuple[float, float]' = (5.0, 5.0), stall_patience: 'int' = 5, stall_relative_tolerance: 'float' = 0.0, time: 'float' = 0.0) -&gt; None
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#albequilibriumsolverbearing-any-options-equilibriumoptions-equilibriumoptionsmax_iterations30-relative_tolerance00001-damping005-jacobian_step001-fallback_stiffness50-50-stall_patience5-stall_relative_tolerance00-time00-none" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ALB.EquilibriumSolver(bearing: 'Any', options: 'EquilibriumOptions' = EquilibriumOptions(max_iterations=30, relative_tolerance=0.0001, damping=0.05, jacobian_step=0.01, fallback_stiffness=(5.0, 5.0), stall_patience=5, stall_relative_tolerance=0.0, time=0.0)) -&gt; 'None'
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#albhistorypolicymode-literalmemory-ring_buffer-disk_stream-memory-fields-tuplestr-rotor_displacement-rotor_velocity-bearing_force-downsample-int-1-capacity-int-none-none-directory-path-none-none-none" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ALB.HistoryPolicy(mode: "Literal['memory', 'ring_buffer', 'disk_stream']" = 'memory', fields: 'tuple[str, ...]' = ('rotor_displacement', 'rotor_velocity', 'bearing_force'), downsample: 'int' = 1, capacity: 'int | None' = None, directory: 'Path | None' = None) -&gt; None
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#albrotorbearingsimulationconfig-simulationconfig-none" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ALB.RotorBearingSimulation(config: 'SimulationConfig') -&gt; 'None'
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#albsimulationconfigrotor-rotorprotocol-mounts-tuplebearingmount-time_step-float-steps-int-loads-tuplemappingstr-any-history-historypolicy-historypolicymodememory-fieldsrotor_displacement-rotor_velocity-bearing_force-downsample1-capacitynone-directorynone-dependencies-couplingruntimedependencies-none-none-none" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ALB.SimulationConfig(rotor: 'RotorProtocol', mounts: 'tuple[BearingMount, ...]', time_step: 'float', steps: 'int', loads: 'tuple[Mapping[str, Any], ...]' = (), history: 'HistoryPolicy' = HistoryPolicy(mode='memory', fields=('rotor_displacement', 'rotor_velocity', 'bearing_force'), downsample=1, capacity=None, directory=None), dependencies: 'CouplingRuntimeDependencies | None' = None) -&gt; None
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#albsimulationresulttime-floatarray-rotor_displacement-floatarray-rotor_velocity-floatarray-bearing_force-floatarray-metadata-mappingstr-any-convergence-convergencestatus-convergencestatusresidual00-convergedtrue-iterationsnone-message-none" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ALB.SimulationResult(time: 'FloatArray', rotor_displacement: 'FloatArray', rotor_velocity: 'FloatArray', bearing_force: 'FloatArray', metadata: 'Mapping[str, Any]', convergence: 'ConvergenceStatus' = ConvergenceStatus(residual=0.0, converged=True, iterations=None, message='')) -&gt; None
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unitsystem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnitSystem
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        构建与加载函数
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="构建与加载函数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#albbearing_from_filepath-str-path-bearing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ALB.bearing_from_file(path: 'str | Path') -&gt; 'Bearing'
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#albbuild_bearingconfig-bearingconfig-bearing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ALB.build_bearing(config: 'BearingConfig') -&gt; 'Bearing'
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#albbuild_simulationconfig-simulationconfig-rotorbearingsimulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ALB.build_simulation(config: 'SimulationConfig') -&gt; 'RotorBearingSimulation'
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#albload_bearing_configpath-str-path-bearingconfig" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ALB.load_bearing_config(path: 'str | Path') -&gt; 'BearingConfig'
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#albload_simulation_configpath-str-path-simulationconfig" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ALB.load_simulation_config(path: 'str | Path') -&gt; 'SimulationConfig'
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#albsimulation_from_filepath-str-path-rotorbearingsimulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ALB.simulation_from_file(path: 'str | Path') -&gt; 'RotorBearingSimulation'
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        稳定异常
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="稳定异常">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#albalberrorargs-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ALB.ALBError(*args: object)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#albbuilderrorargs-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ALB.BuildError(*args: object)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#albcalculationerrormessage-str-failure_snapshot-resultbundle-none-none-none" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ALB.CalculationError(message: 'str', *, failure_snapshot: 'ResultBundle | None' = None) -&gt; 'None'
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#albconfigurationerrorargs-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ALB.ConfigurationError(*args: object)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#albsimulationerrormessage-str-partial_result-object-none-none-none" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ALB.SimulationError(message: 'str', *, partial_result: 'object | None' = None) -&gt; 'None'
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        包元数据
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="包元数据">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#schema_version" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SCHEMA_VERSION
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#__version__" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        __version__
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="alb-api">ALB 公开 API 自动参考<a class="headerlink" href="#alb-api" title="Permanent link">&para;</a></h1>
+<h2 id="_1">文档角色<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li>角色：由源码与语义元数据生成的稳定公开 API 参考。</li>
+<li>目的：展示 <code>ALB</code> 根命名空间中类、函数、枚举、异常和常量的输入、输出、功能与示例。</li>
+<li>允许更新：只能通过 <code>tools/docs/generate_public_api_reference.py</code> 根据当前源码和元数据重新生成。</li>
+<li>禁止更新：手工修改生成正文、记录实时运行状态或描述未导出的内部实现。</li>
+<li>更新时机：<code>ALB.__all__</code>、公开签名、公开成员、中文语义说明或示例变化时。</li>
+<li>事实来源：<code>ALB.__all__</code>、运行时签名、源码 docstring 和 <code>docs/api/public_api_docs.json</code>。</li>
+</ul>
+<!-- This file is generated. Do not edit it directly. -->
+
+<ul>
+<li>包版本：<code>0.4.5</code></li>
+<li>公开符号数：<code>27</code></li>
+<li>接口表面摘要：<code>sha256:6b1f52aac97b8341</code></li>
+<li>重新生成：<code>E:/Anaconda2023/envs/ALB/python.exe tools/docs/generate_public_api_reference.py</code></li>
+<li>一致性检查：<code>E:/Anaconda2023/envs/ALB/python.exe tools/docs/generate_public_api_reference.py --check</code></li>
+</ul>
+<p>本文只覆盖普通用户应依赖的 <code>ALB</code> 根公开接口。领域实现命名空间用于高级开发，
+不应绕过 facade 直接拼装普通计算流程。</p>
+<h2 id="_2">总览<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>类别</th>
+<th>功能</th>
+<th>源码</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ALBError</code></td>
+<td>异常</td>
+<td>所有用户侧 ALB 稳定异常的基类，适合统一记录或跨层上报。</td>
+<td><code>ALB/api/errors.py:8</code></td>
+</tr>
+<tr>
+<td><code>AnalysisResult</code></td>
+<td>类</td>
+<td>分析服务返回的不可变通用结果，保存数值结果、诊断元数据和收敛状态。</td>
+<td><code>ALB/api/results.py:143</code></td>
+</tr>
+<tr>
+<td><code>Bearing</code></td>
+<td>类</td>
+<td>单个已构建轴承的用户 facade，负责顺序计算、最新结果读取、诊断和独立分析入口。</td>
+<td><code>ALB/api/bearing.py:26</code></td>
+</tr>
+<tr>
+<td><code>BearingAnalysis</code></td>
+<td>类</td>
+<td>基于一个 Bearing 配置执行状态隔离的静平衡、轨迹、动态系数和谐波线性化。</td>
+<td><code>ALB/api/analysis.py:926</code></td>
+</tr>
+<tr>
+<td><code>BearingConfig</code></td>
+<td>类</td>
+<td>严格校验、深度冻结的 0.4 轴承配置，支持安全覆盖、扫描和序列化。</td>
+<td><code>ALB/api/config.py:673</code></td>
+</tr>
+<tr>
+<td><code>BearingMount</code></td>
+<td>类</td>
+<td>把一个不可变轴承配置固定挂载到转子节点，并可附加单位和阀芯命令适配器。</td>
+<td><code>ALB/api/simulation.py:150</code></td>
+</tr>
+<tr>
+<td><code>BearingResult</code></td>
+<td>类</td>
+<td>一次成功二维轴承计算的不可变结果，包含力、时间、单位、收敛状态和完整诊断。</td>
+<td><code>ALB/api/results.py:42</code></td>
+</tr>
+<tr>
+<td><code>BuildError</code></td>
+<td>异常</td>
+<td>配置已经通过校验，但对应 runtime 无法完成装配时抛出的稳定异常。</td>
+<td><code>ALB/api/errors.py:16</code></td>
+</tr>
+<tr>
+<td><code>CalculationError</code></td>
+<td>异常</td>
+<td>轴承输入已接受但物理求解失败时抛出的稳定异常，可携带密封失败快照。</td>
+<td><code>ALB/api/errors.py:20</code></td>
+</tr>
+<tr>
+<td><code>ConfigurationError</code></td>
+<td>异常</td>
+<td>JSON5 文档、程序化配置或跨字段约束不合法时抛出的稳定异常。</td>
+<td><code>ALB/api/errors.py:12</code></td>
+</tr>
+<tr>
+<td><code>EllipseTrajectory</code></td>
+<td>类</td>
+<td>二维椭圆轨迹值对象，分别表达中心、半轴、遍历方向、时间相位和空间转角。</td>
+<td><code>ALB/api/analysis.py:275</code></td>
+</tr>
+<tr>
+<td><code>EquilibriumOptions</code></td>
+<td>类</td>
+<td>静平衡求解器的不可变参数集合，控制迭代、容差、阻尼、Jacobian 和停滞回退。</td>
+<td><code>ALB/api/analysis.py:197</code></td>
+</tr>
+<tr>
+<td><code>EquilibriumSolver</code></td>
+<td>类</td>
+<td>直接接收一个已构造 Bearing，并使用既有静平衡算法求载荷平衡。</td>
+<td><code>ALB/api/analysis.py:435</code></td>
+</tr>
+<tr>
+<td><code>HistoryPolicy</code></td>
+<td>类</td>
+<td>控制仿真已提交历史的字段筛选、降采样、环形缓存或磁盘流式写入。</td>
+<td><code>ALB/api/simulation.py:172</code></td>
+</tr>
+<tr>
+<td><code>RotorBearingSimulation</code></td>
+<td>类</td>
+<td>拓扑不可变的一次性转子-轴承耦合仿真 facade。</td>
+<td><code>ALB/api/simulation.py:379</code></td>
+</tr>
+<tr>
+<td><code>SCHEMA_VERSION</code></td>
+<td>常量</td>
+<td>bearing 与 simulation JSON5 接受的 schema 版本字符串，独立于 re-alb 包版本。</td>
+<td><code>-</code></td>
+</tr>
+<tr>
+<td><code>SimulationConfig</code></td>
+<td>类</td>
+<td>一次转子-轴承耦合计算的不可变拓扑、时步、载荷、历史策略和可选依赖。</td>
+<td><code>ALB/api/simulation.py:235</code></td>
+</tr>
+<tr>
+<td><code>SimulationError</code></td>
+<td>异常</td>
+<td>耦合仿真失败时抛出的稳定异常，可携带截至最后真实提交点的部分结果。</td>
+<td><code>ALB/api/errors.py:33</code></td>
+</tr>
+<tr>
+<td><code>SimulationResult</code></td>
+<td>类</td>
+<td>转子-轴承仿真中按策略保留的不可变已提交历史。</td>
+<td><code>ALB/api/results.py:196</code></td>
+</tr>
+<tr>
+<td><code>UnitSystem</code></td>
+<td>枚举</td>
+<td>所有数值积分边界使用的单位制枚举，避免量纲和无量纲值被隐式混用。</td>
+<td><code>ALB/contracts/types.py:12</code></td>
+</tr>
+<tr>
+<td><code>__version__</code></td>
+<td>常量</td>
+<td>当前导入的 re-alb 包版本字符串。</td>
+<td><code>-</code></td>
+</tr>
+<tr>
+<td><code>bearing_from_file</code></td>
+<td>函数</td>
+<td>读取严格 0.4 JSON5 轴承文档并一步构建可计算轴承。</td>
+<td><code>ALB/api/bearing.py:186</code></td>
+</tr>
+<tr>
+<td><code>build_bearing</code></td>
+<td>函数</td>
+<td>从已验证的不可变配置构建一个可直接计算的轴承 facade。</td>
+<td><code>ALB/api/bearing.py:175</code></td>
+</tr>
+<tr>
+<td><code>build_simulation</code></td>
+<td>函数</td>
+<td>从已验证的仿真配置构建一次性转子-轴承仿真对象。</td>
+<td><code>ALB/api/simulation.py:1145</code></td>
+</tr>
+<tr>
+<td><code>load_bearing_config</code></td>
+<td>函数</td>
+<td>读取严格 UTF-8 0.4 bearing 文档，安全合并受限 include 并完成校验。</td>
+<td><code>ALB/api/config.py:909</code></td>
+</tr>
+<tr>
+<td><code>load_simulation_config</code></td>
+<td>函数</td>
+<td>读取严格 0.4 simulation 文档，并解析转子、挂载轴承、时间网格、载荷和历史策略。</td>
+<td><code>ALB/api/simulation.py:991</code></td>
+</tr>
+<tr>
+<td><code>simulation_from_file</code></td>
+<td>函数</td>
+<td>读取严格 JSON5 仿真文档并一步构建一次性仿真对象。</td>
+<td><code>ALB/api/simulation.py:1151</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="_3">示例库<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p><a id="example-package_version"></a></p>
+<h3 id="_4">检查安装位置和版本<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>先确认当前解释器导入的是预期的 ALB 安装，而不是同名目录或旧 wheel。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">ALB</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">ALB</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">ALB</span><span class="o">.</span><span class="n">SCHEMA_VERSION</span><span class="p">)</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">ALB</span><span class="o">.</span><span class="vm">__file__</span><span class="p">)</span>
+</code></pre></div>
+<p><a id="example-bearing_from_file"></a></p>
+<h3 id="json5">从 JSON5 构建并计算轴承<a class="headerlink" href="#json5" title="Permanent link">&para;</a></h3>
+<p>文件入口适合正式算例；配置先严格校验，再构建为可直接计算的轴承对象。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">ALB</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="n">case_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"configs/paper_alb.json5"</span><span class="p">)</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="n">config</span> <span class="o">=</span> <span class="n">ALB</span><span class="o">.</span><span class="n">load_bearing_config</span><span class="p">(</span><span class="n">case_path</span><span class="p">)</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="n">bearing</span> <span class="o">=</span> <span class="n">ALB</span><span class="o">.</span><span class="n">build_bearing</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="c1"># Equivalent one-step helper:</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="c1"># bearing = ALB.bearing_from_file(case_path)</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="n">result</span> <span class="o">=</span> <span class="n">bearing</span><span class="o">.</span><span class="n">calculate</span><span class="p">(</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>    <span class="n">displacement</span><span class="o">=</span><span class="p">(</span><span class="mf">0.02</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.01</span><span class="p">),</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>    <span class="n">velocity</span><span class="o">=</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>    <span class="n">time</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="p">)</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">fx</span><span class="p">,</span> <span class="n">result</span><span class="o">.</span><span class="n">fy</span><span class="p">,</span> <span class="n">result</span><span class="o">.</span><span class="n">convergence</span><span class="o">.</span><span class="n">converged</span><span class="p">)</span>
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="n">result</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"outputs/case_001"</span><span class="p">)</span>
+</code></pre></div>
+<p><a id="example-bearing_programmatic"></a></p>
+<h3 id="_5">程序化配置、参数覆盖与扫描<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>配置对象不可变；覆盖和扫描都会重新执行完整校验。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">ALB</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">config</span> <span class="o">=</span> <span class="n">ALB</span><span class="o">.</span><span class="n">BearingConfig</span><span class="p">(</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    <span class="p">{</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>        <span class="s2">"family"</span><span class="p">:</span> <span class="s2">"liquid_film"</span><span class="p">,</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>        <span class="s2">"unit_system"</span><span class="p">:</span> <span class="s2">"dimensional"</span><span class="p">,</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>        <span class="s2">"time_step"</span><span class="p">:</span> <span class="mf">1.0e-3</span><span class="p">,</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>        <span class="s2">"node"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>        <span class="s2">"film"</span><span class="p">:</span> <span class="p">{</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>            <span class="s2">"circumferential_elements"</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>            <span class="s2">"axial_elements"</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>            <span class="s2">"max_iterations"</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>            <span class="s2">"solver_tolerance"</span><span class="p">:</span> <span class="mf">1.0e-6</span><span class="p">,</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>            <span class="s2">"eccentricity"</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>        <span class="p">},</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>        <span class="s2">"restrictors"</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>        <span class="s2">"thermal"</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>    <span class="p">}</span>
+<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="p">)</span>
+<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="n">high_pressure</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">with_overrides</span><span class="p">(</span>
+<a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a>    <span class="p">{</span><span class="s2">"film.supply_pressure"</span><span class="p">:</span> <span class="mf">8.0e6</span><span class="p">}</span>
+<a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="p">)</span>
+<a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a><span class="n">cases</span> <span class="o">=</span> <span class="n">high_pressure</span><span class="o">.</span><span class="n">sweep</span><span class="p">(</span>
+<a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a>    <span class="s2">"film.supply_pressure"</span><span class="p">,</span>
+<a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a>    <span class="p">(</span><span class="mf">6.0e6</span><span class="p">,</span> <span class="mf">7.0e6</span><span class="p">,</span> <span class="mf">8.0e6</span><span class="p">),</span>
+<a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a><span class="p">)</span>
+<a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a><span class="n">bearing</span> <span class="o">=</span> <span class="n">ALB</span><span class="o">.</span><span class="n">build_bearing</span><span class="p">(</span><span class="n">cases</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a><span class="n">result</span> <span class="o">=</span> <span class="n">bearing</span><span class="o">.</span><span class="n">calculate</span><span class="p">(</span><span class="n">displacement</span><span class="o">=</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span> <span class="n">time</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span>
+<a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a><span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">force</span><span class="p">)</span>
+</code></pre></div>
+<p><a id="example-bearing_analysis"></a></p>
+<h3 id="_6">轨迹、静平衡和动态系数分析<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p>分析使用独立 runtime，不改变轴承对象上的 latest_result。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">ALB</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="n">bearing</span> <span class="o">=</span> <span class="n">ALB</span><span class="o">.</span><span class="n">bearing_from_file</span><span class="p">(</span><span class="s2">"configs/paper_alb.json5"</span><span class="p">)</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="n">trajectory</span> <span class="o">=</span> <span class="n">ALB</span><span class="o">.</span><span class="n">EllipseTrajectory</span><span class="p">(</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>    <span class="n">center</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]),</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>    <span class="n">semi_axes</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.0e-5</span><span class="p">,</span> <span class="mf">5.0e-6</span><span class="p">]),</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>    <span class="n">orientation_rad</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="p">)</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="n">time_grid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span> <span class="o">*</span> <span class="mf">1.0e-3</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="n">displacement</span><span class="p">,</span> <span class="n">velocity</span> <span class="o">=</span> <span class="n">trajectory</span><span class="o">.</span><span class="n">samples</span><span class="p">(</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>    <span class="n">time_grid</span><span class="p">,</span>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>    <span class="n">frequency_hz</span><span class="o">=</span><span class="mf">10.0</span><span class="p">,</span>
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="p">)</span>
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="n">orbit</span> <span class="o">=</span> <span class="n">bearing</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">trace_orbit</span><span class="p">(</span>
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>    <span class="n">trajectory</span><span class="p">,</span>
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>    <span class="n">time_grid</span><span class="p">,</span>
+<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>    <span class="n">frequency_hz</span><span class="o">=</span><span class="mf">10.0</span><span class="p">,</span>
+<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="p">)</span>
+<a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a><span class="n">coefficients</span> <span class="o">=</span> <span class="n">bearing</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">dynamic_coefficients</span><span class="p">(</span>
+<a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a>    <span class="n">trajectory</span><span class="p">,</span>
+<a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a>    <span class="n">time_grid</span><span class="p">,</span>
+<a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a>    <span class="n">frequency_hz</span><span class="o">=</span><span class="mf">10.0</span><span class="p">,</span>
+<a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a><span class="p">)</span>
+<a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a><span class="n">equilibrium</span> <span class="o">=</span> <span class="n">ALB</span><span class="o">.</span><span class="n">EquilibriumSolver</span><span class="p">(</span><span class="n">bearing</span><span class="p">)</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span>
+<a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a>    <span class="n">load</span><span class="o">=</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">5000.0</span><span class="p">),</span>
+<a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a><span class="p">)</span>
+<a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a><span class="nb">print</span><span class="p">(</span><span class="n">displacement</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">velocity</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a><span class="nb">print</span><span class="p">(</span><span class="n">orbit</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">keys</span><span class="p">(),</span> <span class="n">coefficients</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+<a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a><span class="nb">print</span><span class="p">(</span><span class="n">equilibrium</span><span class="o">.</span><span class="n">convergence</span><span class="o">.</span><span class="n">converged</span><span class="p">)</span>
+</code></pre></div>
+<p><a id="example-harmonic_linearization"></a></p>
+<h3 id="_7">方程导数谐波线性化<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p>该入口只支持包概览中声明的量纲液膜和已验证主动润滑拓扑。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">ALB</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">bearing</span> <span class="o">=</span> <span class="n">ALB</span><span class="o">.</span><span class="n">bearing_from_file</span><span class="p">(</span><span class="s2">"configs/harmonic_supported_alb.json5"</span><span class="p">)</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="n">linearized</span> <span class="o">=</span> <span class="n">bearing</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">harmonic_linearize</span><span class="p">(</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>    <span class="n">operating_point</span><span class="o">=</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>    <span class="n">excitation_frequency</span><span class="o">=</span><span class="mf">50.0</span><span class="p">,</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="p">)</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="n">K</span> <span class="o">=</span> <span class="n">linearized</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="s2">"stiffness"</span><span class="p">]</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="n">C</span> <span class="o">=</span> <span class="n">linearized</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="s2">"damping"</span><span class="p">]</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="nb">print</span><span class="p">(</span><span class="n">K</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">C</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</code></pre></div>
+<p><a id="example-simulation_from_file"></a></p>
+<h3 id="json5-">从 JSON5 运行转子-轴承仿真<a class="headerlink" href="#json5-" title="Permanent link">&para;</a></h3>
+<p>仿真对象是一次性的；重新计算时应从同一不可变配置重新构建。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">ALB</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="n">config</span> <span class="o">=</span> <span class="n">ALB</span><span class="o">.</span><span class="n">load_simulation_config</span><span class="p">(</span><span class="s2">"configs/rotor_system.json5"</span><span class="p">)</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="n">simulation</span> <span class="o">=</span> <span class="n">ALB</span><span class="o">.</span><span class="n">build_simulation</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="c1"># Equivalent one-step helper:</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="c1"># simulation = ALB.simulation_from_file("configs/rotor_system.json5")</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="n">history</span> <span class="o">=</span> <span class="n">simulation</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="nb">print</span><span class="p">(</span><span class="n">history</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">history</span><span class="o">.</span><span class="n">bearing_force</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="n">history</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"outputs/rotor_case_001"</span><span class="p">)</span>
+</code></pre></div>
+<p><a id="example-simulation_programmatic"></a></p>
+<h3 id="_8">程序化装配仿真拓扑<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<p>rotor 必须实现 ALB.contracts.RotorProtocol；记录器和 observer 等高级依赖从 ALB.dynamics 导入。普通算例更推荐使用 JSON5 文件入口。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">ALB</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ALB.contracts</span><span class="w"> </span><span class="kn">import</span> <span class="n">RotorProtocol</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ALB.dynamics</span><span class="w"> </span><span class="kn">import</span> <span class="n">CouplingRuntimeDependencies</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="n">rotor</span> <span class="o">=</span> <span class="n">make_rotor</span><span class="p">()</span>  <span class="c1"># Project object implementing RotorProtocol.</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">rotor</span><span class="p">,</span> <span class="n">RotorProtocol</span><span class="p">)</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="n">bearing_config</span> <span class="o">=</span> <span class="n">ALB</span><span class="o">.</span><span class="n">load_bearing_config</span><span class="p">(</span><span class="s2">"configs/paper_alb.json5"</span><span class="p">)</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="n">mount</span> <span class="o">=</span> <span class="n">ALB</span><span class="o">.</span><span class="n">BearingMount</span><span class="p">(</span><span class="n">config</span><span class="o">=</span><span class="n">bearing_config</span><span class="p">,</span> <span class="n">node</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="n">history_policy</span> <span class="o">=</span> <span class="n">ALB</span><span class="o">.</span><span class="n">HistoryPolicy</span><span class="p">(</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>    <span class="n">mode</span><span class="o">=</span><span class="s2">"ring_buffer"</span><span class="p">,</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>    <span class="n">fields</span><span class="o">=</span><span class="p">(</span><span class="s2">"bearing_force"</span><span class="p">,),</span>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>    <span class="n">capacity</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="p">)</span>
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="n">dependencies</span> <span class="o">=</span> <span class="n">CouplingRuntimeDependencies</span><span class="p">(</span><span class="n">run_id</span><span class="o">=</span><span class="s2">"case-001"</span><span class="p">)</span>
+<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="n">config</span> <span class="o">=</span> <span class="n">ALB</span><span class="o">.</span><span class="n">SimulationConfig</span><span class="p">(</span>
+<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>    <span class="n">rotor</span><span class="o">=</span><span class="n">rotor</span><span class="p">,</span>
+<a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a>    <span class="n">mounts</span><span class="o">=</span><span class="p">(</span><span class="n">mount</span><span class="p">,),</span>
+<a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a>    <span class="n">time_step</span><span class="o">=</span><span class="mf">1.0e-3</span><span class="p">,</span>
+<a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a>    <span class="n">steps</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span>
+<a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a>    <span class="n">history</span><span class="o">=</span><span class="n">history_policy</span><span class="p">,</span>
+<a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a>    <span class="n">dependencies</span><span class="o">=</span><span class="n">dependencies</span><span class="p">,</span>
+<a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a><span class="p">)</span>
+<a id="__codelineno-6-23" name="__codelineno-6-23" href="#__codelineno-6-23"></a><span class="n">simulation</span> <span class="o">=</span> <span class="n">ALB</span><span class="o">.</span><span class="n">build_simulation</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+</code></pre></div>
+<p><a id="example-history_policy"></a></p>
+<h3 id="_9">选择仿真历史保留策略<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<p>默认 memory 保存全部提交步；长任务可以显式降采样、环形缓存或流式写盘。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">ALB</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="n">all_steps</span> <span class="o">=</span> <span class="n">ALB</span><span class="o">.</span><span class="n">HistoryPolicy</span><span class="p">()</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="n">recent_only</span> <span class="o">=</span> <span class="n">ALB</span><span class="o">.</span><span class="n">HistoryPolicy</span><span class="p">(</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>    <span class="n">mode</span><span class="o">=</span><span class="s2">"ring_buffer"</span><span class="p">,</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>    <span class="n">fields</span><span class="o">=</span><span class="p">(</span><span class="s2">"bearing_force"</span><span class="p">,),</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>    <span class="n">downsample</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>    <span class="n">capacity</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span>
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="p">)</span>
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="n">streamed</span> <span class="o">=</span> <span class="n">ALB</span><span class="o">.</span><span class="n">HistoryPolicy</span><span class="p">(</span>
+<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>    <span class="n">mode</span><span class="o">=</span><span class="s2">"disk_stream"</span><span class="p">,</span>
+<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>    <span class="n">fields</span><span class="o">=</span><span class="p">(</span><span class="s2">"bearing_force"</span><span class="p">,),</span>
+<a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a>    <span class="n">downsample</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+<a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a>    <span class="n">directory</span><span class="o">=</span><span class="n">Path</span><span class="p">(</span><span class="s2">"outputs/history_stream"</span><span class="p">),</span>
+<a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a><span class="p">)</span>
+</code></pre></div>
+<p><a id="example-error_handling"></a></p>
+<h3 id="_10">按稳定异常边界处理失败<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<p>优先捕获具体异常；只有需要统一上报时才捕获 ALBError。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">ALB</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>    <span class="n">bearing</span> <span class="o">=</span> <span class="n">ALB</span><span class="o">.</span><span class="n">bearing_from_file</span><span class="p">(</span><span class="s2">"configs/paper_alb.json5"</span><span class="p">)</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>    <span class="n">result</span> <span class="o">=</span> <span class="n">bearing</span><span class="o">.</span><span class="n">calculate</span><span class="p">(</span><span class="n">displacement</span><span class="o">=</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span> <span class="n">time</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="k">except</span> <span class="n">ALB</span><span class="o">.</span><span class="n">ConfigurationError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">"configuration rejected:"</span><span class="p">,</span> <span class="n">exc</span><span class="p">)</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="k">except</span> <span class="n">ALB</span><span class="o">.</span><span class="n">BuildError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">"runtime assembly failed:"</span><span class="p">,</span> <span class="n">exc</span><span class="p">)</span>
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="k">except</span> <span class="n">ALB</span><span class="o">.</span><span class="n">CalculationError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">"calculation failed:"</span><span class="p">,</span> <span class="n">exc</span><span class="p">)</span>
+<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>    <span class="n">snapshot</span> <span class="o">=</span> <span class="n">exc</span><span class="o">.</span><span class="n">failure_snapshot</span>
+<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="k">except</span> <span class="n">ALB</span><span class="o">.</span><span class="n">SimulationError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+<a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">"simulation failed:"</span><span class="p">,</span> <span class="n">exc</span><span class="p">)</span>
+<a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a>    <span class="n">committed_history</span> <span class="o">=</span> <span class="n">exc</span><span class="o">.</span><span class="n">partial_result</span>
+<a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a><span class="k">except</span> <span class="n">ALB</span><span class="o">.</span><span class="n">ALBError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+<a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">"other ALB failure:"</span><span class="p">,</span> <span class="n">exc</span><span class="p">)</span>
+</code></pre></div>
+<p><a id="example-unit_system"></a></p>
+<h3 id="_11">读取单位制边界<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<p>计算输入和输出的单位制由配置固定，调用方不应自行猜测。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">ALB</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="n">bearing</span> <span class="o">=</span> <span class="n">ALB</span><span class="o">.</span><span class="n">bearing_from_file</span><span class="p">(</span><span class="s2">"configs/paper_alb.json5"</span><span class="p">)</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="k">if</span> <span class="n">bearing</span><span class="o">.</span><span class="n">unit_system</span> <span class="ow">is</span> <span class="n">ALB</span><span class="o">.</span><span class="n">UnitSystem</span><span class="o">.</span><span class="n">DIMENSIONAL</span><span class="p">:</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">"calculate() expects dimensional displacement and velocity"</span><span class="p">)</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="nb">print</span><span class="p">(</span><span class="n">ALB</span><span class="o">.</span><span class="n">UnitSystem</span><span class="p">(</span><span class="s2">"nondimensional"</span><span class="p">))</span>
+</code></pre></div>
+<p><a id="example-result_persistence"></a></p>
+<h3 id="_12">读取不可变结果并持久化<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
+<p>结果数组只读；write() 把值和诊断元数据写入一个新目录。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">ALB</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="n">bearing</span> <span class="o">=</span> <span class="n">ALB</span><span class="o">.</span><span class="n">bearing_from_file</span><span class="p">(</span><span class="s2">"configs/paper_alb.json5"</span><span class="p">)</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="n">result</span> <span class="o">=</span> <span class="n">bearing</span><span class="o">.</span><span class="n">calculate</span><span class="p">(</span><span class="n">displacement</span><span class="o">=</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span> <span class="n">time</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">force</span><span class="p">,</span> <span class="n">result</span><span class="o">.</span><span class="n">fx</span><span class="p">,</span> <span class="n">result</span><span class="o">.</span><span class="n">fy</span><span class="p">,</span> <span class="n">result</span><span class="o">.</span><span class="n">friction</span><span class="p">)</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="k">if</span> <span class="n">result</span><span class="o">.</span><span class="n">pressure</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">pressure</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">result</span><span class="o">.</span><span class="n">diagnostics</span><span class="p">[</span><span class="s2">"pressure_unit"</span><span class="p">])</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="k">if</span> <span class="n">result</span><span class="o">.</span><span class="n">film_thickness</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">film_thickness</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="n">bundle</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">as_bundle</span><span class="p">()</span>
+<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="n">manifest</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"outputs/bearing_result"</span><span class="p">)</span>
+<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="nb">print</span><span class="p">(</span><span class="n">bundle</span><span class="o">.</span><span class="n">metadata</span><span class="p">[</span><span class="s2">"schema"</span><span class="p">],</span> <span class="n">manifest</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="_13">主要对象与结果<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h2>
+<h3 id="albanalysisresultvalues-mappingstr-any-metadata-mappingstr-any-convergence-convergencestatus-convergencestatusresidual00-convergedtrue-iterationsnone-message-none"><code>ALB.AnalysisResult(values: 'Mapping[str, Any]', metadata: 'Mapping[str, Any]', convergence: 'ConvergenceStatus' = ConvergenceStatus(residual=0.0, converged=True, iterations=None, message='')) -&gt; None</code><a class="headerlink" href="#albanalysisresultvalues-mappingstr-any-metadata-mappingstr-any-convergence-convergencestatus-convergencestatusresidual00-convergedtrue-iterationsnone-message-none" title="Permanent link">&para;</a></h3>
+<p>分析服务返回的不可变通用结果，保存数值结果、诊断元数据和收敛状态。</p>
+<p>输入：</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>类型</th>
+<th>必填</th>
+<th>默认值</th>
+<th>调用方式</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>values</code></td>
+<td><code>Mapping[str, Any]</code></td>
+<td>是</td>
+<td><code>-</code></td>
+<td>位置或关键字</td>
+<td>分析值映射；数组会转换为只读快照。</td>
+</tr>
+<tr>
+<td><code>metadata</code></td>
+<td><code>Mapping[str, Any]</code></td>
+<td>是</td>
+<td><code>-</code></td>
+<td>位置或关键字</td>
+<td>分析诊断、schema 和方法信息。</td>
+</tr>
+<tr>
+<td><code>convergence</code></td>
+<td><code>ConvergenceStatus</code></td>
+<td>否</td>
+<td><code>ConvergenceStatus(residual=0.0, converged=True, iterations=None, message='')</code></td>
+<td>位置或关键字</td>
+<td>本次分析的收敛状态，默认表示成功。</td>
+</tr>
+</tbody>
+</table>
+<p>输出：<code>ALB.AnalysisResult</code>。构造一个不可变分析结果；普通用户通常从 BearingAnalysis 的方法获得它。</p>
+<p>示例：<a href="#example-bearing_analysis">轨迹、静平衡和动态系数分析</a>、<a href="#example-harmonic_linearization">方程导数谐波线性化</a>。</p>
+<p>源码：<code>ALB/api/results.py:143</code>。</p>
+<p>公开数据字段：</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>类型</th>
+<th>默认值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>values</code></td>
+<td><code>Mapping[str, Any]</code></td>
+<td><code>-</code></td>
+<td>分析值映射；数组会转换为只读快照。</td>
+</tr>
+<tr>
+<td><code>metadata</code></td>
+<td><code>Mapping[str, Any]</code></td>
+<td><code>-</code></td>
+<td>分析诊断、schema 和方法信息。</td>
+</tr>
+<tr>
+<td><code>convergence</code></td>
+<td><code>ConvergenceStatus</code></td>
+<td><code>ConvergenceStatus(residual=0.0, converged=True, iterations=None, message='')</code></td>
+<td>本次分析的收敛状态，默认表示成功。</td>
+</tr>
+</tbody>
+</table>
+<p>公开成员：</p>
+<h4 id="analysisresultdiagnostics"><code>AnalysisResult.diagnostics</code><a class="headerlink" href="#analysisresultdiagnostics" title="Permanent link">&para;</a></h4>
+<p>读取不可变分析诊断元数据。</p>
+<p>输出：<code>Mapping[str, Any]</code>。返回只读键值映射。</p>
+<h4 id="analysisresultas_bundle-resultbundle"><code>AnalysisResult.as_bundle() -&gt; 'ResultBundle'</code><a class="headerlink" href="#analysisresultas_bundle-resultbundle" title="Permanent link">&para;</a></h4>
+<p>把分析结果转换为统一的可持久化 ResultBundle。</p>
+<p>输入：</p>
+<p>无。</p>
+<p>输出：<code>ResultBundle</code>。返回包含 values 与 metadata 的不可变结果包。</p>
+<h4 id="analysisresultwritepath-str-path-artifactmanifest"><code>AnalysisResult.write(path: 'str | Path') -&gt; 'ArtifactManifest'</code><a class="headerlink" href="#analysisresultwritepath-str-path-artifactmanifest" title="Permanent link">&para;</a></h4>
+<p>把分析结果写入一个新的制品目录。</p>
+<p>输入：</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>类型</th>
+<th>必填</th>
+<th>默认值</th>
+<th>调用方式</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>path</code></td>
+<td><code>str \| Path</code></td>
+<td>是</td>
+<td><code>-</code></td>
+<td>位置或关键字</td>
+<td>目标目录；目录必须满足写入器的新制品约束。</td>
+</tr>
+</tbody>
+</table>
+<p>输出：<code>ArtifactManifest</code>。返回已写入文件及摘要信息的 ArtifactManifest。</p>
+<h3 id="albbearingconfig-bearingconfig-none"><code>ALB.Bearing(config: 'BearingConfig') -&gt; 'None'</code><a class="headerlink" href="#albbearingconfig-bearingconfig-none" title="Permanent link">&para;</a></h3>
+<p>单个已构建轴承的用户 facade，负责顺序计算、最新结果读取、诊断和独立分析入口。</p>
+<p>输入：</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>类型</th>
+<th>必填</th>
+<th>默认值</th>
+<th>调用方式</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>config</code></td>
+<td><code>BearingConfig</code></td>
+<td>是</td>
+<td><code>-</code></td>
+<td>位置或关键字</td>
+<td>经过完整验证的不可变 BearingConfig。</td>
+</tr>
+</tbody>
+</table>
+<p>输出：<code>ALB.Bearing</code>。构造一个可直接计算的 Bearing；通常应通过 build_bearing() 获得。</p>
+<p>示例：<a href="#example-bearing_from_file">从 JSON5 构建并计算轴承</a>、<a href="#example-bearing_programmatic">程序化配置、参数覆盖与扫描</a>、<a href="#example-result_persistence">读取不可变结果并持久化</a>。</p>
+<p>源码：<code>ALB/api/bearing.py:26</code>。</p>
+<p>公开成员：</p>
+<h4 id="bearingconfig"><code>Bearing.config</code><a class="headerlink" href="#bearingconfig" title="Permanent link">&para;</a></h4>
+<p>读取构建该轴承时使用的不可变配置。</p>
+<p>输出：<code>BearingConfig</code>。返回原始 BearingConfig。</p>
+<h4 id="bearingunit_system"><code>Bearing.unit_system</code><a class="headerlink" href="#bearingunit_system" title="Permanent link">&para;</a></h4>
+<p>读取 calculate() 所要求的输入和输出单位制。</p>
+<p>输出：<code>UnitSystem</code>。返回 DIMENSIONAL 或 NONDIMENSIONAL。</p>
+<h4 id="bearinglatest_result"><code>Bearing.latest_result</code><a class="headerlink" href="#bearinglatest_result" title="Permanent link">&para;</a></h4>
+<p>读取最近一次成功计算的结果，不触发新计算。</p>
+<p>输出：<code>BearingResult</code>。返回最近的 BearingResult。</p>
+<p>可能异常：</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>触发条件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>RuntimeError</code></td>
+<td>尚未成功计算，或调用 reset() 后没有新结果。</td>
+</tr>
+</tbody>
+</table>
+<h4 id="bearinganalysis"><code>Bearing.analysis</code><a class="headerlink" href="#bearinganalysis" title="Permanent link">&para;</a></h4>
+<p>创建绑定于当前不可变配置的独立分析服务。</p>
+<p>输出：<code>BearingAnalysis</code>。返回 BearingAnalysis；其计算不污染 latest_result。</p>
+<h4 id="bearingreset-none"><code>Bearing.reset() -&gt; 'None'</code><a class="headerlink" href="#bearingreset-none" title="Permanent link">&para;</a></h4>
+<p>以同一配置重建内部 runtime，并清空当前会话结果。</p>
+<p>输入：</p>
+<p>无。</p>
+<p>输出：<code>None</code>。无返回值。</p>
+<h4 id="bearingcalculate-displacement-object-velocity-object-00-00-time-float-spool-object-none-none-bearingresult"><code>Bearing.calculate(*, displacement: 'object', velocity: 'object' = (0.0, 0.0), time: 'float', spool: 'object | None' = None) -&gt; 'BearingResult'</code><a class="headerlink" href="#bearingcalculate-displacement-object-velocity-object-00-00-time-float-spool-object-none-none-bearingresult" title="Permanent link">&para;</a></h4>
+<p>计算一个严格顺序时间点上的二维轴承力。</p>
+<p>输入：</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>类型</th>
+<th>必填</th>
+<th>默认值</th>
+<th>调用方式</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>displacement</code></td>
+<td><code>object</code></td>
+<td>是</td>
+<td><code>-</code></td>
+<td>仅关键字</td>
+<td>二维轴心位移 (x, y)，单位由 unit_system 决定。</td>
+</tr>
+<tr>
+<td><code>velocity</code></td>
+<td><code>object</code></td>
+<td>否</td>
+<td><code>(0.0, 0.0)</code></td>
+<td>仅关键字</td>
+<td>二维轴心速度 (vx, vy)，默认均为 0。</td>
+</tr>
+<tr>
+<td><code>time</code></td>
+<td><code>float</code></td>
+<td>是</td>
+<td><code>-</code></td>
+<td>仅关键字</td>
+<td>当前样本时间；后续调用必须按配置 time_step 严格前进。</td>
+</tr>
+<tr>
+<td><code>spool</code></td>
+<td><code>object \| None</code></td>
+<td>否</td>
+<td><code>None</code></td>
+<td>仅关键字</td>
+<td>仅 external_spool 模式使用的归一化二维阀芯命令，范围为 [-1, 1]。</td>
+</tr>
+</tbody>
+</table>
+<p>输出：<code>BearingResult</code>。返回不可变 BearingResult，force 的形状为 (2,)。</p>
+<p>可能异常：</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>触发条件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ValueError</code></td>
+<td>时间不连续，或 spool 与控制模式不匹配。</td>
+</tr>
+<tr>
+<td><code>CalculationError</code></td>
+<td>底层物理求解失败；failure_snapshot 可能包含密封诊断。</td>
+</tr>
+</tbody>
+</table>
+<h4 id="bearingdiagnostic_snapshot-resultbundle"><code>Bearing.diagnostic_snapshot() -&gt; 'ResultBundle'</code><a class="headerlink" href="#bearingdiagnostic_snapshot-resultbundle" title="Permanent link">&para;</a></h4>
+<p>读取 facade 和底层 runtime 的不可变诊断快照。</p>
+<p>输入：</p>
+<p>无。</p>
+<p>输出：<code>ResultBundle</code>。返回 ResultBundle；不会推进物理状态。</p>
+<h3 id="albbearinganalysisbearing-any-none"><code>ALB.BearingAnalysis(bearing: 'Any') -&gt; 'None'</code><a class="headerlink" href="#albbearinganalysisbearing-any-none" title="Permanent link">&para;</a></h3>
+<p>基于一个 Bearing 配置执行状态隔离的静平衡、轨迹、动态系数和谐波线性化。</p>
+<p>输入：</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>类型</th>
+<th>必填</th>
+<th>默认值</th>
+<th>调用方式</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>bearing</code></td>
+<td><code>Any</code></td>
+<td>是</td>
+<td><code>-</code></td>
+<td>位置或关键字</td>
+<td>作为配置来源的 Bearing 实例。</td>
+</tr>
+</tbody>
+</table>
+<p>输出：<code>ALB.BearingAnalysis</code>。构造分析服务；普通用户应从 bearing.analysis 取得。</p>
+<p>示例：<a href="#example-bearing_analysis">轨迹、静平衡和动态系数分析</a>、<a href="#example-harmonic_linearization">方程导数谐波线性化</a>。</p>
+<p>源码：<code>ALB/api/analysis.py:926</code>。</p>
+<p>公开成员：</p>
+<h4 id="bearinganalysisfind_equilibriumload-object-initial_displacement-object-00-00-options-equilibriumoptions-equilibriumoptionsmax_iterations30-relative_tolerance00001-damping005-jacobian_step001-fallback_stiffness50-50-stall_patience5-stall_relative_tolerance00-time00-analysisresult"><code>BearingAnalysis.find_equilibrium(load: 'object', initial_displacement: 'object' = (0.0, 0.0), options: 'EquilibriumOptions' = EquilibriumOptions(max_iterations=30, relative_tolerance=0.0001, damping=0.05, jacobian_step=0.01, fallback_stiffness=(5.0, 5.0), stall_patience=5, stall_relative_tolerance=0.0, time=0.0)) -&gt; 'AnalysisResult'</code><a class="headerlink" href="#bearinganalysisfind_equilibriumload-object-initial_displacement-object-00-00-options-equilibriumoptions-equilibriumoptionsmax_iterations30-relative_tolerance00001-damping005-jacobian_step001-fallback_stiffness50-50-stall_patience5-stall_relative_tolerance00-time00-analysisresult" title="Permanent link">&para;</a></h4>
+<p>使用既有阻尼 Newton、冻结 Jacobian 和固定刚度回退算法求载荷平衡。</p>
+<p>输入：</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>类型</th>
+<th>必填</th>
+<th>默认值</th>
+<th>调用方式</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>load</code></td>
+<td><code>object</code></td>
+<td>是</td>
+<td><code>-</code></td>
+<td>位置或关键字</td>
+<td>目标二维外载荷。</td>
+</tr>
+<tr>
+<td><code>initial_displacement</code></td>
+<td><code>object</code></td>
+<td>否</td>
+<td><code>(0.0, 0.0)</code></td>
+<td>位置或关键字</td>
+<td>Newton 迭代初始二维位移。</td>
+</tr>
+<tr>
+<td><code>options</code></td>
+<td><code>EquilibriumOptions</code></td>
+<td>否</td>
+<td><code>EquilibriumOptions(max_iterations=30, relative_tolerance=0.0001, damping=0.05, jacobian_step=0.01, fallback_stiffness=(5.0, 5.0), stall_patience=5, stall_relative_tolerance=0.0, time=0.0)</code></td>
+<td>位置或关键字</td>
+<td>迭代次数、容差、阻尼、差分步长和回退参数。</td>
+</tr>
+</tbody>
+</table>
+<p>输出：<code>AnalysisResult</code>。返回 AnalysisResult，包含平衡位移、力、残差和迭代信息。</p>
+<p>可能异常：</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>触发条件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>CalculationError</code></td>
+<td>子求解失败或最终不能形成有效分析结果。</td>
+</tr>
+</tbody>
+</table>
+<h4 id="bearinganalysistrace_orbittrajectory-ellipsetrajectory-time_grid-sequencefloat-frequency_hz-float-spool-sequencesequencefloat-none-none-analysisresult"><code>BearingAnalysis.trace_orbit(trajectory: 'EllipseTrajectory', time_grid: 'Sequence[float]', *, frequency_hz: 'float', spool: 'Sequence[Sequence[float]] | None' = None) -&gt; 'AnalysisResult'</code><a class="headerlink" href="#bearinganalysistrace_orbittrajectory-ellipsetrajectory-time_grid-sequencefloat-frequency_hz-float-spool-sequencesequencefloat-none-none-analysisresult" title="Permanent link">&para;</a></h4>
+<p>在显式时间网格上逐点计算给定椭圆轨迹。</p>
+<p>输入：</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>类型</th>
+<th>必填</th>
+<th>默认值</th>
+<th>调用方式</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>trajectory</code></td>
+<td><code>EllipseTrajectory</code></td>
+<td>是</td>
+<td><code>-</code></td>
+<td>位置或关键字</td>
+<td>椭圆几何、方向、相位和空间转角。</td>
+</tr>
+<tr>
+<td><code>time_grid</code></td>
+<td><code>Sequence[float]</code></td>
+<td>是</td>
+<td><code>-</code></td>
+<td>位置或关键字</td>
+<td>有限、严格递增的一维时间网格。</td>
+</tr>
+<tr>
+<td><code>frequency_hz</code></td>
+<td><code>float</code></td>
+<td>是</td>
+<td><code>-</code></td>
+<td>仅关键字</td>
+<td>轨迹频率，单位 Hz。</td>
+</tr>
+<tr>
+<td><code>spool</code></td>
+<td><code>Sequence[Sequence[float]] \| None</code></td>
+<td>否</td>
+<td><code>None</code></td>
+<td>仅关键字</td>
+<td>external_spool 模式下与时间网格逐点对应的二维命令序列。</td>
+</tr>
+</tbody>
+</table>
+<p>输出：<code>AnalysisResult</code>。返回 AnalysisResult，values 中包含时间、位移、速度和轴承力序列。</p>
+<h4 id="bearinganalysisdynamic_coefficientstrajectory-ellipsetrajectory-time_grid-sequencefloat-frequency_hz-float-spool-sequencesequencefloat-none-none-analysisresult"><code>BearingAnalysis.dynamic_coefficients(trajectory: 'EllipseTrajectory', time_grid: 'Sequence[float]', *, frequency_hz: 'float', spool: 'Sequence[Sequence[float]] | None' = None) -&gt; 'AnalysisResult'</code><a class="headerlink" href="#bearinganalysisdynamic_coefficientstrajectory-ellipsetrajectory-time_grid-sequencefloat-frequency_hz-float-spool-sequencesequencefloat-none-none-analysisresult" title="Permanent link">&para;</a></h4>
+<p>在相干 FFT 网格上用正反涡动响应识别刚度 K 和阻尼 C。</p>
+<p>输入：</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>类型</th>
+<th>必填</th>
+<th>默认值</th>
+<th>调用方式</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>trajectory</code></td>
+<td><code>EllipseTrajectory</code></td>
+<td>是</td>
+<td><code>-</code></td>
+<td>位置或关键字</td>
+<td>用于生成正反涡动的椭圆轨迹。</td>
+</tr>
+<tr>
+<td><code>time_grid</code></td>
+<td><code>Sequence[float]</code></td>
+<td>是</td>
+<td><code>-</code></td>
+<td>位置或关键字</td>
+<td>均匀且覆盖目标非 DC FFT bin 的时间网格。</td>
+</tr>
+<tr>
+<td><code>frequency_hz</code></td>
+<td><code>float</code></td>
+<td>是</td>
+<td><code>-</code></td>
+<td>仅关键字</td>
+<td>需要识别的目标频率，单位 Hz。</td>
+</tr>
+<tr>
+<td><code>spool</code></td>
+<td><code>Sequence[Sequence[float]] \| None</code></td>
+<td>否</td>
+<td><code>None</code></td>
+<td>仅关键字</td>
+<td>external_spool 模式下与时间网格逐点对应的二维命令序列。</td>
+</tr>
+</tbody>
+</table>
+<p>输出：<code>AnalysisResult</code>。返回 AnalysisResult，包含已识别系数、轨迹响应和频率诊断。</p>
+<p>可能异常：</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>触发条件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ValueError</code></td>
+<td>时间网格不均匀、目标频率不是非 DC FFT bin，或频率不满足 Nyquist 条件。</td>
+</tr>
+<tr>
+<td><code>CalculationError</code></td>
+<td>轨迹样本未全部收敛，或正反涡动位移矩阵的诊断、条件数检查或反演失败；异常包含 failure_snapshot。</td>
+</tr>
+</tbody>
+</table>
+<h4 id="bearinganalysisharmonic_linearizeoperating_point-object-excitation_frequency-float-spool-object-none-none-analysisresult"><code>BearingAnalysis.harmonic_linearize(operating_point: 'object', excitation_frequency: 'float', *, spool: 'object | None' = None) -&gt; 'AnalysisResult'</code><a class="headerlink" href="#bearinganalysisharmonic_linearizeoperating_point-object-excitation_frequency-float-spool-object-none-none-analysisresult" title="Permanent link">&para;</a></h4>
+<p>在指定工作点通过压力方程导数计算谐波刚度与阻尼。</p>
+<p>输入：</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>类型</th>
+<th>必填</th>
+<th>默认值</th>
+<th>调用方式</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>operating_point</code></td>
+<td><code>object</code></td>
+<td>是</td>
+<td><code>-</code></td>
+<td>位置或关键字</td>
+<td>二维量纲位移工作点。</td>
+</tr>
+<tr>
+<td><code>excitation_frequency</code></td>
+<td><code>float</code></td>
+<td>是</td>
+<td><code>-</code></td>
+<td>位置或关键字</td>
+<td>线性化激励频率，单位 Hz。</td>
+</tr>
+<tr>
+<td><code>spool</code></td>
+<td><code>object \| None</code></td>
+<td>否</td>
+<td><code>None</code></td>
+<td>仅关键字</td>
+<td>受支持主动润滑拓扑的可选二维阀芯工作点。</td>
+</tr>
+</tbody>
+</table>
+<p>输出：<code>AnalysisResult</code>。返回 AnalysisResult，包含 stiffness、damping 和工作点诊断。</p>
+<p>可能异常：</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>触发条件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>CalculationError</code></td>
+<td>轴承家族、单位制或节流拓扑不在已验证支持域内。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="albbearingconfigspec-mappingstr-any-source_path-path-none-none-resource_root-path-none-none-none"><code>ALB.BearingConfig(spec: 'Mapping[str, Any]', source_path: 'Path | None' = None, resource_root: 'Path | None' = None) -&gt; None</code><a class="headerlink" href="#albbearingconfigspec-mappingstr-any-source_path-path-none-none-resource_root-path-none-none-none" title="Permanent link">&para;</a></h3>
+<p>严格校验、深度冻结的 0.4 轴承配置，支持安全覆盖、扫描和序列化。</p>
+<p>输入：</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>类型</th>
+<th>必填</th>
+<th>默认值</th>
+<th>调用方式</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>spec</code></td>
+<td><code>Mapping[str, Any]</code></td>
+<td>是</td>
+<td><code>-</code></td>
+<td>位置或关键字</td>
+<td>0.4 bearing 文档中的 spec 映射。</td>
+</tr>
+<tr>
+<td><code>source_path</code></td>
+<td><code>Path \| None</code></td>
+<td>否</td>
+<td><code>None</code></td>
+<td>位置或关键字</td>
+<td>可选源文件绝对或相对路径，用于资源溯源。</td>
+</tr>
+<tr>
+<td><code>resource_root</code></td>
+<td><code>Path \| None</code></td>
+<td>否</td>
+<td><code>None</code></td>
+<td>位置或关键字</td>
+<td>可选资源根；未给出时可由 source_path 的父目录推导。</td>
+</tr>
+</tbody>
+</table>
+<p>输出：<code>ALB.BearingConfig</code>。构造经过完整跨字段校验的不可变 BearingConfig。</p>
+<p>示例：<a href="#example-bearing_programmatic">程序化配置、参数覆盖与扫描</a>、<a href="#example-bearing_from_file">从 JSON5 构建并计算轴承</a>。</p>
+<p>源码：<code>ALB/api/config.py:673</code>。</p>
+<p>公开数据字段：</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>类型</th>
+<th>默认值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>spec</code></td>
+<td><code>Mapping[str, Any]</code></td>
+<td><code>-</code></td>
+<td>0.4 bearing 文档中的 spec 映射。</td>
+</tr>
+<tr>
+<td><code>source_path</code></td>
+<td><code>Path \| None</code></td>
+<td><code>None</code></td>
+<td>可选源文件绝对或相对路径，用于资源溯源。</td>
+</tr>
+<tr>
+<td><code>resource_root</code></td>
+<td><code>Path \| None</code></td>
+<td><code>None</code></td>
+<td>可选资源根；未给出时可由 source_path 的父目录推导。</td>
+</tr>
+</tbody>
+</table>
+<p>公开成员：</p>
+<h4 id="bearingconfigfamily"><code>BearingConfig.family</code><a class="headerlink" href="#bearingconfigfamily" title="Permanent link">&para;</a></h4>
+<p>读取轴承族判别值。</p>
+<p>输出：<code>str</code>。返回 liquid_film、active_lubricated、gas_film、multi_pad 或 surrogate。</p>
+<h4 id="bearingconfigunit_system"><code>BearingConfig.unit_system</code><a class="headerlink" href="#bearingconfigunit_system" title="Permanent link">&para;</a></h4>
+<p>读取配置声明的单位制字符串。</p>
+<p>输出：<code>str</code>。返回 dimensional 或 nondimensional。</p>
+<h4 id="bearingconfigcontrol_mode"><code>BearingConfig.control_mode</code><a class="headerlink" href="#bearingconfigcontrol_mode" title="Permanent link">&para;</a></h4>
+<p>读取主动轴承控制模式；非主动或 fixed surrogate 返回 None。</p>
+<p>输出：<code>str | None</code>。返回 pid、fuzzy_pid、uncontrolled、external_spool 或 None。</p>
+<h4 id="bearingconfigto_dict-dictstr-any"><code>BearingConfig.to_dict() -&gt; 'dict[str, Any]'</code><a class="headerlink" href="#bearingconfigto_dict-dictstr-any" title="Permanent link">&para;</a></h4>
+<p>创建调用方可修改的严格 0.4 bearing 文档副本。</p>
+<p>输入：</p>
+<p>无。</p>
+<p>输出：<code>dict[str, Any]</code>。返回含 schema_version、kind 和 spec 的普通 dict。</p>
+<h4 id="bearingconfigwith_overridesoverrides-mappingstr-any-bearingconfig"><code>BearingConfig.with_overrides(overrides: 'Mapping[str, Any]') -&gt; "'BearingConfig'"</code><a class="headerlink" href="#bearingconfigwith_overridesoverrides-mappingstr-any-bearingconfig" title="Permanent link">&para;</a></h4>
+<p>按点分路径替换字段并重新执行完整校验。</p>
+<p>输入：</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>类型</th>
+<th>必填</th>
+<th>默认值</th>
+<th>调用方式</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>overrides</code></td>
+<td><code>Mapping[str, Any]</code></td>
+<td>是</td>
+<td><code>-</code></td>
+<td>位置或关键字</td>
+<td>点分字段路径到新值的映射，例如 film.supply_pressure。</td>
+</tr>
+</tbody>
+</table>
+<p>输出：<code>'BearingConfig'</code>。返回新的 BearingConfig，原对象不变。</p>
+<p>可能异常：</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>触发条件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ConfigurationError</code></td>
+<td>路径不存在于映射结构，或替换后的配置不合法。</td>
+</tr>
+</tbody>
+</table>
+<h4 id="bearingconfigsweeppath-str-values-iterableany-tuplebearingconfig"><code>BearingConfig.sweep(path: 'str', values: 'Iterable[Any]') -&gt; "tuple['BearingConfig', ...]"</code><a class="headerlink" href="#bearingconfigsweeppath-str-values-iterableany-tuplebearingconfig" title="Permanent link">&para;</a></h4>
+<p>对一个点分路径逐值生成已验证配置。</p>
+<p>输入：</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>类型</th>
+<th>必填</th>
+<th>默认值</th>
+<th>调用方式</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>path</code></td>
+<td><code>str</code></td>
+<td>是</td>
+<td><code>-</code></td>
+<td>位置或关键字</td>
+<td>需要扫描的点分字段路径。</td>
+</tr>
+<tr>
+<td><code>values</code></td>
+<td><code>Iterable[Any]</code></td>
+<td>是</td>
+<td><code>-</code></td>
+<td>位置或关键字</td>
+<td>依次写入该字段的值序列或其他可迭代对象。</td>
+</tr>
+</tbody>
+</table>
+<p>输出：<code>tuple['BearingConfig', ...]</code>。返回与 values 顺序一致的 BearingConfig 元组。</p>
+<h3 id="albbearingmountconfig-bearingconfig-node-int-unit_adapter-bearingunitadapterprotocol-none-none-spool_provider-spoolcommandproviderprotocol-none-none-none"><code>ALB.BearingMount(config: 'BearingConfig', node: 'int', unit_adapter: 'BearingUnitAdapterProtocol | None' = None, spool_provider: 'SpoolCommandProviderProtocol | None' = None) -&gt; None</code><a class="headerlink" href="#albbearingmountconfig-bearingconfig-node-int-unit_adapter-bearingunitadapterprotocol-none-none-spool_provider-spoolcommandproviderprotocol-none-none-none" title="Permanent link">&para;</a></h3>
+<p>把一个不可变轴承配置固定挂载到转子节点，并可附加单位和阀芯命令适配器。</p>
+<p>输入：</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>类型</th>
+<th>必填</th>
+<th>默认值</th>
+<th>调用方式</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>config</code></td>
+<td><code>BearingConfig</code></td>
+<td>是</td>
+<td><code>-</code></td>
+<td>位置或关键字</td>
+<td>挂载点使用的 BearingConfig。</td>
+</tr>
+<tr>
+<td><code>node</code></td>
+<td><code>int</code></td>
+<td>是</td>
+<td><code>-</code></td>
+<td>位置或关键字</td>
+<td>非负转子节点编号。</td>
+</tr>
+<tr>
+<td><code>unit_adapter</code></td>
+<td><code>BearingUnitAdapterProtocol \| None</code></td>
+<td>否</td>
+<td><code>None</code></td>
+<td>位置或关键字</td>
+<td>可选转子量纲到轴承本地单位制适配器。</td>
+</tr>
+<tr>
+<td><code>spool_provider</code></td>
+<td><code>SpoolCommandProviderProtocol \| None</code></td>
+<td>否</td>
+<td><code>None</code></td>
+<td>位置或关键字</td>
+<td>external_spool 轴承的可选阀芯命令提供器。</td>
+</tr>
+</tbody>
+</table>
+<p>输出：<code>ALB.BearingMount</code>。构造一个不可变 BearingMount。</p>
+<p>示例：<a href="#example-simulation_programmatic">程序化装配仿真拓扑</a>。</p>
+<p>源码：<code>ALB/api/simulation.py:150</code>。</p>
+<p>公开数据字段：</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>类型</th>
+<th>默认值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>config</code></td>
+<td><code>BearingConfig</code></td>
+<td><code>-</code></td>
+<td>挂载点使用的 BearingConfig。</td>
+</tr>
+<tr>
+<td><code>node</code></td>
+<td><code>int</code></td>
+<td><code>-</code></td>
+<td>非负转子节点编号。</td>
+</tr>
+<tr>
+<td><code>unit_adapter</code></td>
+<td><code>BearingUnitAdapterProtocol \| None</code></td>
+<td><code>None</code></td>
+<td>可选转子量纲到轴承本地单位制适配器。</td>
+</tr>
+<tr>
+<td><code>spool_provider</code></td>
+<td><code>SpoolCommandProviderProtocol \| None</code></td>
+<td><code>None</code></td>
+<td>external_spool 轴承的可选阀芯命令提供器。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="albbearingresultforce-floatarray-time-float-unit_system-unitsystem-convergence-convergencestatus-details-resultbundle-none"><code>ALB.BearingResult(force: 'FloatArray', time: 'float', unit_system: 'UnitSystem', convergence: 'ConvergenceStatus', details: 'ResultBundle') -&gt; None</code><a class="headerlink" href="#albbearingresultforce-floatarray-time-float-unit_system-unitsystem-convergence-convergencestatus-details-resultbundle-none" title="Permanent link">&para;</a></h3>
+<p>一次成功二维轴承计算的不可变结果，包含力、时间、单位、收敛状态和完整诊断。</p>
+<p>输入：</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>类型</th>
+<th>必填</th>
+<th>默认值</th>
+<th>调用方式</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>force</code></td>
+<td><code>FloatArray</code></td>
+<td>是</td>
+<td><code>-</code></td>
+<td>位置或关键字</td>
+<td>形状为 (2,) 的有限二维力数组。</td>
+</tr>
+<tr>
+<td><code>time</code></td>
+<td><code>float</code></td>
+<td>是</td>
+<td><code>-</code></td>
+<td>位置或关键字</td>
+<td>该结果对应的时间。</td>
+</tr>
+<tr>
+<td><code>unit_system</code></td>
+<td><code>UnitSystem</code></td>
+<td>是</td>
+<td><code>-</code></td>
+<td>位置或关键字</td>
+<td>力和输入所使用的单位制。</td>
+</tr>
+<tr>
+<td><code>convergence</code></td>
+<td><code>ConvergenceStatus</code></td>
+<td>是</td>
+<td><code>-</code></td>
+<td>位置或关键字</td>
+<td>底层求解的收敛状态。</td>
+</tr>
+<tr>
+<td><code>details</code></td>
+<td><code>ResultBundle</code></td>
+<td>是</td>
+<td><code>-</code></td>
+<td>位置或关键字</td>
+<td>底层 runtime 的完整不可变结果快照。</td>
+</tr>
+</tbody>
+</table>
+<p>输出：<code>ALB.BearingResult</code>。构造 BearingResult；普通用户通常从 Bearing.calculate() 获得。</p>
+<p>示例：<a href="#example-bearing_from_file">从 JSON5 构建并计算轴承</a>、<a href="#example-result_persistence">读取不可变结果并持久化</a>。</p>
+<p>源码：<code>ALB/api/results.py:42</code>。</p>
+<p>公开数据字段：</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>类型</th>
+<th>默认值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>force</code></td>
+<td><code>FloatArray</code></td>
+<td><code>-</code></td>
+<td>形状为 (2,) 的有限二维力数组。</td>
+</tr>
+<tr>
+<td><code>time</code></td>
+<td><code>float</code></td>
+<td><code>-</code></td>
+<td>该结果对应的时间。</td>
+</tr>
+<tr>
+<td><code>unit_system</code></td>
+<td><code>UnitSystem</code></td>
+<td><code>-</code></td>
+<td>力和输入所使用的单位制。</td>
+</tr>
+<tr>
+<td><code>convergence</code></td>
+<td><code>ConvergenceStatus</code></td>
+<td><code>-</code></td>
+<td>底层求解的收敛状态。</td>
+</tr>
+<tr>
+<td><code>details</code></td>
+<td><code>ResultBundle</code></td>
+<td><code>-</code></td>
+<td>底层 runtime 的完整不可变结果快照。</td>
+</tr>
+</tbody>
+</table>
+<p>公开成员：</p>
+<h4 id="bearingresultfx"><code>BearingResult.fx</code><a class="headerlink" href="#bearingresultfx" title="Permanent link">&para;</a></h4>
+<p>读取 x 方向轴承力。</p>
+<p>输出：<code>float</code>。返回 Python float。</p>
+<h4 id="bearingresultfy"><code>BearingResult.fy</code><a class="headerlink" href="#bearingresultfy" title="Permanent link">&para;</a></h4>
+<p>读取 y 方向轴承力。</p>
+<p>输出：<code>float</code>。返回 Python float。</p>
+<h4 id="bearingresultdiagnostics"><code>BearingResult.diagnostics</code><a class="headerlink" href="#bearingresultdiagnostics" title="Permanent link">&para;</a></h4>
+<p>读取底层结果的不可变诊断元数据。</p>
+<p>输出：<code>Mapping[str, Any]</code>。返回只读键值映射。</p>
+<h4 id="bearingresultfriction"><code>BearingResult.friction</code><a class="headerlink" href="#bearingresultfriction" title="Permanent link">&para;</a></h4>
+<p>读取本次计算的总摩擦力。</p>
+<p>输出：<code>float | None</code>。底层轴承提供摩擦力时返回 float，否则返回 None。</p>
+<h4 id="bearingresultpressure"><code>BearingResult.pressure</code><a class="headerlink" href="#bearingresultpressure" title="Permanent link">&para;</a></h4>
+<p>读取单液膜压力场；量纲结果为 Pa，无量纲结果为 p/ps。</p>
+<p>输出：<code>FloatArray | None</code>。返回只读压力数组；多瓦或不提供压力的模型返回 None。</p>
+<h4 id="bearingresultfilm_thickness"><code>BearingResult.film_thickness</code><a class="headerlink" href="#bearingresultfilm_thickness" title="Permanent link">&para;</a></h4>
+<p>读取单液膜厚度场；量纲结果为 m，无量纲结果为 h/c。</p>
+<p>输出：<code>FloatArray | None</code>。返回只读液膜厚度数组；多瓦或不提供厚度的模型返回 None。</p>
+<h4 id="bearingresultas_bundle-resultbundle"><code>BearingResult.as_bundle() -&gt; 'ResultBundle'</code><a class="headerlink" href="#bearingresultas_bundle-resultbundle" title="Permanent link">&para;</a></h4>
+<p>转换为统一的可持久化 ResultBundle。</p>
+<p>输入：</p>
+<p>无。</p>
+<p>输出：<code>ResultBundle</code>。返回包含 force、details 和结果元数据的不可变结果包。</p>
+<h4 id="bearingresultwritepath-str-path-artifactmanifest"><code>BearingResult.write(path: 'str | Path') -&gt; 'ArtifactManifest'</code><a class="headerlink" href="#bearingresultwritepath-str-path-artifactmanifest" title="Permanent link">&para;</a></h4>
+<p>把结果值和诊断写入一个新的制品目录。</p>
+<p>输入：</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>类型</th>
+<th>必填</th>
+<th>默认值</th>
+<th>调用方式</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>path</code></td>
+<td><code>str \| Path</code></td>
+<td>是</td>
+<td><code>-</code></td>
+<td>位置或关键字</td>
+<td>目标输出目录。</td>
+</tr>
+</tbody>
+</table>
+<p>输出：<code>ArtifactManifest</code>。返回 ArtifactManifest。</p>
+<h3 id="albellipsetrajectorycenter-floatarray-semi_axes-floatarray-direction-str-forward-phase-float-00-orientation_rad-float-00-none"><code>ALB.EllipseTrajectory(center: 'FloatArray', semi_axes: 'FloatArray', direction: 'str' = 'forward', phase: 'float' = 0.0, orientation_rad: 'float' = 0.0) -&gt; None</code><a class="headerlink" href="#albellipsetrajectorycenter-floatarray-semi_axes-floatarray-direction-str-forward-phase-float-00-orientation_rad-float-00-none" title="Permanent link">&para;</a></h3>
+<p>二维椭圆轨迹值对象，分别表达中心、半轴、遍历方向、时间相位和空间转角。</p>
+<p>输入：</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>类型</th>
+<th>必填</th>
+<th>默认值</th>
+<th>调用方式</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>center</code></td>
+<td><code>FloatArray</code></td>
+<td>是</td>
+<td><code>-</code></td>
+<td>位置或关键字</td>
+<td>形状为 (2,) 的椭圆中心。</td>
+</tr>
+<tr>
+<td><code>semi_axes</code></td>
+<td><code>FloatArray</code></td>
+<td>是</td>
+<td><code>-</code></td>
+<td>位置或关键字</td>
+<td>形状为 (2,) 且均大于 0 的半轴。</td>
+</tr>
+<tr>
+<td><code>direction</code></td>
+<td><code>str</code></td>
+<td>否</td>
+<td><code>'forward'</code></td>
+<td>位置或关键字</td>
+<td>forward 或 reverse。</td>
+</tr>
+<tr>
+<td><code>phase</code></td>
+<td><code>float</code></td>
+<td>否</td>
+<td><code>0.0</code></td>
+<td>位置或关键字</td>
+<td>时间相位，单位 rad。</td>
+</tr>
+<tr>
+<td><code>orientation_rad</code></td>
+<td><code>float</code></td>
+<td>否</td>
+<td><code>0.0</code></td>
+<td>位置或关键字</td>
+<td>椭圆相对坐标轴的空间旋转角，单位 rad。</td>
+</tr>
+</tbody>
+</table>
+<p>输出：<code>ALB.EllipseTrajectory</code>。构造经过有限值和形状校验的不可变椭圆轨迹。</p>
+<p>示例：<a href="#example-bearing_analysis">轨迹、静平衡和动态系数分析</a>。</p>
+<p>源码：<code>ALB/api/analysis.py:275</code>。</p>
+<p>公开数据字段：</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>类型</th>
+<th>默认值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>center</code></td>
+<td><code>FloatArray</code></td>
+<td><code>-</code></td>
+<td>形状为 (2,) 的椭圆中心。</td>
+</tr>
+<tr>
+<td><code>semi_axes</code></td>
+<td><code>FloatArray</code></td>
+<td><code>-</code></td>
+<td>形状为 (2,) 且均大于 0 的半轴。</td>
+</tr>
+<tr>
+<td><code>direction</code></td>
+<td><code>str</code></td>
+<td><code>'forward'</code></td>
+<td>forward 或 reverse。</td>
+</tr>
+<tr>
+<td><code>phase</code></td>
+<td><code>float</code></td>
+<td><code>0.0</code></td>
+<td>时间相位，单位 rad。</td>
+</tr>
+<tr>
+<td><code>orientation_rad</code></td>
+<td><code>float</code></td>
+<td><code>0.0</code></td>
+<td>椭圆相对坐标轴的空间旋转角，单位 rad。</td>
+</tr>
+</tbody>
+</table>
+<p>公开成员：</p>
+<h4 id="ellipsetrajectorywith_directiondirection-str-ellipsetrajectory"><code>EllipseTrajectory.with_direction(direction: 'str') -&gt; "'EllipseTrajectory'"</code><a class="headerlink" href="#ellipsetrajectorywith_directiondirection-str-ellipsetrajectory" title="Permanent link">&para;</a></h4>
+<p>保留几何、相位和转角，只替换遍历方向。</p>
+<p>输入：</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>类型</th>
+<th>必填</th>
+<th>默认值</th>
+<th>调用方式</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>direction</code></td>
+<td><code>str</code></td>
+<td>是</td>
+<td><code>-</code></td>
+<td>位置或关键字</td>
+<td>forward 或 reverse。</td>
+</tr>
+</tbody>
+</table>
+<p>输出：<code>'EllipseTrajectory'</code>。返回新的 EllipseTrajectory。</p>
+<h4 id="ellipsetrajectorysamplestime-sequencefloat-frequency_hz-float-tuplefloatarray-floatarray"><code>EllipseTrajectory.samples(time: 'Sequence[float]', *, frequency_hz: 'float') -&gt; 'tuple[FloatArray, FloatArray]'</code><a class="headerlink" href="#ellipsetrajectorysamplestime-sequencefloat-frequency_hz-float-tuplefloatarray-floatarray" title="Permanent link">&para;</a></h4>
+<p>在给定时间点采样旋转椭圆的位移和解析速度。</p>
+<p>输入：</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>类型</th>
+<th>必填</th>
+<th>默认值</th>
+<th>调用方式</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>time</code></td>
+<td><code>Sequence[float]</code></td>
+<td>是</td>
+<td><code>-</code></td>
+<td>位置或关键字</td>
+<td>非空、有限的一维时间点序列。</td>
+</tr>
+<tr>
+<td><code>frequency_hz</code></td>
+<td><code>float</code></td>
+<td>是</td>
+<td><code>-</code></td>
+<td>仅关键字</td>
+<td>正的轨迹频率，单位 Hz。</td>
+</tr>
+</tbody>
+</table>
+<p>输出：<code>tuple[FloatArray, FloatArray]</code>。返回 (displacement, velocity)，两个数组形状均为 (n, 2)。</p>
+<h3 id="albequilibriumoptionsmax_iterations-int-30-relative_tolerance-float-00001-damping-float-005-jacobian_step-float-001-fallback_stiffness-tuplefloat-float-50-50-stall_patience-int-5-stall_relative_tolerance-float-00-time-float-00-none"><code>ALB.EquilibriumOptions(max_iterations: 'int' = 30, relative_tolerance: 'float' = 0.0001, damping: 'float' = 0.05, jacobian_step: 'float' = 0.01, fallback_stiffness: 'tuple[float, float]' = (5.0, 5.0), stall_patience: 'int' = 5, stall_relative_tolerance: 'float' = 0.0, time: 'float' = 0.0) -&gt; None</code><a class="headerlink" href="#albequilibriumoptionsmax_iterations-int-30-relative_tolerance-float-00001-damping-float-005-jacobian_step-float-001-fallback_stiffness-tuplefloat-float-50-50-stall_patience-int-5-stall_relative_tolerance-float-00-time-float-00-none" title="Permanent link">&para;</a></h3>
+<p>静平衡求解器的不可变参数集合，控制迭代、容差、阻尼、Jacobian 和停滞回退。</p>
+<p>输入：</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>类型</th>
+<th>必填</th>
+<th>默认值</th>
+<th>调用方式</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>max_iterations</code></td>
+<td><code>int</code></td>
+<td>否</td>
+<td><code>30</code></td>
+<td>位置或关键字</td>
+<td>最大迭代次数，必须至少为 1。</td>
+</tr>
+<tr>
+<td><code>relative_tolerance</code></td>
+<td><code>float</code></td>
+<td>否</td>
+<td><code>0.0001</code></td>
+<td>位置或关键字</td>
+<td>正的相对残差收敛阈值。</td>
+</tr>
+<tr>
+<td><code>damping</code></td>
+<td><code>float</code></td>
+<td>否</td>
+<td><code>0.05</code></td>
+<td>位置或关键字</td>
+<td>正的 Newton 位移阻尼系数。</td>
+</tr>
+<tr>
+<td><code>jacobian_step</code></td>
+<td><code>float</code></td>
+<td>否</td>
+<td><code>0.01</code></td>
+<td>位置或关键字</td>
+<td>正的数值 Jacobian 位移步长。</td>
+</tr>
+<tr>
+<td><code>fallback_stiffness</code></td>
+<td><code>tuple[float, float]</code></td>
+<td>否</td>
+<td><code>(5.0, 5.0)</code></td>
+<td>位置或关键字</td>
+<td>停滞回退使用的正二维固定刚度。</td>
+</tr>
+<tr>
+<td><code>stall_patience</code></td>
+<td><code>int</code></td>
+<td>否</td>
+<td><code>5</code></td>
+<td>位置或关键字</td>
+<td>触发停滞回退前允许的迭代数；0 表示关闭等待。</td>
+</tr>
+<tr>
+<td><code>stall_relative_tolerance</code></td>
+<td><code>float</code></td>
+<td>否</td>
+<td><code>0.0</code></td>
+<td>位置或关键字</td>
+<td>区间 [0, 1) 内的停滞相对改善阈值。</td>
+</tr>
+<tr>
+<td><code>time</code></td>
+<td><code>float</code></td>
+<td>否</td>
+<td><code>0.0</code></td>
+<td>位置或关键字</td>
+<td>静平衡评估使用的有限时间。</td>
+</tr>
+</tbody>
+</table>
+<p>输出：<code>ALB.EquilibriumOptions</code>。构造经过范围校验的 EquilibriumOptions。</p>
+<p>示例：<a href="#example-bearing_analysis">轨迹、静平衡和动态系数分析</a>。</p>
+<p>源码：<code>ALB/api/analysis.py:197</code>。</p>
+<p>公开数据字段：</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>类型</th>
+<th>默认值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>max_iterations</code></td>
+<td><code>int</code></td>
+<td><code>30</code></td>
+<td>最大迭代次数，必须至少为 1。</td>
+</tr>
+<tr>
+<td><code>relative_tolerance</code></td>
+<td><code>float</code></td>
+<td><code>0.0001</code></td>
+<td>正的相对残差收敛阈值。</td>
+</tr>
+<tr>
+<td><code>damping</code></td>
+<td><code>float</code></td>
+<td><code>0.05</code></td>
+<td>正的 Newton 位移阻尼系数。</td>
+</tr>
+<tr>
+<td><code>jacobian_step</code></td>
+<td><code>float</code></td>
+<td><code>0.01</code></td>
+<td>正的数值 Jacobian 位移步长。</td>
+</tr>
+<tr>
+<td><code>fallback_stiffness</code></td>
+<td><code>tuple[float, float]</code></td>
+<td><code>(5.0, 5.0)</code></td>
+<td>停滞回退使用的正二维固定刚度。</td>
+</tr>
+<tr>
+<td><code>stall_patience</code></td>
+<td><code>int</code></td>
+<td><code>5</code></td>
+<td>触发停滞回退前允许的迭代数；0 表示关闭等待。</td>
+</tr>
+<tr>
+<td><code>stall_relative_tolerance</code></td>
+<td><code>float</code></td>
+<td><code>0.0</code></td>
+<td>区间 [0, 1) 内的停滞相对改善阈值。</td>
+</tr>
+<tr>
+<td><code>time</code></td>
+<td><code>float</code></td>
+<td><code>0.0</code></td>
+<td>静平衡评估使用的有限时间。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="albequilibriumsolverbearing-any-options-equilibriumoptions-equilibriumoptionsmax_iterations30-relative_tolerance00001-damping005-jacobian_step001-fallback_stiffness50-50-stall_patience5-stall_relative_tolerance00-time00-none"><code>ALB.EquilibriumSolver(bearing: 'Any', options: 'EquilibriumOptions' = EquilibriumOptions(max_iterations=30, relative_tolerance=0.0001, damping=0.05, jacobian_step=0.01, fallback_stiffness=(5.0, 5.0), stall_patience=5, stall_relative_tolerance=0.0, time=0.0)) -&gt; 'None'</code><a class="headerlink" href="#albequilibriumsolverbearing-any-options-equilibriumoptions-equilibriumoptionsmax_iterations30-relative_tolerance00001-damping005-jacobian_step001-fallback_stiffness50-50-stall_patience5-stall_relative_tolerance00-time00-none" title="Permanent link">&para;</a></h3>
+<p>直接接收一个已构造 Bearing，并使用既有静平衡算法求载荷平衡。</p>
+<p>输入：</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>类型</th>
+<th>必填</th>
+<th>默认值</th>
+<th>调用方式</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>bearing</code></td>
+<td><code>Any</code></td>
+<td>是</td>
+<td><code>-</code></td>
+<td>位置或关键字</td>
+<td>通过 build_bearing() 或 bearing_from_file() 构造的 Bearing。</td>
+</tr>
+<tr>
+<td><code>options</code></td>
+<td><code>EquilibriumOptions</code></td>
+<td>否</td>
+<td><code>EquilibriumOptions(max_iterations=30, relative_tolerance=0.0001, damping=0.05, jacobian_step=0.01, fallback_stiffness=(5.0, 5.0), stall_patience=5, stall_relative_tolerance=0.0, time=0.0)</code></td>
+<td>位置或关键字</td>
+<td>静平衡迭代、容差、阻尼和回退参数。</td>
+</tr>
+</tbody>
+</table>
+<p>输出：<code>ALB.EquilibriumSolver</code>。构造可由用户或内部模块直接调用的静平衡模型。</p>
+<p>示例：<a href="#example-bearing_analysis">轨迹、静平衡和动态系数分析</a>。</p>
+<p>源码：<code>ALB/api/analysis.py:435</code>。</p>
+<p>公开成员：</p>
+<h4 id="equilibriumsolversolveload-object-initial_displacement-object-00-00-analysisresult"><code>EquilibriumSolver.solve(load: 'object', initial_displacement: 'object' = (0.0, 0.0)) -&gt; 'AnalysisResult'</code><a class="headerlink" href="#equilibriumsolversolveload-object-initial_displacement-object-00-00-analysisresult" title="Permanent link">&para;</a></h4>
+<p>求使轴承力与二维外载荷平衡的位移。</p>
+<p>输入：</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>类型</th>
+<th>必填</th>
+<th>默认值</th>
+<th>调用方式</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>load</code></td>
+<td><code>object</code></td>
+<td>是</td>
+<td><code>-</code></td>
+<td>位置或关键字</td>
+<td>目标二维外载荷。</td>
+</tr>
+<tr>
+<td><code>initial_displacement</code></td>
+<td><code>object</code></td>
+<td>否</td>
+<td><code>(0.0, 0.0)</code></td>
+<td>位置或关键字</td>
+<td>静平衡迭代的初始二维位移。</td>
+</tr>
+</tbody>
+</table>
+<p>输出：<code>AnalysisResult</code>。返回 AnalysisResult，包含平衡位移、力、残差和迭代历史。</p>
+<p>可能异常：</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>触发条件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>CalculationError</code></td>
+<td>轴承内层计算失败或静平衡最终不收敛。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="albhistorypolicymode-literalmemory-ring_buffer-disk_stream-memory-fields-tuplestr-rotor_displacement-rotor_velocity-bearing_force-downsample-int-1-capacity-int-none-none-directory-path-none-none-none"><code>ALB.HistoryPolicy(mode: "Literal['memory', 'ring_buffer', 'disk_stream']" = 'memory', fields: 'tuple[str, ...]' = ('rotor_displacement', 'rotor_velocity', 'bearing_force'), downsample: 'int' = 1, capacity: 'int | None' = None, directory: 'Path | None' = None) -&gt; None</code><a class="headerlink" href="#albhistorypolicymode-literalmemory-ring_buffer-disk_stream-memory-fields-tuplestr-rotor_displacement-rotor_velocity-bearing_force-downsample-int-1-capacity-int-none-none-directory-path-none-none-none" title="Permanent link">&para;</a></h3>
+<p>控制仿真已提交历史的字段筛选、降采样、环形缓存或磁盘流式写入。</p>
+<p>输入：</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>类型</th>
+<th>必填</th>
+<th>默认值</th>
+<th>调用方式</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>mode</code></td>
+<td><code>Literal['memory', 'ring_buffer', 'disk_stream']</code></td>
+<td>否</td>
+<td><code>'memory'</code></td>
+<td>位置或关键字</td>
+<td>memory、ring_buffer 或 disk_stream。</td>
+</tr>
+<tr>
+<td><code>fields</code></td>
+<td><code>tuple[str, ...]</code></td>
+<td>否</td>
+<td><code>('rotor_displacement', 'rotor_velocity', 'bearing_force')</code></td>
+<td>位置或关键字</td>
+<td>需要保存的结果字段元组。</td>
+</tr>
+<tr>
+<td><code>downsample</code></td>
+<td><code>int</code></td>
+<td>否</td>
+<td><code>1</code></td>
+<td>位置或关键字</td>
+<td>正整数采样间隔，1 表示每个提交步都保留。</td>
+</tr>
+<tr>
+<td><code>capacity</code></td>
+<td><code>int \| None</code></td>
+<td>否</td>
+<td><code>None</code></td>
+<td>位置或关键字</td>
+<td>ring_buffer 的正整数容量；其他模式通常为 None。</td>
+</tr>
+<tr>
+<td><code>directory</code></td>
+<td><code>Path \| None</code></td>
+<td>否</td>
+<td><code>None</code></td>
+<td>位置或关键字</td>
+<td>disk_stream 输出目录；其他模式通常为 None。</td>
+</tr>
+</tbody>
+</table>
+<p>输出：<code>ALB.HistoryPolicy</code>。构造经过模式与参数一致性校验的 HistoryPolicy。</p>
+<p>示例：<a href="#example-history_policy">选择仿真历史保留策略</a>、<a href="#example-simulation_programmatic">程序化装配仿真拓扑</a>。</p>
+<p>源码：<code>ALB/api/simulation.py:172</code>。</p>
+<p>公开数据字段：</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>类型</th>
+<th>默认值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>mode</code></td>
+<td><code>Literal['memory', 'ring_buffer', 'disk_stream']</code></td>
+<td><code>'memory'</code></td>
+<td>memory、ring_buffer 或 disk_stream。</td>
+</tr>
+<tr>
+<td><code>fields</code></td>
+<td><code>tuple[str, ...]</code></td>
+<td><code>('rotor_displacement', 'rotor_velocity', 'bearing_force')</code></td>
+<td>需要保存的结果字段元组。</td>
+</tr>
+<tr>
+<td><code>downsample</code></td>
+<td><code>int</code></td>
+<td><code>1</code></td>
+<td>正整数采样间隔，1 表示每个提交步都保留。</td>
+</tr>
+<tr>
+<td><code>capacity</code></td>
+<td><code>int \| None</code></td>
+<td><code>None</code></td>
+<td>ring_buffer 的正整数容量；其他模式通常为 None。</td>
+</tr>
+<tr>
+<td><code>directory</code></td>
+<td><code>Path \| None</code></td>
+<td><code>None</code></td>
+<td>disk_stream 输出目录；其他模式通常为 None。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="albrotorbearingsimulationconfig-simulationconfig-none"><code>ALB.RotorBearingSimulation(config: 'SimulationConfig') -&gt; 'None'</code><a class="headerlink" href="#albrotorbearingsimulationconfig-simulationconfig-none" title="Permanent link">&para;</a></h3>
+<p>拓扑不可变的一次性转子-轴承耦合仿真 facade。</p>
+<p>输入：</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>类型</th>
+<th>必填</th>
+<th>默认值</th>
+<th>调用方式</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>config</code></td>
+<td><code>SimulationConfig</code></td>
+<td>是</td>
+<td><code>-</code></td>
+<td>位置或关键字</td>
+<td>经过完整验证的 SimulationConfig。</td>
+</tr>
+</tbody>
+</table>
+<p>输出：<code>ALB.RotorBearingSimulation</code>。构造可运行一次的 RotorBearingSimulation；通常通过 build_simulation() 获得。</p>
+<p>示例：<a href="#example-simulation_from_file">从 JSON5 运行转子-轴承仿真</a>、<a href="#example-simulation_programmatic">程序化装配仿真拓扑</a>。</p>
+<p>源码：<code>ALB/api/simulation.py:379</code>。</p>
+<p>公开成员：</p>
+<h4 id="rotorbearingsimulationconfig"><code>RotorBearingSimulation.config</code><a class="headerlink" href="#rotorbearingsimulationconfig" title="Permanent link">&para;</a></h4>
+<p>读取本次仿真的不可变输入和拓扑。</p>
+<p>输出：<code>SimulationConfig</code>。返回 SimulationConfig。</p>
+<h4 id="rotorbearingsimulationlatest_result"><code>RotorBearingSimulation.latest_result</code><a class="headerlink" href="#rotorbearingsimulationlatest_result" title="Permanent link">&para;</a></h4>
+<p>读取最近一次完整或失败前已提交的历史，不触发运行。</p>
+<p>输出：<code>SimulationResult</code>。返回 SimulationResult。</p>
+<p>可能异常：</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>触发条件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>RuntimeError</code></td>
+<td>run() 尚未产生任何完整或部分已提交结果。</td>
+</tr>
+</tbody>
+</table>
+<h4 id="rotorbearingsimulationrun-simulationresult"><code>RotorBearingSimulation.run() -&gt; 'SimulationResult'</code><a class="headerlink" href="#rotorbearingsimulationrun-simulationresult" title="Permanent link">&para;</a></h4>
+<p>执行一次耦合仿真，并按 HistoryPolicy 保留真实提交快照。</p>
+<p>输入：</p>
+<p>无。</p>
+<p>输出：<code>SimulationResult</code>。成功时返回完整 SimulationResult。</p>
+<p>可能异常：</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>触发条件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>RuntimeError</code></td>
+<td>对同一 simulation 对象重复调用 run()。</td>
+</tr>
+<tr>
+<td><code>SimulationError</code></td>
+<td>物理、history、recorder 或 observer 阶段失败；partial_result 可能包含已提交历史。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="albsimulationconfigrotor-rotorprotocol-mounts-tuplebearingmount-time_step-float-steps-int-loads-tuplemappingstr-any-history-historypolicy-historypolicymodememory-fieldsrotor_displacement-rotor_velocity-bearing_force-downsample1-capacitynone-directorynone-dependencies-couplingruntimedependencies-none-none-none"><code>ALB.SimulationConfig(rotor: 'RotorProtocol', mounts: 'tuple[BearingMount, ...]', time_step: 'float', steps: 'int', loads: 'tuple[Mapping[str, Any], ...]' = (), history: 'HistoryPolicy' = HistoryPolicy(mode='memory', fields=('rotor_displacement', 'rotor_velocity', 'bearing_force'), downsample=1, capacity=None, directory=None), dependencies: 'CouplingRuntimeDependencies | None' = None) -&gt; None</code><a class="headerlink" href="#albsimulationconfigrotor-rotorprotocol-mounts-tuplebearingmount-time_step-float-steps-int-loads-tuplemappingstr-any-history-historypolicy-historypolicymodememory-fieldsrotor_displacement-rotor_velocity-bearing_force-downsample1-capacitynone-directorynone-dependencies-couplingruntimedependencies-none-none-none" title="Permanent link">&para;</a></h3>
+<p>一次转子-轴承耦合计算的不可变拓扑、时步、载荷、历史策略和可选依赖。</p>
+<p>输入：</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>类型</th>
+<th>必填</th>
+<th>默认值</th>
+<th>调用方式</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>rotor</code></td>
+<td><code>RotorProtocol</code></td>
+<td>是</td>
+<td><code>-</code></td>
+<td>位置或关键字</td>
+<td>实现 RotorProtocol 且使用 dimensional 单位制的转子对象。</td>
+</tr>
+<tr>
+<td><code>mounts</code></td>
+<td><code>tuple[BearingMount, ...]</code></td>
+<td>是</td>
+<td><code>-</code></td>
+<td>位置或关键字</td>
+<td>非空或按模型允许的 BearingMount 元组，节点不得重复。</td>
+</tr>
+<tr>
+<td><code>time_step</code></td>
+<td><code>float</code></td>
+<td>是</td>
+<td><code>-</code></td>
+<td>位置或关键字</td>
+<td>正的全局量纲时间步，必须与 rotor.dt 一致。</td>
+</tr>
+<tr>
+<td><code>steps</code></td>
+<td><code>int</code></td>
+<td>是</td>
+<td><code>-</code></td>
+<td>位置或关键字</td>
+<td>非负整数推进步数；结果通常包含初始提交点。</td>
+</tr>
+<tr>
+<td><code>loads</code></td>
+<td><code>tuple[Mapping[str, Any], ...]</code></td>
+<td>否</td>
+<td><code>()</code></td>
+<td>位置或关键字</td>
+<td>可选外载荷描述映射元组。</td>
+</tr>
+<tr>
+<td><code>history</code></td>
+<td><code>HistoryPolicy</code></td>
+<td>否</td>
+<td><code>HistoryPolicy(mode='memory', fields=('rotor_displacement', 'rotor_velocity', 'bearing_force'), downsample=1, capacity=None, directory=None)</code></td>
+<td>位置或关键字</td>
+<td>已提交历史的保留策略。</td>
+</tr>
+<tr>
+<td><code>dependencies</code></td>
+<td><code>CouplingRuntimeDependencies \| None</code></td>
+<td>否</td>
+<td><code>None</code></td>
+<td>位置或关键字</td>
+<td>面向高级装配的可选依赖对象。</td>
+</tr>
+</tbody>
+</table>
+<p>输出：<code>ALB.SimulationConfig</code>。构造经过 rotor 能力、节点输出和本地时步一致性校验的 SimulationConfig。</p>
+<p>示例：<a href="#example-simulation_programmatic">程序化装配仿真拓扑</a>、<a href="#example-simulation_from_file">从 JSON5 运行转子-轴承仿真</a>。</p>
+<p>源码：<code>ALB/api/simulation.py:235</code>。</p>
+<p>公开数据字段：</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>类型</th>
+<th>默认值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>rotor</code></td>
+<td><code>RotorProtocol</code></td>
+<td><code>-</code></td>
+<td>实现 RotorProtocol 且使用 dimensional 单位制的转子对象。</td>
+</tr>
+<tr>
+<td><code>mounts</code></td>
+<td><code>tuple[BearingMount, ...]</code></td>
+<td><code>-</code></td>
+<td>非空或按模型允许的 BearingMount 元组，节点不得重复。</td>
+</tr>
+<tr>
+<td><code>time_step</code></td>
+<td><code>float</code></td>
+<td><code>-</code></td>
+<td>正的全局量纲时间步，必须与 rotor.dt 一致。</td>
+</tr>
+<tr>
+<td><code>steps</code></td>
+<td><code>int</code></td>
+<td><code>-</code></td>
+<td>非负整数推进步数；结果通常包含初始提交点。</td>
+</tr>
+<tr>
+<td><code>loads</code></td>
+<td><code>tuple[Mapping[str, Any], ...]</code></td>
+<td><code>()</code></td>
+<td>可选外载荷描述映射元组。</td>
+</tr>
+<tr>
+<td><code>history</code></td>
+<td><code>HistoryPolicy</code></td>
+<td><code>HistoryPolicy(mode='memory', fields=('rotor_displacement', 'rotor_velocity', 'bearing_force'), downsample=1, capacity=None, directory=None)</code></td>
+<td>已提交历史的保留策略。</td>
+</tr>
+<tr>
+<td><code>dependencies</code></td>
+<td><code>CouplingRuntimeDependencies \| None</code></td>
+<td><code>None</code></td>
+<td>面向高级装配的可选依赖对象。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="albsimulationresulttime-floatarray-rotor_displacement-floatarray-rotor_velocity-floatarray-bearing_force-floatarray-metadata-mappingstr-any-convergence-convergencestatus-convergencestatusresidual00-convergedtrue-iterationsnone-message-none"><code>ALB.SimulationResult(time: 'FloatArray', rotor_displacement: 'FloatArray', rotor_velocity: 'FloatArray', bearing_force: 'FloatArray', metadata: 'Mapping[str, Any]', convergence: 'ConvergenceStatus' = ConvergenceStatus(residual=0.0, converged=True, iterations=None, message='')) -&gt; None</code><a class="headerlink" href="#albsimulationresulttime-floatarray-rotor_displacement-floatarray-rotor_velocity-floatarray-bearing_force-floatarray-metadata-mappingstr-any-convergence-convergencestatus-convergencestatusresidual00-convergedtrue-iterationsnone-message-none" title="Permanent link">&para;</a></h3>
+<p>转子-轴承仿真中按策略保留的不可变已提交历史。</p>
+<p>输入：</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>类型</th>
+<th>必填</th>
+<th>默认值</th>
+<th>调用方式</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>time</code></td>
+<td><code>FloatArray</code></td>
+<td>是</td>
+<td><code>-</code></td>
+<td>位置或关键字</td>
+<td>形状为 (n,) 的已提交时间数组。</td>
+</tr>
+<tr>
+<td><code>rotor_displacement</code></td>
+<td><code>FloatArray</code></td>
+<td>是</td>
+<td><code>-</code></td>
+<td>位置或关键字</td>
+<td>形状为 (n, ndof) 或策略过滤后的转子位移历史。</td>
+</tr>
+<tr>
+<td><code>rotor_velocity</code></td>
+<td><code>FloatArray</code></td>
+<td>是</td>
+<td><code>-</code></td>
+<td>位置或关键字</td>
+<td>与 rotor_displacement 同形状的速度历史。</td>
+</tr>
+<tr>
+<td><code>bearing_force</code></td>
+<td><code>FloatArray</code></td>
+<td>是</td>
+<td><code>-</code></td>
+<td>位置或关键字</td>
+<td>首维为 n 的挂载轴承二维力历史。</td>
+</tr>
+<tr>
+<td><code>metadata</code></td>
+<td><code>Mapping[str, Any]</code></td>
+<td>是</td>
+<td><code>-</code></td>
+<td>位置或关键字</td>
+<td>完成状态、提交步数、history 模式等诊断。</td>
+</tr>
+<tr>
+<td><code>convergence</code></td>
+<td><code>ConvergenceStatus</code></td>
+<td>否</td>
+<td><code>ConvergenceStatus(residual=0.0, converged=True, iterations=None, message='')</code></td>
+<td>位置或关键字</td>
+<td>整次仿真的收敛或完成状态。</td>
+</tr>
+</tbody>
+</table>
+<p>输出：<code>ALB.SimulationResult</code>。构造 SimulationResult；普通用户通常从 RotorBearingSimulation.run() 获得。</p>
+<p>示例：<a href="#example-simulation_from_file">从 JSON5 运行转子-轴承仿真</a>。</p>
+<p>源码：<code>ALB/api/results.py:196</code>。</p>
+<p>公开数据字段：</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>类型</th>
+<th>默认值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>time</code></td>
+<td><code>FloatArray</code></td>
+<td><code>-</code></td>
+<td>形状为 (n,) 的已提交时间数组。</td>
+</tr>
+<tr>
+<td><code>rotor_displacement</code></td>
+<td><code>FloatArray</code></td>
+<td><code>-</code></td>
+<td>形状为 (n, ndof) 或策略过滤后的转子位移历史。</td>
+</tr>
+<tr>
+<td><code>rotor_velocity</code></td>
+<td><code>FloatArray</code></td>
+<td><code>-</code></td>
+<td>与 rotor_displacement 同形状的速度历史。</td>
+</tr>
+<tr>
+<td><code>bearing_force</code></td>
+<td><code>FloatArray</code></td>
+<td><code>-</code></td>
+<td>首维为 n 的挂载轴承二维力历史。</td>
+</tr>
+<tr>
+<td><code>metadata</code></td>
+<td><code>Mapping[str, Any]</code></td>
+<td><code>-</code></td>
+<td>完成状态、提交步数、history 模式等诊断。</td>
+</tr>
+<tr>
+<td><code>convergence</code></td>
+<td><code>ConvergenceStatus</code></td>
+<td><code>ConvergenceStatus(residual=0.0, converged=True, iterations=None, message='')</code></td>
+<td>整次仿真的收敛或完成状态。</td>
+</tr>
+</tbody>
+</table>
+<p>公开成员：</p>
+<h4 id="simulationresultdiagnostics"><code>SimulationResult.diagnostics</code><a class="headerlink" href="#simulationresultdiagnostics" title="Permanent link">&para;</a></h4>
+<p>读取不可变仿真诊断元数据。</p>
+<p>输出：<code>Mapping[str, Any]</code>。返回只读键值映射。</p>
+<h4 id="simulationresultas_bundle-resultbundle"><code>SimulationResult.as_bundle() -&gt; 'ResultBundle'</code><a class="headerlink" href="#simulationresultas_bundle-resultbundle" title="Permanent link">&para;</a></h4>
+<p>转换为统一的可持久化 ResultBundle。</p>
+<p>输入：</p>
+<p>无。</p>
+<p>输出：<code>ResultBundle</code>。返回包含四组历史数组和完成元数据的不可变结果包。</p>
+<h4 id="simulationresultwritepath-str-path-artifactmanifest"><code>SimulationResult.write(path: 'str | Path') -&gt; 'ArtifactManifest'</code><a class="headerlink" href="#simulationresultwritepath-str-path-artifactmanifest" title="Permanent link">&para;</a></h4>
+<p>把仿真历史和诊断写入一个新的制品目录。</p>
+<p>输入：</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>类型</th>
+<th>必填</th>
+<th>默认值</th>
+<th>调用方式</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>path</code></td>
+<td><code>str \| Path</code></td>
+<td>是</td>
+<td><code>-</code></td>
+<td>位置或关键字</td>
+<td>目标输出目录。</td>
+</tr>
+</tbody>
+</table>
+<p>输出：<code>ArtifactManifest</code>。返回 ArtifactManifest。</p>
+<h3 id="unitsystem"><code>UnitSystem</code><a class="headerlink" href="#unitsystem" title="Permanent link">&para;</a></h3>
+<p>所有数值积分边界使用的单位制枚举，避免量纲和无量纲值被隐式混用。</p>
+<ul>
+<li>输出：<code>UnitSystem</code>。返回 DIMENSIONAL 或 NONDIMENSIONAL 枚举成员。</li>
+<li>源码：<code>ALB/contracts/types.py:12</code></li>
+</ul>
+<p>枚举值：</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>DIMENSIONAL</code></td>
+<td><code>dimensional</code></td>
+</tr>
+<tr>
+<td><code>NONDIMENSIONAL</code></td>
+<td><code>nondimensional</code></td>
+</tr>
+</tbody>
+</table>
+<p>示例：<a href="#example-unit_system">读取单位制边界</a>。</p>
+<h2 id="_14">构建与加载函数<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h2>
+<h3 id="albbearing_from_filepath-str-path-bearing"><code>ALB.bearing_from_file(path: 'str | Path') -&gt; 'Bearing'</code><a class="headerlink" href="#albbearing_from_filepath-str-path-bearing" title="Permanent link">&para;</a></h3>
+<p>读取严格 0.4 JSON5 轴承文档并一步构建可计算轴承。</p>
+<p>输入：</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>类型</th>
+<th>必填</th>
+<th>默认值</th>
+<th>调用方式</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>path</code></td>
+<td><code>str \| Path</code></td>
+<td>是</td>
+<td><code>-</code></td>
+<td>位置或关键字</td>
+<td>顶层 kind=bearing 的 UTF-8 JSON5 文件路径。</td>
+</tr>
+</tbody>
+</table>
+<p>输出：<code>Bearing</code>。返回已完成 runtime 装配的 Bearing。</p>
+<p>可能异常：</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>触发条件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ConfigurationError</code></td>
+<td>schema、include、字段或跨字段约束不合法。</td>
+</tr>
+<tr>
+<td><code>BuildError</code></td>
+<td>合法配置无法装配为 runtime。</td>
+</tr>
+</tbody>
+</table>
+<p>示例：<a href="#example-bearing_from_file">从 JSON5 构建并计算轴承</a>。</p>
+<p>源码：<code>ALB/api/bearing.py:186</code>。</p>
+<h3 id="albbuild_bearingconfig-bearingconfig-bearing"><code>ALB.build_bearing(config: 'BearingConfig') -&gt; 'Bearing'</code><a class="headerlink" href="#albbuild_bearingconfig-bearingconfig-bearing" title="Permanent link">&para;</a></h3>
+<p>从已验证的不可变配置构建一个可直接计算的轴承 facade。</p>
+<p>输入：</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>类型</th>
+<th>必填</th>
+<th>默认值</th>
+<th>调用方式</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>config</code></td>
+<td><code>BearingConfig</code></td>
+<td>是</td>
+<td><code>-</code></td>
+<td>位置或关键字</td>
+<td>BearingConfig；不接受普通 dict。</td>
+</tr>
+</tbody>
+</table>
+<p>输出：<code>Bearing</code>。返回 Bearing。</p>
+<p>可能异常：</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>触发条件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>BuildError</code></td>
+<td>底层物理、控制、阀、热或 surrogate runtime 装配失败。</td>
+</tr>
+</tbody>
+</table>
+<p>示例：<a href="#example-bearing_programmatic">程序化配置、参数覆盖与扫描</a>、<a href="#example-bearing_from_file">从 JSON5 构建并计算轴承</a>。</p>
+<p>源码：<code>ALB/api/bearing.py:175</code>。</p>
+<h3 id="albbuild_simulationconfig-simulationconfig-rotorbearingsimulation"><code>ALB.build_simulation(config: 'SimulationConfig') -&gt; 'RotorBearingSimulation'</code><a class="headerlink" href="#albbuild_simulationconfig-simulationconfig-rotorbearingsimulation" title="Permanent link">&para;</a></h3>
+<p>从已验证的仿真配置构建一次性转子-轴承仿真对象。</p>
+<p>输入：</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>类型</th>
+<th>必填</th>
+<th>默认值</th>
+<th>调用方式</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>config</code></td>
+<td><code>SimulationConfig</code></td>
+<td>是</td>
+<td><code>-</code></td>
+<td>位置或关键字</td>
+<td>SimulationConfig。</td>
+</tr>
+</tbody>
+</table>
+<p>输出：<code>RotorBearingSimulation</code>。返回 RotorBearingSimulation。</p>
+<p>示例：<a href="#example-simulation_programmatic">程序化装配仿真拓扑</a>、<a href="#example-simulation_from_file">从 JSON5 运行转子-轴承仿真</a>。</p>
+<p>源码：<code>ALB/api/simulation.py:1145</code>。</p>
+<h3 id="albload_bearing_configpath-str-path-bearingconfig"><code>ALB.load_bearing_config(path: 'str | Path') -&gt; 'BearingConfig'</code><a class="headerlink" href="#albload_bearing_configpath-str-path-bearingconfig" title="Permanent link">&para;</a></h3>
+<p>读取严格 UTF-8 0.4 bearing 文档，安全合并受限 include 并完成校验。</p>
+<p>输入：</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>类型</th>
+<th>必填</th>
+<th>默认值</th>
+<th>调用方式</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>path</code></td>
+<td><code>str \| Path</code></td>
+<td>是</td>
+<td><code>-</code></td>
+<td>位置或关键字</td>
+<td>顶层 bearing JSON5 文件路径；include 必须保持在该目录树内。</td>
+</tr>
+</tbody>
+</table>
+<p>输出：<code>BearingConfig</code>。返回不可变 BearingConfig。</p>
+<p>可能异常：</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>触发条件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ConfigurationError</code></td>
+<td>文件不存在、编码错误、JSON5 无效、include 越界/循环/重复或配置不合法。</td>
+</tr>
+</tbody>
+</table>
+<p>示例：<a href="#example-bearing_from_file">从 JSON5 构建并计算轴承</a>。</p>
+<p>源码：<code>ALB/api/config.py:909</code>。</p>
+<h3 id="albload_simulation_configpath-str-path-simulationconfig"><code>ALB.load_simulation_config(path: 'str | Path') -&gt; 'SimulationConfig'</code><a class="headerlink" href="#albload_simulation_configpath-str-path-simulationconfig" title="Permanent link">&para;</a></h3>
+<p>读取严格 0.4 simulation 文档，并解析转子、挂载轴承、时间网格、载荷和历史策略。</p>
+<p>输入：</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>类型</th>
+<th>必填</th>
+<th>默认值</th>
+<th>调用方式</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>path</code></td>
+<td><code>str \| Path</code></td>
+<td>是</td>
+<td><code>-</code></td>
+<td>位置或关键字</td>
+<td>顶层 kind=simulation 的 JSON5 文件路径。</td>
+</tr>
+</tbody>
+</table>
+<p>输出：<code>SimulationConfig</code>。返回已物化并完成一致性校验的 SimulationConfig。</p>
+<p>可能异常：</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>触发条件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ConfigurationError</code></td>
+<td>文档、资源路径、rotor、mount、时步或 history 策略不合法。</td>
+</tr>
+</tbody>
+</table>
+<p>示例：<a href="#example-simulation_from_file">从 JSON5 运行转子-轴承仿真</a>。</p>
+<p>源码：<code>ALB/api/simulation.py:991</code>。</p>
+<h3 id="albsimulation_from_filepath-str-path-rotorbearingsimulation"><code>ALB.simulation_from_file(path: 'str | Path') -&gt; 'RotorBearingSimulation'</code><a class="headerlink" href="#albsimulation_from_filepath-str-path-rotorbearingsimulation" title="Permanent link">&para;</a></h3>
+<p>读取严格 JSON5 仿真文档并一步构建一次性仿真对象。</p>
+<p>输入：</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>类型</th>
+<th>必填</th>
+<th>默认值</th>
+<th>调用方式</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>path</code></td>
+<td><code>str \| Path</code></td>
+<td>是</td>
+<td><code>-</code></td>
+<td>位置或关键字</td>
+<td>顶层 simulation JSON5 文件路径。</td>
+</tr>
+</tbody>
+</table>
+<p>输出：<code>RotorBearingSimulation</code>。返回 RotorBearingSimulation；尚未执行 run()。</p>
+<p>可能异常：</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>触发条件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ConfigurationError</code></td>
+<td>仿真文档或其引用资源不满足 0.4 合同。</td>
+</tr>
+</tbody>
+</table>
+<p>示例：<a href="#example-simulation_from_file">从 JSON5 运行转子-轴承仿真</a>。</p>
+<p>源码：<code>ALB/api/simulation.py:1151</code>。</p>
+<h2 id="_15">稳定异常<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h2>
+<h3 id="albalberrorargs-object"><code>ALB.ALBError(*args: object)</code><a class="headerlink" href="#albalberrorargs-object" title="Permanent link">&para;</a></h3>
+<p>所有用户侧 ALB 稳定异常的基类，适合统一记录或跨层上报。</p>
+<p>输入：</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>类型</th>
+<th>必填</th>
+<th>默认值</th>
+<th>调用方式</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>args</code></td>
+<td><code>object</code></td>
+<td>是</td>
+<td><code>-</code></td>
+<td>可变位置参数</td>
+<td>传给 Python Exception 的可变消息或上下文参数。</td>
+</tr>
+</tbody>
+</table>
+<p>输出：<code>ALB.ALBError</code>。构造一个可抛出的 ALB 基础异常实例。</p>
+<p>示例：<a href="#example-error_handling">按稳定异常边界处理失败</a>。</p>
+<p>源码：<code>ALB/api/errors.py:8</code>。</p>
+<h3 id="albbuilderrorargs-object"><code>ALB.BuildError(*args: object)</code><a class="headerlink" href="#albbuilderrorargs-object" title="Permanent link">&para;</a></h3>
+<p>配置已经通过校验，但对应 runtime 无法完成装配时抛出的稳定异常。</p>
+<p>输入：</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>类型</th>
+<th>必填</th>
+<th>默认值</th>
+<th>调用方式</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>args</code></td>
+<td><code>object</code></td>
+<td>是</td>
+<td><code>-</code></td>
+<td>可变位置参数</td>
+<td>传给 Python Exception 的可变消息或上下文参数。</td>
+</tr>
+</tbody>
+</table>
+<p>输出：<code>ALB.BuildError</code>。构造一个可抛出的 BuildError。</p>
+<p>示例：<a href="#example-error_handling">按稳定异常边界处理失败</a>。</p>
+<p>源码：<code>ALB/api/errors.py:16</code>。</p>
+<h3 id="albcalculationerrormessage-str-failure_snapshot-resultbundle-none-none-none"><code>ALB.CalculationError(message: 'str', *, failure_snapshot: 'ResultBundle | None' = None) -&gt; 'None'</code><a class="headerlink" href="#albcalculationerrormessage-str-failure_snapshot-resultbundle-none-none-none" title="Permanent link">&para;</a></h3>
+<p>轴承输入已接受但物理求解失败时抛出的稳定异常，可携带密封失败快照。</p>
+<p>输入：</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>类型</th>
+<th>必填</th>
+<th>默认值</th>
+<th>调用方式</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>message</code></td>
+<td><code>str</code></td>
+<td>是</td>
+<td><code>-</code></td>
+<td>位置或关键字</td>
+<td>面向用户的失败说明。</td>
+</tr>
+<tr>
+<td><code>failure_snapshot</code></td>
+<td><code>ResultBundle \| None</code></td>
+<td>否</td>
+<td><code>None</code></td>
+<td>仅关键字</td>
+<td>可选不可变 ResultBundle，保存失败位置诊断。</td>
+</tr>
+</tbody>
+</table>
+<p>输出：<code>ALB.CalculationError</code>。构造一个 CalculationError。</p>
+<p>示例：<a href="#example-error_handling">按稳定异常边界处理失败</a>。</p>
+<p>源码：<code>ALB/api/errors.py:20</code>。</p>
+<h3 id="albconfigurationerrorargs-object"><code>ALB.ConfigurationError(*args: object)</code><a class="headerlink" href="#albconfigurationerrorargs-object" title="Permanent link">&para;</a></h3>
+<p>JSON5 文档、程序化配置或跨字段约束不合法时抛出的稳定异常。</p>
+<p>输入：</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>类型</th>
+<th>必填</th>
+<th>默认值</th>
+<th>调用方式</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>args</code></td>
+<td><code>object</code></td>
+<td>是</td>
+<td><code>-</code></td>
+<td>可变位置参数</td>
+<td>传给 Python Exception 的可变消息或上下文参数。</td>
+</tr>
+</tbody>
+</table>
+<p>输出：<code>ALB.ConfigurationError</code>。构造一个可抛出的 ConfigurationError。</p>
+<p>示例：<a href="#example-error_handling">按稳定异常边界处理失败</a>。</p>
+<p>源码：<code>ALB/api/errors.py:12</code>。</p>
+<h3 id="albsimulationerrormessage-str-partial_result-object-none-none-none"><code>ALB.SimulationError(message: 'str', *, partial_result: 'object | None' = None) -&gt; 'None'</code><a class="headerlink" href="#albsimulationerrormessage-str-partial_result-object-none-none-none" title="Permanent link">&para;</a></h3>
+<p>耦合仿真失败时抛出的稳定异常，可携带截至最后真实提交点的部分结果。</p>
+<p>输入：</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>类型</th>
+<th>必填</th>
+<th>默认值</th>
+<th>调用方式</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>message</code></td>
+<td><code>str</code></td>
+<td>是</td>
+<td><code>-</code></td>
+<td>位置或关键字</td>
+<td>面向用户的失败说明。</td>
+</tr>
+<tr>
+<td><code>partial_result</code></td>
+<td><code>object \| None</code></td>
+<td>否</td>
+<td><code>None</code></td>
+<td>仅关键字</td>
+<td>可选 SimulationResult 或其他密封的部分提交结果。</td>
+</tr>
+</tbody>
+</table>
+<p>输出：<code>ALB.SimulationError</code>。构造一个 SimulationError。</p>
+<p>示例：<a href="#example-error_handling">按稳定异常边界处理失败</a>。</p>
+<p>源码：<code>ALB/api/errors.py:33</code>。</p>
+<h2 id="_16">包元数据<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h2>
+<h3 id="schema_version"><code>SCHEMA_VERSION</code><a class="headerlink" href="#schema_version" title="Permanent link">&para;</a></h3>
+<p>bearing 与 simulation JSON5 接受的 schema 版本字符串，独立于 re-alb 包版本。</p>
+<ul>
+<li>当前值：<code>0.4.0</code></li>
+<li>输出：<code>str</code>。返回当前严格配置契约版本 0.4.0。</li>
+<li>源码：<code>-</code></li>
+<li>示例：<a href="#example-package_version">检查安装位置和版本</a>。</li>
+</ul>
+<h3 id="__version__"><code>__version__</code><a class="headerlink" href="#__version__" title="Permanent link">&para;</a></h3>
+<p>当前导入的 re-alb 包版本字符串。</p>
+<ul>
+<li>当前值：<code>0.4.5</code></li>
+<li>输出：<code>str</code>。返回遵循项目版本号的字符串。</li>
+<li>源码：<code>-</code></li>
+<li>示例：<a href="#example-package_version">检查安装位置和版本</a>。</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      ALB 0.4 用户文档 · 生成站点不包含实时运行状态与内部维护证据
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "navigation.indexes", "navigation.top", "toc.follow", "search.suggest", "search.highlight", "content.code.copy", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
