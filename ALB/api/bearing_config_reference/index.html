@@ -718,17 +718,6 @@
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        文档角色
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
         顶层字段
       
     </span>
@@ -759,7 +748,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
         气膜附加字段
@@ -781,7 +770,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
         主动润滑字段
@@ -803,7 +792,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#model_package" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        代理模型 model_package
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
         结果单位
@@ -814,7 +814,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
         源码同步字段合同
@@ -991,7 +991,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#model_package" class="md-nav__link">
+  <a href="#model_package_1" class="md-nav__link">
     <span class="md-ellipsis">
       
         代理 model_package
@@ -1663,17 +1663,6 @@
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        文档角色
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
         顶层字段
       
     </span>
@@ -1704,7 +1693,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
         气膜附加字段
@@ -1726,7 +1715,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
         主动润滑字段
@@ -1748,7 +1737,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#model_package" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        代理模型 model_package
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
         结果单位
@@ -1759,7 +1759,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
         源码同步字段合同
@@ -1936,7 +1936,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#model_package" class="md-nav__link">
+  <a href="#model_package_1" class="md-nav__link">
     <span class="md-ellipsis">
       
         代理 model_package
@@ -1980,20 +1980,12 @@
 
 
 <h1 id="alb">ALB 轴承配置字段参考<a class="headerlink" href="#alb" title="Permanent link">&para;</a></h1>
-<h2 id="_1">文档角色<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<ul>
-<li>角色：面向普通用户的轴承配置字段、单位、缺省值和用途说明。</li>
-<li>目的：让用户不必阅读内部 <code>HydConfig</code>、<code>GasConfig</code> 或装配代码即可编写 <code>BearingConfig</code> 和 JSON5。</li>
-<li>允许更新：公开配置字段、单位、缺省值、约束和结果字段。</li>
-<li>禁止更新：内部临时变量、单次运行状态和未进入公开配置的实验参数。</li>
-<li>更新时机：<code>ALB/api/_config_fields.py</code>、原生配置缺省值或公开装配规则发生变化时。</li>
-<li>事实来源：<code>ALB/api/_config_fields.py</code>、<code>ALB/api/config.py</code>、<code>ALB/api/building.py</code> 和 <code>ALB/config/</code> 中的原生配置类。</li>
-</ul>
+<p>参考来源：<code>ALB/api/_config_fields.py</code>、<code>ALB/api/config.py</code>、<code>ALB/api/building.py</code> 和 <code>ALB/config/</code> 中的原生配置类。</p>
 <p>配置可以直接传给 <code>ALB.BearingConfig(spec)</code>，也可以放在严格 0.4 JSON5
 文档的 <code>spec</code> 节点下。字段名采用完整英文，不使用内部求解器的 <code>e</code>、<code>c</code>、
 <code>ps</code>、<code>nx</code> 等缩写。未写字段时使用下表缺省值；这不是“自动猜测”，而是固定
 的原生配置缺省值。</p>
-<h2 id="_2">顶层字段<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h2 id="_1">顶层字段<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
@@ -2056,7 +2048,7 @@
 <td><code>model_package</code></td>
 <td>映射</td>
 <td>代理模型必填</td>
-<td>ALBNN 模型包路径和数据增强开关。</td>
+<td>ALBNN 模型包路径、数据增强开关和推理对称性。</td>
 </tr>
 <tr>
 <td><code>runtime</code></td>
@@ -2493,7 +2485,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="_3">气膜附加字段<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h2 id="_2">气膜附加字段<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>气膜使用量纲液膜公共字段，并增加下列字段。气膜缺省 <code>solver</code> 为
 <code>"skfem_newton"</code>，<code>ambient_pressure</code> 为 <code>1.0</code>。</p>
 <table>
@@ -2668,7 +2660,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="_4">主动润滑字段<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h2 id="_3">主动润滑字段<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>主动轴承除 <code>film</code> 外还需要 <code>restrictors</code>、<code>tank</code>、<code>valve</code> 和 <code>control</code>。</p>
 <ul>
 <li><code>restrictors.positions</code>：节流器位置列表。</li>
@@ -2844,43 +2836,43 @@
 <td><code>transient_enabled</code></td>
 <td>布尔</td>
 <td><code>false</code></td>
-<td>是否启用热瞬态项。</td>
+<td>是否启用热瞬态项；仅允许配合 <code>direct</code>。</td>
 </tr>
 <tr>
 <td><code>iter_method</code></td>
 <td>字符串</td>
 <td><code>"direct"</code></td>
-<td>热方程迭代方法。</td>
+<td>热方程迭代方法；新配置应使用 <code>direct</code>。<code>newton</code> 和 <code>direct_then_newton</code> 仅为兼容保留，并计划在后续版本移除。</td>
 </tr>
 <tr>
 <td><code>thermal_newton_max_iter</code></td>
 <td>次</td>
 <td><code>30</code></td>
-<td>热 Newton 最大次数。</td>
+<td>计划移除的准 Newton 路径最大次数。</td>
 </tr>
 <tr>
 <td><code>thermal_newton_tol</code></td>
 <td>1</td>
 <td><code>null</code></td>
-<td>热 Newton 容差；未给出时使用热模型默认关系。</td>
+<td>计划移除的准 Newton 路径残差容差；未给出时使用 <code>tol</code>。</td>
 </tr>
 <tr>
 <td><code>thermal_newton_damp</code></td>
 <td>1</td>
 <td><code>1.0</code></td>
-<td>热 Newton 初始阻尼。</td>
+<td>计划移除的准 Newton 路径初始阻尼。</td>
 </tr>
 <tr>
 <td><code>thermal_newton_min_damp</code></td>
 <td>1</td>
 <td><code>0.001</code></td>
-<td>热 Newton 线搜索最小阻尼。</td>
+<td>计划移除的准 Newton 线搜索最小阻尼。</td>
 </tr>
 <tr>
 <td><code>thermal_newton_line_search</code></td>
 <td>布尔</td>
 <td><code>false</code></td>
-<td>是否启用热 Newton 线搜索。</td>
+<td>是否为计划移除的准 Newton 路径启用残差递减线搜索。</td>
 </tr>
 <tr>
 <td><code>miu_update</code></td>
@@ -2902,9 +2894,39 @@
 </tr>
 </tbody>
 </table>
+<div class="admonition warning">
+<p class="admonition-title">热 Newton 路径计划废弃</p>
+<p>实际求解中，分离式准 Newton 路径的稳定性不及默认 <code>direct</code>。因此
+<code>newton</code> 与可能进入同一 fallback 的 <code>direct_then_newton</code> 只为现有配置保留，
+当前版本不发运行时弃用警告，但计划在后续版本通过明确迁移后移除。不要在新配置
+中使用这两个值；瞬态热求解继续只使用 <code>direct</code>。</p>
+</div>
 <p><code>thermal.dt</code> 和内部 <code>args_nodim</code> 不属于公开字段：装配器分别从顶层
 <code>time_step</code> 和 <code>unit_system</code> 唯一推导，用户不应重复填写。</p>
-<h2 id="_5">结果单位<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<h2 id="model_package">代理模型 <code>model_package</code><a class="headerlink" href="#model_package" title="Permanent link">&para;</a></h2>
+<p><code>use_augment</code> 只控制 sqrt(|x|) 特征增强，不处理坐标对称性。四瓦主动润滑
+ALBNN（如 M35、M42）只在 <code>ex &gt;= 0, ey &gt;= 0</code> 象限采样训练，必须借助 C4
+对称覆盖全平面；<code>symmetry</code> 决定是否这样做：</p>
+<ul>
+<li><code>"c4"</code>：用 <code>ALBNNC4Canonical</code> 把偏心、速度和阀芯三组向量按同一个 90° 整数倍
+  旋入第一象限，标量特征不变，推理后把 <code>fx, fy</code> 旋回调用坐标系。C4 只适用于
+  四瓦、阀芯指令轴随瓦旋转的对称轴承；输入契约含 <code>sin_theta</code> 等随旋转变化的
+  派生列时拒绝构建。</li>
+<li><code>"none"</code>：直接使用原网络，与引入该字段前的构建器逐位一致；第一象限训练包
+  在其他象限属于外推。</li>
+<li>省略或 <code>null</code>：按 package <code>metadata.json</code> 的 <code>inference_symmetry</code> 声明解析，
+  可写 <code>"none"</code>、<code>"c4"</code> 或历史映射 <code>{"name": "c4_canonical_quadrant", ...}</code>。
+  未声明时，若输入 scaler 记录的 <code>ex</code>、<code>ey</code> 拟合最小值都不小于 0（第一象限
+  训练），构建以 <code>BuildError</code> 失败并要求显式选择；其他未声明包保持原网络行为。</li>
+</ul>
+<p><code>c4_blend_ratio</code> 指定混合半宽占 90° 象限的比例，单位为 1；省略或 <code>null</code> 在解析为
+C4 时使用 <code>0.15</code>，即象限角的 15%，对应 13.5° 半宽。带内按 C2 五次平滑阶跃
+混合两侧旋转的力，带外保持原预测。<code>0</code> 逐位复现历史 C4 映射；非空值必须满足
+<code>0 &lt;= value &lt; 0.5</code>，且仅可用于 C4。</p>
+<p>显式 <code>symmetry</code> 覆盖 package 声明，与 <code>use_augment</code> 覆盖 metadata 的规则一致。
+当前 M35/M42 package 没有声明且 manifest 锁定 metadata 摘要，因此配置中应写
+<code>symmetry: "c4"</code>。</p>
+<h2 id="_4">结果单位<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <ul>
 <li><code>BearingResult.force</code>：量纲轴承为 N；无量纲轴承为对应无量纲承载力。</li>
 <li><code>BearingResult.friction</code>：有摩擦输出时为量纲/无量纲总摩擦力。</li>
@@ -2917,12 +2939,12 @@
 <li>显式网格结果还记录 <code>mesh_type</code>、<code>element_order</code>、<code>integration_order</code>、
   <code>actual_element_count</code>、<code>pressure_dofs</code> 和 <code>temperature_dofs</code>。</li>
 </ul>
-<h2 id="_6">源码同步字段合同<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<h2 id="_5">源码同步字段合同<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <!-- Generated by tools/docs/generate_bearing_config_reference.py. -->
 
 <ul>
 <li>配置字段组：<code>17</code></li>
-<li>源码合同摘要：<code>sha256:6614bc678d6663a3</code></li>
+<li>源码合同摘要：<code>sha256:aabd5390ea9738bf</code></li>
 <li>对应规则：字段名、类型、单位、必填性、默认值、可选值、约束、适用范围和原生映射均来自 <code>ALB.api._config_fields</code>。</li>
 <li>阅读方式：上文中文章节解释物理语义和跨字段关系；下表逐项给出可执行源码合同，英文列保留源码原文。</li>
 </ul>
@@ -3149,7 +3171,7 @@
 <td>-</td>
 <td>surrogate</td>
 <td>与公开字段同名</td>
-<td>Validated ALBNN package location and augmentation override.</td>
+<td>Validated ALBNN package location plus augmentation and symmetry overrides.</td>
 </tr>
 <tr>
 <td><code>runtime</code></td>
@@ -5001,10 +5023,10 @@
 <td><code>name</code></td>
 <td>"direct"</td>
 <td>["direct", "newton", "direct_then_newton"]</td>
-<td>-</td>
+<td>newton and direct_then_newton are compatibility-only; use direct</td>
 <td>全部</td>
 <td>与公开字段同名</td>
-<td>Thermal nonlinear iteration method.</td>
+<td>Thermal iteration method; direct is maintained while newton modes are planned for removal.</td>
 </tr>
 <tr>
 <td><code>tol</code></td>
@@ -5166,10 +5188,10 @@
 <td><code>count</code></td>
 <td>30</td>
 <td>-</td>
-<td>&gt; 0</td>
+<td>&gt; 0; used only by planned-removal newton modes</td>
 <td>全部</td>
 <td>与公开字段同名</td>
-<td>Maximum Newton iterations per thermal subsolve.</td>
+<td>Compatibility-only quasi-Newton iteration limit.</td>
 </tr>
 <tr>
 <td><code>thermal_newton_tol</code></td>
@@ -5177,10 +5199,10 @@
 <td><code>1</code></td>
 <td>null</td>
 <td>-</td>
-<td>None or &gt; 0</td>
+<td>None or &gt; 0; used only by planned-removal newton modes</td>
 <td>全部</td>
 <td>与公开字段同名</td>
-<td>Newton residual tolerance; falls back to tol.</td>
+<td>Compatibility-only quasi-Newton residual tolerance; falls back to tol.</td>
 </tr>
 <tr>
 <td><code>thermal_newton_damp</code></td>
@@ -5188,10 +5210,10 @@
 <td><code>1</code></td>
 <td>1.0</td>
 <td>-</td>
-<td>&gt; 0</td>
+<td>&gt; 0; used only by planned-removal newton modes</td>
 <td>全部</td>
 <td>与公开字段同名</td>
-<td>Initial Newton damping factor.</td>
+<td>Compatibility-only quasi-Newton initial damping factor.</td>
 </tr>
 <tr>
 <td><code>thermal_newton_min_damp</code></td>
@@ -5199,10 +5221,10 @@
 <td><code>1</code></td>
 <td>0.001</td>
 <td>-</td>
-<td>0 &lt; value &lt;= thermal_newton_damp</td>
+<td>0 &lt; value &lt;= thermal_newton_damp; used only by planned-removal newton modes</td>
 <td>全部</td>
 <td>与公开字段同名</td>
-<td>Minimum line-search damping factor.</td>
+<td>Compatibility-only quasi-Newton minimum line-search damping.</td>
 </tr>
 <tr>
 <td><code>thermal_newton_line_search</code></td>
@@ -5213,13 +5235,13 @@
 <td>-</td>
 <td>全部</td>
 <td>与公开字段同名</td>
-<td>Enable residual-decreasing Newton line search.</td>
+<td>Enable line search only for the planned-removal quasi-Newton modes.</td>
 </tr>
 </tbody>
 </table>
 <p><a id="config-group-model_package"></a></p>
-<h3 id="model_package">代理 model_package<a class="headerlink" href="#model_package" title="Permanent link">&para;</a></h3>
-<p>ALBNN 0.4 模型包的受限相对路径和增强覆盖。</p>
+<h3 id="model_package_1">代理 model_package<a class="headerlink" href="#model_package_1" title="Permanent link">&para;</a></h3>
+<p>ALBNN 0.4 模型包的受限相对路径、增强覆盖、推理对称性和 C4 轴线混合半宽比例。</p>
 <table>
 <thead>
 <tr>
@@ -5235,6 +5257,17 @@
 </tr>
 </thead>
 <tbody>
+<tr>
+<td><code>c4_blend_ratio</code></td>
+<td><code>number or null</code></td>
+<td><code>1</code></td>
+<td>null</td>
+<td>-</td>
+<td>0 &lt;= value &lt; 0.5; only with C4 symmetry</td>
+<td>全部</td>
+<td>与公开字段同名</td>
+<td>C4 boundary blend half-width as a ratio of the 90-degree quadrant; 0.15 = 15 % of a quadrant = 13.5 deg half-width. Null means 0.15 when symmetry resolves to c4; zero preserves the historical mapping.</td>
+</tr>
 <tr>
 <td><code>path</code></td>
 <td><code>string</code></td>
@@ -5256,6 +5289,17 @@
 <td>全部</td>
 <td>与公开字段同名</td>
 <td>Optional inference augmentation override.</td>
+</tr>
+<tr>
+<td><code>symmetry</code></td>
+<td><code>string or null</code></td>
+<td><code>name</code></td>
+<td>null</td>
+<td>["none", "c4"]</td>
+<td>null is rejected for an undeclared package whose input scaler was fitted only on ex &gt;= 0 and ey &gt;= 0; 'c4' requires rotation-invariant input columns</td>
+<td>全部</td>
+<td>与公开字段同名</td>
+<td>Inference symmetry: 'c4' maps (e, v, s) into the ex, ey &gt;= 0 training quadrant and rotates the force back; 'none' uses the bare network; null follows the package metadata inference_symmetry.</td>
 </tr>
 </tbody>
 </table>

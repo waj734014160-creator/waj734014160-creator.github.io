@@ -1113,10 +1113,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#albsurrogateload_albnn_packagepath-path-str-use_augment-bool-none-none-runtime_parameters-mappingstr-any-none-none-any" class="md-nav__link">
+  <a href="#albsurrogateload_albnn_packagepath-path-str-use_augment-bool-none-none-runtime_parameters-mappingstr-any-none-none-symmetry-str-none-c4_blend_ratio-float-none-none-any" class="md-nav__link">
     <span class="md-ellipsis">
       
-        ALB.surrogate.load_albnn_package(path: Path | str, *, use_augment: bool | None = None, runtime_parameters: Mapping[str, Any] | None = None) -&gt; Any
+        ALB.surrogate.load_albnn_package(path: Path | str, *, use_augment: bool | None = None, runtime_parameters: Mapping[str, Any] | None = None, symmetry: str = 'none', c4_blend_ratio: float | None = None) -&gt; Any
       
     </span>
   </a>
@@ -1598,10 +1598,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#albsurrogateload_albnn_packagepath-path-str-use_augment-bool-none-none-runtime_parameters-mappingstr-any-none-none-any" class="md-nav__link">
+  <a href="#albsurrogateload_albnn_packagepath-path-str-use_augment-bool-none-none-runtime_parameters-mappingstr-any-none-none-symmetry-str-none-c4_blend_ratio-float-none-none-any" class="md-nav__link">
     <span class="md-ellipsis">
       
-        ALB.surrogate.load_albnn_package(path: Path | str, *, use_augment: bool | None = None, runtime_parameters: Mapping[str, Any] | None = None) -&gt; Any
+        ALB.surrogate.load_albnn_package(path: Path | str, *, use_augment: bool | None = None, runtime_parameters: Mapping[str, Any] | None = None, symmetry: str = 'none', c4_blend_ratio: float | None = None) -&gt; Any
       
     </span>
   </a>
@@ -1649,7 +1649,7 @@
 </blockquote>
 <ul>
 <li>显式导出数：<code>3</code></li>
-<li>源码合同摘要：<code>sha256:99c1f25c78e88141</code></li>
+<li>源码合同摘要：<code>sha256:bd99d118e72ea3df</code></li>
 <li>对应规则：中文语义元数据必须与源码参数、公开成员和英文 docstring 同步通过生成门禁。</li>
 </ul>
 <h2 id="_1">安装<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
@@ -1673,19 +1673,19 @@
 <td><code>create_model_package</code></td>
 <td>函数</td>
 <td>从可信 checkpoint、NPZ scaler 和 metadata 创建固定角色且带摘要的 0.4 package。</td>
-<td><code>ALB/surrogate/package.py:119</code></td>
+<td><code>ALB/surrogate/package.py:218</code></td>
 </tr>
 <tr>
 <td><code>load_albnn_package</code></td>
 <td>函数</td>
 <td>在完整摘要校验后，以 CPU、安全 Torch weights-only 和 NPZ 路径构建 ALBNN 推理对象。</td>
-<td><code>ALB/surrogate/package.py:202</code></td>
+<td><code>ALB/surrogate/package.py:307</code></td>
 </tr>
 <tr>
 <td><code>open_model_package</code></td>
 <td>函数</td>
 <td>不加载网络地校验 package schema、精确 artifact 角色、路径、metadata 和 SHA-256。</td>
-<td><code>ALB/surrogate/package.py:39</code></td>
+<td><code>ALB/surrogate/package.py:138</code></td>
 </tr>
 </tbody>
 </table>
@@ -1731,7 +1731,7 @@
 <p>从可信 checkpoint、NPZ scaler 和 metadata 创建固定角色且带摘要的 0.4 package。</p>
 <ul>
 <li>类别：<code>function</code></li>
-<li>源码：<code>ALB/surrogate/package.py:119</code></li>
+<li>源码：<code>ALB/surrogate/package.py:218</code></li>
 <li>返回标注：<code>ModelPackage</code></li>
 </ul>
 <p>输入：</p>
@@ -1805,28 +1805,33 @@
 <a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>    Fitted scaler objects accepted by ``write_scaler`` and serialized as NPZ.
 <a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>metadata
 <a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>    Deployment metadata. Schema ``alb.surrogate-metadata.v0.4`` is inserted;
-<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>    a conflicting explicit schema is rejected.
-<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>
-<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>Returns
-<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a>-------
-<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a>ModelPackage
-<a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a>    Newly written package after a complete digest-validation pass.
-<a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a>
-<a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a>Raises
-<a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a>------
-<a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a>FileExistsError
-<a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a>    If the destination directory contains files.
-<a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a>FileNotFoundError
-<a id="__codelineno-5-26" name="__codelineno-5-26" href="#__codelineno-5-26"></a>    If ``checkpoint`` does not exist.
-<a id="__codelineno-5-27" name="__codelineno-5-27" href="#__codelineno-5-27"></a>ValueError
-<a id="__codelineno-5-28" name="__codelineno-5-28" href="#__codelineno-5-28"></a>    If metadata conflicts with the 0.4 contract or a scaler is invalid.
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>    a conflicting explicit schema is rejected. An optional
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>    ``inference_symmetry`` declaration (``"none"``, ``"c4"``, or the
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>    historical ``{"name": "c4_canonical_quadrant", ...}`` mapping) is
+<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a>    validated here so packages trained only on ``ex, ey &gt;= 0`` can declare
+<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a>    C4 canonical-quadrant inference.
+<a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a>
+<a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a>Returns
+<a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a>-------
+<a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a>ModelPackage
+<a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a>    Newly written package after a complete digest-validation pass.
+<a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a>
+<a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a>Raises
+<a id="__codelineno-5-26" name="__codelineno-5-26" href="#__codelineno-5-26"></a>------
+<a id="__codelineno-5-27" name="__codelineno-5-27" href="#__codelineno-5-27"></a>FileExistsError
+<a id="__codelineno-5-28" name="__codelineno-5-28" href="#__codelineno-5-28"></a>    If the destination directory contains files.
+<a id="__codelineno-5-29" name="__codelineno-5-29" href="#__codelineno-5-29"></a>FileNotFoundError
+<a id="__codelineno-5-30" name="__codelineno-5-30" href="#__codelineno-5-30"></a>    If ``checkpoint`` does not exist.
+<a id="__codelineno-5-31" name="__codelineno-5-31" href="#__codelineno-5-31"></a>ValueError
+<a id="__codelineno-5-32" name="__codelineno-5-32" href="#__codelineno-5-32"></a>    If metadata conflicts with the 0.4 contract, declares an unsupported
+<a id="__codelineno-5-33" name="__codelineno-5-33" href="#__codelineno-5-33"></a>    inference symmetry, or a scaler is invalid.
 </code></pre></div>
 </details>
-<h3 id="albsurrogateload_albnn_packagepath-path-str-use_augment-bool-none-none-runtime_parameters-mappingstr-any-none-none-any"><code>ALB.surrogate.load_albnn_package(path: Path | str, *, use_augment: bool | None = None, runtime_parameters: Mapping[str, Any] | None = None) -&gt; Any</code><a class="headerlink" href="#albsurrogateload_albnn_packagepath-path-str-use_augment-bool-none-none-runtime_parameters-mappingstr-any-none-none-any" title="Permanent link">&para;</a></h3>
+<h3 id="albsurrogateload_albnn_packagepath-path-str-use_augment-bool-none-none-runtime_parameters-mappingstr-any-none-none-symmetry-str-none-c4_blend_ratio-float-none-none-any"><code>ALB.surrogate.load_albnn_package(path: Path | str, *, use_augment: bool | None = None, runtime_parameters: Mapping[str, Any] | None = None, symmetry: str = 'none', c4_blend_ratio: float | None = None) -&gt; Any</code><a class="headerlink" href="#albsurrogateload_albnn_packagepath-path-str-use_augment-bool-none-none-runtime_parameters-mappingstr-any-none-none-symmetry-str-none-c4_blend_ratio-float-none-none-any" title="Permanent link">&para;</a></h3>
 <p>在完整摘要校验后，以 CPU、安全 Torch weights-only 和 NPZ 路径构建 ALBNN 推理对象。</p>
 <ul>
 <li>类别：<code>function</code></li>
-<li>源码：<code>ALB/surrogate/package.py:202</code></li>
+<li>源码：<code>ALB/surrogate/package.py:307</code></li>
 <li>返回标注：<code>Any</code></li>
 </ul>
 <p>输入：</p>
@@ -1850,9 +1855,17 @@
 <td><code>runtime_parameters</code></td>
 <td>作为属性暴露给推理 config 的可选 mapping。</td>
 </tr>
+<tr>
+<td><code>symmetry</code></td>
+<td>推理对称性。默认 "none" 返回原样 ALBNN；"c4" 用 ALBNNC4Canonical 把 (e, v, s) 旋入 ex, ey &gt;= 0 训练象限并把力旋回；"package" 按 metadata inference_symmetry 解析，未声明且输入 scaler 记录的 ex、ey 拟合最小值均 &gt;= 0 时报错，要求显式选择。</td>
+</tr>
+<tr>
+<td><code>c4_blend_ratio</code></td>
+<td>C4 混合半宽占 90° 象限的比例，范围 [0, 0.5)；None 使用 0.15，即 15% 象限角和 13.5° 半宽；0 保留历史映射；非空值要求解析为 C4。</td>
+</tr>
 </tbody>
 </table>
-<p>输出：可交给 surrogate bearing runtime 的已初始化 ALBNN 对象。</p>
+<p>输出：可交给 surrogate bearing runtime 的已初始化 ALBNN 对象；symmetry 解析为 C4 时返回 ALBNNC4Canonical。</p>
 <p>可能异常：</p>
 <table>
 <thead>
@@ -1868,7 +1881,7 @@
 </tr>
 <tr>
 <td><code>ValueError</code></td>
-<td>摘要、schema、model_type、checkpoint 或 scaler 无效。</td>
+<td>摘要、schema、model_type、checkpoint、scaler 或 inference_symmetry 声明无效；C4 遇到随旋转变化的派生输入列；symmetry="package" 遇到未声明的第一象限训练包。</td>
 </tr>
 <tr>
 <td><code>ImportError</code></td>
@@ -1890,29 +1903,46 @@
 <a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>    the packaged value.
 <a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>runtime_parameters
 <a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>    Optional mapping exposed as attributes on the inference runtime config.
-<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>
-<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>Returns
-<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>-------
-<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>Any
-<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>    Initialized ``ALBNN`` inference object accepted by the surrogate bearing
-<a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a>    runtime.
-<a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a>
-<a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a>Raises
-<a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a>------
-<a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a>FileNotFoundError
-<a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a>    If the package is incomplete.
-<a id="__codelineno-6-23" name="__codelineno-6-23" href="#__codelineno-6-23"></a>ValueError
-<a id="__codelineno-6-24" name="__codelineno-6-24" href="#__codelineno-6-24"></a>    If digests, schemas, model type, checkpoint structure, or scalers are
-<a id="__codelineno-6-25" name="__codelineno-6-25" href="#__codelineno-6-25"></a>    invalid.
-<a id="__codelineno-6-26" name="__codelineno-6-26" href="#__codelineno-6-26"></a>ImportError
-<a id="__codelineno-6-27" name="__codelineno-6-27" href="#__codelineno-6-27"></a>    If the ``surrogate`` extra, including Torch, is not installed.
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>symmetry
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>    Inference symmetry. ``"none"`` (default) returns the bare ``ALBNN``
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>    network exactly as stored. ``"c4"`` wraps it in ``ALBNNC4Canonical``,
+<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>    which rotates ``(e, v, s)`` into the ``ex, ey &gt;= 0`` training quadrant
+<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>    and rotates the force back. ``"package"`` follows the metadata
+<a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a>    ``inference_symmetry`` declaration; an undeclared package resolves to
+<a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a>    ``"none"`` unless its input scaler records fitted ``ex`` and ``ey``
+<a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a>    minima ``&gt;= 0``, which is rejected so the caller chooses explicitly.
+<a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a>c4_blend_ratio
+<a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a>    C4 blend half-width as a ratio of the 90-degree quadrant, finite and
+<a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a>    in ``[0, 0.5)``. ``None`` uses ``C4_DEFAULT_BLEND_RATIO`` (0.15) when
+<a id="__codelineno-6-23" name="__codelineno-6-23" href="#__codelineno-6-23"></a>    symmetry resolves to C4: 15 percent of a quadrant, or 13.5 degrees.
+<a id="__codelineno-6-24" name="__codelineno-6-24" href="#__codelineno-6-24"></a>    Zero reproduces the historical canonical mapping. A non-null value
+<a id="__codelineno-6-25" name="__codelineno-6-25" href="#__codelineno-6-25"></a>    requires resolved C4 symmetry.
+<a id="__codelineno-6-26" name="__codelineno-6-26" href="#__codelineno-6-26"></a>
+<a id="__codelineno-6-27" name="__codelineno-6-27" href="#__codelineno-6-27"></a>Returns
+<a id="__codelineno-6-28" name="__codelineno-6-28" href="#__codelineno-6-28"></a>-------
+<a id="__codelineno-6-29" name="__codelineno-6-29" href="#__codelineno-6-29"></a>Any
+<a id="__codelineno-6-30" name="__codelineno-6-30" href="#__codelineno-6-30"></a>    Initialized ``ALBNN`` (or ``ALBNNC4Canonical``) inference object
+<a id="__codelineno-6-31" name="__codelineno-6-31" href="#__codelineno-6-31"></a>    accepted by the surrogate bearing runtime.
+<a id="__codelineno-6-32" name="__codelineno-6-32" href="#__codelineno-6-32"></a>
+<a id="__codelineno-6-33" name="__codelineno-6-33" href="#__codelineno-6-33"></a>Raises
+<a id="__codelineno-6-34" name="__codelineno-6-34" href="#__codelineno-6-34"></a>------
+<a id="__codelineno-6-35" name="__codelineno-6-35" href="#__codelineno-6-35"></a>FileNotFoundError
+<a id="__codelineno-6-36" name="__codelineno-6-36" href="#__codelineno-6-36"></a>    If the package is incomplete.
+<a id="__codelineno-6-37" name="__codelineno-6-37" href="#__codelineno-6-37"></a>ValueError
+<a id="__codelineno-6-38" name="__codelineno-6-38" href="#__codelineno-6-38"></a>    If digests, schemas, model type, checkpoint structure, scalers, or the
+<a id="__codelineno-6-39" name="__codelineno-6-39" href="#__codelineno-6-39"></a>    symmetry declaration are invalid; if C4 is requested for an input
+<a id="__codelineno-6-40" name="__codelineno-6-40" href="#__codelineno-6-40"></a>    contract containing rotation-dependent derived columns; or if
+<a id="__codelineno-6-41" name="__codelineno-6-41" href="#__codelineno-6-41"></a>    ``symmetry="package"`` meets an undeclared quadrant-I-only package;
+<a id="__codelineno-6-42" name="__codelineno-6-42" href="#__codelineno-6-42"></a>    or if ``c4_blend_ratio`` is invalid or supplied without C4 symmetry.
+<a id="__codelineno-6-43" name="__codelineno-6-43" href="#__codelineno-6-43"></a>ImportError
+<a id="__codelineno-6-44" name="__codelineno-6-44" href="#__codelineno-6-44"></a>    If the ``surrogate`` extra, including Torch, is not installed.
 </code></pre></div>
 </details>
 <h3 id="albsurrogateopen_model_packagepath-path-str-modelpackage"><code>ALB.surrogate.open_model_package(path: Path | str) -&gt; ModelPackage</code><a class="headerlink" href="#albsurrogateopen_model_packagepath-path-str-modelpackage" title="Permanent link">&para;</a></h3>
 <p>不加载网络地校验 package schema、精确 artifact 角色、路径、metadata 和 SHA-256。</p>
 <ul>
 <li>类别：<code>function</code></li>
-<li>源码：<code>ALB/surrogate/package.py:39</code></li>
+<li>源码：<code>ALB/surrogate/package.py:138</code></li>
 <li>返回标注：<code>ModelPackage</code></li>
 </ul>
 <p>输入：</p>
