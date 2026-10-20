@@ -1262,7 +1262,7 @@
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        文档角色
+        版本边界
       
     </span>
   </a>
@@ -1273,7 +1273,7 @@
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        版本边界
+        二阶伺服阀
       
     </span>
   </a>
@@ -1284,7 +1284,7 @@
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        二阶伺服阀
+        静态伺服阀
       
     </span>
   </a>
@@ -1295,7 +1295,7 @@
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        静态伺服阀
+        任意传递函数伺服阀
       
     </span>
   </a>
@@ -1306,17 +1306,6 @@
   <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
-        任意传递函数伺服阀
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    <span class="md-ellipsis">
-      
         数值参考
       
     </span>
@@ -1325,7 +1314,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       
         能力边界
@@ -1437,7 +1426,7 @@
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        文档角色
+        版本边界
       
     </span>
   </a>
@@ -1448,7 +1437,7 @@
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        版本边界
+        二阶伺服阀
       
     </span>
   </a>
@@ -1459,7 +1448,7 @@
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        二阶伺服阀
+        静态伺服阀
       
     </span>
   </a>
@@ -1470,7 +1459,7 @@
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        静态伺服阀
+        任意传递函数伺服阀
       
     </span>
   </a>
@@ -1481,17 +1470,6 @@
   <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
-        任意传递函数伺服阀
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    <span class="md-ellipsis">
-      
         数值参考
       
     </span>
@@ -1500,7 +1478,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       
         能力边界
@@ -1528,21 +1506,15 @@
 
 
 <h1 id="alb-045">ALB 0.4.5 伺服阀接口更新<a class="headerlink" href="#alb-045" title="Permanent link">&para;</a></h1>
-<h2 id="_1">文档角色<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<ul>
-<li>角色：0.4.4 到 0.4.5 的稳定伺服阀配置迁移说明。</li>
-<li>允许更新：0.4.5 公共配置、迁移规则、参考和真实开发验证。</li>
-<li>禁止更新：历史发布证据、未经执行的发布结论和外部实时状态。</li>
-<li>事实来源：<code>ALB/api/config.py</code>、<code>ALB/api/building.py</code>、
-  <code>ALB/config/control_models.py</code>、<code>ALB/control/valve.py</code> 和 0.4.5 参考测试。</li>
-</ul>
-<h2 id="_2">版本边界<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>参考来源：<code>ALB/api/config.py</code>、<code>ALB/api/building.py</code>、
+  <code>ALB/config/control_models.py</code>、<code>ALB/control/valve.py</code> 和 0.4.5 参考测试。</p>
+<h2 id="_1">版本边界<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>Python 包版本为 <code>0.4.5</code>，JSON5 <code>schema_version</code> 继续为 <code>0.4.0</code>。本次只收敛
 主动轴承的伺服阀配置，不改变轴承压力、液膜、控制器或转子耦合算法。旧
 0.4 配置如果使用 <code>response_time</code>、<code>third_order_time_constant</code> 或
 <code>third_order</code>，必须显式迁移后才能由 0.4.5 加载；<code>static</code> 继续作为无参数
 公共模型。</p>
-<h2 id="_3">二阶伺服阀<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h2 id="_2">二阶伺服阀<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="err">valve</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nv">model</span><span class="p">:</span><span class="w"> </span><span class="s">"second_order"</span><span class="p">,</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="nv">natural_frequency_hz</span><span class="p">:</span><span class="w"> </span><span class="mf">166.0</span><span class="p">,</span>
@@ -1553,13 +1525,13 @@
 <p>旧 <code>response_time</code> 实际是 <code>tw</code>，迁移公式为：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>natural_frequency_hz = 1 / (2*pi*response_time)
 </code></pre></div>
-<h2 id="_4">静态伺服阀<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h2 id="_3">静态伺服阀<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="err">valve</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="nv">model</span><span class="p">:</span><span class="w"> </span><span class="s">"static"</span><span class="p">,</span>
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="p">}</span>
 </code></pre></div>
 <p>静态阀是无记忆、单位增益模型，不接受频率、阻尼、延迟或多项式字段。</p>
-<h2 id="_5">任意传递函数伺服阀<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<h2 id="_4">任意传递函数伺服阀<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="err">valve</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span><span class="nv">model</span><span class="p">:</span><span class="w"> </span><span class="s">"transfer_function"</span><span class="p">,</span>
 <a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="nv">numerator</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">b_m</span><span class="p">,</span><span class="w"> </span><span class="err">...</span><span class="p">,</span><span class="w"> </span><span class="err">b_</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="err">b_</span><span class="mf">0</span><span class="p">],</span>
@@ -1575,7 +1547,7 @@
 <a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">  </span><span class="nv">denominator</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mf">1.0</span><span class="p">],</span>
 <a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="p">}</span>
 </code></pre></div>
-<h2 id="_6">数值参考<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<h2 id="_5">数值参考<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <p>修改前参考固定在提交 <code>2ecb97e</code>：</p>
 <ul>
 <li><code>refs/servo_interface_0_4_5_reference_v1.json</code></li>
@@ -1584,7 +1556,7 @@
 </ul>
 <p>参考覆盖 166 Hz 二阶阀、带延迟二阶阀、旧三阶阀和静态阀。0.4.5 回归测试对
 连续矩阵、离散实现矩阵和固定命令响应使用 <code>np.testing.assert_array_equal</code>。</p>
-<h2 id="_7">能力边界<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<h2 id="_6">能力边界<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <ul>
 <li>量纲和无量纲主动轴承时域运行支持二阶、静态和传递函数三种公共配置。</li>
 <li>内部静态阀仍用于静平衡和直接阀芯输入。</li>

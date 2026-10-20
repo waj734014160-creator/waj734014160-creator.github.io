@@ -746,17 +746,6 @@
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        文档角色
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
         两种构造方式
       
     </span>
@@ -776,7 +765,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
         时间与提交语义
@@ -787,7 +776,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
         载荷
@@ -798,7 +787,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
         历史与输出
@@ -820,7 +809,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
         源码同步字段合同
@@ -887,7 +876,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       
         静载荷
@@ -898,7 +887,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       
         重力载荷
@@ -909,7 +898,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
       
         不平衡载荷
@@ -1553,17 +1542,6 @@
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        文档角色
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
         两种构造方式
       
     </span>
@@ -1583,7 +1561,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
         时间与提交语义
@@ -1594,7 +1572,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
         载荷
@@ -1605,7 +1583,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
         历史与输出
@@ -1627,7 +1605,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
         源码同步字段合同
@@ -1694,7 +1672,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       
         静载荷
@@ -1705,7 +1683,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       
         重力载荷
@@ -1716,7 +1694,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
       
         不平衡载荷
@@ -1760,16 +1738,8 @@
 
 
 <h1 id="alb">ALB 仿真配置字段参考<a class="headerlink" href="#alb" title="Permanent link">&para;</a></h1>
-<h2 id="_1">文档角色<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<ul>
-<li>角色：面向普通用户的 rotor-bearing simulation JSON5 结构、字段、资源边界和程序化入口说明。</li>
-<li>目的：让用户明确区分文件配置能表达的内容、<code>SimulationConfig</code> 的高级运行时对象，以及每个输入和输出的单位与生命周期。</li>
-<li>允许更新：公开 simulation 文档结构、资源路径规则、载荷、历史策略和结果合同。</li>
-<li>禁止更新：内部耦合 helper、远程运行状态、本机绝对路径和未进入稳定入口的 ROSS 细节。</li>
-<li>更新时机：<code>ALB/api/simulation.py</code> 或 <code>ALB/api/_config_fields.py</code> 的公开合同变化时。</li>
-<li>事实来源：<code>ALB/api/simulation.py</code>、<code>ALB/api/_config_fields.py</code> 和 <code>ALB.dynamics</code> 显式导出的高级类型。</li>
-</ul>
-<h2 id="_2">两种构造方式<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>参考来源：<code>ALB/api/simulation.py</code>、<code>ALB/api/_config_fields.py</code> 和 <code>ALB.dynamics</code> 显式导出的高级类型。</p>
+<h2 id="_1">两种构造方式<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>文件入口 <code>ALB.load_simulation_config(path)</code> 读取严格 UTF-8 JSON5，构建并返回
 <code>SimulationConfig</code>；<code>ALB.simulation_from_file(path)</code> 再把它包装成可运行的
 <code>RotorBearingSimulation</code>。文件配置当前只接受 <code>rotor.model: "ross_excel"</code>，因此
@@ -1788,19 +1758,19 @@
 <code>mounts[].bearing</code> 也是相对 simulation 文档的轴承配置路径；轴承文档内部的 profile、
 模糊规则、子瓦和模型包继续按该轴承文档自己的资源根处理。示例中的占位路径不是随包
 提供的数据资产，必须替换为用户自己的文件。</p>
-<h2 id="_3">时间与提交语义<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h2 id="_2">时间与提交语义<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p><code>time_grid.steps</code> 表示初始状态之后的推进次数，因此未下采样的内存历史通常有
 <code>steps + 1</code> 个提交样本。仿真对象是一次性的：第一次 <code>run()</code> 后不能再次运行，重复计算
 需要重新构建。物理步提交后若 recorder、observer 或磁盘历史失败，运行不会重复该物理
 步；<code>SimulationError.partial_result</code> 和 <code>failure_snapshot</code> 保存已经提交的可审计边界。</p>
-<h2 id="_4">载荷<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h2 id="_3">载荷<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <ul>
 <li><code>static</code> 在一个节点施加固定 <code>[Fx, Fy]</code>，单位 N。</li>
 <li><code>gravity</code> 在 y 方向施加重力；显式负加速度可反转方向。</li>
 <li><code>unbalance</code> 使用节点、质量、偏心、频率、相位和可选斜坡生成转子激励。</li>
 </ul>
 <p>载荷在 <code>SimulationConfig</code> 构造时完成字段和值域校验并冻结；<code>run()</code> 不重新解释未知键。</p>
-<h2 id="_5">历史与输出<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<h2 id="_4">历史与输出<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p><code>memory</code> 保存全部策略选中的提交；<code>ring_buffer</code> 只保留最近 <code>capacity</code> 个；
 <code>disk_stream</code> 把每个保留步原子写入 <code>directory</code>，内存结果的对应数组为空尾维，
 <code>SimulationResult.metadata["history_path"]</code> 指向历史目录。<code>downsample</code> 总是保留索引 0
@@ -1840,7 +1810,7 @@
 <a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a><span class="p">}</span>
 </code></pre></div>
 <p>模板中的 Excel 和 bearing 路径是资源占位符，不是 ALB 随包数据。可解析模板位于 <code>docs/api/examples/templates/simulation_ross_excel.json5</code>。</p>
-<h2 id="_6">源码同步字段合同<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<h2 id="_5">源码同步字段合同<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <!-- Generated by tools/docs/generate_simulation_config_reference.py. -->
 
 <ul>
@@ -2148,7 +2118,7 @@
 </tbody>
 </table>
 <p><a id="config-group-load_static"></a></p>
-<h3 id="_7">静载荷<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<h3 id="_6">静载荷<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
 <p>指定节点上的固定二维力。</p>
 <table>
 <thead>
@@ -2201,7 +2171,7 @@
 </tbody>
 </table>
 <p><a id="config-group-load_gravity"></a></p>
-<h3 id="_8">重力载荷<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<h3 id="_7">重力载荷<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
 <p>统一 y 方向重力加速度。</p>
 <table>
 <thead>
@@ -2243,7 +2213,7 @@
 </tbody>
 </table>
 <p><a id="config-group-load_unbalance"></a></p>
-<h3 id="_9">不平衡载荷<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<h3 id="_8">不平衡载荷<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
 <p>节点、相位、质量、偏心、频率与斜坡参数。</p>
 <table>
 <thead>

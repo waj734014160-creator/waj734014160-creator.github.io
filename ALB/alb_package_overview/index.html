@@ -1137,7 +1137,7 @@
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        文档角色
+        包定位
       
     </span>
   </a>
@@ -1148,7 +1148,7 @@
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        包定位
+        模块图
       
     </span>
   </a>
@@ -1159,17 +1159,6 @@
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        模块图
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
         轴承族
       
     </span>
@@ -1178,7 +1167,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
         配置与结果
@@ -1200,7 +1189,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
         安装与验证
@@ -1437,7 +1426,7 @@
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        文档角色
+        包定位
       
     </span>
   </a>
@@ -1448,7 +1437,7 @@
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        包定位
+        模块图
       
     </span>
   </a>
@@ -1459,17 +1448,6 @@
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        模块图
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
         轴承族
       
     </span>
@@ -1478,7 +1456,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
         配置与结果
@@ -1500,7 +1478,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
         安装与验证
@@ -1528,16 +1506,8 @@
 
 
 <h1 id="alb-04">ALB 0.4 包概览<a class="headerlink" href="#alb-04" title="Permanent link">&para;</a></h1>
-<h2 id="_1">文档角色<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<ul>
-<li>角色：稳定包概览。</li>
-<li>目的：说明 <code>ALB</code> 的公共 API、模块归属和安装制品边界。</li>
-<li>允许更新：公共 API、模块归属和包边界。</li>
-<li>禁止更新：实验运行状态、训练进度和单次验收日志。</li>
-<li>更新时机：公共 API、模块归属或 wheel 边界变化时。</li>
-<li>事实来源：<code>ALB/__init__.py</code>、<code>ALB/api/</code>、<code>pyproject.toml</code>。</li>
-</ul>
-<h2 id="_2">包定位<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>参考来源：<code>ALB/__init__.py</code>、<code>ALB/api/</code>、<code>pyproject.toml</code>。</p>
+<h2 id="_1">包定位<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p><code>re-alb</code> 是轴承物理、主动润滑控制、转子耦合和 ALBNN 推理的稳定 Python
 包，导入名为 <code>ALB</code>，最低 Python 版本为 3.10。0.4 是不兼容版本：wheel
 只包含当前实现，不包含旧工厂、旧别名、<code>Signal</code>、legacy adapter、旧配置
@@ -1572,7 +1542,7 @@
 <li>稳定错误：<code>ALBError</code>、<code>ConfigurationError</code>、<code>BuildError</code>、
   <code>CalculationError</code> 和 <code>SimulationError</code>。</li>
 </ul>
-<h2 id="_3">模块图<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h2 id="_2">模块图<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>ALB.contracts / ALB.core
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>        ↓
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>ALB.config   ALB.physics   ALB.control   ALB.dynamics   ALB.surrogate
@@ -1595,7 +1565,7 @@
 <li><code>ALB.systems.alb</code> 只负责主动润滑轴承内部装配，不是普通用户入口。</li>
 <li><code>ALB.infrastructure</code> 保存 artifact writer、recorder、observer 和远程运行工具。</li>
 </ul>
-<h2 id="_4">轴承族<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h2 id="_3">轴承族<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p><code>BearingConfig.family</code> 只接受：</p>
 <ul>
 <li><code>liquid_film</code></li>
@@ -1607,7 +1577,7 @@
 <p><code>liquid_film</code> 不再区分动压、静压或混合类名。<code>restrictors</code> 为空时求解普通
 液膜；非空时由构建器在构造期装配节流耦合。所有 facade 对象构造完成即可
 计算，不公开 <code>init()</code>；新会话使用 <code>Bearing.reset()</code>。</p>
-<h2 id="_5">配置与结果<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<h2 id="_4">配置与结果<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p>0.4 JSON5 文档固定使用 <code>schema_version: "0.4.0"</code>、<code>kind</code>、可选
 <code>includes</code> 和 <code>spec</code>。0.4.5 可通过根入口 <code>ALB.SCHEMA_VERSION</code> 读取该契约版本，
 无需从内部配置模块导入或把它与 <code>ALB.__version__</code> 混同。<code>BearingConfig</code> 不可变，<code>with_overrides()</code> 与
@@ -1631,8 +1601,10 @@
 多项式系数。</p>
 <p>0.4.1 的静平衡保留专用阻尼 Newton、冻结 Jacobian 和固定刚度回退算法；
 动态系数由同一旋转椭圆自动生成正反涡动并使用复数识别；谐波线性化使用压力
-方程导数与节流耦合，不再以轨迹最小二乘拟合代替。谐波接口当前只支持已有
-数值参考的量纲液膜和三节点 CSOrifice 主动润滑轴承。可倾瓦轴承不属于
+方程导数与节流耦合，不再以轨迹最小二乘拟合代替。谐波接口支持已有
+数值参考的量纲液膜和三节点 CSOrifice 主动润滑轴承。2026-10-08 工作树新增
+四瓦主动轴承的热耦合解析工具，按配置计入热容量并返回复阀芯传递矩阵；
+网格、边界及基态要求见<a href="../site/guides/analysis/">分析工作流</a>。可倾瓦轴承不属于
 0.4.1 安装包能力。</p>
 <p>0.4.2 不改变上述算法。动态系数入口只接受可表示目标频率的均匀 FFT 网格和
 可逆的正反涡动位移矩阵；静平衡拒绝无法使用相对残差定义的精确零载荷。
@@ -1656,7 +1628,28 @@ flush/fsync 和原子替换发布快照及 manifest。每个
 <code>weights_only=True</code> 加载，输入/输出 scaler 为 NPZ，manifest、metadata 和
 SHA-256 摘要必须完整匹配。旧 package 与 pickle scaler 只能在升级前由
 <code>tools/migrations/</code> 中不安装的工具显式转换。</p>
-<h2 id="_6">安装与验证<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<p>只在 <code>ex, ey &gt;= 0</code> 象限训练的 package 通过 <code>model_package.symmetry: "c4"</code>
+或 metadata <code>inference_symmetry</code> 声明，由 <code>ALBNNC4Canonical</code> 覆盖全平面；
+未声明但输入 scaler 只覆盖第一象限的 package 拒绝构建，规则见
+<a href="../api/bearing_config_reference/">轴承配置字段参考</a>。</p>
+<p><code>ALB.surrogate.ThermalMemoryMLP</code> 提供独立的热记忆预测接口：冻结稳态
+ALBNN，按实际秒数更新四组固定旋转坐标下的共享记忆，并叠加在平衡记忆
+状态下严格为零的力修正。可选 <code>static_correction=True</code> 另加当前工况修正，
+用于修正稳态基线偏差；默认关闭，开启后不再要求平衡力严格等于原基线。
+<code>initialize()</code>、<code>reset()</code>、<code>predict_step()</code> 和
+<code>predict_sequence()</code> 显式接收或返回状态，不隐式提交调用者状态。
+<code>load_thermal_memory_package()</code> 与 <code>save_thermal_memory_package()</code> 使用
+<code>albnn_thermal_memory_mlp</code> 模型类型；该类型尚未接入 <code>Bearing</code> 或完整转子
+仿真 runtime。接口与单位约束见<a href="../thermal_memory_surrogate/">热记忆代理说明</a>。
+训练组件支持同输入、同初场的有/无热惯性配对标签，分别监督当前工况修正与
+记忆力差；配对监督只用于训练组，验证与测试仍按物理组隔离。</p>
+<p><code>ALB.surrogate.thermal_residual_lstm.ThermalResidualLSTM</code> 提供另一种独立实验接口：
+冻结 M35，由 LSTM 状态与当前工况共同驱动一个总残差读出层，不强制拆分稳态
+误差与热记忆力。支持时间间隔输入，以及额外 cell 衰减的 Time-aware LSTM 变体。
+其显式状态为 <code>[batch,4,2,hidden_size]</code>，时间单位为秒；独立保存/加载函数使用
+<code>albnn_unified_residual_lstm</code> 模型类型。该模型未接入稳态代理加载器或 <code>Bearing</code>。
+具体初始化、消融含义与步长限制见<a href="../thermal_memory_surrogate/">热记忆代理说明</a>。</p>
+<h2 id="_5">安装与验证<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span><span class="s2">".[all]"</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>python<span class="w"> </span>-m<span class="w"> </span>pytest<span class="w"> </span>-q
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>python<span class="w"> </span>tools/validation/run_layered_mypy.py

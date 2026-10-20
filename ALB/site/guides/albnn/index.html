@@ -631,6 +631,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        推理对称性
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#spool" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1390,6 +1401,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        推理对称性
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#spool" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1433,15 +1455,18 @@
 <a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">  </span><span class="nv">model_package</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="nv">path</span><span class="p">:</span><span class="w"> </span><span class="s">"models/current_package"</span><span class="p">,</span>
 <a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">    </span><span class="nv">use_augment</span><span class="p">:</span><span class="w"> </span><span class="k">true</span><span class="p">,</span>
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">  </span><span class="p">},</span>
-<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">  </span><span class="nv">runtime</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">    </span><span class="nv">spool_mode</span><span class="p">:</span><span class="w"> </span><span class="s">"fixed"</span><span class="p">,</span>
-<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">    </span><span class="nv">spool</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0</span><span class="p">],</span>
-<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">    </span><span class="nv">parameters</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span>
-<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">  </span><span class="p">},</span>
-<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="p">}</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">    </span><span class="nv">symmetry</span><span class="p">:</span><span class="w"> </span><span class="s">"c4"</span><span class="p">,</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">  </span><span class="p">},</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">  </span><span class="nv">runtime</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">    </span><span class="nv">spool_mode</span><span class="p">:</span><span class="w"> </span><span class="s">"fixed"</span><span class="p">,</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">    </span><span class="nv">spool</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0</span><span class="p">],</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">    </span><span class="nv">parameters</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">  </span><span class="p">},</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="p">}</span>
 </code></pre></div>
 <p><code>model_package.path</code> 必须是相对于配置文档目录的安全路径，不允许绝对路径或 <code>..</code> 逃逸。</p>
+<h2 id="_2">推理对称性<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>只在 <code>ex &gt;= 0, ey &gt;= 0</code> 象限训练的四瓦模型包（如 M35、M42）需要 <code>symmetry: "c4"</code>：偏心、速度和阀芯向量一起旋入训练象限，推理后再把力旋回。<code>symmetry: "none"</code> 使用原网络。省略该字段时按模型包 metadata 的 <code>inference_symmetry</code> 声明执行；未声明但输入 scaler 显示只在第一象限拟合的模型包会在构建时报错，要求显式选择。<code>use_augment</code> 只控制特征增强，与对称性无关。</p>
 <h2 id="spool">spool 模式<a class="headerlink" href="#spool" title="Permanent link">&para;</a></h2>
 <ul>
 <li><code>fixed</code>：在配置中提供二轴 <code>spool</code>，范围 <code>[-1, 1]</code>。</li>

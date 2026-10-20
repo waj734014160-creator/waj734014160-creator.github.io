@@ -1316,7 +1316,7 @@
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        文档角色
+        版本边界
       
     </span>
   </a>
@@ -1327,7 +1327,7 @@
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        版本边界
+        修复内容
       
     </span>
   </a>
@@ -1338,17 +1338,6 @@
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        修复内容
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
         数值参考与开发验证
       
     </span>
@@ -1357,7 +1346,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
         明确延期
@@ -1413,7 +1402,7 @@
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        文档角色
+        版本边界
       
     </span>
   </a>
@@ -1424,7 +1413,7 @@
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        版本边界
+        修复内容
       
     </span>
   </a>
@@ -1435,17 +1424,6 @@
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        修复内容
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
         数值参考与开发验证
       
     </span>
@@ -1454,7 +1432,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
         明确延期
@@ -1482,20 +1460,14 @@
 
 
 <h1 id="alb-043">ALB 0.4.3 数值与输入门禁修复说明<a class="headerlink" href="#alb-043" title="Permanent link">&para;</a></h1>
-<h2 id="_1">文档角色<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<ul>
-<li>角色：0.4.2 到 0.4.3 的稳定修复与开发验证说明。</li>
-<li>允许更新：0.4.3 已实现边界、冻结参考、真实开发验证和明确延期项。</li>
-<li>禁止更新：核心算法替换、未执行的正式发布结论和外部实时状态。</li>
-<li>事实来源：0.4.3 源码、修复前冻结参考和实际 pytest/mypy 输出。</li>
-</ul>
-<h2 id="_2">版本边界<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>参考来源：0.4.3 源码、修复前冻结参考和实际 pytest/mypy 输出。</p>
+<h2 id="_1">版本边界<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>Python 包开发版本升级为 <code>0.4.3</code>。JSON5 <code>schema_version</code> 和 surrogate
 package 格式继续使用 <code>0.4.0</code>。<code>v0.4.2</code>、原 wheel 和正式验收报告保持不变；
 当前 0.4.3 尚未形成固定发布候选或标签。</p>
 <p>本补丁只修复会影响数值可信度或容易静默改变输入的四项边界，不替换静平衡
 Newton、<code>recognize_kc()</code>、谐波线性化或液膜核心算法。</p>
-<h2 id="_3">修复内容<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h2 id="_2">修复内容<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <ul>
 <li><code>SimulationConfig</code> 要求 rotor 为 dimensional，并在任何 owner reset 前读取
   node 输出，验证其为含 <code>uxy/uxyt</code> 的有限 <code>(node_count, 2)</code> mapping。coupling
@@ -1520,7 +1492,7 @@ Newton、<code>recognize_kc()</code>、谐波线性化或液膜核心算法。</
   和缺省值集中记录在 <code>docs/api/bearing_config_reference.md</code>，源码中的 film
   字段定义成为校验与物化共用的单一名称映射。</li>
 </ul>
-<h2 id="_4">数值参考与开发验证<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h2 id="_3">数值参考与开发验证<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>修复前从 <code>50c7b4a</code> 生成：</p>
 <ul>
 <li><code>refs/alb_0_4_3_guard_reference_v1.json</code></li>
@@ -1540,7 +1512,7 @@ fixed-spool surrogate。修复后全部相关数组逐元素相等。</p>
 </code></pre></div>
 <p>以上不是正式 detached 发布验收。若发布 0.4.3，仍需从固定候选 SHA 构建和
 隔离验证 wheel。</p>
-<h2 id="_5">明确延期<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<h2 id="_4">明确延期<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p>本轮不处理成功 simulation 的 isolated observer 诊断搬运和资源路径
 containment。这些问题不改变当前有效数值路径，按独立 P3 维护范围处理。</p>
 

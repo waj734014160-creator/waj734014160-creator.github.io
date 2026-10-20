@@ -1494,11 +1494,83 @@
 <li>轨迹未收敛、位移矩阵奇异/病态或反演失败：带 <code>failure_snapshot</code> 的 <code>CalculationError</code>。</li>
 </ul>
 <h2 id="_5">谐波线性化<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
-<p>谐波压力导数路径当前只验证 dimensional <code>liquid_film</code> 和 <code>active_lubricated</code>，不支持 thermal wrapper。主动路径要求既有三节点 <code>CSOrifice</code> 拓扑；这不是任意 Orifice 插件入口。</p>
-<div class="admonition warning">
-<p class="admonition-title">能力边界</p>
-<p>分析 API 会主动拒绝未验证 family、单位或 topology，而不是返回看似完整但无参考保障的系数。</p>
-</div>
+<p><code>harmonic_linearize()</code> 在给定工作点直接装配方程导数，返回刚度和阻尼。
+量纲液膜及不启用热模型的主动润滑轴承沿用已有压力导数算法；启用热模型的
+主动润滑轴承使用压力、温度、节流器的耦合解析方程。</p>
+<p>以下示例从仓库根目录运行，配置和工作点来自随工具提供的数值验证算例：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">ALB</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">bearing</span> <span class="o">=</span> <span class="n">ALB</span><span class="o">.</span><span class="n">bearing_from_file</span><span class="p">(</span><span class="s2">"tools/analysis/thermal_harmonic_example.json5"</span><span class="p">)</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="n">result</span> <span class="o">=</span> <span class="n">bearing</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">harmonic_linearize</span><span class="p">(</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    <span class="n">operating_point</span><span class="o">=</span><span class="p">(</span><span class="mf">10e-6</span><span class="p">,</span> <span class="o">-</span><span class="mf">60e-6</span><span class="p">),</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>    <span class="n">excitation_frequency</span><span class="o">=</span><span class="mf">50.0</span><span class="p">,</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>    <span class="n">spool</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mf">0.08838834764831843</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.12374368670764582</span><span class="p">),</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="p">)</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="n">K</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="s2">"stiffness"</span><span class="p">]</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="n">C</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="s2">"damping"</span><span class="p">]</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="n">G</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="s2">"spool_transfer"</span><span class="p">]</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="n">result</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"outputs/harmonic_50hz"</span><span class="p">)</span>
+</code></pre></div>
+<p><code>operating_point</code> 使用 m，激励频率使用 Hz，<code>spool</code> 为归一化阀芯位移。
+<code>external_spool</code> 配置必须传入 <code>spool</code>；内部控制配置从静态控制状态取得基准阀芯，
+此时不传 <code>spool</code>。每次分析独立求解基态，可改变工作点和激励频率重新计算。</p>
+<table>
+<thead>
+<tr>
+<th>输出</th>
+<th>含义和单位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>stiffness</code>、<code>damping</code></td>
+<td>2×2 实矩阵，N/m、N·s/m</td>
+</tr>
+<tr>
+<td><code>spool_transfer</code></td>
+<td>热耦合路径的 2×2 复矩阵，N/归一化阀芯位移；<code>spool_jacobian</code> 为同值键</td>
+</tr>
+<tr>
+<td><code>dynamic_stiffness_real</code>、<code>dynamic_stiffness_imag</code></td>
+<td>复动态刚度的实部 K 和虚部 ωC，N/m</td>
+</tr>
+<tr>
+<td><code>static_force</code></td>
+<td>严格耦合基态的力，N</td>
+</tr>
+<tr>
+<td><code>production_static_force</code></td>
+<td>重求基态前的生产求解器力，N</td>
+</tr>
+<tr>
+<td><code>pad_base_state</code>、<code>pad_pressurized</code></td>
+<td>各瓦块的基态数组和固定有压节点掩码</td>
+</tr>
+<tr>
+<td><code>metadata["pad_diagnostics"]</code></td>
+<td>各瓦块的互补残差、活动节点数、迭代历史和线性方程残差</td>
+</tr>
+</tbody>
+</table>
+<p>力的约定为 <code>δF = -(K+iωC)δx + Gδspool</code>，这些系数不包含控制器或伺服阀动态。
+复数 G 应与同频输入复幅值相乘，再重建实值响应。</p>
+<p>热惯性由配置 <code>thermal.transient_enabled</code> 决定。开启后装配 <code>J+iωM</code>，因此
+K、C、G 随频率变化；关闭后使用稳态热切线。数值时间步不用于代替连续频域的 iω。
+SUPG 稳定化参数在生产基态冻结；温度入口和供油冷源分支在基态固定。
+基态先解压力互补问题，检查不存在双活动空化节点，随后固定活动集求六列解析右端。</p>
+<p>热耦合入口当前支持量纲四瓦主动轴承、每瓦一个三支路 <code>CSOrifice</code>、完整节点黏温
+耦合、传统张量网格（不填写 <code>mesh_type</code>）、零压力非周期周界及 Reynolds 空化。
+供油支持 <code>nearest_node</code> 和 <code>element_shape</code>，压力和温度均使用实际孔位。
+半耦合、显式三角形/四边形高阶网格、零阀芯换向点和不满足严格互补条件的基态
+会明确报错。严格基态须位于生产温度限幅范围内，并避开黏度限幅切换点。
+基态或频域求解失败时，<code>CalculationError.failure_snapshot</code> 保留诊断。</p>
+<p>也可直接使用命令行工具，输出目录必须尚不存在：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">python</span> <span class="n">tools</span><span class="p">/</span><span class="n">analysis</span><span class="p">/</span><span class="n">run_harmonic_linearization</span><span class="p">.</span><span class="n">py</span> <span class="p">`</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>  <span class="p">-</span><span class="n">-config</span> <span class="n">tools</span><span class="p">/</span><span class="n">analysis</span><span class="p">/</span><span class="n">thermal_harmonic_example</span><span class="p">.</span><span class="n">json5</span> <span class="p">`</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>  <span class="p">-</span><span class="n">-operating-point</span> <span class="n">0</span><span class="p">.</span><span class="n">00001</span> <span class="p">-</span><span class="n">0</span><span class="p">.</span><span class="n">00006</span> <span class="p">-</span><span class="n">-frequency-hz</span> <span class="n">50</span> <span class="p">`</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>  <span class="p">-</span><span class="n">-spool</span> <span class="p">-</span><span class="n">0</span><span class="p">.</span><span class="n">08838834764831843</span> <span class="p">-</span><span class="n">0</span><span class="p">.</span><span class="n">12374368670764582</span> <span class="p">`</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>  <span class="p">-</span><span class="n">-output</span> <span class="n">outputs</span><span class="p">/</span><span class="n">harmonic_50hz</span>
+</code></pre></div>
 
 
 
